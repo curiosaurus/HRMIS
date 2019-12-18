@@ -18,3 +18,11 @@ Master File<br>
 
 <h3>
 <a href="https://github.com/curiosaurus/HRMIS/blob/master/masterfile.html">Master File</a>
+  
+ <h2>Sarvesh Pathak</h2>
+ No of pages:-2
+ Title name in excel:Skill matrix HOD view.
+ Page name:
+ 1. HODSKILL.HTML
+ 2. update.html
+ 
