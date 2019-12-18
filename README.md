@@ -14,4 +14,4 @@ Page name:
 
 2.Kedar parsewar 
 Master File
-<a href="">Master File</a>
+<a href="https://github.com/curiosaurus/HRMIS/blob/master/masterfile.html">Master File</a>
