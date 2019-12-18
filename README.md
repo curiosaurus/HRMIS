@@ -12,8 +12,8 @@ Page name:
 3.openposition.html
 4.styles.css
 
-<h1>2.Kedar parsewar<h1> 
+<h3>2.Kedar parsewar<h1> 
 Master File<br>
 
-<h1>
+<h3>
 <a href="https://github.com/curiosaurus/HRMIS/blob/master/masterfile.html">Master File</a>
