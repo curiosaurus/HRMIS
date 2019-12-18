@@ -2,10 +2,10 @@
 
 <h2>Missing pages:</h2>
 4 Login Pages
-master file (navbar,search bar(not working XD))
-director's pages, approval of the requisition
-Employees view of skill matrix
-<h4>Suggest if anymore are needed</h4>
+master file (navbar,search bar(not working XD))<br>
+director's pages, approval of the requisition<br>
+Employees view of skill matrix<br>
+<h4>Suggest if anymore are needed</h4><br>
 List of pages : 
 
 
