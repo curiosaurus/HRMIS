@@ -13,5 +13,7 @@ Page name:
 4.styles.css
 
 2.Kedar parsewar 
-Master File
+Master File<br>
+
+<h1>
 <a href="https://github.com/curiosaurus/HRMIS/blob/master/masterfile.html">Master File</a>
