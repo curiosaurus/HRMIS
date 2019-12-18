@@ -1,0 +1,65 @@
+.logo {
+    font-size: 35px;
+    ;
+}
+
+.hr {
+    font-size: 35px;
+    margin-left: 500px;
+}
+
+.p {
+    background: #3f51b5;
+    color: white;
+}
+
+.gri {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+.gri a:hover {
+    border-bottom: 2px solid black;
+    text-decoration: none;
+    transition: width .7s;
+}
+
+.block h2 {
+    font-family: 'Lilita One', cursive;
+}
+
+.line {
+    border: 2px solid #3f51b5 !important;
+    width: 50px;
+}
+
+table {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+
+/* .table {
+    margin-left: 400px;
+} */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    color: black;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
