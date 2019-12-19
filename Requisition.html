@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HR & Admin dashbord</title>
+    <!-- Google font cdn file imported here -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- bootstrap cdn files for the Tables and other contents  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Link the External Css here And please see name Its a Styles.css  -->
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        
+    </style>
+</head>
+
+
+<body>
+    <div class="p">
+        <!-- NavBar for the Logo and the title -->
+        <div class="nav">
+            <div class="logo">
+                <span>LOGO</span>
+            </div>
+            <center><span class="hr">HR & Admin dashbord</span></center>
+            <hr>
+        </div>
+        <hr>
+        <!-- Logo and the title navbar close here -->
+
+
+
+        <!-- Main navbar that contains home recruittment Should Be start here -->
+        <nav class="shadow p-3 mb-5 bg-white rounded">
+            <div class="gri">
+                <div class="item1">
+                    <a href="#"> HOME</a>
+                </div>
+                <div class="item2">
+                    <a href="#"> EMPLOYEE MASTER	</a>
+
+
+                </div>
+                <div class="item3">
+                    <div class="dropdown">
+                        <span> <a href="#"> TRAINNING</a></span>
+                        <div class="dropdown-content">
+                            <p>First</p>
+                            <p>Secound</p>
+                            <p>Third</p>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="item4">
+                    <a href="#"> PMS	</a>
+
+
+                </div>
+                <div class="item5">
+                    <a href="#"> WELFARE	</a>
+
+
+                </div>
+                <div class="item6">
+
+                </div>
+                <div class="item7">
+                    <a href="#"> COMPANY	</a>
+                </div>
+        </nav>
+        </div>
+    </div>
+    <!-- Main navbar Close here -->
+
+
+    
+    <div class="title">
+        <center>
+            <h2>REQUISITION
+                <hr style="border-bottom: 2px solid#3f51b5 ; width: 50px;">
+            </h2>
+        </center>
+    </div>
+<br>
+
+
+<div class="container">
+    <div class="row justify-content-md-start">   
+        <div class="col-md"><button class="btn btn-primary btn-lg btn-block">NEW</button></div>
+        <div class="col-md"><button class="btn btn-primary btn-lg btn-block">CREATE</button></div>
+        <div class="col-md"><button class="btn btn-primary btn-lg btn-block">MODIFY</button></div>
+        <div class="col-md"><button class="btn btn-primary btn-lg btn-block">DELETE</button></div>
+        <div class="col-md"><button class="btn btn-primary btn-lg btn-block">PRINT</button></div>
+    </div>
+</div>
+
+<br>
+<hr style="border-bottom: 1px solid#3f51b5; width: 500px;">
+<br>
+
+<div class="container">
+    <div class="row justify-content-md-between">   
+        <div class="col-md-3"><button class="btn btn-outline-primary btn-md btn-block">DEPARTMENT</button></div>
+        <div class="col-md-3"><button class="btn btn-outline-primary btn-md btn-block">DROPDOWN</button></div>
+        <div class="col-md-3"><button class="btn btn-outline-primary btn-md btn-block">DATE</button></div>
+        <div class="col-md-3"><button class="btn btn-outline-primary btn-md btn-block">OPEN</button></div>
+    </div>
+</div>
+
+<br><br>
+
+<div class="container">
+
+    
+    <div class="row justify-content-md-start">
+        
+        <div class="col-md-1">
+            <label> From :</label>
+        </div>
+
+        <div class="col-md-2">
+            <input type="text"  class="form-control" >
+        </div>
+        
+        <div class="col-md-1">
+            <label> Department  </label>
+        </div>
+        
+        <div class="col-md-2">
+            <input type="text"  class="form-control" >
+        </div>
+        
+        <div class="col-md-3">
+            <select class="custom-select"  >
+                <option selected> PURCHASE DEPARTMENT </option>
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <input type="date"  class="form-control" placeholder="PURCHASE DEPARTMENT" >    
+        </div>
+
+    </div>
+
+<br>
+
+    <div class="row justify-content-md-start">
+
+        <div class="col-md-4">
+            <label>Requisition for the Post / Designation:</label>
+        </div>
+
+        <div class="col-md-4">
+            <input type="text"  class="form-control" >
+        </div>
+        
+    </div>
+    
+
+<br>
+
+    <div class="row justify-content-md-start">
+
+        <div class="col-md-4">
+            <label>Reason for Appoinment:   </label>
+        </div>
+
+        <div class="col-md-4">
+            <select class="custom-select"  >
+                <option> Replacement </option>
+                <option> New Position </option>
+                <option> Additional Workload </option>
+            </select>            
+        </div>
+        
+    </div>
+    
+<br>
+
+    <div class="row justify-content-md-start">
+        <div class="col-md-4">
+            <label>Qualification : </label>
+        </div>
+        <div class="col-md-8">
+            <div class="row justify-content-md-start">
+                <div class="col-md-6">
+                    <label class="text-md-center"> Minimum </label>
+                </div>
+                <div class="col-md-6">
+                    <label class="text-md-center"> Preferred</label>
+                </div>
+            </div>
+            <div class="row justify-content-md-start">
+                <div class="col-md-6">
+                    <input type="text"  class="form-control" >
+                </div>
+                <div class="col-md-6">
+                    <input type="text"  class="form-control" >
+                </div>
+            </div>
+        </div>
+    </div>
+
+<br>
+        
+    <div class="row justify-content-md-start">
+        <div class="col-md-4">
+            <label>Experience : </label>
+        </div>
+        <div class="col-md-8">
+            <div class="row justify-content-md-start">
+                <div class="col-md-6">
+                    <label class="text-md-center"> Minimum </label>
+                </div>
+                <div class="col-md-6">
+                    <label class="text-md-center"> Maximum</label>
+                </div>
+            </div>
+            <div class="row justify-content-md-start">
+                <div class="col-md-6">
+                    <input type="text"  class="form-control" >
+                </div>
+                <div class="col-md-6">
+                    <input type="text"  class="form-control" >
+                </div>
+            </div>
+        </div>
+    </div>
+
+<br>
+
+    <div class="row justify-content-md-start">
+                            
+        <div class="col-md-4">
+        
+            <div class="row justify-content-md-start">
+                <label class="text-md-center"> Skill Required :</label>    
+            </div>
+
+            <div class="row justify-content-md-start">
+                <textarea class="form-control"  rows="3"></textarea>
+            </div>
+<br>
+            <div class="row justify-content-md-start">
+                <label class="text-md-center"> Any Special Consideration :</label>    
+            </div>
+
+            <div class="row justify-content-md-start">
+                <textarea class="form-control"  rows="3"></textarea>
+            </div>
+                        
+        </div>
+
+        <div class="col-md-4">
+
+<br><br>                
+    <table class="table"  border="1">
+
+        <tr>
+            <th colspan="2">SKILL DETAILS</th>
+            <th>REQUIRED</th>
+            <th>ACTUAL</th>
+        </tr>
+
+        <tr > 
+            <th rowspan="3">Managerial Skill</th>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+        </tr>
+
+        <tr>
+
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+        </tr>
+
+        
+        <tr>
+
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+        </tr>
+        
+        <tr> 
+            <th  rowspan="3">Preffered Skill</th>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>   
+        </tr>
+
+        <tr>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+        </tr>
+
+        <tr>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+        </tr>
+
+
+        <tr> 
+            <th rowspan=3>System Requirement</th>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+        </tr>
+
+        <tr>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+        </tr>
+
+
+        <tr>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+        </tr>
+
+    </table>
+
+        </div>
+    </div>
+
+<br><br>
+    
+    <div class="row justify-content-md-around">
+        <div class="col-3">
+            <button class="btn btn-primary btn-lg btn-block">Submit</button>
+        </div>
+        <div class="col-3">
+            <button class="btn btn-danger btn-lg btn-block">Cancel</button>
+        </div>
+    </div>
+
+
+</div>
+
+<div style="margin-bottom: 200px;">
+
+</div>
