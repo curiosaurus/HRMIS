@@ -35,28 +35,28 @@ Master File<br>
  
  
  
-<h3>Nishad Patil</h3>
+<h2>Nishad Patil</h2>
 No of Pages :- 8
 
-Title Name :-  1) MASTER TEMPLETE
+Title Name :-  1) MASTER TEMPLETE <br>
                2) EMPLOYEE VIEW 1
-
+<br>
 <h4>page name :</h4>
 1. HR & ADMIN DASHBOARD / EMPLOYEE MASTER  :-  <a href="https://github.com/Nishad00/HRMIS/blob/master/Master%20Template.html">Master TEMPLETE</a>
 <br>
-2. REQUISITION :- <a href="https://github.com/Nishad00/HRMIS/blob/master/Requisition.html"> REQUISITION PAGE 1 </a>
+2. REQUISITION &nbsp;||&nbsp; Page 1 :- <a href="https://github.com/Nishad00/HRMIS/blob/master/Requisition.html"> REQUISITION PAGE 1 </a>
 <br>
-3. EMPLOYEE DASHBOARD || Page 1  :-
+3. EMPLOYEE DASHBOARD &nbsp;||&nbsp; Page 1  :-
 <br>
-4. EMPLOYEE DASHBOARD || Page 2  :-
+4. EMPLOYEE DASHBOARD &nbsp;||&nbsp; Page 2  :-
 <br>
-5. EMPLOYEE DASHBOARD / EMPLOYEE MASTER || Page 3  :-
+5. EMPLOYEE DASHBOARD / EMPLOYEE MASTER &nbsp;||&nbsp; Page 3  :-
 <br>
-6. EMPLOYEE DASHBOARD / TRAINING NOMINATION || Page 5  :-
+6. EMPLOYEE DASHBOARD / TRAINING NOMINATION &nbsp;||&nbsp; Page 5  :-
 <br>
-7. EMPLOYEE DASHBOARD / TRAINING SCHEDULE || Page 6  :-
+7. EMPLOYEE DASHBOARD / TRAINING SCHEDULE &nbsp;||&nbsp; Page 6  :-
 <br>
-8. EMPLOYEE DASHBOARD / EFFECTIVENESS || Page 7  :-
+8. EMPLOYEE DASHBOARD / EFFECTIVENESS &nbsp;||&nbsp; Page 7  :-
 <br>
 
 
