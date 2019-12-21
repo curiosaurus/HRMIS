@@ -36,13 +36,27 @@ Master File<br>
  
  
 <h3>Nishad Patil</h3>
-No of Pages :- 2
+No of Pages :- 8
 
-Title Name :-  MASTER TEMPLETE 
+Title Name :-  1) MASTER TEMPLETE
+               2) EMPLOYEE VIEW 1
 
 <h4>page name :</h4>
 1. HR & ADMIN DASHBOARD / EMPLOYEE MASTER  :-  <a href="https://github.com/Nishad00/HRMIS/blob/master/Master%20Template.html">Master TEMPLETE</a>
 <br>
 2. REQUISITION :- <a href="https://github.com/Nishad00/HRMIS/blob/master/Requisition.html"> REQUISITION PAGE 1 </a>
 <br>
+3. EMPLOYEE DASHBOARD || Page 1  :-
+<br>
+4. EMPLOYEE DASHBOARD || Page 2  :-
+<br>
+5. EMPLOYEE DASHBOARD / EMPLOYEE MASTER || Page 3  :-
+<br>
+6. EMPLOYEE DASHBOARD / TRAINING NOMINATION || Page 5  :-
+<br>
+7. EMPLOYEE DASHBOARD / TRAINING SCHEDULE || Page 6  :-
+<br>
+8. EMPLOYEE DASHBOARD / EFFECTIVENESS || Page 7  :-
+<br>
+
 
