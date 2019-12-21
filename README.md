@@ -40,7 +40,7 @@ No of Pages :- 8
 <br>
 
 Title Name :-  1) MASTER TEMPLETE <br>
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) EMPLOYEE VIEW 1
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) EMPLOYEE VIEW 1
 <br>
 <h4>page name :</h4>
 1. HR & ADMIN DASHBOARD / EMPLOYEE MASTER  :-  <a href="https://github.com/Nishad00/HRMIS/blob/master/Master%20Template.html">Master TEMPLETE</a>
@@ -51,13 +51,13 @@ Title Name :-  1) MASTER TEMPLETE <br>
 <br>
 4. EMPLOYEE DASHBOARD &nbsp;||&nbsp; Page 2  :-
 <br>
-5. EMPLOYEE DASHBOARD / EMPLOYEE MASTER &nbsp;||&nbsp; Page 3  :-
+5. EMPLOYEE DASHBOARD &nbsp;/&nbsp; EMPLOYEE MASTER &nbsp;||&nbsp; Page 3  :-
 <br>
-6. EMPLOYEE DASHBOARD / TRAINING NOMINATION &nbsp;||&nbsp; Page 5  :-
+6. EMPLOYEE DASHBOARD &nbsp;/&nbsp; TRAINING NOMINATION &nbsp;||&nbsp; Page 5  :-
 <br>
-7. EMPLOYEE DASHBOARD / TRAINING SCHEDULE &nbsp;||&nbsp; Page 6  :-
+7. EMPLOYEE DASHBOARD &nbsp;/&nbsp; TRAINING SCHEDULE &nbsp;||&nbsp; Page 6  :-
 <br>
-8. EMPLOYEE DASHBOARD / EFFECTIVENESS &nbsp;||&nbsp; Page 7  :-
+8. EMPLOYEE DASHBOARD &nbsp;/&nbsp; EFFECTIVENESS &nbsp;||&nbsp; Page 7  :-
 <br>
 
 
