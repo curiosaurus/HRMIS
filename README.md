@@ -36,7 +36,7 @@ Master File<br>
  
  
 <h2>Nishad Patil</h2>
-No of Pages :- 8
+No of Pages :- 7
 <br>
 
 Title Name :-  1) MASTER TEMPLETE <br>
@@ -50,15 +50,13 @@ Title Name :-  1) MASTER TEMPLETE <br>
 3. EMPLOYEE DASHBOARD &nbsp;||&nbsp; Page 1  :-
 <a href="https://github.com/curiosaurus/HRMIS/blob/master/EmployeeDashboardPage1.html">EMPLOYEE DASHBOARD Page 1</a>
 <br>
-4. EMPLOYEE DASHBOARD &nbsp;||&nbsp; Page 2  :-
+4. EMPLOYEE DASHBOARD &nbsp;/&nbsp; EMPLOYEE MASTER &nbsp;||&nbsp; Page 3  :- <a href="https://github.com/curiosaurus/HRMIS/blob/master/EmployeeDashEmployeeMasterPage3.html">EMPLOYEE DASHBOARD EMPLOYEE MASTER Page 3</a>
 <br>
-5. EMPLOYEE DASHBOARD &nbsp;/&nbsp; EMPLOYEE MASTER &nbsp;||&nbsp; Page 3  :-
+4. EMPLOYEE DASHBOARD &nbsp;/&nbsp; TRAINING NOMINATION &nbsp;||&nbsp; Page 5  :-
+5br>
+6. EMPLOYEE DASHBOARD &nbsp;/&nbsp; TRAINING SCHEDULE &nbsp;||&nbsp; Page 6  :-
 <br>
-6. EMPLOYEE DASHBOARD &nbsp;/&nbsp; TRAINING NOMINATION &nbsp;||&nbsp; Page 5  :-
-<br>
-7. EMPLOYEE DASHBOARD &nbsp;/&nbsp; TRAINING SCHEDULE &nbsp;||&nbsp; Page 6  :-
-<br>
-8. EMPLOYEE DASHBOARD &nbsp;/&nbsp; EFFECTIVENESS &nbsp;||&nbsp; Page 7  :-
+7. EMPLOYEE DASHBOARD &nbsp;/&nbsp; EFFECTIVENESS &nbsp;||&nbsp; Page 7  :-
 <br>
 
 
