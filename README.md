@@ -40,7 +40,7 @@ No of Pages :- 7
 <br>
 
 Title Name :-  1) MASTER TEMPLETE <br>
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) EMPLOYEE VIEW 1
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) REQUISITION<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3) EMPLOYEE VIEW 1<br>
 <br>
 <h4>page name :</h4>
 1. HR & ADMIN DASHBOARD / EMPLOYEE MASTER  :-  <a href="https://github.com/Nishad00/HRMIS/blob/master/Master%20Template.html">Master TEMPLETE</a>
@@ -56,7 +56,7 @@ Title Name :-  1) MASTER TEMPLETE <br>
 <br>
 6. EMPLOYEE DASHBOARD &nbsp;/&nbsp; TRAINING SCHEDULE &nbsp;||&nbsp; Page 6  :- <a href="https://github.com/curiosaurus/HRMIS/blob/master/EmployeeDashboardTrainingSchedulePage6.html">EMPLOYEE DASHBOARD TRAINING SCHEDULE Page 6</a>
 <br>
-7. EMPLOYEE DASHBOARD &nbsp;/&nbsp; EFFECTIVENESS &nbsp;||&nbsp; Page 7  :-
+7. EMPLOYEE DASHBOARD &nbsp;/&nbsp; EFFECTIVENESS &nbsp;||&nbsp; Page 7  :- <a href="https://github.com/curiosaurus/HRMIS/blob/master/EmployeeDashoardEffectivespage7.html">EMPLOYEE DASHBOARD EFFECTIVENESS Page 7</a>
 <br>
 
 
