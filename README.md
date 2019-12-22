@@ -48,6 +48,7 @@ Title Name :-  1) MASTER TEMPLETE <br>
 2. REQUISITION &nbsp;||&nbsp; Page 1 :- <a href="https://github.com/Nishad00/HRMIS/blob/master/Requisition.html"> REQUISITION PAGE 1 </a>
 <br>
 3. EMPLOYEE DASHBOARD &nbsp;||&nbsp; Page 1  :-
+<a href="https://github.com/curiosaurus/HRMIS/blob/master/EmployeeDashboardPage1.html">EMPLOYEE DASHBOARD Page 1</a>
 <br>
 4. EMPLOYEE DASHBOARD &nbsp;||&nbsp; Page 2  :-
 <br>
