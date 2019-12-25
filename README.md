@@ -6,6 +6,12 @@ master file (navbar,search bar(not working XD))<br>
 director's pages, approval of the requisition<br>
 Employees view of skill matrix<br>
 <h4>Suggest if anymore are needed</h4><br>
+<h3>Changes to be done:</h3>
+file :Master Template.html
+employee type is not button but drop down [HoD, Super HoD Employee, MD]
+put a bit js to select organisation if user type is hod to select if rathi or polybond
+
+
 List of pages : 
 
 
