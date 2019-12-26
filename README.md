@@ -67,7 +67,6 @@ Title Name :-  1) MASTER TEMPLETE <br>
 
 <h2>Chandrakant Koli</h2>
   <br>
-  <br>
   1.HOD SHORT LISTING<br>
   2.HOD SHORT LISTING (1)<br>
   3.OPEN POSITIONS<br>
