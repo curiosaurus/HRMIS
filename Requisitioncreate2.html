@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HOD DASHBOARD</title>
+    <title>HR ADMIN DASHBOARD</title>
     <!-- Google font cdn file imported here -->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
@@ -14,22 +14,26 @@
     <!-- Link the External Css here And please see name Its a Styles.css  -->
     <link rel="stylesheet" href="styles.css">
 
-</head>
-
-<style>
-
+<style> 
+ table, th, td {
+  border: 1px solid black;
+  padding: 5px;
+}
+table {
+  border-spacing: 15px;
+  margin-right: 25 px;
+}
 </style>
 
-
 </head>
-<body>
+<div>
     <div class="p">
         <!-- NavBar for the Logo and the title -->
         <div class="nav">
             <div class="logo">
                 <span>LOGO</span>
             </div>
-            <center><span class="hr">HOD Dashbord</span></center>
+            <center><span class="hr">HR & Admin dashbord</span></center>
             <hr>
         </div>
         <hr>
@@ -50,7 +54,7 @@
                             <p>EMPLOYEE MASTER</p>
                             <p>REQUISITION</p>
                             <p>OPEN POSITIONS</p>
-  		                    <p>INTERVIEW SCHEDULE</p>
+  		             <p>INTERVIEW SCHEDULE</p>
                             <p>CLOSED POSITIONS</p>
                        
                 </div>
@@ -61,7 +65,7 @@
                         <span> <a href="#"> TRAINNING</a></span>
                         <div class="dropdown-content">
                             <p>SKILL MATRIX</p>
-                            <p>TRAINING NOMINATIONS Card</p>
+                            <p>TRAINING NOMINATIONS</p>
                             <p>TRAINING CALENDER</p>
 			<p>TRAINING SCHEDULE</p>
 			<p>EFFECTIVENESS</p>
@@ -81,10 +85,7 @@
 
 
                 </div>
-                <div class="item6">
-
-                </div>
-        <div class="item7">
+        <div class="item6">
                     <div class="dropdown">
                         <span> <a href="#"> COMPANY</a></span>
                         <div class="dropdown-content">
@@ -115,6 +116,54 @@
             <div class="col-md"><button class="btn btn-primary btn-lg btn-block">PRINT</button></div>
         </div>
     </div>
+    <br><br>
+    <div class="col-md-2">
+        Department : 
+   </div>
+   
+   <div class="col-md-3">
+            <select name="dept" id="dept">
+          <option value="purchase" > PURCHASE DEPARTMENT</option>
+          <option value="SALES" > SALES DEPARTMENT</option>
+          <option value="Accounts" selected > ACCOUNTS DEPARTMENT</option>
+        </select>
+   </div>
+   <br> <br>
+   <div class="row justify-content-md-start">
+    <div class="col-md-3">
+   <h4>Managerial Skill</h4>
+   <table class="table" id="ms">
+    <tr>
+        <td><input type="text" name="" id="msn"></td>
+        <td><button onclick="addSkill('ms')">+</button></td>
+    </tr>
+   </table>
+   <h4>Functional Skill</h4>
+   <table class="table" id="fs">
+    <tr>
+        <td><input type="text" name="" id="fsn"></td>
+        <td><button onclick="addSkill('fs')">+</button></td>
+    </tr>
     
+</table>   
+<h4>System Skill</h4><table class="table" id="ss">
+    <tr>
+        <td><input type="text" name="" id="ssn"></td>
+        <td><button onclick="addSkill('ss')">+</button></td>
+    </tr>
+</table>
+<script>
+function addSkill(tid) {
+    var table = document.getElementById(tid);
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(0);
+    cell1.innerHTML = document.getElementById(tid+'n').value;
+  }
+  </script>
+  </div>
+  </div>
+  <center>
+  <button class="btn btn-primary btn-lg btn-block" style="height:10%; width: 20%;">submit</button>
+</center>
 </body>
 </html>
