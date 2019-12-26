@@ -58,7 +58,7 @@ Title Name :-  1) MASTER TEMPLETE <br>
 <br>
 4. EMPLOYEE DASHBOARD &nbsp;/&nbsp; EMPLOYEE MASTER &nbsp;||&nbsp; Page 3  :- <a href="https://github.com/curiosaurus/HRMIS/blob/master/EmployeeDashEmployeeMasterPage3.html">EMPLOYEE DASHBOARD EMPLOYEE MASTER Page 3</a>
 <br>
-4. EMPLOYEE DASHBOARD &nbsp;/&nbsp; TRAINING NOMINATION &nbsp;||&nbsp; Page 5  :- <a href="https://github.com/curiosaurus/HRMIS/blob/master/EmployeeDashTrainingNominationPage5.html">EMPLOYEE DASHBOARD TRAINING NOMINATION  Page 5</a>
+5. EMPLOYEE DASHBOARD &nbsp;/&nbsp; TRAINING NOMINATION &nbsp;||&nbsp; Page 5  :- <a href="https://github.com/curiosaurus/HRMIS/blob/master/EmployeeDashTrainingNominationPage5.html">EMPLOYEE DASHBOARD TRAINING NOMINATION  Page5</a>
 <br>
 6. EMPLOYEE DASHBOARD &nbsp;/&nbsp; TRAINING SCHEDULE &nbsp;||&nbsp; Page 6  :- <a href="https://github.com/curiosaurus/HRMIS/blob/master/EmployeeDashboardTrainingSchedulePage6.html">EMPLOYEE DASHBOARD TRAINING SCHEDULE Page 6</a>
 <br>
