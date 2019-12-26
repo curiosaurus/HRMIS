@@ -77,6 +77,8 @@ Title Name :-  1) MASTER TEMPLETE <br>
   pages created:<br>
   1.HoD dashboard<br>
   2.Requisitioncreate2<br>
+  3.Requisitionmodify3<br>
+  4.Requisitiondelete4<br>
   made corrections in:
   1.interviewform<br>
   2.HOD SHORT LISTING<br>
