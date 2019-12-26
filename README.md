@@ -65,4 +65,11 @@ Title Name :-  1) MASTER TEMPLETE <br>
 7. EMPLOYEE DASHBOARD &nbsp;/&nbsp; EFFECTIVENESS &nbsp;||&nbsp; Page 7  :- <a href="https://github.com/curiosaurus/HRMIS/blob/master/EmployeeDashoardEffectivespage7.html">EMPLOYEE DASHBOARD EFFECTIVENESS Page 7</a>
 <br>
 
-
+<h2>Chandrakant Koli<h2>
+  
+  1.HOD SHORT LISTING
+  2.HOD SHORT LISTING (1)
+  3.OPEN POSITIONS
+  4.OPEN POSITIONS (1)
+  5.HR ADMIN DASHBOARD
+  
