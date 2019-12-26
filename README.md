@@ -72,4 +72,16 @@ Title Name :-  1) MASTER TEMPLETE <br>
   3.OPEN POSITIONS<br>
   4.OPEN POSITIONS (1)<br>
   5.HR ADMIN DASHBOARD<br>
+  <h2>PRATIK PATIL</h2>
+  <br>
+  made corrections in:
+  1.interviewform<br>
+  2.HOD SHORT LISTING<br>
+  3.interviewschedule<br>
+  4.OPEN POSITIONS (1)<br>
+  5.HOD DASHBOARD<br>
+  6.openposition<br>
+  7.Requisition<br>
+  8.update<br>
+  9.hodskill<br>
   
