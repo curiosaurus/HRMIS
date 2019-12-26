@@ -74,14 +74,16 @@ Title Name :-  1) MASTER TEMPLETE <br>
   5.HR ADMIN DASHBOARD<br>
   <h2>PRATIK PATIL</h2>
   <br>
+  pages created:<br>
+  1.HoD dashboard<br>
+  2.Requisitioncreate2<br>
   made corrections in:
   1.interviewform<br>
   2.HOD SHORT LISTING<br>
   3.interviewschedule<br>
   4.OPEN POSITIONS (1)<br>
-  5.HOD DASHBOARD<br>
-  6.openposition<br>
-  7.Requisition<br>
-  8.update<br>
-  9.hodskill<br>
+  5.openposition<br>
+  6.Requisition<br>
+  7.update<br>
+  8.hodskill<br>
   
