@@ -86,4 +86,5 @@ Title Name :-  1) MASTER TEMPLETE <br>
   6.Requisition<br>
   7.update<br>
   8.hodskill<br>
+  9.hr admin dashboard<br>
   
