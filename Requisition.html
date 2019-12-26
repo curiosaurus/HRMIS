@@ -124,31 +124,27 @@
     <div class="row justify-content-md-start">
         
         <div class="col-md-1">
-            <label> From :</label>
+             From :
         </div>
-
         <div class="col-md-2">
-            <input type="text"  class="form-control" >
-        </div>
-        
-        <div class="col-md-1">
-            <label> Department  </label>
-        </div>
-        
-        <div class="col-md-2">
-            <input type="text"  class="form-control" >
+             Department  
         </div>
         
         <div class="col-md-3">
-            <select class="custom-select"  >
-                <option selected> PURCHASE DEPARTMENT </option>
-            </select>
+            
+                PURCHASE DEPARTMENT
         </div>
 
-        <div class="col-md-3">
-            <input type="date"  class="form-control" placeholder="PURCHASE DEPARTMENT" >    
+        <div class="col-md-3" id=cdate>
+            
         </div>
-
+<script>
+n =  new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
+document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
+</script>
     </div>
 
 <br>
@@ -273,64 +269,94 @@
 
         <tr > 
             <th rowspan="3">Managerial Skill</th>
-            <td><input type="text" name="" id=""></td>
-            <td><input type="text" name="" id=""></td>
-            <td><input type="text" name="" id=""></td>
+            <td>Communication Skill</td>
+            <td><input type="number" name="" id=""></td>
+            <td><input type="number" name="" id=""></td>
         </tr>
 
         <tr>
 
-            <td><input type="text" name="" id=""></td>
-            <td><input type="text" name="" id=""></td>
-            <td><input type="text" name="" id=""></td>
+            <td>Leadership Skill</td>
+            <td><input type="number" name="" id=""></td>
+            <td><input type="number" name="" id=""></td>
         </tr>
 
         
         <tr>
 
-            <td><input type="text" name="" id=""></td>
-            <td><input type="text" name="" id=""></td>
-            <td><input type="text" name="" id=""></td>
+            <td>Teamwork</td>
+            <td><input type="number" name="" id=""></td>
+            <td><input type="number" name="" id=""></td>
         </tr>
         
         <tr> 
-            <th  rowspan="3">Preffered Skill</th>
-            <td><input type="text" name="" id=""></td>
-            <td><input type="text" name="" id=""></td>
-            <td><input type="text" name="" id=""></td>   
+            <th  rowspan="7">Preffered Skill</th>
+            <td>Vendor Selection & Assessment		
+            </td>
+            <td><input type="number" name="" id=""></td>
+            <td><input type="number" name="" id=""></td>   
         </tr>
 
         <tr>
-            <td><input type="text" name="" id=""></td>
-            <td><input type="text" name="" id=""></td>
-            <td><input type="text" name="" id=""></td>
+            <td>Bought out items costing		
+            </td>
+            <td><input type="number" name="" id=""></td>
+            <td><input type="number" name="" id=""></td>
         </tr>
 
         <tr>
-            <td><input type="text" name="" id=""></td>
-            <td><input type="text" name="" id=""></td>
-            <td><input type="text" name="" id=""></td>
+            <td>Project Management		
+            </td>
+            <td><input type="number" name="" id=""></td>
+            <td><input type="number" name="" id=""></td>
         </tr>
 
+        <tr>
+            <td>Press tools/ casting & machining		
+            </td>
+            <td><input type="number" name="" id=""></td>
+            <td><input type="number" name="" id=""></td>
+        </tr>
+
+
+        <tr>
+            <td>Inventory Management		
+            </td>
+            <td><input type="number" name="" id=""></td>
+            <td><input type="number" name="" id=""></td>
+        </tr>
+        <tr>
+            <td>Details on Taxation		
+		
+            </td>
+            <td><input type="number" name="" id=""></td>
+            <td><input type="number" name="" id=""></td>
+        </tr>
+        <tr>
+            <td>ERP/SAP Knowledge		
+            </td>
+            <td><input type="number" name="" id=""></td>
+            <td><input type="number" name="" id=""></td>
+        </tr>
 
         <tr> 
             <th rowspan=3>System Requirement</th>
-            <td><input type="text" name="" id=""></td>
-            <td><input type="text" name="" id=""></td>
-            <td><input type="text" name="" id=""></td>
+            <td>ISO 9001:2015		
+            </td>
+            <td><input type="number" name="" id=""></td>
+            <td><input type="number" name="" id=""></td>
         </tr>
-
         <tr>
-            <td><input type="text" name="" id=""></td>
-            <td><input type="text" name="" id=""></td>
-            <td><input type="text" name="" id=""></td>
+            <td>5S (House Keeping)		
+            </td>
+            <td><input type="number" name="" id=""></td>
+            <td><input type="number" name="" id=""></td>
         </tr>
-
-
         <tr>
-            <td><input type="text" name="" id=""></td>
-            <td><input type="text" name="" id=""></td>
-            <td><input type="text" name="" id=""></td>
+            <td>EMS 14001:2015		
+            </td>
+            <td><input type="number" name="" id=""></td>
+            <td><input type="number" name="" id=""></td>
         </tr>
 
     </table>
