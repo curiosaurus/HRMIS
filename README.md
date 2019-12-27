@@ -90,6 +90,6 @@ Title Name :-  1) MASTER TEMPLETE <br>
   8.hodskill<br>
   9.hr admin dashboard<br>
   <h2>Gaurav Medhane<h2>
-  <br> hr and admin skill page2
+  hr and admin skill page2<br>
   hr and admin skill page3
   
