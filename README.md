@@ -12,7 +12,7 @@ employee type is not button but drop down [HoD, Super HoD Employee, MD]
 put a bit js to select organisation if user type is hod to select if rathi or polybond
 
 
-List of pages : 
+List of pages  = 
 
 
 
