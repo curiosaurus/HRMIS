@@ -38,6 +38,8 @@ Master File<br>
  1. HODSKILL.HTML
  2. update.html
  
+ Updated HOD SKILL VIEW
+ 
  
  
  
