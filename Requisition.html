@@ -96,10 +96,9 @@
 <div class="container">
     <div class="row justify-content-md-start">   
         <div class="col-md"><button class="btn btn-primary btn-lg btn-block">NEW</button></div>
-        <div class="col-md"><button class="btn btn-primary btn-lg btn-block">CREATE</button></div>
         <div class="col-md"><button class="btn btn-primary btn-lg btn-block">MODIFY</button></div>
         <div class="col-md"><button class="btn btn-primary btn-lg btn-block">DELETE</button></div>
-        <div class="col-md"><button class="btn btn-primary btn-lg btn-block">PRINT</button></div>
+        <div class="col-md"><button class="btn btn-primary btn-lg btn-block">OPEN</button></div>
     </div>
 </div>
 
@@ -107,14 +106,7 @@
 <hr style="border-bottom: 1px solid#3f51b5; width: 500px;">
 <br>
 
-<div class="container">
-    <div class="row justify-content-md-between">   
-        <div class="col-md-3"><button class="btn btn-outline-primary btn-md btn-block">DEPARTMENT</button></div>
-        <div class="col-md-3"><button class="btn btn-outline-primary btn-md btn-block">DROPDOWN</button></div>
-        <div class="col-md-3"><button class="btn btn-outline-primary btn-md btn-block">DATE</button></div>
-        <div class="col-md-3"><button class="btn btn-outline-primary btn-md btn-block">OPEN</button></div>
-    </div>
-</div>
+
 
 <br><br>
 
@@ -131,11 +123,16 @@
         </div>
         
         <div class="col-md-3">
-            
-                PURCHASE DEPARTMENT
+	<div class="dropdown">
+  <button class="dropbtn">Select Department</button>
+  <div class="dropdown-content">
+    <a href="#">PURCHASE DEPARTMENT</a>
+    <a href="#">SALES</a>
+    <a href="#">MANUFACTURING</a>
+  </div>
+</div>
         </div>
-
-        <div class="col-md-3" id=cdate>
+       <div class="col-md-3" id=cdate>
             
         </div>
 <script>
@@ -368,7 +365,7 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
     
     <div class="row justify-content-md-around">
         <div class="col-3">
-            <button class="btn btn-primary btn-lg btn-block">Submit</button>
+            <a href="print.html"><button class="btn btn-primary btn-lg btn-block">Submit</button></a>
         </div>
         <div class="col-3">
             <button class="btn btn-danger btn-lg btn-block">Cancel</button>
