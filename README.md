@@ -95,4 +95,6 @@ Title Name :-  1) MASTER TEMPLETE <br>
   <h2>Gaurav Medhane</h2>
   hr and admin skill page2<br>
   hr and admin skill page3<br>
-  hr and admin skill page11
+  hr and admin skill page11<br>
+   hr and admin skill page4<br>
+    hr and admin skill page6<br>
