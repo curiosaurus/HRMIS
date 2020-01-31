@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,8 +14,16 @@
 
     <!-- Link the External Css here And please see name Its a Styles.css  -->
     <link rel="stylesheet" href="styles.css">
+
+    <style>
+        
+    </style>
 </head>
-<div>
+
+
+
+<di/div>
+
     <div class="p">
         <!-- NavBar for the Logo and the title -->
         <div class="nav">
@@ -26,6 +35,9 @@
         </div>
         <hr>
         <!-- Logo and the title navbar close here -->
+
+
+
         <!-- Main navbar that contains home recruittment Should Be start here -->
         <nav class="shadow p-3 mb-5 bg-white rounded">
             <div class="gri">
@@ -34,6 +46,8 @@
                 </div>
                 <div class="item2">
                     <a href="#"> EMPLOYEE MASTER	</a>
+
+
                 </div>
                 <div class="item3">
                     <div class="dropdown">
@@ -44,6 +58,9 @@
                             <p>Third</p>
                         </div>
                     </div>
+
+
+
                 </div>
                 <div class="item4">
                     <a href="#"> PMS	</a>
@@ -66,34 +83,44 @@
     </div>
     <!-- Main navbar Close here -->
 <center>
+
+
     <div class="title">
-            <h2>Skills required
+            <h2>EMPLOYEE MASTER
                 <hr style="border-bottom: 2px solid#3f51b5 ; width: 50px;">
             </h2>
     </div>
 <br>
 <div class="row justify-content-md-center">
 <div class="col-md-3">
-<h4>Managerial Skills</h4>
+<h4>Location</h4>
 <table class="table" id="ms">
     <tr>
         <td><input type="text" name="" id="msn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('ms')">+</button></td>
     </tr>
     </table>
-    <h4>Functional Skills</h4>
+    <h4>Designation</h4>
     <table class="table" id="fs">
     <tr>
         <td><input type="text" name="" id="fsn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('fs')">+</button></td>
-    </tr>   
+    </tr>
+    
     </table>   
-    <h4>System Skills</h4><table class="table" id="ssn">
+    <h4>Department</h4><table class="table" id="ssn">
     <tr>
         <td><input type="text" name="" id="ssn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('ss')">+</button></td>
     </tr>
     </table>
+    <h4>Grade</h4><table class="table" id="ssn">
+        <tr>
+            <td><input type="text" name="" id="grn"></td>
+            <td><button class="btn btn-primary" onclick="addSkill('gr')">+</button></td>
+        </tr>
+        </table>
+
 <script>
 function addSkill(tid) {
 var table = document.getElementById(tid);
@@ -103,6 +130,7 @@ cell1.innerHTML = '<input type="text" name="" id="" value='+document.getElementB
 var cell2 = row.insertCell(-1);
 cell2.innerHTML = '<td><button   class="btn btn-danger">Delete</button></td>';
 }
+
 </script>
 <button class="btn btn-primary btn-lg btn-block" style="height:10%; width: 20%;">submit</button>
 </div>

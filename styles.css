@@ -7,19 +7,16 @@
     font-size: 35px;
     margin-left: 500px;
 }
-
 .p {
     background: #3f51b5;
     color: white;
 }
-
 .gri {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto !important;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
 }
-
 .gri a:hover {
     border-bottom: 2px solid black;
     text-decoration: none;
@@ -27,7 +24,7 @@
 }
 
 .block h2 {
-    font-family: 'Lilita One', cursive;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .line {
