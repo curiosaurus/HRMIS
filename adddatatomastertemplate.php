@@ -28,7 +28,7 @@
     ?>
     <center>
 
-<form name="form1" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
+<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
     <div class="title">
             <h2>EMPLOYEE MASTER
                 <hr style="border-bottom: 2px solid#3f51b5 ; width: 50px;">
