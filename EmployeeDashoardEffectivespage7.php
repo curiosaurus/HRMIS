@@ -14,10 +14,6 @@
 
     <!-- Link the External Css here And please see name Its a Styles.css  -->
     <link rel="stylesheet" href="styles.css">
-
-    <style>
-        
-    </style>
 </head>
 
 <body>
