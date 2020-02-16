@@ -1,3 +1,7 @@
+
+<?php
+    include 'adminnavbar.php';
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,12 +27,10 @@
 
 
 <body>
-<?php
-    include 'adminnavbar.php';
-    ?>
+
     <br><br><br>
 
-
+<form  method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
     <div class="interview">
         <div class="block">
             <center>
@@ -249,7 +251,7 @@ Date : <input type="DATE">
 	
         <br><br><br>
     </div>
-
+		 </form>
 </body>
 
 </html>
