@@ -15,12 +15,6 @@
     <link rel="stylesheet" href="styles.css">
 
 </head>
-
-<style>
-  
-</style>
-
-
 <body>
 
 <?php
@@ -30,7 +24,6 @@
 
 
 <!-- Next Div that contains the title of the INTERVIEW SCHEDULE Start here -->
-
 <div class="interview">
     <div class="block">
       <center>  <h2>OPEN POSITION
@@ -85,8 +78,6 @@
                                 <th scope="col">Interview Form	
 
                                     </th>
-                    
-
             </tr>
         </thead>
         <tbody>
@@ -95,83 +86,14 @@
             <!-- table body -->
             <th scope="row">Sourav Roy</th>
             <td>Assi. Manager</td>
-<td>Sales</td>
-<td>Pune</td>
-<td>25-12-19</td>
-<td>12:00 pm</td>
-<td>sr@gmail.com</td>
-<td>hod@gmail.com</td>            <td><button name="" class="btn btn-block btn-primary">Open</button></td>
+            <td>Sales</td>
+            <td>Pune</td>
+            <td>25-12-19</td>
+            <td>12:00 pm</td>
+            <td>sr@gmail.com</td>
+            <td>hod@gmail.com</td>            
+            <td><button name="" class="btn btn-block btn-primary">Open</button></td>
           </tr>
-          <tr>
-                <th scope="row">Ayan Banerjee	
-
-                    </th>
-                <td>Sales Engineer	
-
-                    </td>
-                    <td>Sales</td>
-                    <td>Pune</td>
-                    <td>25-12-19</td>
-                    <td>12:00 pm</td>
-                    <td>Ayan@gmail.com</td>
-                    <td>hod@gmail.com</td>                <td><button name="" class="btn btn-block btn-primary">Open</button></td>
-              </tr>
-              <tr>
-                    <th scope="row">Sonu Kumar Giri	
-	
-    
-                        </th>
-                    <td>Sales Engineer	
-    
-                        </td>
-                        <td>Sales</td>
-                        <td>Pune</td>
-                        <td>25-12-19</td>
-                        <td>12:00 pm</td>
-                        <td>skg@gmail.com</td>
-                        <td>hod@gmail.com</td>
-                    <td><button name="" class="btn btn-block btn-primary">Open</button></td>
-                  </tr>
-
-                  <tr>
-                        <th scope="row">Somnath	
-                            </th>
-                        <td>Sales Executive	        
-                            </td>
-                            <td>Sales</td>
-                            <td>Pune</td>
-                            <td>25-12-19</td>
-                            <td>12:00 pm</td>
-                            <td>sr@gmail.com</td>
-                            <td>hod@gmail.com</td>
-                        <td><button name="" class="btn btn-block btn-primary">Open</button></td>
-                      </tr>
-
-                      <tr>
-                            <th scope="row">Sourav Mandal</th>
-                            <td>Sales & MKT Engineer</td>
-                            <td>Sales</td>
-                            <td>Pune</td>
-                            <td>25-12-19</td>
-                            <td>12:00 pm</td>
-                            <td>sr@gmail.com</td>
-                            <td>hod@gmail.com</td>
-                            <td><button name="" class="btn btn-block btn-primary">Open</button></td>
-                          </tr>
-
-
-                          <tr>
-                                <th scope="row">Shailesh Pandey	</th>
-                                <td>Sales Engineer</td>
-                                <td>Sales</td>
-                                <td>Pune</td>
-                                <td>25-12-19</td>
-                                <td>12:00 pm</td>
-                                <td>Shailesh@gmail.com</td>
-                                <td>hod@gmail.com</td>
-                                <td><button name="" class="btn btn-block btn-primary">Open</button></td>
-                              </tr>
-
         </tbody>
       </table>
 </div>

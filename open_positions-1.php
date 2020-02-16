@@ -29,8 +29,6 @@
     <br><br><br>
 
 
-    <!-- Next Div that contains the title of the INTERVIEW SCHEDULE Start here -->
-
     <div class="interview">
         <div class="block">
             <center>

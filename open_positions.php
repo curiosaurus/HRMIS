@@ -24,32 +24,22 @@
 
 
     <!-- Next Div that contains the title of the INTERVIEW SCHEDULE Start here -->
-
     <div class="interview">
         <div class="block">
             <center>
                 <h2>OPEN POSITION
                 </h2>
                 <hr class="line">
-
             </center>
         </div>
     </div>
-
     <!-- INTERVIEW SCHEDULE Div Close here -->
-
-
-
     <div class="shortlist">
         <span style="border-bottom: 1px black; margin-left: 20px; font-family: 'Hind Siliguri', sans-serif;;">			
-       
     </span>
         <br>
         <br>
-
-
         <!-- bootstrap table start here Add and remove containt in table according to your task -->
-
         <div class="table">
             <table class="table table-bordered">
                 <thead>
@@ -63,9 +53,6 @@
                         </th>
                         <th scope="col">DATE
                         </th>
-           	
-
-
                     </tr>
                 </thead>
                 <tbody>
@@ -79,67 +66,6 @@
                         <td><button name="" class="btn btn-block btn-primary">OPEN</button></td>
                         <td><button name="" class="btn btn-block btn-primary">CLOSE</button></td>
                     </tr>
-                    <tr>
-                        <th scope="row"> </th>
-                        <td>
-
-                        </td>
-                        <td></td>
-                        <td></td>
-
-                        <td><button name="" class="btn btn-block btn-primary">OPEN</button></td>
-                        <td><button name="" class="btn btn-block btn-primary">CLOSE</button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-
-
-                        </th>
-                        <td>
-
-                        </td>
-                        <td></td>
-                        <td></td>
-        
-                        <td><button name="" class="btn btn-block btn-primary">OPEN</button></td>
-                        <td><button name="" class="btn btn-block btn-primary">CLOSE</button></td>
-
-                    </tr>
-
-                    <tr>
-                        <th scope="row">
-                        </th>
-                        <td>
-                        </td>
-                        <td></td>
-                        <td></td>
-        
-                        <td><button name="" class="btn btn-block btn-primary">OPEN</button></td>
-                        <td><button name="" class="btn btn-block btn-primary">CLOSE</button></td>
-
-                    </tr>
-
-                    <tr>
-                        <th scope="row"></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-  
-                        <td><button name="" class="btn btn-block btn-primary">OPEN</button></td>
-                        <td><button name="" class="btn btn-block btn-primary">CLOSE</button></td>
-                    </tr>
-
-
-                    <tr>
-                        <th scope="row"> </th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                
-                        <td><button name="" class="btn btn-block btn-primary">OPEN</button></td>
-                        <td><button name="" class="btn btn-block btn-primary">CLOSE</button></td>
-                    </tr>
-
                 </tbody>
             </table>
         </div>
