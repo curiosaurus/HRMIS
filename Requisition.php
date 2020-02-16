@@ -65,6 +65,7 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
 </script>
     </div>
 <br>
+ <form action="" method="POST">
     <div class="row justify-content-md-start">
         <div class="col-md-4">
             <label>Requisition for the Post / Designation:</label>
@@ -164,22 +165,22 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
         <tr > 
             <th>Managerial Skill</th>
             <td >Communication Skill</td>
-            <td ><input type="number" style="width: 50px;" name="" id=""></td>
-            <td><input type="number" name="" id=""  style="width: 50px;"></td>
+            <td ><input type="number" style="width: 50px;" name="mgskill" id=""></td>
+            <td><input type="number" name="cskill " id=""  style="width: 50px;"></td>
         </tr>
         <tr> 
             <th>Preffered Skill</th>
             <td style="">Vendor Selection & Assessment		
             </td>
-            <td><input type="number" name="" id=""  style="width: 50px;"></td>
-            <td><input type="number" name="" id=""  style="width: 50px;"></td>   
+            <td><input type="number" name="preskill" id=""  style="width: 50px;"></td>
+            <td><input type="number" name="venskill" id=""  style="width: 50px;"></td>   
         </tr>
         <tr> 
             <th >System Requirement</th>
             <td>ISO 9001:2015		
             </td>
-            <td><input type="number" name="" id=""  style="width: 50px;"></td>
-            <td><input type="number" name="" id=""  style="width: 50px;"></td>
+            <td><input type="number" name="sysreq" id=""  style="width: 50px;"></td>
+            <td><input type="number" name="iso" id=""  style="width: 50px;"></td>
         </tr>
     </table>
         </div>
@@ -193,5 +194,6 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
             <button class="btn btn-danger btn-lg btn-block">Cancel</button>
         </div>
     </div>
+	</form>
     <br>
 </div>
