@@ -28,7 +28,7 @@
     ?>
     <center>
 
-
+<form name="form1" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
     <div class="title">
             <h2>EMPLOYEE MASTER
                 <hr style="border-bottom: 2px solid#3f51b5 ; width: 50px;">
@@ -64,7 +64,7 @@
             <td><button class="btn btn-primary" onclick="addSkill('gr')">+</button></td>
         </tr>
         </table>
-
+    
 <script>
 function addSkill(tid) {
 var table = document.getElementById(tid);
@@ -77,6 +77,7 @@ cell2.innerHTML = '<td><button   class="btn btn-danger">Delete</button></td>';
 
 </script>
 <button class="btn btn-primary btn-lg btn-block" style="height:10%; width: 20%;">submit</button>
-</div>
+    </form>
+    </div>
 </body>
 </html>
