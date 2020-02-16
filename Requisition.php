@@ -26,10 +26,10 @@
 <br>
 <div class="container">
     <div class="row justify-content-md-start">   
-        <div class="col-md"><button class="btn btn-primary btn-lg btn-block">NEW</button></div>
-        <div class="col-md"><button class="btn btn-primary btn-lg btn-block">MODIFY</button></div>
-        <div class="col-md"><button class="btn btn-primary btn-lg btn-block">DELETE</button></div>
-        <div class="col-md"><button class="btn btn-primary btn-lg btn-block">OPEN</button></div>
+        <div class="col-md"><a href=""><button class="btn btn-primary btn-lg btn-block">NEW</button></a></div>
+        <div class="col-md"><a href=""><button class="btn btn-primary btn-lg btn-block">MODIFY</button></a></div>
+        <div class="col-md"><a href=""><button class="btn btn-primary btn-lg btn-block">DELETE</button></a></div>
+        <div class="col-md"><a href=""><button class="btn btn-primary btn-lg btn-block">OPEN</button></a></div>
     </div>
 </div>
 <br>
