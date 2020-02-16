@@ -41,7 +41,7 @@
                    <div class="dropdown-content">
                            <a href="masterfile.php"><p>EMPLOYEE MASTER</p></a> 
                             <a href="Requisition.php"><p>REQUISITION</p></a>
-                            <a href="open_positions-1.php"><p>OPEN POSITIONS</p></a>
+                            <a href="open_positions.php"><p>OPEN POSITIONS</p></a>
                             <a href="interviewschedule.php"><p>INTERVIEW SCHEDULE</p></a>
                             <a href="#"></a><p>CLOSED POSITIONS</p>
                        
