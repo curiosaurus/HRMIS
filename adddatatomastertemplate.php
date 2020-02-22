@@ -28,7 +28,7 @@
     ?>
     <center>
 
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
+
     <div class="title">
             <h2>EMPLOYEE MASTER
                 <hr style="border-bottom: 2px solid#3f51b5 ; width: 50px;">
@@ -39,6 +39,16 @@
 <div class="col-md-3">
 <h4>Location</h4>
 <table class="table" id="ms">
+<?php 
+$counter = $empcollection->find();
+foreach($counter as $row) {
+    echo "<tr>";
+    echo "<td>" . $row['skill name'] ."</td>";
+    echo "<td><button class='btn btn-primary' onclick='deleteSkill('ms')'>+</button></td>";#button
+    echo "</tr>";
+}
+?>
+
     <tr>
         <td><input type="text" name="" id="msn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('ms')">+</button></td>
@@ -46,25 +56,54 @@
     </table>
     <h4>Designation</h4>
     <table class="table" id="fs">
+    <?php 
+$counter = $empcollection->find();
+foreach($counter as $row) {
+    echo "<tr>";
+    echo "<td>" . $row['skill name'] ."</td>";
+    echo "<td><button class='btn btn-primary' onclick='deleteSkill('ms')'>+</button></td>";#button
+    echo "</tr>";
+}
+?>
+
     <tr>
         <td><input type="text" name="" id="fsn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('fs')">+</button></td>
-    </tr>
-    
+    </tr>   
     </table>   
-    <h4>Department</h4><table class="table" id="ssn">
+    <h4>Department</h4>
+    <?php 
+$counter = $empcollection->find();
+foreach($counter as $row) {
+    echo "<tr>";
+    echo "<td>" . $row['skill name'] ."</td>";
+    echo "<td><button class='btn btn-primary' onclick='deleteSkill('ms')'>+</button></td>";#button
+    echo "</tr>";
+}
+?>
+
     <tr>
         <td><input type="text" name="" id="ssn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('ss')">+</button></td>
     </tr>
     </table>
     <h4>Grade</h4><table class="table" id="ssn">
-        <tr>
-            <td><input type="text" name="" id="grn"></td>
-            <td><button class="btn btn-primary" onclick="addSkill('gr')">+</button></td>
-        </tr>
-        </table>
-    
+    <?php 
+$counter = $empcollection->find();
+foreach($counter as $row) {
+    echo "<tr>";
+    echo "<td>" . $row['skill name'] ."</td>";
+    echo "<td><button class='btn btn-primary' onclick='deleteSkill('ms')'>+</button></td>";#button
+    echo "</tr>";
+}
+?>
+
+    <tr>
+        <td><input type="text" name="" id="ssn"></td>
+        <td><button class="btn btn-primary" onclick="addSkill('ss')">+</button></td>
+    </tr>
+    </table>
+
 <script>
 function addSkill(tid) {
 var table = document.getElementById(tid);
@@ -77,7 +116,6 @@ cell2.innerHTML = '<td><button   class="btn btn-danger">Delete</button></td>';
 
 </script>
 <button class="btn btn-primary btn-lg btn-block" style="height:10%; width: 20%;">submit</button>
-    </form>
-    </div>
+</div>
 </body>
 </html>
