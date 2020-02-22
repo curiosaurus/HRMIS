@@ -1,3 +1,52 @@
+<?php
+
+    require 'vendor\autoload.php'; 
+
+    $client = new MongoDB\Client;
+    $companydb = $client->companydb;
+    $empcollection = $companydb->user;
+
+    if(isset($_POST['submit']))
+    {
+        $reqfor = $_POST['reqfor']; 
+        $reasonappnt = $_POST['reasonappnt'];
+        $minqual	 = $_POST['minqual'];
+        $prefqual = $_POST['prefqual'];
+        $expmin = $_POST['expmin'];
+        $expmax = $_POST['expmax'];
+        $skillsreq = $_POST['skillsreq'];
+        $skillconsider = $_POST['skillconsider'];
+        $reqcomm = $_POST['reqcomm'];
+        $actcomm = $_POST['actcomm'];
+        $reqven = $_POST['reqven'];
+        $actven = $_POST['actven'];
+        $reqiso = $_POST['reqiso'];
+        $actiso = $_POST['actiso'];
+
+
+
+
+    // Insert one data
+    $insertOneResult = $empcollection->insertOne( ['Requisition for the Post' => $reqfor , 'Reason for Appoinment' => $reasonappnt , 'Qualification Minimum' => $minqual , 'Qualification Preferred' => $prefqual , 'Experience Minimum' =>  $expmin , 'Experience Maximum' => $expmax , 'Skill Required' => $skillsreq , 'Any Special Consideration' =>  $skillconsider , 'Communication Skill REQUIRED' => $reqcomm , 'Communication Skill ACTUAL' => $actcomm , 'Vendor Selection & Assessment REQUIRED' => $reqven , 'Vendor Selection & Assessment ACTUAL' => $actven , 'ISO REQUIRED' =>  $reqiso , 'ISO ACTUAL' => $actiso ] );
+
+    if($insertOneResult)
+    {
+        echo "Sucess";
+    }
+    else{
+        echo "unSucess";
+
+    }
+    }
+?>
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,6 +114,9 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
 </script>
     </div>
 <br>
+
+<form action="Requisition.php" method="post">
+
     <div class="row justify-content-md-start">
         <div class="col-md-4">
             <label>Requisition for the Post / Designation:</label>
@@ -73,20 +125,20 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
             <input type="text" name="reqfor" id="reqfor"  class="form-control" >
         </div>
     </div>
-<br>
+    <br>
     <div class="row justify-content-md-start">
         <div class="col-md-4">
             <label>Reason for Appoinment:   </label>
         </div>
         <div class="col-md-4">
             <select class="custom-select"  name="reasonappnt" id="reasonappnt">
-                <option> Replacement </option>
-                <option> New Position </option>
-                <option> Additional Workload </option>
+                <option value="Replacement"> Replacement </option>
+                <option value="New Position"> New Position </option>
+                <option value="Additional Workload"> Additional Workload </option>
             </select>            
         </div>    
     </div>
-<br>
+    <br>
     <div class="row justify-content-md-start">
         <div class="col-md-4">
             <label>Qualification : </label>
@@ -110,7 +162,7 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
             </div>
         </div>
     </div>
-<br>
+    <br>
     <div class="row justify-content-md-start">
         <div class="col-md-4">
             <label>Experience : </label>
@@ -134,7 +186,7 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
             </div>
         </div>
     </div>
-<br>
+    <br>
     <div class="row justify-content-md-start">
         <div class="col-md-4">
             <div class="row justify-content-md-start">
@@ -143,55 +195,56 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
             <div class="row justify-content-md-start">
                 <textarea class="form-control"  rows="3" name="skillsreq" id="skillsreq"></textarea>
             </div>
-<br>
+            <br>
             <div class="row justify-content-md-start">
                 <label class="text-md-center"> Any Special Consideration :</label>    
             </div>
             <div class="row justify-content-md-start">
-                <textarea class="form-control"  rows="3"></textarea>
+                <textarea class="form-control" name="skillconsider"  rows="3"></textarea>
             </div>          
         </div> 
-
+        
         &nbsp; &nbsp; &nbsp;
         <div class="">
-<br><br>                
-    <table class="table"  border="1" >
-        <tr>
-            <th colspan="2" >SKILL DETAILS</th>
-            <th width='11px'>REQUIRED</th>
-            <th width='11px'>ACTUAL</th width=''>
-        </tr>
-        <tr > 
-            <th>Managerial Skill</th>
+            <br><br>                
+            <table class="table"  border="1" >
+                <tr>
+                    <th colspan="2" >SKILL DETAILS</th>
+                    <th width='11px'>REQUIRED</th>
+                    <th width='11px'>ACTUAL</th width=''>
+                </tr>
+                <tr > 
+                    <th>Managerial Skill</th>
             <td >Communication Skill</td>
-            <td ><input type="number" style="width: 50px;" name="" id=""></td>
-            <td><input type="number" name="" id=""  style="width: 50px;"></td>
+            <td ><input type="number" style="width: 50px;" name="reqcomm" id=""></td>
+            <td><input type="number" name="actcomm" id=""  style="width: 50px;"></td>
         </tr>
         <tr> 
             <th>Preffered Skill</th>
             <td style="">Vendor Selection & Assessment		
-            </td>
-            <td><input type="number" name="" id=""  style="width: 50px;"></td>
-            <td><input type="number" name="" id=""  style="width: 50px;"></td>   
-        </tr>
-        <tr> 
-            <th >System Requirement</th>
-            <td>ISO 9001:2015		
-            </td>
-            <td><input type="number" name="" id=""  style="width: 50px;"></td>
-            <td><input type="number" name="" id=""  style="width: 50px;"></td>
-        </tr>
-    </table>
+                </td>
+                <td><input type="number" name="reqven" id=""  style="width: 50px;"></td>
+                <td><input type="number" name="actven" id=""  style="width: 50px;"></td>   
+            </tr>
+            <tr> 
+                <th >System Requirement</th>
+                <td>ISO 9001:2015		
+                    </td>
+                    <td><input type="number" name="reqiso" id=""  style="width: 50px;"></td>
+                    <td><input type="number" name="actiso" id=""  style="width: 50px;"></td>
+                </tr>
+            </table>
         </div>
     </div>
-<br><br>
+    <br><br>
     <div class="row justify-content-md-around">
         <div class="col-3">
-            <a href="print.html"><button class="btn btn-primary btn-lg btn-block">Submit</button></a>
+            <input type="submit" value="Submit" name="submit"  class="btn btn-primary btn-lg btn-block">
         </div>
         <div class="col-3">
             <button class="btn btn-danger btn-lg btn-block">Cancel</button>
         </div>
     </div>
     <br>
+</form> 
 </div>
