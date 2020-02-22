@@ -30,31 +30,22 @@
 <table border="1">
         <tr>
         <th>
-
             EMP CODE
         </th>
         <th>
             Emp Display Name
-          
         </th>
-
         <th>
             Gender
-            
         </th>
-        <th>
-                        
+        <th>      
             Marital Status
-
         </th>
         <th>
             Date of Birth
-            
         </th>
         <th>
             Date of joining
-                        
-
         </th>
         <th>
             Resigned date
@@ -66,20 +57,15 @@
         </th>
         <th>
             Personal Email
-     
             </th>
         <th>
-            
             PAN
-
         </th>
         <th>
             Adhar Card No
-            
         </th>
         <th>
             Mobile No
-            
         </th>
         <th>
             Designation
@@ -94,296 +80,78 @@
             
         </th>
         <th>
-            Location Id
- 
-            </th>
+            Location Id</th>
         <th>
             Employee Type Id
             
         </th>
         <th>
             Employee Status Id
-            
         </th>
         <th>
             UAN Number
-
         </th>
         <th>
             REPORTING TO
-            
         </th>
         <th>
             Blood Group
-            
         </th>
         <th>
             EDUCATION
-            
         </th>
         <th>
             RTPL Exp.
-            
         </th>
         <th>
             Previous Exp.
-            
         </th>
         <th>
             TOTAL EXP
-
         </th>
         <th>
             Parmanent Address
-            
         </th>
         <th>
             Local Address
-            
-        </th>
-        
-
-        <tr>
-        <tr>
-
-            <td>
-                RS00002
-    
-            </td>
-            <td>
-                MARUTI TUKARAM CHOUDHARI
-
-            </td>
-            <td>                    
-                Male
-
-
-            </td>
-            <td>
-                Married
-
-                </td>
-            <td>
-                19-01-1963
-
-            </td>
-            <td>
-                01-01-1994
-
-            </td>
-            <td>
-                
-                
-
-            </td>
-            <td>
-                
-
-            </td>
-            <td>
-                mtchaudhari25@gmail.com
-
-            </td>
-            <td>
-                AHKPC2424M
-
-            </td>
-            <td>
-                0
-
-            </td>
-            <td>
-                -
-
-            </td>
-                <td>
-                    DRIVER CUM MECHANIC
-
-            </td>
-            <td>
-                B05
-
-            </td>
-            <td>
-                ADMINISTRATION                                                                                      
-
-            </td>
-            <td>
-                RCO                                               
-
-            </td>
-            <td>
-                Staff
-
-            </td>
-            <td>
-                Permanent
-
-            </td>
-            <td>
-                100209065246
-
-            </td>
-            <td>
-                    
-
-            </td>
-            <td>
-                <NA>
-
-            </td>
-            <td>
-                
-
-            </td>
-
-            <td>
-
-            </td>
-
-            <td>
-                25.9 
-                
-            </td>
-            
-           
-            <td>
-                0
-                
-            </td>
-            <td>
-                
-                "- , WADGAON DHARI, T9 , HAVELI , - , 
-4-0 , MAHARASHTRA
-INDIA"
-                
-            </td>
-            <td>
-                A/P NANDOSHI,POST DHAYRI,TAL-HAVELI,DIST-PUNE
-                
-            </td>
-         
-        </tr>
-        <tr>
-
-            <td>
-                RS00002
-    
-            </td>
-            <td>
-                MARUTI TUKARAM CHOUDHARI
-
-            </td>
-            <td>                    
-                Male
-
-
-            </td>
-            <td>
-                Married
-
-                </td>
-            <td>
-                19-01-1963
-
-            </td>
-            <td>
-                01-01-1994
-
-            </td>
-            <td>
-                
-                
-
-            </td>
-            <td>
-                
-
-            </td>
-            <td>
-                mtchaudhari25@gmail.com
-
-            </td>
-            <td>
-                AHKPC2424M
-
-            </td>
-            <td>
-                0
-
-            </td>
-            <td>
-                -
-
-            </td>
-                <td>
-                    DRIVER CUM MECHANIC
-
-            </td>
-            <td>
-                B05
-
-            </td>
-            <td>
-                ADMINISTRATION                                                                                      
-
-            </td>
-            <td>
-                RCO                                               
-
-            </td>
-            <td>
-                Staff
-
-            </td>
-            <td>
-                Permanent
-
-            </td>
-            <td>
-                100209065246
-
-            </td>
-            <td>
-                    
-
-            </td>
-            <td>
-                <NA>
-
-            </td>
-            <td>
-                
-
-            </td>
-
-            <td>
-
-            </td>
-
-            <td>
-                25.9 
-                
-            </td>
-            
-           
-            <td>
-                0
-                
-            </td>
-            <td>
-                
-                "- , WADGAON DHARI, T9 , HAVELI , - , 
-4-0 , MAHARASHTRA
-INDIA"
-                
-            </td>
-            <td>
-                A/P NANDOSHI,POST DHAYRI,TAL-HAVELI,DIST-PUNE
-                
-            </td></tr>
-            
-        
+        </th>            
+        <tbody>
+        <?php 
+$counter = $empcollection->find();
+foreach($counter as $row) {
+    echo "<tr>";
+    echo "<td>" . $row['Emp Code'] ."</td>";
+    echo "<td>" . $row['Emp Display Name'] ."</td>";
+    echo "<td>" . $row['Gender'] ."</td>";
+    echo "<td>" . $row['Marital Status'] ."</td>";
+    echo "<td>" . $row['Date of Birth'] ."</td>";
+    echo "<td>" . $row['Date of joining'] ."</td>";
+    echo "<td>" . $row['Resigned date'] ."</td>";
+    echo "<td>" . $row['DATE OF LEAVING'] ."</td>";
+    echo "<td>" . $row['Personal Email'] ."</td>";
+    echo "<td>" . $row['PAN'] ."</td>";
+    echo "<td>" . $row['Adhar Card No'] ."</td>";
+    echo "<td>" . $row['Mobile No'] ."</td>";
+    echo "<td>" . $row['Designation'] ."</td>";
+    echo "<td>" . $row['Grade Id'] ."</td>";
+    echo "<td>" . $row['Department Id'] ."</td>";
+    echo "<td>" . $row['Location Id'] ."</td>";
+    echo "<td>" . $row['Employee Type Id'] ."</td>";
+    echo "<td>" . $row['Employee Status Id'] ."</td>";
+    echo "<td>" . $row['UAN Number'] ."</td>";
+    echo "<td>" . $row['REPORTING TO'] ."</td>";
+    echo "<td>" . $row['Blood Group'] ."</td>";
+    echo "<td>" . $row['RTPL Exp.'] ."</td>";
+    echo "<td>" . $row['Previous Exp.'] ."</td>";
+    echo "<td>" . $row['TOTAL EXP'] ."</td>";
+    echo "<td>" . $row['Permanent Address'] ."</td>";
+    echo "<td>" . $row['Local Address'] ."</td>";
+?>
+<td><button name="" class="btn btn-block btn-primary">Upload</button></td>
+    <?php echo "</tr>";
+}
+?>
+</tbody>
 </table>
 </body>
 
