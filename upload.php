@@ -1,72 +1,50 @@
-
 <?php
-    //Your Database Connection include file here.
-    //This Entire PHP part can be placed in a seperate action file
-
+$target_dir = "uploads/";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    if($check !== false) {
+        echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+    } else {
+        echo "File is not an image.";
+        $uploadOk = 0;
+    }
+}
+// Check if file already exists
+if (file_exists($target_file)) {
+    echo "Sorry, file already exists.";
+    $uploadOk = 0;
+}
+// Check file size
+if ($_FILES["fileToUpload"]["size"] > 500000) {
+    echo "Sorry, your file is too large.";
+    $uploadOk = 0;
+}
+// Allow certain file formats
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif" ) {
+    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    $uploadOk = 0;
+}
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+    echo "Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+} else {
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        require 'vendor\autoload.php'; 
+        $client = new MongoDB\Client;
+        $companydb = $client->hrmis;
+        $empcollection = $companydb->filecollection;
+        $insertOneResult = $empcollection->insertOne( ['_id' => '1' , 'filename' => $_FILES["fileToUpload"]["name"] , 'fileaddress' => $target_file ] );     
     
-    require 'vendor\autoload.php'; 
-    // require 'mongoimport';
-
-    $client = new MongoDB\Client;
-    $companydb = $client->companydb;
-    $empcollection = $companydb->user;
-
-
-    // if(isset($_POST['submit']))
-    // {
-        // Upload Directory path.
-        // $uploaddir = 'uploads/';
-        // //FilePath with File name.
-        // echo ($_POST['pk']);
-        // $uploadfile = $uploaddir . basename($_FILES["file"]["name"]);
-        //Check if uploaded file is CSV and not any other format.
-        // if (($_FILES["file"]["type"] == "text/csv")){
-            //Move uploaded file to our Uploads folder.
-            // if (move_uploaded_file($_FILES["file"]["tmp_name"], $uploadfile)) 
-            // {
-                 //Import uploaded file to Database. $collection is defined in the connection file or can be defined here too
-        // echo $uploadfile;
-                 //shell_exec("start kk.bat");
-        //$command = "mongoimport --db companydb --collection user --type csv --file C:\xampp\htdocs\Mongo\usercsv.csv --headerline" ;
-        
-        // echo  "Sucesfull";
-            // }
-        // }
-        // else{
-        //     echo "Please Upload a CSV file Only!";
-        // }
-    // }
-        
+        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+}
 ?>
-     
-     
-     
-     
-     
-     <?php 
-    if(isset($_POST['submit']))
-    {
-        $path = realpath($_POST['pk']);        
-        $var_str = var_export($path, true);
-        $var = "$path";
-        file_put_contents('kk.txt', $var);
-        shell_exec("start kk.bat");
-    } 
-
-
-     ?>
-     
-     
-     
-     
-                    <!--Simple Form(no css) to Upload the File-->
-<html>
-    <head>
-        <form action='upload.php' method='POST'>
-        Choose file to import:<br><br>
-        <!-- <input type="text" name="pk"> -->
-        <input type='file' name='pk' ><br><br>
-        <input type='submit' name='submit'>
-        </form>
-    </head>
-</html>
