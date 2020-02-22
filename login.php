@@ -2,12 +2,12 @@
 <html lang="en">
 <?php
 
-
+session_start();
 require 'vendor\autoload.php'; 
 
 
 $client = new MongoDB\Client;
-$db = $client->hrmis;
+$db = $client->companydb;
 $collection = $db->user;
 
 $loginerror = " ";
@@ -15,10 +15,12 @@ $loginerror = " ";
            
             $username = $_POST["email"];
             $password = $_POST["password"];
-            $cursor = $collection->findOne(array('username'=> $username, 'password'=> $password));
+            $cursor = $collection->findOne(array('email'=> $username, 'password'=> $password));
         
             if($cursor){
-                header("location:p.html");
+                $p = $_POST['email'];
+                $_SESSION['email'] = $p;
+                header("location:p.php");
             }
             else{
                 $loginerror = "Sorry Username and Password is Wrong!" ;
