@@ -33,7 +33,8 @@ $empcollection = $companydb->empollection;
             </h2>
     </div>
 <br>
-<div class="row justify-content-md-center">
+<form method="POST" action="Requisitioncreate2.php">
+ <div class="row justify-content-md-center">
 <div class="col-md-3">
 <h4>Managerial Skills</h4>
 <table class="table" id="ms">
@@ -48,7 +49,7 @@ foreach($counter as $row) {
 ?>
 
     <tr>
-        <td><input type="text" name="" id="msn"></td>
+        <td><input type="text" name="Managerial" id="msn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('ms')">+</button></td>
     </tr>
     </table>
@@ -65,7 +66,7 @@ foreach($counter as $row) {
 ?>
 
     <tr>
-        <td><input type="text" name="" id="fsn"></td>
+        <td><input type="text" name="Functional" id="fsn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('fs')">+</button></td>
     </tr>   
     </table>   
@@ -81,7 +82,7 @@ foreach($counter as $row) {
 ?>
 
     <tr>
-        <td><input type="text" name="" id="ssn"></td>
+        <td><input type="text" name="System" id="ssn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('ss')">+</button></td>
     </tr>
     </table>
@@ -97,5 +98,6 @@ cell2.innerHTML = '<td><button   class="btn btn-danger">Delete</button></td>';
 </script>
 <button class="btn btn-primary btn-lg btn-block" style="height:10%; width: 20%;">submit</button>
 </div>
+     </form>
 </body>
 </html>
