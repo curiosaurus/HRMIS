@@ -1,14 +1,9 @@
 <?php
-
-
 require 'vendor\autoload.php'; 
-
 $client = new MongoDB\Client;
 $companydb = $client->companydb;
 $empcollection = $companydb->empollection;
-
 ?>
-
 <html>
 <head>
     <meta charset="UTF-8">
@@ -17,7 +12,6 @@ $empcollection = $companydb->empollection;
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-    
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -28,11 +22,8 @@ $empcollection = $companydb->empollection;
     </tr>
   </thead>
   <tbody>
-
 <?php 
-
 $counter = $empcollection->find();
-
 foreach($counter as $row) {
     echo "<tr>";
     echo "<td>" . $row['Emp Code'] ."</td>";
@@ -41,10 +32,8 @@ foreach($counter as $row) {
     echo "<td>" . $row['Marital Status'] ."</td>";
     echo "</tr>";
 }
-
 ?>
   </tbody>
 </table>
-
 </body>
 </html>
