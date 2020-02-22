@@ -56,17 +56,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-
-                        <!-- table body -->
-                        <th scope="row"></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td><button name="" class="btn btn-block btn-primary">OPEN</button></td>
-                        <td><button name="" class="btn btn-block btn-primary">CLOSE</button></td>
-                    </tr>
-                </tbody>
+                <?php 
+$counter = $empcollection->find();
+foreach($counter as $row) {
+    echo "<tr>";
+    echo "<td>" . $row['Department'] ."</td>";
+    echo "<td>" . $row['Position'] ."</td>";
+    echo "<td>" . $row['Raised by'] ."</td>";
+    echo "<td>" . $row['Date'] ."</td>";
+    echo "<td>" . "Open/close js code" ."</td>";#button
+    echo "</tr>";
+}
+?>                </tbody>
             </table>
         </div>
         <br><br><br>

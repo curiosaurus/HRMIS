@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+require 'session.php'; 
+require 'vendor\autoload.php'; 
+$client = new MongoDB\Client;
+$companydb = $client->companydb;
+$empcollection = $companydb->empollection;
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,6 +37,16 @@
 <div class="col-md-3">
 <h4>Managerial Skills</h4>
 <table class="table" id="ms">
+<?php 
+$counter = $empcollection->find();
+foreach($counter as $row) {
+    echo "<tr>";
+    echo "<td>" . $row['skill name'] ."</td>";
+    echo "<td><button class='btn btn-primary' onclick='deleteSkill('ms')'>+</button></td>";#button
+    echo "</tr>";
+}
+?>
+
     <tr>
         <td><input type="text" name="" id="msn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('ms')">+</button></td>
@@ -36,12 +54,32 @@
     </table>
     <h4>Functional Skills</h4>
     <table class="table" id="fs">
+    <?php 
+$counter = $empcollection->find();
+foreach($counter as $row) {
+    echo "<tr>";
+    echo "<td>" . $row['skill name'] ."</td>";
+    echo "<td><button class='btn btn-primary' onclick='deleteSkill('ms')'>+</button></td>";#button
+    echo "</tr>";
+}
+?>
+
     <tr>
         <td><input type="text" name="" id="fsn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('fs')">+</button></td>
     </tr>   
     </table>   
     <h4>System Skills</h4><table class="table" id="ssn">
+    <?php 
+$counter = $empcollection->find();
+foreach($counter as $row) {
+    echo "<tr>";
+    echo "<td>" . $row['skill name'] ."</td>";
+    echo "<td><button class='btn btn-primary' onclick='deleteSkill('ms')'>+</button></td>";#button
+    echo "</tr>";
+}
+?>
+
     <tr>
         <td><input type="text" name="" id="ssn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('ss')">+</button></td>

@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+require 'session.php'; 
+require 'vendor\autoload.php'; 
+$client = new MongoDB\Client;
+$companydb = $client->companydb;
+$empcollection = $companydb->empollection;
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -32,21 +39,13 @@
     </center>
     </div>
 </div>
-
 <!-- INTERVIEW SCHEDULE Div Close here -->
-
-
-
 <div class="shortlist">
-    <span style="border-bottom: 1px black; margin-left: 20px; font-family: 'Hind Siliguri', sans-serif;;">SHORT LISTED EMPLOYEES			
-       
+    <span style="border-bottom: 1px black; margin-left: 20px; font-family: 'Hind Siliguri', sans-serif;;">SHORT LISTED EMPLOYEES 
     </span>
 <br>
 <br>
-
-
 <!-- bootstrap table start here Add and remove containt in table according to your task -->
-
 <div class="table">
     <table class="table table-bordered">
         <thead>
@@ -59,36 +58,42 @@
                 </th>
             <th scope="col">location
                 </th>
-
                 <th scope="col">Day
-
                     </th>
-
                     <th scope="col">Time
-
                         </th>
-        
                         <th scope="col">EMAIL	
-
                             </th>
                             <th scope="col">HOD EMAIL
-
                                 </th>
-
                                 <th scope="col">Interview Form	
-
                                     </th>
             </tr>
         </thead>
         <tbody>
+        <?php 
+$counter = $empcollection->find();
+foreach($counter as $row) {
+    echo "<tr>";
+    echo "<td>" . $row['Candidate Name'] ."</td>";
+    echo "<td>" . $row['Open Position'] ."</td>";
+    echo "<td>" . $row['department'] ."</td>";
+    echo "<td>" . $row['interview location'] ."</td>";
+    echo "<td>" . $row['interview day'] ."</td>";
+    echo "<td>" . $row['interview time'] ."</td>";
+    echo "<td>" . $row['cand email'] ."</td>";
+    echo "<td>" . $row['hod email'] ."</td>";
+    echo "<td>" . $row['interview form'] ."</td>";#button
+    echo "</tr>";
+}
+?>
           <tr>
-
             <!-- table body -->
             <th scope="row">Sourav Roy</th>
             <td>Assi. Manager</td>
             <td>Sales</td>
             <td>Pune</td>
-            <td>25-12-19</td>
+            <td>25-12-19</td>    
             <td>12:00 pm</td>
             <td>sr@gmail.com</td>
             <td>hod@gmail.com</td>            
