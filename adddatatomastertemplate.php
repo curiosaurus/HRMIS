@@ -48,9 +48,9 @@ foreach($counter as $row) {
     echo "</tr>";
 }
 ?>
-
+    <form method="POST" action="adddatatomastertemplate.php">
     <tr>
-        <td><input type="text" name="" id="msn"></td>
+        <td><input type="text" name="msn" id="msn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('ms')">+</button></td>
     </tr>
     </table>
@@ -67,7 +67,7 @@ foreach($counter as $row) {
 ?>
 
     <tr>
-        <td><input type="text" name="" id="fsn"></td>
+        <td><input type="text" name="addskill" id="fsn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('fs')">+</button></td>
     </tr>   
     </table>   
@@ -83,7 +83,7 @@ foreach($counter as $row) {
 ?>
 
     <tr>
-        <td><input type="text" name="" id="ssn"></td>
+        <td><input type="text" name="dept" id="ssn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('ss')">+</button></td>
     </tr>
     </table>
@@ -99,7 +99,7 @@ foreach($counter as $row) {
 ?>
 
     <tr>
-        <td><input type="text" name="" id="ssn"></td>
+        <td><input type="text" name="skills" id="ssn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('ss')">+</button></td>
     </tr>
     </table>
