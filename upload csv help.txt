@@ -1,0 +1,7 @@
+at deployment
+
+environmental variable mongoimport path to system variable
+
+path retrieved and passed to mongo import in kk.bat
+
+file path stored in kk.txt
