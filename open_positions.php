@@ -65,6 +65,8 @@ foreach($counter as $row) {
     echo "<td>" . $row['Raised by'] ."</td>";
     echo "<td>" . $row['Date'] ."</td>";
     echo "<td>" . "Open/close js code" ."</td>";#button
+    echo "<td>" . "Edit js code" ."</td>";#button
+    echo "<td>" . "Shortlist cand" ."</td>";#button
     echo "</tr>";
 }
 ?>                </tbody>
