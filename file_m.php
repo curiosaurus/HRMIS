@@ -17,18 +17,43 @@
 
 	//        In this block access by session variable not by id
 	
-
+                
 				$cursor = $collection->find(array('id' => '3'));
 				foreach ($cursor as $obj) {
-                  ?>
-					 <html>
-					 
-					 <embed src="<?php print_r($obj["fileName"]);?>" type="application/pdf" width="100%" height="600px" />
-		             <img src="<?php print_r($obj["fileName"]);?>" height="100px" weight="100px">
-		 </img>
-		 </html>
-							
-					<?php	  
+				
+					$ext=explode('.',$obj["fileName"]);
+					$filech=strtolower(end($ext));
+					$img=array('png','jpg','jpeg');
+					$pdf=array('pdf','docx');
+					if(in_array($filech,$img))
+					{
+						?>
+						<html>
+						
+						<img src="<?php print_r($obj["fileName"]);?>" height="100px" weight="100px">
+						<button id="Delete" name="Delete" class="btn btn-primary">Delete </button>
+			</img>
+			</html>
+							   
+					   <?php	
+                    // $deleteresult = $collection->deleteOne( $obj["fileName"] );
+					}
+					elseif(in_array($filech,$pdf))
+					{
+						?>
+						<html>
+						
+						<embed src="<?php print_r($obj["fileName"]);?>" type="application/pdf" width="90%" height="600px" />
+						<button id="Delete" name="Delete" class="btn btn-primary">Delete </button> 
+					
+			</img>
+			</html>
+							   
+					   <?php	
+					     // $deleteresult = $collection->deleteOne( $obj["fileName"] );
+					}
+
+                    
 				}
 				
 				if(isset($_POST['create'])) {
