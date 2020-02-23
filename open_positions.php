@@ -74,8 +74,10 @@ foreach($counter as $row) {
     echo "<td>" . $row['Raised by'] ."</td>";
     echo "<td>" . $row['Date'] ."</td>";
     echo "<td>" . "<button> open /close</button>" ."</td>";
-    echo "<td>" . "<a href='viewrequision.php'>View Requisition</a>" ."</td>";
-
+    echo "<td>" . "<a href='viewrequision.php?variable1=value1'>View Requisition</a>" ."</td>";
+    #add just this line whenever you create  viewrequisition  
+    //getting values in page2.php file by $_GET function:
+    //$x=$_GET['variable1'];
     echo "</tr>";
 }
 ?>                </tbody>
