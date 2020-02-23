@@ -53,20 +53,29 @@
                         </th>
                         <th scope="col">DATE
                         </th>
+                        <th scope="col">Open/Close
+                        </th>
+
+                        <th scope="col">View
+                        </th>
+                        <th scope="col">shortlist Candidate
+                        </th>
+                        
                     </tr>
                 </thead>
                 <tbody>
                 <?php 
 $counter = $empcollection->find();
 foreach($counter as $row) {
+    $var=$row['__id'];
     echo "<tr>";
     echo "<td>" . $row['Department'] ."</td>";
     echo "<td>" . $row['Position'] ."</td>";
     echo "<td>" . $row['Raised by'] ."</td>";
     echo "<td>" . $row['Date'] ."</td>";
-    echo "<td>" . "Open/close js code" ."</td>";#button
-    echo "<td>" . "Edit js code" ."</td>";#button
-    echo "<td>" . "Shortlist cand" ."</td>";#button
+    echo "<td>" . "<button> open /close</button>" ."</td>";
+    echo "<td>" . "<a href='viewrequision.php'>View Requisition</a>" ."</td>";
+
     echo "</tr>";
 }
 ?>                </tbody>
