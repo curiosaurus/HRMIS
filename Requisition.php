@@ -93,16 +93,31 @@
         <div class="col-md-2">
              Department  
         </div>
-        <div class="col-md-3">
+<?php
+if ($_SESSION['usertype']=='admin'){?>
+<div class="col-md-3">
 	<div class="dropdown">
-  <button class="dropbtn">Select Department</button>
-  <div class="dropdown-content">
-    <a href="#">PURCHASE DEPARTMENT</a>
-    <a href="#">SALES</a>
-    <a href="#">MANUFACTURING</a>
-  </div>
+    <button class="dropbtn">Select Department</button>
+      <div class="dropdown-content">
+        <a href="#">PURCHASE DEPARTMENT</a>
+        <a href="#">SALES</a>
+        <a href="#">MANUFACTURING</a>
+       </div>
+    </div>
 </div>
-        </div>
+<?php
+}
+?>
+<?php
+if ($_SESSION['usertype']=='hod'){?>
+<div class="col-md-3">
+<?php
+$_SESSION['dept']
+?>    
+</div>
+<?php
+}
+?>
        <div class="col-md-3" id=cdate>        
         </div>
 <script>
