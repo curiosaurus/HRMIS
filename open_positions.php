@@ -1,3 +1,14 @@
+<?php
+    require 'vendor\autoload.php'; 
+
+    $client = new MongoDB\Client;
+    $companydb = $client->companydb;
+    $empcollection = $companydb->user;
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,15 +78,16 @@
                 <?php 
 $counter = $empcollection->find();
 foreach($counter as $row) {
-    $var=$row['__id'];
+    $id=$row['_id'];
+    // echo $var;
     echo "<tr>";
-    echo "<td>" . $row['Department'] ."</td>";
-    echo "<td>" . $row['Position'] ."</td>";
+    echo "<td>" . $row['department'] ."</td>";
+    echo "<td>" . $row['position'] ."</td>";
     echo "<td>" . $row['Raised by'] ."</td>";
-    echo "<td>" . $row['Date'] ."</td>";
+    echo "<td>" . $row['dateofcreation'] ."</td>";
     echo "<td>" . "<button> open /close</button>" ."</td>";
-    echo "<td>" . "<a href='viewrequision.php?variable1=value1'>View Requisition</a>" ."</td>";
-    #add just this line whenever you create  viewrequisition  
+    echo "<td><a href='viewrequision.php?variable1=".$id."'>View Requisition</a>" ."</td>";
+    #add just this line whenever you create  viewrequisition  33111`3
     //getting values in page2.php file by $_GET function:
     //$x=$_GET['variable1'];
     echo "</tr>";
