@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-require 'session.php'; 
+// require 'session.php'; 
 require 'vendor\autoload.php'; 
 $client = new MongoDB\Client;
 $companydb = $client->companydb;
@@ -87,6 +87,7 @@ Date : <input type="DATE">
                     <tr>
                         <!-- table header  -->
                         <th scope="col">Name</th>
+                    
                         <th scope="col">Current Position</th>
                        <th scope="col">Contact</th>
                         <th scope="col">Exp.</th>
@@ -99,39 +100,91 @@ Date : <input type="DATE">
                 </thead>
                 <tbody>
                 <?php 
-$counter = $empcollection->find();
-foreach($counter as $row) {
-    echo "<tr>";
-    echo "<td>" . $row['Candidate Name'] ."</td>";
-    echo "<td>" . $row['Current Position'] ."</td>";
-    echo "<td>" . $row['Expereince'] ."</td>";
-    echo "<td>" . $row['Current CTC'] ."</td>";
-    echo "<td>" . $row['Expected CTC'] ."</td>";
-    echo "<td>" . $row['Notice Period'] ."</td>";
-    echo "<td>" . $row['Remark'] ."</td>";?>
-    <td><button name="" class="btn btn-block btn-primary">Upload</button></td>
-    <?php echo "</tr>";
-}
+// $counter = $empcollection->find();
+// foreach($counter as $row) {
+//     echo "<tr>";
+//     echo "<td>" . $row['Candidate Name'] ."</td>";
+//     echo "<td>" . $row['Current Position'] ."</td>";
+//     echo "<td>" . $row['Expereince'] ."</td>";
+//     echo "<td>" . $row['Current CTC'] ."</td>";
+//     echo "<td>" . $row['Expected CTC'] ."</td>";
+//     echo "<td>" . $row['Notice Period'] ."</td>";
+//     echo "<td>" . $row['Remark'] ."</td>";?>
+<!-- //     <td><button name="" class="btn btn-block btn-primary">Upload</button></td> -->
+<?php echo "</tr>";
+// }
 ?>
-                    <tr>
-                        <th scope="row">Shailesh Pandey </th>
-                        <td>Sales Engineer</td>
-                        <td>7503388614
+        
+        
+    <?php 
+    
+    require 'vendor\autoload.php'; 
+
+    $client = new MongoDB\Client;
+    $companydb = $client->companydb;
+    $empcollection = $companydb->shortlisted_candidate;
+
+    if(isset($_POST['submit']))
+    {
+        $name = $_POST['name'];
+        $position = $_POST['cposition'];
+        $num = $_POST["num"];
+        $exp = $_POST["exp"];
+        $currenetctc = $_POST["currentctc"];
+        $expectedctc = $_POST["expectctc"];
+        $noticeperiod = $_POST["noticeperiod"];
+        $remark = $_POST["remark"];
+        if($_FILES['file']) {
+            if(move_uploaded_file($_FILES['file']['tmp_name'], 'upload/'.$_POST["num"].$_FILES['file']['name'])) {
+                // give session variable and pass it to dataBase
+                $data= 'upload/'.$_POST["num"].$_FILES['file']['name'];
+      
+            } else {
+                echo "Failed to upload file.";
+            }
+        }
+
+    // Insert one data
+    // $empcollection->insertOne($data);
+    $insertOneResult = $empcollection->insertOne( ['name' => $name, 'contact' => $num , 'current_position' => $position , 'exp' => $exp , 'current_ctc' => $currenetctc , 'expected_ctc' => $expectedctc , 'notice_period' => $noticeperiod , 'remark' => $remark , 'resume' => $data]   );    
+    if($insertOneResult)
+    {
+        echo "Sucess";
+    }
+    else{
+        echo "unSucess";
+
+    }
+}
+    
+    
+    ?>
+
+
+        <form action="open_positions-1.php" method="POST" enctype="multipart/form-data">
+        <tr>
+                        <th scope="row"><input type="text" name="name"></th>
+                        <td><input type="text" name="cposition"></td>
+                        <td><input type="number" name="num">
                         </td>
-                        <td>6</td>
-                        <td>5.8</td>
-                        <td>As per company policy
+                        <td><input type="number" name="exp"></td>
+                        <td><input type="number" name="currentctc"></td>
+                        <td><input type="text" name="expectctc">
                         </td>
-                        <td>1 Month
+                        <td><input type="text" name="noticeperiod">
                         </td>
-                        <td>Notice period negociable for 15 days			
+                        <td><input type="text" name="remark">			
                         </td>
-                        <td><button name="" class="btn btn-block btn-primary">Upload</button></td>
+                        <td><button name="" class="btn btn-block btn-primary"><input type="file" name="file"></button></td>
                     </tr>
+
+
+
                 </tbody>
             </table>
 	<center>
-	<button name="">Submit</button>
+    <button name="submit">Submit</button>
+    </form>
 	</center>
         </div>
         <br><br><br>
