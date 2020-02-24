@@ -26,25 +26,21 @@
         </div>
         <hr>
         <!-- Logo and the title navbar close here -->
-
-
-
         <!-- Main navbar that contains home recruittment Should Be start here -->
         <nav class="shadow p-3 mb-5 bg-white rounded">
             <div class="gri">
                 <div class="item1">
-                    <a href="#"> HOME</a>
+                    <a href="hr_admin_dashboard.php"> HOME</a>
                 </div>
                 <div class="item2">
             <div class="dropdown">
                     <a href="#">RECRUITMENT</a>
                    <div class="dropdown-content">
-                           <a href="masterfile.php"><p>EMPLOYEE MASTER</p></a> 
-                            <a href="Requisition.php"><p>REQUISITION</p></a>
-                            <a href="open_positions.php"><p>OPEN POSITIONS</p></a>
-                            <a href="interviewschedule.php"><p>INTERVIEW SCHEDULE</p></a>
-                            <a href="#"></a><p>CLOSED POSITIONS</p>
-                       
+                            <p>EMPLOYEE MASTER</p>
+                            <p>REQUISITION</p>
+                            <p>OPEN POSITIONS</p>
+                            <p>INTERVIEW SCHEDULE</p>
+                            <p>CLOSED POSITIONS</p>
                 </div>
         </div>
         </div>
@@ -52,20 +48,26 @@
                     <div class="dropdown">
                         <span> <a href="#"> TRAINNING</a></span>
                         <div class="dropdown-content">
-                            <a href="hr_admin_skill 2.php"><p>MANAGE YEAR</p></a>
-                            <a href="skills_matrix_hr_admin_page4.php"><p>SKILL MATRIX</p></a>
-                            <a href="trainnomination.php"><p>TRAINING NOMINATIONS</p></a>
-                            <a href="#"><p>TRAINING CALENDER</p></a> 
-                            <a href="#"><p>TRAINING SCHEDULE</p></a>  
-                            <a href="#"><p>EFFECTIVENESS</p></a>
+                            <p>SKILL MATRIX</p>
+                            <p>TRAINING NOMINATIONS</p>
+                            <p>TRAINING CALENDER</p>
+            <p>TRAINING SCHEDULE</p>
+            <p>EFFECTIVENESS</p>
                         </div>
                     </div>
+
+
+
                 </div>
                 <div class="item4">
                     <a href="#"> PMS    </a>
+
+
                 </div>
                 <div class="item5">
                     <a href="#"> WELFARE    </a>
+
+
                 </div>
         <div class="item6">
                     <div class="dropdown">
@@ -80,5 +82,7 @@
         </nav>
         </div>
     <!-- Main navbar Close here -->
+
 </body>
+
 </html>

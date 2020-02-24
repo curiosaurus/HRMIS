@@ -141,8 +141,8 @@ foreach($counter as $row) {
     echo "<td>" . $row['UAN Number'] ."</td>";
     echo "<td>" . $row['REPORTING TO'] ."</td>";
     echo "<td>" . $row['Blood Group'] ."</td>";
-    echo "<td>" . $row['RTPL Exp.'] ."</td>";
-    echo "<td>" . $row['Previous Exp.'] ."</td>";
+    echo "<td>" . $row['RTPL Exp'] ."</td>";
+    echo "<td>" . $row['Previous Exp'] ."</td>";
     echo "<td>" . $row['TOTAL EXP'] ."</td>";
     echo "<td>" . $row['Permanent Address'] ."</td>";
     echo "<td>" . $row['Local Address'] ."</td>";
