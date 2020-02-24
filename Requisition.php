@@ -22,10 +22,6 @@
         $actven = $_POST['actven'];
         $reqiso = $_POST['reqiso'];
         $actiso = $_POST['actiso'];
-
-
-
-
     // Insert one data
     $insertOneResult = $empcollection->insertOne( ['Requisition for the Post' => $reqfor , 'Reason for Appoinment' => $reasonappnt , 'Qualification Minimum' => $minqual , 'Qualification Preferred' => $prefqual , 'Experience Minimum' =>  $expmin , 'Experience Maximum' => $expmax , 'Skill Required' => $skillsreq , 'Any Special Consideration' =>  $skillconsider , 'Communication Skill REQUIRED' => $reqcomm , 'Communication Skill ACTUAL' => $actcomm , 'Vendor Selection & Assessment REQUIRED' => $reqven , 'Vendor Selection & Assessment ACTUAL' => $actven , 'ISO REQUIRED' =>  $reqiso , 'ISO ACTUAL' => $actiso ] );
 
