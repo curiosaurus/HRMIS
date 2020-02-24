@@ -1,5 +1,5 @@
 <?php
-    require 'session.php'	
+    // require 'session.php'	
     require 'vendor\autoload.php'; 
 
     $client = new MongoDB\Client;
@@ -8,9 +8,11 @@
 
     if(isset($_POST['submit']))
     {
+        $department = $_POST['department'];
         $reqfor = $_POST['reqfor']; 
         $reasonappnt = $_POST['reasonappnt'];
-        $minqual	 = $_POST['minqual'];
+        $dateofcreation = date("m/d/Y");
+        $minqual = $_POST['minqual'];
         $prefqual = $_POST['prefqual'];
         $expmin = $_POST['expmin'];
         $expmax = $_POST['expmax'];
@@ -23,7 +25,7 @@
         $reqiso = $_POST['reqiso'];
         $actiso = $_POST['actiso'];
     // Insert one data
-    $insertOneResult = $empcollection->insertOne( ['Requisition for the Post' => $reqfor , 'Reason for Appoinment' => $reasonappnt , 'Qualification Minimum' => $minqual , 'Qualification Preferred' => $prefqual , 'Experience Minimum' =>  $expmin , 'Experience Maximum' => $expmax , 'Skill Required' => $skillsreq , 'Any Special Consideration' =>  $skillconsider , 'Communication Skill REQUIRED' => $reqcomm , 'Communication Skill ACTUAL' => $actcomm , 'Vendor Selection & Assessment REQUIRED' => $reqven , 'Vendor Selection & Assessment ACTUAL' => $actven , 'ISO REQUIRED' =>  $reqiso , 'ISO ACTUAL' => $actiso ] );
+    $insertOneResult = $empcollection->insertOne( ['department' => $department ,'position' => $reqfor , 'reasonofappointment' => $reasonappnt , 'dateofcreation' => $dateofcreation , 'minqual' => $minqual , 'prefqual' => $prefqual , 'minexp' =>  $expmin , 'prefexp' => $expmax , 'skillreq' => $skillsreq , 'spconsideration' =>  $skillconsider , 'Communication Skill REQUIRED' => $reqcomm , 'Communication Skill ACTUAL' => $actcomm , 'Vendor Selection & Assessment REQUIRED' => $reqven , 'Vendor Selection & Assessment ACTUAL' => $actven , 'ISO REQUIRED' =>  $reqiso , 'ISO ACTUAL' => $actiso ] );
 
     if($insertOneResult)
     {
@@ -80,6 +82,7 @@
 <br>
 <hr style="border-bottom: 1px solid#3f51b5; width: 500px;">
 <br>
+<form action="Requisition.php" method="post">
 <div class="container">
     <div class="row justify-content-md-start">
         
@@ -90,31 +93,34 @@
              Department  
         </div>
 <?php
-if ($_SESSION['usertype']=='admin'){?>
+// if ($_SESSION['usertype']=='admin'){?>
 <div class="col-md-3">
 	<div class="dropdown">
-    <button class="dropbtn">Select Department</button>
-      <div class="dropdown-content">
-        <a href="#">PURCHASE DEPARTMENT</a>
-        <a href="#">SALES</a>
-        <a href="#">MANUFACTURING</a>
-       </div>
-    </div>
+
+    
+<select name="department">
+    <option >Select Department</option>
+    <option value="PURCHASE DEPARTMENT">PURCHASE DEPARTMENT</option>
+    <option value="SALES">SALES</option>
+    <option value="MANUFACTURING">MANUFACTURING</option>
+</select>
+
+</div>
 </div>
 <?php
-}
+// }
 ?>
 <?php
-if ($_SESSION['usertype']=='hod'){?>
+// if ($_SESSION['usertype']=='hod'){?>
 <div class="col-md-3">
 <?php
-$_SESSION['dept']
+// $_SESSION['dept']
 ?>    
 </div>
 <?php
-}
+// }
 ?>
-       <div class="col-md-3" id=cdate>        
+       <div class="col-md-3" id=cdate>     
         </div>
 <script>
 n =  new Date();
@@ -126,7 +132,6 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
     </div>
 <br>
 
-<form action="Requisition.php" method="post">
 
     <div class="row justify-content-md-start">
         <div class="col-md-4">
