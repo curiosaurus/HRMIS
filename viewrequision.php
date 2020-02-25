@@ -12,12 +12,11 @@
        echo $id;   
     }
     
-    $counter = $empcollection->find(array('_id' => $id));
+    $counter = $empcollection->find(array('unique_id' => $id));
     
 
     foreach($counter as $row) {
-        echo $row['deparmtment'] ;
-    }
+    
 
 
 ?>
@@ -83,7 +82,7 @@
 
     
 <select name="department" disabled>
-    <option >Select Department</option>
+    <option value="<?php echo $row['department'] ;?>" ><?php echo $row['department'] ; ?></option>
 </select>
 
 </div>
@@ -101,15 +100,16 @@
 <?php
 // }
 ?>
-       <div class="col-md-3" id=cdate>     
+       <div class="col-md-3" id=cdate> 
+        <label><?php echo $row['dateofcreation']; ?></label>    
         </div>
-<script>
+<!-- <script>
 n =  new Date();
 y = n.getFullYear();
 m = n.getMonth() + 1;
 d = n.getDate();
 document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
-</script>
+</script> -->
     </div>
 <br>
 
@@ -119,7 +119,7 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
             <label>Requisition for the Post / Designation:</label>
         </div>
         <div class="col-md-4">
-            <input type="text" name="reqfor" id="reqfor"  class="form-control" disabled>
+            <input type="text" name="reqfor" id="reqfor"  class="form-control" placeholder = "<?php echo $row['position']; ?>" disabled>
         </div>
     </div>
     <br>
@@ -129,7 +129,7 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
         </div>
         <div class="col-md-4">
             <select class="custom-select"  name="reasonappnt" id="reasonappnt" disabled>
-                <option value="Replacement"> Replacement </option>
+                <option value="<?php echo $row['reasonofappointment']; ?>"> <?php echo $row['reasonofappointment']; ?> </option>
             </select>            
         </div>    
     </div>
@@ -149,10 +149,10 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
             </div>
             <div class="row justify-content-md-start">
                 <div class="col-md-6">
-                    <input type="text"  class="form-control" id="minqual" name="minqual" disabled>
+                    <input type="text"  class="form-control" id="minqual" name="minqual" placeholder = "<?php echo $row['minqual']; ?>" disabled>
                 </div>
                 <div class="col-md-6">
-                    <input type="text"  class="form-control" id="prefqual" name="prefqual" disabled>
+                    <input type="text"  class="form-control" id="prefqual" name="prefqual" placeholder = "<?php echo $row['prefqual']; ?>" disabled>
                 </div>
             </div>
         </div>
@@ -173,10 +173,10 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
             </div>
             <div class="row justify-content-md-start">
                 <div class="col-md-6">
-                    <input type="text"  class="form-control" name="expmin" id="expmin" disabled>
+                    <input type="text"  class="form-control" name="expmin" id="expmin" placeholder = "<?php echo $row['minexp']; ?>" disabled>
                 </div>
                 <div class="col-md-6">
-                    <input type="text"  class="form-control" name="expmax" id="expmax" disabled>
+                    <input type="text"  class="form-control" name="expmax" id="expmax" placeholder = "<?php echo $row['prefexp']; ?>" disabled>
                 </div>
             </div>
         </div>
@@ -188,14 +188,14 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
                 <label class="text-md-center"> Skill Required :</label>    
             </div>
             <div class="row justify-content-md-start">
-                <textarea class="form-control"  rows="3" name="skillsreq" id="skillsreq" disabled></textarea>
+                <textarea class="form-control"  rows="3" name="skillsreq" id="skillsreq" placeholder = "<?php echo $row['skillreq']; ?>" disabled></textarea>
             </div>
             <br>
             <div class="row justify-content-md-start">
                 <label class="text-md-center"> Any Special Consideration :</label>    
             </div>
             <div class="row justify-content-md-start">
-                <textarea class="form-control" name="skillconsider"  rows="3" disabled></textarea>
+                <textarea class="form-control" name="skillconsider"  rows="3" placeholder = "<?php echo $row['spconsideration']; ?>" disabled></textarea>
             </div>          
         </div> 
         
@@ -211,7 +211,7 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
                 <tr > 
                     <th>Managerial Skill</th>
             <td >Communication Skill</td>
-            <td ><input type="number" style="width: 50px;" name="reqcomm" id="" disabled></td>
+            <td ><input type="number" style="width: 50px;" name="reqcomm" id=""  disabled></td>
             <td><input type="number" name="actcomm" id=""  style="width: 50px;" disabled></td>
         </tr>
         <tr> 
@@ -241,5 +241,6 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
         </div>
     </div> -->
     <br>
+    <?php } ?>
 </form> 
 </div>
