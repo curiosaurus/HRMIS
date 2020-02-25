@@ -5,6 +5,7 @@
     $companydb = $client->companydb;
     $empcollection = $companydb->user;
 
+
 ?>
 
 
@@ -78,7 +79,7 @@
                 <?php 
 $counter = $empcollection->find();
 foreach($counter as $row) {
-    $id=$row['_id'];
+    $id=$row['unique_id'];
     // echo $var;
     echo "<tr>";
     echo "<td>" . $row['department'] ."</td>";
