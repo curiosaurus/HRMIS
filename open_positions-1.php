@@ -6,7 +6,46 @@ require 'vendor\autoload.php';
 $client = new MongoDB\Client;
 $companydb = $client->companydb;
 $empcollection = $companydb->empollection;
+
+
+
+
+
+
+/**
+ * Creating MongoDB like ObjectIDs.
+ * Using current timestamp, hostname, processId and a incremting id.
+ * 
+ * @author Julius Beckmann
+ */
+function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
+{
+	// Building binary data.
+	$bin = sprintf(
+		"%s%s%s%s",
+		pack('N', $timestamp),
+		substr(md5($hostname), 0, 3),
+		pack('n', $processId),
+		substr(pack('N', $id), 1, 3)
+	);
+
+	// Convert binary to hex.
+	$result = '';
+	for ($i = 0; $i < 12; $i++) {
+		$result .= sprintf("%02x", ord($bin[$i]));
+	}
+
+	return $result;
+}
+
+
 ?>
+
+
+
+
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -124,8 +163,15 @@ Date : <input type="DATE">
     $companydb = $client->companydb;
     $empcollection = $companydb->shortlisted_candidate;
 
+
+    
+
     if(isset($_POST['submit']))
     {
+        foreach(range(0, 0) as $id) {
+                $id = 9423;
+            }
+        $unique_id = createMongoDbLikeId(time(), php_uname('n'), getmypid(), $id);
         $name = $_POST['name'];
         $position = $_POST['cposition'];
         $num = $_POST["num"];
@@ -134,11 +180,12 @@ Date : <input type="DATE">
         $expectedctc = $_POST["expectctc"];
         $noticeperiod = $_POST["noticeperiod"];
         $remark = $_POST["remark"];
+        $hod_remark = "Shortlist";
         if($_FILES['file']) {
             if(move_uploaded_file($_FILES['file']['tmp_name'], 'upload/'.$_POST["num"].$_FILES['file']['name'])) {
                 // give session variable and pass it to dataBase
-                $data= 'upload/'.$_POST["num"].$_FILES['file']['name'];
-      
+                $data= 'uploads/'.$_POST["num"].$_FILES['file']['name'];
+       
             } else {
                 echo "Failed to upload file.";
             }
@@ -146,7 +193,7 @@ Date : <input type="DATE">
 
     // Insert one data
     // $empcollection->insertOne($data);
-    $insertOneResult = $empcollection->insertOne( ['name' => $name, 'contact' => $num , 'current_position' => $position , 'exp' => $exp , 'current_ctc' => $currenetctc , 'expected_ctc' => $expectedctc , 'notice_period' => $noticeperiod , 'remark' => $remark , 'resume' => $data]   );    
+    $insertOneResult = $empcollection->insertOne( [ 'unique_id' => $unique_id , 'name' => $name, 'contact' => $num , 'current_position' => $position , 'exp' => $exp , 'current_ctc' => $currenetctc , 'expected_ctc' => $expectedctc , 'notice_period' => $noticeperiod , 'remark' => $remark , 'hod_remark' => $hod_remark , 'resume' => $data]   );    
     if($insertOneResult)
     {
         echo "Sucess";

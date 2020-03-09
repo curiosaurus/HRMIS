@@ -1,3 +1,21 @@
+<?php
+
+require 'vendor\autoload.php'; 
+
+$client = new MongoDB\Client;
+$companydb = $client->companydb;
+$empcollection = $companydb->shortlisted_candidate;
+
+
+?>
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -103,10 +121,26 @@
                 </thead>
                 <tbody>
                 
+<!-- <form action="hod_short_listing.php" method="post"> -->
+
+<?php 
 
 
-                    <?php 
+if(isset($_POST['submit']))
+    {   
+        $hod_remark = $_POST['hod_remark'];
+        $id = $_POST['uniqueid'];
+       
+        // echo $id;
+        // echo $hod_remark;
 
+// Update one data
+    $updateResult = $empcollection->updateOne(
+        ['unique_id' => $id ],
+        ['$set' => ['hod_remark' => $hod_remark]]
+    );
+
+    }
 
 require 'vendor\autoload.php'; 
 
@@ -116,9 +150,12 @@ $empcollection = $companydb->shortlisted_candidate;
 
 $counter = $empcollection->find();
 foreach($counter as $row) {
-    
+
+echo '<form action="hod_short_listing.php" method="post">';
+
+    $id=$row['unique_id'];
     echo "<tr>";
-    echo "<td>" . $row['name'] ."</td>";
+    echo "<td>" . $row['name'] ."'</td>";
     echo "<td>" . $row['current_position'] ."</td>";
     echo "<td>" . $row['contact'] ."</td>";
     echo "<td>" . $row['exp'] ."</td>";
@@ -129,17 +166,27 @@ foreach($counter as $row) {
     echo   '  <td><button name="" class="btn btn-block btn-primary"><a target="__blank" href="'. $row['resume'] .'" style="color:white;text-decoration:none;">open</a></button></td>
 ';
 
-    echo "<td><select name='remark' id=''><option value='shortlist'>shortlist</option>
+    echo "<td><select name='hod_remark' id=''>
+    <option selected>".$row['hod_remark']."</option>
     <option value='Hold'>Hold</option>
     <option value='Reject'>Reject</option></select></td>
 ";
+?>
 
- echo '<td><button  name="" class="btn btn-block btn-primary">Submit</button></td>
-';
+<input type="hidden" name="uniqueid" value="<?php echo $id ?>">
+
+<?php
+
+ echo '<td><button  name="submit" class="btn btn-block btn-primary">Submit</button></td>';
+//  echo "<td><a href='viewrequision.php?variable1=".$id."'>View Requisition</a>" ."</td>";
+
+
+
     #add just this line whenever you create  viewrequisition  
     //getting values in page2.php file by $_GET function:
     //$x=$_GET['variable1'];
     echo "</tr>";
+    echo '</form>';
 }
 ?>     
 
@@ -149,6 +196,7 @@ foreach($counter as $row) {
                     </tr>
                    
                 </tbody>
+                <!-- </form> -->
             </table>
         </div>
         <br><br><br>
