@@ -33,7 +33,7 @@
         <nav class="shadow p-3 mb-5 bg-white rounded">
             <div class="gri">
                 <div class="item1">
-                    <a href="#"> HOME</a>
+                    <a href="Requisition.php"> HOME</a>
                 </div>
                 <div class="item2">
             <div class="dropdown">
@@ -43,7 +43,7 @@
                             <a href="Requisition.php"><p>REQUISITION</p></a>
                             <a href="open_positions.php"><p>OPEN POSITIONS</p></a>
                             <a href="interviewschedule.php"><p>INTERVIEW SCHEDULE</p></a>
-                            <a href="#"><p>CLOSED POSITIONS</p></a>
+                            <a href="closedposition.php"><p>CLOSED POSITIONS</p></a>
                             <a href="hod_short_listing.php"><p>SHORTLIST CANDIDATE</p></a>
                        
                 </div>

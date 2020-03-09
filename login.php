@@ -7,7 +7,7 @@ require 'vendor\autoload.php';
 
 
 $client = new MongoDB\Client;
-$db = $client->companydb;
+$db = $client->hrmis;
 $collection = $db->user;
 
 $loginerror = " ";
@@ -20,7 +20,7 @@ $loginerror = " ";
             if($cursor){
                 $p = $_POST['email'];
                 $_SESSION['email'] = $p;
-                header("location:p.php");
+                header("location:Requisition.php");
             }
             else{
                 $loginerror = "Sorry Username and Password is Wrong!" ;
