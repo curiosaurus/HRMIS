@@ -26,21 +26,26 @@
         </div>
         <hr>
         <!-- Logo and the title navbar close here -->
+
+
+
         <!-- Main navbar that contains home recruittment Should Be start here -->
         <nav class="shadow p-3 mb-5 bg-white rounded">
             <div class="gri">
                 <div class="item1">
-                    <a href="hr_admin_dashboard.php"> HOME</a>
+                    <a href="Requisition.php"> HOME</a>
                 </div>
                 <div class="item2">
             <div class="dropdown">
                     <a href="#">RECRUITMENT</a>
                    <div class="dropdown-content">
-                            <p>EMPLOYEE MASTER</p>
-                            <p>REQUISITION</p>
-                            <p>OPEN POSITIONS</p>
-                            <p>INTERVIEW SCHEDULE</p>
-                            <p>CLOSED POSITIONS</p>
+                            <a href="masterfile.php"><p>EMPLOYEE MASTER</p></a>
+                            <a href="Requisition.php"><p>REQUISITION</p></a>
+                            <a href="open_positions.php"><p>OPEN POSITIONS</p></a>
+                            <a href="interviewschedule.php"><p>INTERVIEW SCHEDULE</p></a>
+                            <a href="closedposition.php"><p>CLOSED POSITIONS</p></a>
+                            <a href="hod_short_listing.php"><p>SHORTLIST CANDIDATE</p></a>
+                       
                 </div>
         </div>
         </div>
@@ -49,10 +54,10 @@
                         <span> <a href="#"> TRAINNING</a></span>
                         <div class="dropdown-content">
                             <p>SKILL MATRIX</p>
-                            <p>TRAINING NOMINATIONS</p>
+                            <p>TRAINING NOMINATIONS CARD</p>
                             <p>TRAINING CALENDER</p>
-            <p>TRAINING SCHEDULE</p>
-            <p>EFFECTIVENESS</p>
+                            <p>TRAINING SCHEDULE</p>
+                            <p>EFFECTIVENESS</p>
                         </div>
                     </div>
 
