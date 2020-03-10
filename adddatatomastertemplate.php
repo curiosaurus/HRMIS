@@ -50,7 +50,7 @@ foreach($counter as $row) {
 ?>
     <form method="POST" action="adddatatomastertemplate.php">
     <tr>
-        <td><input type="text" name="msn" id="msn"></td>
+        <td><input type="text" name="msn" required id="msn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('ms')">+</button></td>
     </tr>
     </table>
@@ -67,7 +67,7 @@ foreach($counter as $row) {
 ?>
 
     <tr>
-        <td><input type="text" name="addskill" id="fsn"></td>
+        <td><input type="text" required name="addskill" id="fsn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('fs')">+</button></td>
     </tr>   
     </table>   
@@ -83,7 +83,7 @@ foreach($counter as $row) {
 ?>
 
     <tr>
-        <td><input type="text" name="dept" id="ssn"></td>
+        <td><input type="text" required name="dept" id="ssn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('ss')">+</button></td>
     </tr>
     </table>
@@ -99,7 +99,7 @@ foreach($counter as $row) {
 ?>
 
     <tr>
-        <td><input type="text" name="skills" id="ssn"></td>
+        <td><input type="text" required name="skills" id="ssn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('ss')">+</button></td>
     </tr>
     </table>
@@ -109,7 +109,7 @@ function addSkill(tid) {
 var table = document.getElementById(tid);
 var row = table.insertRow(1);
 var cell1 = row.insertCell(0);
-cell1.innerHTML = '<input type="text" name="" id="" value='+document.getElementById(tid+'n').value+">";
+cell1.innerHTML = '<input type="text" required name="" id="" value='+document.getElementById(tid+'n').value+">";
 var cell2 = row.insertCell(-1);
 cell2.innerHTML = '<td><button   class="btn btn-danger">Delete</button></td>';
 }
@@ -117,5 +117,6 @@ cell2.innerHTML = '<td><button   class="btn btn-danger">Delete</button></td>';
 </script>
 <button class="btn btn-primary btn-lg btn-block" style="height:10%; width: 20%;">submit</button>
 </div>
+</form>
 </body>
 </html>
