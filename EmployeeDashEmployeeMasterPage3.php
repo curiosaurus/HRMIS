@@ -394,5 +394,5 @@ $empcollection = $companydb->empollection;
     </div>
     </div>
 </div>
-</body>
+</body> 
 </html>
