@@ -4,10 +4,36 @@
     $client = new MongoDB\Client;
     $companydb = $client->hrmis;
     $empcollection = $companydb->requisition;
+    /**
+ * Creating MongoDB like ObjectIDs.
+ * Using current timestamp, hostname, processId and a incremting id.
+ * 
+ * @author Julius Beckmann
+ */
+function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
+{
+	// Building binary data.
+	$bin = sprintf(
+		"%s%s%s%s",
+		pack('N', $timestamp),
+		substr(md5($hostname), 0, 3),
+		pack('n', $processId),
+		substr(pack('N', $id), 1, 3)
+	);
+
+	// Convert binary to hex.
+	$result = '';
+	for ($i = 0; $i < 12; $i++) {
+		$result .= sprintf("%02x", ord($bin[$i]));
+	}
+
+	return $result;
+}
+
     if(isset($_POST['submit']))
     {   
         foreach(range(0, 0) as $id) {
-        $id = 7841;
+        $id = 6942;
         }
         $unique_id = createMongoDbLikeId(time(), php_uname('n'), getmypid(), $id); 
         $department = $_POST['department'];
@@ -40,10 +66,10 @@
 
     if(isset($_GET['variable1']))
     {
-       $id = $_GET['variable1'];   
-       echo $id;   
+       $uid = $_GET['variable1'];   
+       echo $uid;   
     }
-    $counter = $empcollection->find(array('unique_id' => $id));
+    $counter = $empcollection->find(array('unique_id' => $uid));
     
     foreach($counter as $row) {
 ?>
@@ -101,7 +127,7 @@
 	<div class="dropdown">
 
     
-<select name="department" >
+<select required name="department" >
     <option value="<?php echo $row['department'] ;?>" ><?php echo $row['department'] ; ?></option>
 </select>
 
@@ -139,7 +165,7 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
             <label>Requisition for the Post / Designation:</label>
         </div>
         <div class="col-md-4">
-            <input type="text" name="reqfor" id="reqfor"  class="form-control" placeholder = "<?php echo $row['position']; ?>" >
+            <input required type="text" name="reqfor" id="reqfor"  class="form-control" placeholder = "<?php echo $row['position']; ?>" >
         </div>
     </div>
     <br>
@@ -148,7 +174,7 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
             <label>Reason for Appoinment:   </label>
         </div>
         <div class="col-md-4">
-            <select class="custom-select"  name="reasonappnt" id="reasonappnt" >
+            <select required class="custom-select"  name="reasonappnt" id="reasonappnt" >
                 <option value="<?php echo $row['reasonofappointment']; ?>"> <?php echo $row['reasonofappointment']; ?> </option>
             </select>            
         </div>    
@@ -169,10 +195,10 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
             </div>
             <div class="row justify-content-md-start">
                 <div class="col-md-6">
-                    <input type="text"  class="form-control" id="minqual" name="minqual" placeholder = "<?php echo $row['minqual']; ?>" >
+                    <input required type="text"  class="form-control" id="minqual" name="minqual" placeholder = "<?php echo $row['minqual']; ?>" >
                 </div>
                 <div class="col-md-6">
-                    <input type="text"  class="form-control" id="prefqual" name="prefqual" placeholder = "<?php echo $row['prefqual']; ?>" >
+                    <input required type="text"  class="form-control" id="prefqual" name="prefqual" placeholder = "<?php echo $row['prefqual']; ?>" >
                 </div>
             </div>
         </div>
@@ -193,10 +219,10 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
             </div>
             <div class="row justify-content-md-start">
                 <div class="col-md-6">
-                    <input type="text"  class="form-control" name="expmin" id="expmin" placeholder = "<?php echo $row['minexp']; ?>" >
+                    <input required type="text"  class="form-control" name="expmin" id="expmin" placeholder = "<?php echo $row['minexp']; ?>" >
                 </div>
                 <div class="col-md-6">
-                    <input type="text"  class="form-control" name="expmax" id="expmax" placeholder = "<?php echo $row['prefexp']; ?>" >
+                    <input required type="text"  class="form-control" name="expmax" id="expmax" placeholder = "<?php echo $row['prefexp']; ?>" >
                 </div>
             </div>
         </div>
@@ -231,22 +257,23 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
                 <tr > 
                     <th>Managerial Skill</th>
             <td >Communication Skill</td>
-            <td ><input type="number" style="width: 50px;" name="reqcomm" id=""  ></td>
-            <td><input type="number" name="actcomm" id=""  style="width: 50px;" ></td>
+            <td ><input required type="number" style="width: 50px;" name="reqcomm" id=""  ></td>
+            <td><input required type="number" name="actcomm" id=""  style="width: 50px;" ></td>
         </tr>
         <tr> 
             <th>Preffered Skill</th>
             <td style="">Vendor Selection & Assessment		
                 </td>
-                <td><input type="number" name="reqven" id=""  style="width: 50px;" ></td>
-                <td><input type="number" name="actven" id=""  style="width: 50px;" ></td>   
+                <td><input required type="number" name="reqven" id=""  style="width: 50px;" ></td>
+                <td><input required type="number" name="actven" id=""  style="width: 50px;" ></td>   
             </tr>
             <tr> 
                 <th >System Requirement</th>
                 <td>ISO 9001:2015		
                     </td>
-                    <td><input type="number" name="reqiso" id=""  style="width: 50px;" ></td>
-                    <td><input type="number" name="actiso" id=""  style="width: 50px;" ></td>
+                    <td><input required type="number" name="reqiso" id=""  style="width: 50px;" ></td>
+                    <td><input required type="number" name="actiso" id=""  style="width: 50px;" ></td>
+                    <input required type="hidden" name="uid" id="" value="<?php echo $uid ?>"  style="width: 50px;" >
                 </tr>
             </table>
         </div>
@@ -254,7 +281,7 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
     <br><br>
     <div class="row justify-content-md-around">
         <div class="col-3">
-            <input type="submit" value="Submit" name="submit" id="submit"  class="btn btn-primary btn-lg btn-block">
+            <input required type="submit" value="Submit" name="submit" id="submit"  class="btn btn-primary btn-lg btn-block">
         </div>
         <div class="col-3">
             <button class="btn btn-danger btn-lg btn-block">Cancel</button>
