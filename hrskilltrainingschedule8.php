@@ -34,6 +34,7 @@
             
             </div>
         </div>
+        <form action="" method="post">
     <div class="container" style="border: 1px solid lightblue; padding: 2px;">
 
         <div class="row justify-content-md-around">
@@ -44,7 +45,7 @@
 
 
             <div class="col-md-8">
-                <select class="form-control form-control-lg">
+                <select class="form-control form-control-lg" required>
                     <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
                     <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
                     <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
@@ -63,7 +64,7 @@
 
     <div class="row justify-content-md-center">
        <label style="font-size: 20px;">Identified Subject</label>
-       <select name="" id="">
+       <select name="" required id="">
            <option value="">Rejection Control</option>
            <option value="">Communication Skill</option>
         </select>
@@ -78,7 +79,7 @@
         </div>
 
         <div class="col-md-4">
-            <input type="date" class="form-control" >
+            <input type="date" required class="form-control" >
         </div>
 
 
@@ -91,11 +92,11 @@
         </div>
 
         <div class="col-md-4">
-            <input type="time" class="form-control" > 
+            <input type="time" required class="form-control" > 
         </div>
         to &nbsp;&nbsp;
         <div class="col-md-end">
-            <input type="time" name="" id="">
+            <input type="time" required  name="" id="">
         </div>
     </div>
 <br>
@@ -106,7 +107,7 @@
         </div>
 
         <div class="col-md-4">
-            <input type="text" class="form-control" >
+            <input type="text" required class="form-control" >
         </div>
 
     </div>
@@ -118,7 +119,7 @@
         </div>
 
         <div class="col-md-4">
-            <input type="text" class="form-control" >
+            <input type="text" required class="form-control" >
         </div>
 
     </div>
@@ -130,15 +131,15 @@
         </div>
 
         <div class="col-md-4">
-            <input type="text" class="form-control" >
+            <input type="text" required class="form-control" >
         </div>
 
     </div>
 
 </div>
 </div>
-     <a href="Skil-matrix-hr-and-admin-page-8.html"> <button class="btn btn-primary btn-lg">Submit</button></a>
-
+<input type="submit" value="Submit" name="Submit" class="btn btn-primary">
+</form>
 </body>
 
 </html>
