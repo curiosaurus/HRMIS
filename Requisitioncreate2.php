@@ -49,7 +49,7 @@ foreach($counter as $row) {
 ?>
 
     <tr>
-        <td><input type="text" name="Managerial" id="msn"></td>
+        <td><input required type="text" name="Managerial" id="msn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('ms')">+</button></td>
     </tr>
     </table>
@@ -66,7 +66,7 @@ foreach($counter as $row) {
 ?>
 
     <tr>
-        <td><input type="text" name="Functional" id="fsn"></td>
+        <td><input required type="text" name="Functional" id="fsn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('fs')">+</button></td>
     </tr>   
     </table>   
@@ -82,7 +82,7 @@ foreach($counter as $row) {
 ?>
 
     <tr>
-        <td><input type="text" name="System" id="ssn"></td>
+        <td><input required type="text" name="System" id="ssn"></td>
         <td><button class="btn btn-primary" onclick="addSkill('ss')">+</button></td>
     </tr>
     </table>
