@@ -173,10 +173,10 @@ if(isset($_POST["submit"]))
                 <option value="PUNE">PUNE</option>
                 <option value="Kolhapur">Kolhapur</option>
             </select></td>
-    <td><input type="date" name="date" id="date"></td>
-    <td><input type="text" name="time" id="time" placeholder="hr:min am/pm"></td>
-    <td><input type="email" name="iemail" id="iemail"></td>
-    <td><input type="email" name="hemail" id="hemail"></td>           
+    <td><input required type="date" name="date" id="date"></td>
+    <td><input required type="text" name="time" id="time" placeholder="hr:min am/pm"></td>
+    <td><input required type="email" name="iemail" id="iemail"></td>
+    <td><input required type="email" name="hemail" id="hemail"></td>           
     <td><button type="submit" name="submit" class="btn btn-block btn-primary" >Send</button></td>
         </form>
           </tr>
@@ -188,10 +188,10 @@ if(isset($_POST["submit"]))
                     <option value="PUNE">PUNE</option>
                     <option value="Kolhapur">Kolhapur</option>
                 </select></td>
-                <td><input type="date" name="date" id="date"></td>
-                <td><input type="text" name="time" id="time" placeholder="hr:min am/pm"></td>
-                <td><input type="email" name="iemail" id="iemail"></td>
-                <td><input type="email" name="hemail" id="hemail"></td>             <td><button  type="submit" name="submit" class="btn btn-block btn-primary">Send</button></td>
+                <td><input required type="date" name="date" id="date"></td>
+                <td><input required type="text" name="time" id="time" placeholder="hr:min am/pm"></td>
+                <td><input required type="email" name="iemail" id="iemail"></td>
+                <td><input required type="email" name="hemail" id="hemail"></td>             <td><button  type="submit" name="submit" class="btn btn-block btn-primary">Send</button></td>
               </tr>
               <tr>
                     <th scope="row">Sonu Kumar Giri	
@@ -204,10 +204,10 @@ if(isset($_POST["submit"]))
                         <option value="PUNE">PUNE</option>
                         <option value="Kolhapur">Kolhapur</option>
                     </select></td>
-                    <td><input type="date" name="date" id="date"></td>
-                    <td><input type="text" name="time" id="time" placeholder="hr:min am/pm"></td>
-                    <td><input type="email" name="iemail" id="iemail"></td>
-                    <td><input type="email" name="hemail" id="hemail"></td>
+                    <td><input required type="date" name="date" id="date"></td>
+                    <td><input required type="text" name="time" id="time" placeholder="hr:min am/pm"></td>
+                    <td><input required type="email" name="iemail" id="iemail"></td>
+                    <td><input required type="email" name="hemail" id="hemail"></td>
                     <td><button name="" class="btn btn-block btn-primary">Send</button></td>
                   </tr>
 
@@ -219,10 +219,10 @@ if(isset($_POST["submit"]))
                             <option value="PUNE">PUNE</option>
                             <option value="Kolhapur">Kolhapur</option>
                         </select></td>
-                        <td><input type="date" name="date" id="date"></td>
-                        <td><input type="text" name="time" id="time" placeholder="hr:min am/pm"></td>
-                        <td><input type="email" name="iemail" id="iemail"></td>
-                        <td><input type="email" name="hemail" id="hemail"></td>
+                        <td><input required type="date" name="date" id="date"></td>
+                        <td><input required type="text" name="time" id="time" placeholder="hr:min am/pm"></td>
+                        <td><input required type="email" name="iemail" id="iemail"></td>
+                        <td><input required type="email" name="hemail" id="hemail"></td>
                         <td><button name="" class="btn btn-block btn-primary">Send</button></td>
                       </tr>
 
@@ -234,16 +234,16 @@ if(isset($_POST["submit"]))
                                 <option value="PUNE">PUNE</option>
                                 <option value="Kolhapur">Kolhapur</option>
                             </select></td>
-                            <td><input type="date" name="date" id="date"></td>
-                            <td><input type="text" name="time" id="time" placeholder="hr:min am/pm"></td>
-                            <td><input type="email" name="iemail" id="iemail"></td>
-                            <td><input type="email" name="hemail" id="hemail"></td>                            <td><button name="" class="btn btn-block btn-primary">Send</button></td>
+                            <td><input type="date" required name="date" id="date"></td>
+                            <td><input type="text" required name="time" id="time" placeholder="hr:min am/pm"></td>
+                            <td><input type="email" required name="iemail" id="iemail"></td>
+                            <td><input type="email" required name="hemail" id="hemail"></td>                            <td><button name="" class="btn btn-block btn-primary">Send</button></td>
                       </tr>
         </tbody>
       </table>
 </div>
 <br><br><br>
 </div>
-
+</form>
 </body>
 </html>
