@@ -38,18 +38,18 @@
     </div>
 <br>
 <br>
+<form action="#" method="post">
+    <div class="container" style="border: 1px solid lightblue; padding: 25px;">
 
-<div class="container" style="border: 1px solid lightblue; padding: 25px;">
-
-    <div class="row justify-content-md-around">
+        <div class="row justify-content-md-around">
         
-        <div class="col-md-1" >
-            <h4><label> Year</label></h4>
-        </div>
+            <div class="col-md-1" >
+                <h4><label> Year</label></h4>
+            </div>
 
         
         <div class="col-md-8">
-            <select class="form-control form-control-lg">
+            <select required class="form-control form-control-lg">
                 <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
                 <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
                 <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
@@ -76,7 +76,7 @@
         </div>
         
         <div class="col-md-4">
-            <input type="text"  class="form-control" >
+            <input required type="text"  class="form-control" >
         </div>
         
     </div>
@@ -140,6 +140,6 @@
     </div>
 
 </div>
-
+</form>
 </body>
 </html>
