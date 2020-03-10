@@ -1,40 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
-// require 'session.php'; 
+
+
 require 'vendor\autoload.php'; 
+
 $client = new MongoDB\Client;
 $companydb = $client->hrmis;
-$empcollection = $companydb->requsition;
+$empcollection = $companydb->requisition;
+
+
+
+
+
+if(isset($_GET['variable1']))
+{
+$R_id = $_GET['variable1'];   
+}
+else
+{
+    $R_id = $_POST['requisition_id'];
+}
+
 
 
 
 
 /**
- * Creating MongoDB like ObjectIDs.
- * Using current timestamp, hostname, processId and a incremting id.
- * 
- * @author Julius Beckmann
- */
+* Creating MongoDB like ObjectIDs.
+* Using current timestamp, hostname, processId and a incremting id.
+* 
+* @author Julius Beckmann
+*/
 function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
 {
-	// Building binary data.
-	$bin = sprintf(
-		"%s%s%s%s",
-		pack('N', $timestamp),
-		substr(md5($hostname), 0, 3),
-		pack('n', $processId),
-		substr(pack('N', $id), 1, 3)
-	);
+// Building binary data.
+$bin = sprintf(
+    "%s%s%s%s",
+    pack('N', $timestamp),
+    substr(md5($hostname), 0, 3),
+    pack('n', $processId),
+    substr(pack('N', $id), 1, 3)
+);
 
-	// Convert binary to hex.
-	$result = '';
-	for ($i = 0; $i < 12; $i++) {
-		$result .= sprintf("%02x", ord($bin[$i]));
-	}
-
-	return $result;
+// Convert binary to hex.
+$result = '';
+for ($i = 0; $i < 12; $i++) {
+    $result .= sprintf("%02x", ord($bin[$i]));
 }
+
+return $result;
+}
+
+
+
+
+$counter = $empcollection->find(array('unique_id' => $R_id));
+    
+
+    foreach($counter as $row) {
+    
 
 
 ?>
@@ -43,6 +66,15 @@ function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
 
 
 
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -56,6 +88,11 @@ function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
     <!-- Link the External Css here And please see name Its a Styles.css  -->
     <link rel="stylesheet" href="styles.css">
 </head>
+
+<style>
+
+</style>
+
 <body>
 <?php
     include 'adminnavbar.php';
@@ -74,50 +111,25 @@ function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
             </center>
         </div>
     </div>
-		<h6>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <div class="dropdown">
-			
-                        <span> <a href="#">DEPARTMENT : Sales</a></span>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="row">
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         <div class="dropdown">
-                        <span> <a href="#">HOD: HOD NAME</a></span>
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         <div class="dropdown">
-                        <span> <a href="#">EMAIL ID: hod@gmail.com</a></span>
-                        
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="button" value="EDIT">
-
-
-</h6>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-Date : <input type="DATE">
-    <!-- INTERVIEW SCHEDULE Div Close here -->
-    <div class="shortlist">
-        <span style="border-bottom: 1px black; margin-left: 20px; font-family: 'Hind Siliguri', sans-serif;;">			
-    </span><br><br>
-        <!-- bootstrap table start here Add and remove containt in table according to your task -->
+        <div class="col-md-4" style="margin-left:5%;">
+            <span> DEPARTMENT : <?php echo $row['department']; ?> </span>
+        </div>
+        
+        <div class="col-md-4">
+            <span> HOD: <?php echo $row['raised by']; ?></span>
+        </div>
+            
+        <div class="col-md-3">
+            Date : <?php echo date("m/d/Y"); ?>
+        </div>
+            <!-- INTERVIEW SCHEDULE Div Close here -->
+    </div>
+            <div class="shortlist">
+                <span style="border-bottom: 1px black; margin-left: 20px; font-family: 'Hind Siliguri', sans-serif;;">			
+                </span><br><br>
+                <!-- bootstrap table start here Add and remove containt in table according to your task -->
         <div class="table">
             <table class="table table-bordered">
                 <thead>
@@ -126,13 +138,15 @@ Date : <input type="DATE">
                         <th scope="col">Name</th>
                     
                         <th scope="col">Current Position</th>
-                       <th scope="col">Contact</th>
+                        <th scope="col">Contact</th>
                         <th scope="col">Exp.</th>
                         <th scope="col">Current CTC</th>                        
                         <th scope="col">Expected CTC
                         <th scope="col">Notice Period</th>
                         <th scope="col">Remark</th>
                         <th scope="col">Resume</th>
+                        <th scope="col">Submit</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -148,27 +162,50 @@ Date : <input type="DATE">
 //     echo "<td>" . $row['Notice Period'] ."</td>";
 //     echo "<td>" . $row['Remark'] ."</td>";?>
 <!-- //     <td><button name="" class="btn btn-block btn-primary">Upload</button></td> -->
-<?php echo "</tr>";
-// }
+<?php
+echo "</tr>";
+}
 ?>
         
         
-    <?php 
+<?php 
     
-    require 'vendor\autoload.php'; 
-
-    $client = new MongoDB\Client;
-    $companydb = $client->companydb;
     $empcollection = $companydb->shortlisted_candidate;
 
+    $counter = $empcollection->find( array('Requisition_id' => $R_id ) );
+    foreach($counter as $row) {
+
+    echo "<tr>";
+    echo "<th scope='row'><input style='width:130px;' type='text' name='name' value='".$row['name']." ' disabled></th>";
+    echo "<td><input required style='width:130px;' type='text' name='cposition' value='".$row['current_position']." ' disabled></td>";
+
+    echo "<td><input style='width:100px;' required type='text' name='num' value='".$row['contact']." ' disabled></td>";
+    
+    echo "<td ><input style='width:50px;' required type='text' name='exp' value='".$row['exp']." ' disabled></td>";
+    echo "<td><input style='width:50px;' required type='text' name='currentctc' value='".$row['current_ctc']." ' disabled></td>";
+    echo "<td><input style='width:50px;' required type='text' name='expectctc' value='".$row['expected_ctc']." ' disabled></td>";
+    echo "<td><input style='width:100px;' required type='text' name='noticeperiod' value='".$row['notice_period']." ' disabled></td>";
+    echo "<td><input required type='text' name='remark' value='".$row['remark']." ' disabled></td>";
+    echo "<td><a href='".$row['resume']." ' target='__blank'>download<a></td>";
+    echo "<td><input required type='text' style='width:100px;' name='remark' value=' Submitted ' disabled></td>";
+    echo "</tr>";
+
+    // echo "<td><button name="" class='btn btn-block btn-primary'><input style='width:100px;' type='file' name='file'></button></td>";
+
+    }
+
+
 
     
+  
 
     if(isset($_POST['submit']))
     {
         foreach(range(0, 0) as $id) {
                 $id = 9423;
             }
+        // $requisition_id = $R_id;
+        $requisition_id = $_POST['requisition_id'];
         $unique_id = createMongoDbLikeId(time(), php_uname('n'), getmypid(), $id);
         $name = $_POST['name'];
         $position = $_POST['cposition'];
@@ -180,7 +217,7 @@ Date : <input type="DATE">
         $remark = $_POST["remark"];
         $hod_remark = "Shortlist";
         if($_FILES['file']) {
-            if(move_uploaded_file($_FILES['file']['tmp_name'], 'upload/'.$_POST["num"].$_FILES['file']['name'])) {
+            if(move_uploaded_file($_FILES['file']['tmp_name'], 'uploads/'.$_POST["num"].$_FILES['file']['name'])) {
                 // give session variable and pass it to dataBase
                 $data= 'uploads/'.$_POST["num"].$_FILES['file']['name'];
        
@@ -191,7 +228,7 @@ Date : <input type="DATE">
 
     // Insert one data
     // $empcollection->insertOne($data);
-    $insertOneResult = $empcollection->insertOne( [ 'unique_id' => $unique_id , 'name' => $name, 'contact' => $num , 'current_position' => $position , 'exp' => $exp , 'current_ctc' => $currenetctc , 'expected_ctc' => $expectedctc , 'notice_period' => $noticeperiod , 'remark' => $remark , 'hod_remark' => $hod_remark , 'resume' => $data]   );    
+    $insertOneResult = $empcollection->insertOne( [ 'unique_id' => $unique_id , 'Requisition_id' => $requisition_id , 'name' => $name, 'contact' => $num , 'current_position' => $position , 'exp' => $exp , 'current_ctc' => $currenetctc , 'expected_ctc' => $expectedctc , 'notice_period' => $noticeperiod , 'remark' => $remark , 'hod_remark' => $hod_remark , 'resume' => $data]   );    
     if($insertOneResult)
     {
         echo "Sucess";
@@ -201,6 +238,7 @@ Date : <input type="DATE">
 
     }
 }
+
     
     
     ?>
@@ -208,29 +246,34 @@ Date : <input type="DATE">
 
         <form action="open_positions-1.php" method="POST" enctype="multipart/form-data">
         <tr>
-                        <th scope="row"><input type="text" name="name"></th>
-                        <td><input required type="text" name="cposition"></td>
-                        <td><input required type="number" style="width:50px;" name="num">
+    
+                        <th scope="row"><input style="width:130px;" type="text" name="name"></th>
+                        <td><input required style="width:130px;" type="text" name="cposition"></td>
+                        <td><input style="width:100px;" required type="number" name="num">
                         </td>
-                        <td><input required type="number" style="width:50px;" name="exp"></td>
-                        <td><input required type="number" style="width:50px;" name="currentctc"></td>
-                        <td><input required type="text" style="width:50px;" name="expectctc">
+                        <td ><input style="width:50px;" required type="number" name="exp"></td>
+                        <td><input style="width:50px;" required type="number" name="currentctc"></td>
+                        <td><input style="width:50px;" required type="text" name="expectctc">
                         </td>
-                        <td><input required type="text" style="width:50px;" name="noticeperiod">
+                        <td><input style="width:100px;" required type="text" name="noticeperiod">
                         </td>
                         <td><input required type="text" name="remark">			
                         </td>
-                        <td><button name="" class="btn btn-block btn-primary"><input type="file" name="file"></button></td>
+                        <td><button name="" class="btn btn-block btn-primary"><input style="width:100px;" type="file" name="file"></button></td>
+   
+                    <td> <button name="submit">Submit</button></td>
                     </tr>
 
+                    <input type="hidden" name="requisition_id"  value="<?php echo $R_id ; ?>" > 
 
 
-                </tbody>
-            </table>
-	<center>
-    <button name="submit">Submit</button>
-    </form>
-	</center>
+                </table>
+            </tbody>
+            </form>
+                    <center>
+
+                       <a href="submittohodforshortlist.php?req=<?php echo $R_id ?>"> <button name="submittohod" >Submit to HoD to Shortlist</button></a>
+</center>
         </div>
         <br><br><br>
     </div>
