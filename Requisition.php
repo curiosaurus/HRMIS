@@ -3,8 +3,8 @@
     require 'vendor\autoload.php'; 
 
     $client = new MongoDB\Client;
-    $companydb = $client->companydb;
-    $empcollection = $companydb->user;
+    $companydb = $client->hrmis;
+    $empcollection = $companydb->requisition;
 
 
 
@@ -43,9 +43,17 @@ function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
         }
         $unique_id = createMongoDbLikeId(time(), php_uname('n'), getmypid(), $id); 
         $department = $_POST['department'];
+        $raised_by = " "; 
         $reqfor = $_POST['reqfor']; 
         $reasonappnt = $_POST['reasonappnt'];
         $dateofcreation = date("m/d/Y");
+        $dateofmdapproval = '';
+        $dateofhrshortlist = '';
+        $dateofhodshortlist = '';
+        $dateofinterviewsch = '';
+        $dateofinterview = '';
+        $dateofcloseposition = '';
+        $replacement = '';      
         $minqual = $_POST['minqual'];
         $prefqual = $_POST['prefqual'];
         $expmin = $_POST['expmin'];
@@ -58,8 +66,10 @@ function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
         $actven = $_POST['actven'];
         $reqiso = $_POST['reqiso'];
         $actiso = $_POST['actiso'];
+        $status = 'created'; 
     // Insert one data
-    $insertOneResult = $empcollection->insertOne( ['unique_id' => $unique_id , 'department' => $department ,'position' => $reqfor , 'reasonofappointment' => $reasonappnt , 'dateofcreation' => $dateofcreation , 'minqual' => $minqual , 'prefqual' => $prefqual , 'minexp' =>  $expmin , 'prefexp' => $expmax , 'skillreq' => $skillsreq , 'spconsideration' =>  $skillconsider , 'Communication Skill REQUIRED' => $reqcomm , 'Communication Skill ACTUAL' => $actcomm , 'Vendor Selection & Assessment REQUIRED' => $reqven , 'Vendor Selection & Assessment ACTUAL' => $actven , 'ISO REQUIRED' =>  $reqiso , 'ISO ACTUAL' => $actiso ] );
+    $insertOneResult = $empcollection->insertOne( ['unique_id' => $unique_id , 'department' => $department , 'raised by' => $raised_by , 'position' => $reqfor , 'reasonofappointment' => $reasonappnt , 'dateofcreation' => $dateofcreation , 'dateofmdapproval' => $dateofmdapproval , 'dateofhrshortlist' => $dateofhrshortlist , 'dateofhodshortlist' => $dateofhodshortlist , 'dateofinterviewsch' => $dateofinterviewsch , 'dateofinterview' => $dateofinterview , 'replacement' => $replacement , 
+     'minqual' => $minqual , 'prefqual' => $prefqual , 'minexp' =>  $expmin , 'prefexp' => $expmax , 'skillreq' => $skillsreq , 'spconsideration' =>  $skillconsider , 'Communication Skill REQUIRED' => $reqcomm , 'Communication Skill ACTUAL' => $actcomm , 'Vendor Selection & Assessment REQUIRED' => $reqven , 'Vendor Selection & Assessment ACTUAL' => $actven , 'ISO REQUIRED' =>  $reqiso , 'ISO ACTUAL' => $actiso , 'status' => $status ] );
 
     // if($insertOneResult)
     // {
