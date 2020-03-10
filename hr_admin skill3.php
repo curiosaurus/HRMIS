@@ -39,13 +39,14 @@
 
         <div class="row justify-content-md-around">
 
+
             <div class="col-md-0">
                 <h4><label> Year</label></h4>
             </div>
 
 
             <div class="col-md-8">
-                <select class="form-control form-control-lg">
+                <select required class="form-control form-control-lg">
                     <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
                     <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
                     <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
@@ -55,23 +56,24 @@
 
         </div>
     </div>
+    <form action="hr_admin_skill 2.html" method="post">
             <table class="table">
             <tr>
                 <td>Start Month</td>
-                <td><input type="month" name="" id=""></td>
+                <td><input required type="month" name="" id=""></td>
                
                       
             </tr>
               <tr>
                 <td>End Month</td>
-                <td><input type="month" name="" id=""></td>
+                <td><input required type="month" name="" id=""></td>
                
                       
             </tr>    
 
         </table>
-      <a href="hr_admin_skill 2.html"><button class="btn btn-primary btn-lg">Submit</button></a>
-
+      <button class="btn btn-primary btn-lg">Submit</button>
+      </form>
 </body>
 
 </html>
