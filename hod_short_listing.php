@@ -3,13 +3,9 @@
 require 'vendor\autoload.php'; 
 
 $client = new MongoDB\Client;
-$companydb = $client->companydb;
+$companydb = $client->hrmis;
 $empcollection = $companydb->shortlisted_candidate;
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -80,22 +76,22 @@ $empcollection = $companydb->shortlisted_candidate;
                         <!-- table header  -->
                         <th scope="col">Name</th>
 
-                        <th scope="col" >Current Position
+                        <th scope="col">Current Position
                         </th>
                        <th scope="col">Contact
                         </th>
-                        <th scope="col" style="width:50px;">Exp.
+                        <th scope="col">Exp.
                         </th>
 
-                        <th scope="col" style="width:50px;">Current CTC
-
-                        </th>
-
-                        <th scope="col" style="width:50px;">Expected CTC
+                        <th scope="col">Current CTC
 
                         </th>
 
-                        <th scope="col" style="width:50px;">Notice Period
+                        <th scope="col">Expected CTC
+
+                        </th>
+
+                        <th scope="col">Notice Period
 
                         </th>
                         <th scope="col">Remark
@@ -134,13 +130,13 @@ if(isset($_POST['submit']))
         ['unique_id' => $id ],
         ['$set' => ['hod_remark' => $hod_remark]]
     );
-
+ 
     }
 
 require 'vendor\autoload.php'; 
 
 $client = new MongoDB\Client;
-$companydb = $client->companydb;
+$companydb = $client->hrmis;
 $empcollection = $companydb->shortlisted_candidate;
 
 $counter = $empcollection->find();
@@ -158,8 +154,7 @@ echo '<form action="hod_short_listing.php" method="post">';
     echo "<td>" . $row['expected_ctc'] ."</td>";
     echo "<td>" . $row['notice_period'] ."</td>";
     echo "<td>" . $row['remark'] ."</td>";
-    echo   '  <td><button name="" class="btn btn-block btn-primary"><a target="__blank" href="'. $row['resume'] .'" style="color:white;text-decoration:none;">open</a></button></td>
-';
+    echo   '  <td><a target="__blank" href="'. $row['resume'] .'" style="text-decoration:none;">Open</a></td>';
 
     echo "<td><select name='hod_remark' id=''>
     <option selected>".$row['hod_remark']."</option>
