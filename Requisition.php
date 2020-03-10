@@ -132,7 +132,7 @@ function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
 
     
 <select name="department">
-    <option >Select Department</option>
+    <option required >Select Department</option>
     <option value="PURCHASE DEPARTMENT">PURCHASE DEPARTMENT</option>
     <option value="SALES">SALES</option>
     <option value="MANUFACTURING">MANUFACTURING</option>
@@ -171,7 +171,7 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
             <label>Requisition for the Post / Designation:</label>
         </div>
         <div class="col-md-4">
-            <input type="text" name="reqfor" id="reqfor"  class="form-control" >
+            <input required type="text" name="reqfor" id="reqfor"  class="form-control" >
         </div>
     </div>
     <br>
@@ -180,7 +180,7 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
             <label>Reason for Appoinment:   </label>
         </div>
         <div class="col-md-4">
-            <select class="custom-select"  name="reasonappnt" id="reasonappnt">
+            <select required class="custom-select"  name="reasonappnt" id="reasonappnt">
                 <option value="Replacement"> Replacement </option>
                 <option value="New Position"> New Position </option>
                 <option value="Additional Workload"> Additional Workload </option>
@@ -203,10 +203,10 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
             </div>
             <div class="row justify-content-md-start">
                 <div class="col-md-6">
-                    <input type="text"  class="form-control" id="minqual" name="minqual">
+                    <input required type="text"  class="form-control" id="minqual" name="minqual">
                 </div>
                 <div class="col-md-6">
-                    <input type="text"  class="form-control" id="prefqual" name="prefqual" >
+                    <input required type="text"  class="form-control" id="prefqual" name="prefqual" >
                 </div>
             </div>
         </div>
@@ -227,10 +227,10 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
             </div>
             <div class="row justify-content-md-start">
                 <div class="col-md-6">
-                    <input type="text"  class="form-control" name="expmin" id="expmin">
+                    <input required type="text"  class="form-control" name="expmin" id="expmin">
                 </div>
                 <div class="col-md-6">
-                    <input type="text"  class="form-control" name="expmax" id="expmax">
+                    <input required type="text"  class="form-control" name="expmax" id="expmax">
                 </div>
             </div>
         </div>
@@ -242,14 +242,14 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
                 <label class="text-md-center"> Skill Required :</label>    
             </div>
             <div class="row justify-content-md-start">
-                <textarea class="form-control"  rows="3" name="skillsreq" id="skillsreq"></textarea>
+                <textarea required class="form-control"  rows="3" name="skillsreq" id="skillsreq"></textarea>
             </div>
             <br>
             <div class="row justify-content-md-start">
                 <label class="text-md-center"> Any Special Consideration :</label>    
             </div>
             <div class="row justify-content-md-start">
-                <textarea class="form-control" name="skillconsider"  rows="3"></textarea>
+                <textarea required class="form-control" name="skillconsider"  rows="3"></textarea>
             </div>          
         </div> 
         
@@ -265,22 +265,22 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
                 <tr > 
                     <th>Managerial Skill</th>
             <td >Communication Skill</td>
-            <td ><input type="number" style="width: 50px;" name="reqcomm" id=""></td>
-            <td><input type="number" name="actcomm" id=""  style="width: 50px;"></td>
+            <td ><input required type="number" style="width: 50px;" name="reqcomm" id=""></td>
+            <td><input required type="number" name="actcomm" id=""  style="width: 50px;"></td>
         </tr>
         <tr> 
             <th>Preffered Skill</th>
             <td style="">Vendor Selection & Assessment		
                 </td>
-                <td><input type="number" name="reqven" id=""  style="width: 50px;"></td>
-                <td><input type="number" name="actven" id=""  style="width: 50px;"></td>   
+                <td><input required type="number" name="reqven" id=""  style="width: 50px;"></td>
+                <td><input required type="number" name="actven" id=""  style="width: 50px;"></td>   
             </tr>
             <tr> 
                 <th >System Requirement</th>
                 <td>ISO 9001:2015		
                     </td>
-                    <td><input type="number" name="reqiso" id=""  style="width: 50px;"></td>
-                    <td><input type="number" name="actiso" id=""  style="width: 50px;"></td>
+                    <td><input required type="number" name="reqiso" id=""  style="width: 50px;"></td>
+                    <td><input required type="number" name="actiso" id=""  style="width: 50px;"></td>
                 </tr>
             </table>
         </div>
@@ -297,3 +297,6 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
     <br>
 </form> 
 </div>
+
+</body>
+</html>
