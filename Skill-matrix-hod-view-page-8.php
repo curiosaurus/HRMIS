@@ -37,7 +37,7 @@
 
 
 
-
+<form action="#" method="post">
 <div class="container" style="border: 1px solid lightblue; padding: 25px;">
 
     <div class="row justify-content-md-around">
@@ -48,7 +48,7 @@
 
         
         <div class="col-md-8">
-            <select class="form-control form-control-lg">
+            <select required class="form-control form-control-lg">
                 <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
                 <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
                 <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
@@ -76,7 +76,7 @@
         </div>
 
         <div class="col-md-4">
-            <input type="text" class="form-control" >
+            <input required type="text" class="form-control" >
         </div>
 
 
@@ -89,7 +89,7 @@
         </div>
 
         <div class="col-md-4">
-            <input type="text" class="form-control" >
+            <input required type="text" class="form-control" >
         </div>
 
     </div>
@@ -101,7 +101,7 @@
         </div>
 
         <div class="col-md-4">
-            <input type="text" class="form-control" >
+            <input required type="text" class="form-control" >
         </div>
 
     </div>
@@ -113,7 +113,7 @@
         </div>
 
         <div class="col-md-4">
-            <input type="text" class="form-control" >
+            <input required type="text" class="form-control" >
         </div>
 
     </div>
@@ -125,7 +125,7 @@
         </div>
 
         <div class="col-md-4">
-            <input type="text" class="form-control" >
+            <input required type="text" class="form-control" >
         </div>
 
     </div>
@@ -163,7 +163,7 @@
 <div class="row justify-content-md-start">
     
     <div class="col-md-8">
-        <textarea class="form-control"  rows="3"></textarea>
+        <textarea required class="form-control"  rows="3"></textarea>
     </div>
 
 </div>
@@ -194,7 +194,7 @@
     <label style="font-size: 18px;">If yes, please confirm trainee skill level after training</label>
     </div>
     <div class="col-md-4">
-        <input type="text" class="form-control" >
+        <input required type="text" class="form-control" >
     </div>
 
     
@@ -208,7 +208,7 @@
     <label style="font-size: 18px;">If No, reschedule of this training is needed? (Please mention specific requirements) </label>
     </div>
     <div class="col-md-8">
-        <textarea class="form-control"  rows="3"></textarea>
+        <textarea required class="form-control"  rows="3"></textarea>
     </div>
 
 
@@ -225,4 +225,7 @@
         <button class="btn btn-primary btn-md btn-block">SUBMIT</button>
     </div>
 </div>
-
+</div>
+</form>
+</body>
+</html>
