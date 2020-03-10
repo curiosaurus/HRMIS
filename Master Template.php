@@ -164,7 +164,7 @@ include 'adminnavbar.php';
             </div>
             
             <div class="col-md-3">
-                <input type="text" name="Emp_Code" class="form-control" >
+                <input required type="text" name="Emp_Code" class="form-control" >
             </div> 
         </div>
     
@@ -173,7 +173,7 @@ include 'adminnavbar.php';
 
         <div class="row justify-content-md-start">
                 
-            <select name="position" >
+            <select required name="position" >
                 <option>SELECT POSITION</option>
                 <option value="HOD">HOD</option>
                 <option value="Super HOD">Super HOD</option>
@@ -210,7 +210,7 @@ include 'adminnavbar.php';
                     </div>
                 
                     <div class="col-md-7">
-                        <input type="text" name="Full_Name" class="form-control" >
+                        <input required type="text" name="Full_Name" class="form-control" >
                     </div>
                 
                 </div>
@@ -224,7 +224,7 @@ include 'adminnavbar.php';
                     </div>
             
                     <div class="col-md-4">
-                        <select name="gender" id="" class="form-control">
+                        <select required name="gender" id="" class="form-control">
                             <option value="Male" selected>Male</option>
                             <option value="Female">Female</option>
                             <option value="Other">Other</option>
@@ -236,7 +236,7 @@ include 'adminnavbar.php';
                     </div>
             
                     <div class="col-md-3">
-                        <input type="text" name="Marital_Status"  class="form-control" >
+                        <input required type="text" name="Marital_Status"  class="form-control" >
                     </div>
             
                 </div>
@@ -248,7 +248,7 @@ include 'adminnavbar.php';
                     </div>
             
                     <div class="col-md-4">
-                        <input type="date" name="DOB"  class="form-control" >
+                        <input required type="date" name="DOB"  class="form-control" >
                     </div>
         
                     <div class="col-md-2">
@@ -256,7 +256,7 @@ include 'adminnavbar.php';
                     </div>
             
                     <div class="col-md-4">
-                        <input type="text" name="PAN"  class="form-control" >
+                        <input required type="text" name="PAN"  class="form-control" >
                     </div>
             
                 </div>
@@ -268,7 +268,7 @@ include 'adminnavbar.php';
                     </div>
                 
                     <div class="col-md-7">
-                        <input type="text" name="Blood_Group" class="form-control" >
+                        <input required type="text" name="Blood_Group" class="form-control" >
                     </div>
                 
                 </div>
@@ -280,7 +280,7 @@ include 'adminnavbar.php';
                     </div>
                 
                     <div class="col-md-7">
-                        <input type="email" name="Personal_Email"  class="form-control" >
+                        <input required type="email" name="Personal_Email"  class="form-control" >
                     </div>
                 
                 </div>
@@ -291,7 +291,7 @@ include 'adminnavbar.php';
 
                 <div class="row justify-content-md-start">
                     <div class="col-md-12">
-                    <input type="file" name="fileToUpload" style="margin-top: 100%;" id="fileToUpload">
+                    <input required type="file" name="fileToUpload" style="margin-top: 100%;" id="fileToUpload">
                     </div>
                     
                 </div>
@@ -317,11 +317,11 @@ include 'adminnavbar.php';
                 
                 
                     <div class="col-md-6">
-                        <textarea class="form-control" name="Correspondence_Address"  rows="3"></textarea>
+                        <textarea required class="form-control" name="Correspondence_Address"  rows="3"></textarea>
                     </div>
                 
                     <div class="col-md-6">
-                        <textarea class="form-control" name="Permanent_Address"  rows="3"></textarea>
+                        <textarea required class="form-control" name="Permanent_Address"  rows="3"></textarea>
                     </div>
                 
                 </div>
@@ -333,7 +333,7 @@ include 'adminnavbar.php';
                     </div>
 
                     <div class="col-md-4">
-                        <input type="text" name="Pin_No1" class="form-control" >
+                        <input required type="text" name="Pin_No1" class="form-control" >
                     </div>
 
                     <div class="col-md-2">
@@ -341,7 +341,7 @@ include 'adminnavbar.php';
                     </div>
 
                     <div class="col-md-4">
-                        <input type="text" name="Pin_No2"  class="form-control" >
+                        <input required type="text" name="Pin_No2"  class="form-control" >
                     </div>
 
                 </div>
@@ -354,7 +354,7 @@ include 'adminnavbar.php';
                 </div>
 
                 <div class="col-md-4">
-                    <input type="text" name="Mobile_No" class="form-control" >
+                    <input required type="text" name="Mobile_No" class="form-control" >
                 </div>
 
                 <div class="col-md-2">
@@ -362,7 +362,7 @@ include 'adminnavbar.php';
                 </div>
 
                 <div class="col-md-4">
-                    <input type="text" name="Contact_No"  class="form-control" >
+                    <input required type="text" name="Contact_No"  class="form-control" >
                 </div>
 
             </div>
@@ -390,7 +390,7 @@ include 'adminnavbar.php';
             </div>
 
             <div class="col-md-4">
-                <input type="text" name="DOJ"  class="form-control" >
+                <input required type="text" name="DOJ"  class="form-control" >
             </div>
 
             <div class="col-md-2">
@@ -398,7 +398,7 @@ include 'adminnavbar.php';
             </div>
 
             <div class="col-md-4">
-                <select name="Department" id="">
+                <select required name="Department" id="">
                     <option>Select Department</option>
                     <option value="Sales">Sales</option>
                     <option value="Marketing">Marketing</option>
@@ -417,7 +417,7 @@ include 'adminnavbar.php';
                 <label> Designation:</label>
             </div>
             <div class="col-md-4">
-                <select name="Designation" id="" class="form-control">
+                <select required name="Designation" id="" class="form-control">
                     <option value="Assitant Manager" selected>Assitant Manager</option>
                     <option value="Manager">Manager</option>
                     <option value="Devloper">Devloper</option>
@@ -429,7 +429,7 @@ include 'adminnavbar.php';
                 <label> Grade :  </label>
             </div>
             <div class="col-md-4">
-                <select name="Grade" id="" class="form-control">
+                <select required name="Grade" id="" class="form-control">
                     <option value="E1">E1</option>
                     <option value="E2">E2</option>
                     <option value="D1">D1</option>
@@ -448,7 +448,7 @@ include 'adminnavbar.php';
             </div>
 
             <div class="col-md-4" >
-                <select name="Location" id="">
+                <select required name="Location" id="">
                 <option value="Pune">Pune</option>
                 <option value="Kolhapur">Kolhapur</option>
             </select>
@@ -459,7 +459,7 @@ include 'adminnavbar.php';
             </div>
 
             <div class="col-md-4">
-                <input type="text" name="Employee_Type"  class="form-control" >
+                <input required type="text" name="Employee_Type"  class="form-control" >
             </div>
 
         </div>
@@ -473,7 +473,7 @@ include 'adminnavbar.php';
             </div>
 
             <div class="col-md-4">
-                <input type="text" name="Employee_Status"  class="form-control" >
+                <input required type="text" name="Employee_Status"  class="form-control" >
             </div>
 
             <div class="col-md-2">
@@ -481,7 +481,7 @@ include 'adminnavbar.php';
             </div>
 
             <div class="col-md-4">
-                <input type="text" name="Employee_Reporting_to" class="form-control" >
+                <input required type="text" name="Employee_Reporting_to" class="form-control" >
             </div>
         </div>
 <br>
@@ -492,7 +492,7 @@ include 'adminnavbar.php';
             </div>
 
             <div class="col-md-4">
-                <input type="text" name="Education"  class="form-control" >
+                <input required type="text" name="Education"  class="form-control" >
             </div>
 
             <div class="col-md-2">
@@ -500,7 +500,7 @@ include 'adminnavbar.php';
             </div>
 
             <div class="col-md-4">
-                <input type="number" name="Previous_Experience"  class="form-control" >
+                <input required type="number" name="Previous_Experience"  class="form-control" >
             </div>
         </div>
 <br>
@@ -509,19 +509,19 @@ include 'adminnavbar.php';
                 <label> Resigned Date :  </label>
             </div>
             <div class="col-md-4">
-                <input type="date" name="Resigned_Date" class="form-control" >
+                <input required type="date" name="Resigned_Date" class="form-control" >
             </div>
             <div class="col-md-2">
                 <label> Last Working Date :  </label>
             </div>
             <div class="col-md-4">
-                <input type="date" name="Last_Working_Date" class="form-control" >
+                <input required type="date" name="Last_Working_Date" class="form-control" >
             </div>
         </div>
 <br><br>
         <div class="row justify-content-md-around">
             <div class="col-3">
-                <input type="submit" name="submit" id="submit" class="btn btn-primary btn-lg btn-block"></button>
+                <input required type="submit" name="submit" id="submit" class="btn btn-primary btn-lg btn-block"></button>
             </div>
             <div class="col-3">
                 <button class="btn btn-danger btn-lg btn-block">Cancel</button>
