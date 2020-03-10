@@ -211,16 +211,16 @@ Date : <input type="DATE">
         <form action="open_positions-1.php" method="POST" enctype="multipart/form-data">
         <tr>
                         <th scope="row"><input type="text" name="name"></th>
-                        <td><input type="text" name="cposition"></td>
-                        <td><input type="number" name="num">
+                        <td><input required type="text" name="cposition"></td>
+                        <td><input required type="number" name="num">
                         </td>
-                        <td><input type="number" name="exp"></td>
-                        <td><input type="number" name="currentctc"></td>
-                        <td><input type="text" name="expectctc">
+                        <td><input required type="number" name="exp"></td>
+                        <td><input required type="number" name="currentctc"></td>
+                        <td><input required type="text" name="expectctc">
                         </td>
-                        <td><input type="text" name="noticeperiod">
+                        <td><input required type="text" name="noticeperiod">
                         </td>
-                        <td><input type="text" name="remark">			
+                        <td><input required type="text" name="remark">			
                         </td>
                         <td><button name="" class="btn btn-block btn-primary"><input type="file" name="file"></button></td>
                     </tr>
