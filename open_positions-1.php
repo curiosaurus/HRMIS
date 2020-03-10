@@ -4,10 +4,8 @@
 // require 'session.php'; 
 require 'vendor\autoload.php'; 
 $client = new MongoDB\Client;
-$companydb = $client->companydb;
-$empcollection = $companydb->empollection;
-
-
+$companydb = $client->hrmis;
+$empcollection = $companydb->requsition;
 
 
 
@@ -212,13 +210,13 @@ Date : <input type="DATE">
         <tr>
                         <th scope="row"><input type="text" name="name"></th>
                         <td><input required type="text" name="cposition"></td>
-                        <td><input required type="number" name="num">
+                        <td><input required type="number" style="width:50px;" name="num">
                         </td>
-                        <td><input required type="number" name="exp"></td>
-                        <td><input required type="number" name="currentctc"></td>
-                        <td><input required type="text" name="expectctc">
+                        <td><input required type="number" style="width:50px;" name="exp"></td>
+                        <td><input required type="number" style="width:50px;" name="currentctc"></td>
+                        <td><input required type="text" style="width:50px;" name="expectctc">
                         </td>
-                        <td><input required type="text" name="noticeperiod">
+                        <td><input required type="text" style="width:50px;" name="noticeperiod">
                         </td>
                         <td><input required type="text" name="remark">			
                         </td>
