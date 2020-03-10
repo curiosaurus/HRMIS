@@ -106,7 +106,7 @@
 
             
             <div class="col-md-8">
-                <select class="form-control form-control-lg">
+                <select required class="form-control form-control-lg">
                     <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
                     <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
                     <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
@@ -133,7 +133,7 @@
         </div>
         
         <div class="col-md-4">
-            <input type="text"  class="form-control" >
+            <input required type="text"  class="form-control" >
         </div>
 
     </div>
@@ -214,3 +214,6 @@
       </table>
       
 </div>
+
+</body>
+</html>
