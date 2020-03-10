@@ -3,13 +3,13 @@
     require 'vendor\autoload.php'; 
 
     $client = new MongoDB\Client;
-    $companydb = $client->companydb;
-    $empcollection = $companydb->user;
+    $companydb = $client->hrmis;
+    $empcollection = $companydb->requisition;
 
     if(isset($_GET['variable1']))
     {
        $id = $_GET['variable1'];   
-       echo $id;   
+    //    echo $id;   
     }
     
     $counter = $empcollection->find(array('unique_id' => $id));
@@ -119,7 +119,7 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
             <label>Requisition for the Post / Designation:</label>
         </div>
         <div class="col-md-4">
-            <input required type="text" name="reqfor" id="reqfor"  class="form-control" placeholder = "<?php echo $row['position']; ?>" disabled>
+            <input type="text" name="reqfor" id="reqfor"  class="form-control" placeholder = "<?php echo $row['position']; ?>" disabled>
         </div>
     </div>
     <br>
@@ -128,7 +128,7 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
             <label>Reason for Appoinment:   </label>
         </div>
         <div class="col-md-4">
-            <select required class="custom-select"  name="reasonappnt" id="reasonappnt" disabled>
+            <select class="custom-select"  name="reasonappnt" id="reasonappnt" disabled>
                 <option value="<?php echo $row['reasonofappointment']; ?>"> <?php echo $row['reasonofappointment']; ?> </option>
             </select>            
         </div>    
@@ -149,10 +149,10 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
             </div>
             <div class="row justify-content-md-start">
                 <div class="col-md-6">
-                    <input required type="text"  class="form-control" id="minqual" name="minqual" placeholder = "<?php echo $row['minqual']; ?>" disabled>
+                    <input type="text"  class="form-control" id="minqual" name="minqual" placeholder = "<?php echo $row['minqual']; ?>" disabled>
                 </div>
                 <div class="col-md-6">
-                    <input required type="text"  class="form-control" id="prefqual" name="prefqual" placeholder = "<?php echo $row['prefqual']; ?>" disabled>
+                    <input type="text"  class="form-control" id="prefqual" name="prefqual" placeholder = "<?php echo $row['prefqual']; ?>" disabled>
                 </div>
             </div>
         </div>
@@ -173,10 +173,10 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
             </div>
             <div class="row justify-content-md-start">
                 <div class="col-md-6">
-                    <input required type="text"  class="form-control" name="expmin" id="expmin" placeholder = "<?php echo $row['minexp']; ?>" disabled>
+                    <input type="text"  class="form-control" name="expmin" id="expmin" placeholder = "<?php echo $row['minexp']; ?>" disabled>
                 </div>
                 <div class="col-md-6">
-                    <input required type="text"  class="form-control" name="expmax" id="expmax" placeholder = "<?php echo $row['prefexp']; ?>" disabled>
+                    <input type="text"  class="form-control" name="expmax" id="expmax" placeholder = "<?php echo $row['prefexp']; ?>" disabled>
                 </div>
             </div>
         </div>
@@ -188,14 +188,14 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
                 <label class="text-md-center"> Skill Required :</label>    
             </div>
             <div class="row justify-content-md-start">
-                <textarea required class="form-control"  rows="3" name="skillsreq" id="skillsreq" placeholder = "<?php echo $row['skillreq']; ?>" disabled></textarea>
+                <textarea class="form-control"  rows="3" name="skillsreq" id="skillsreq" placeholder = "<?php echo $row['skillreq']; ?>" disabled></textarea>
             </div>
             <br>
             <div class="row justify-content-md-start">
                 <label class="text-md-center"> Any Special Consideration :</label>    
             </div>
             <div class="row justify-content-md-start">
-                <textarea required class="form-control" name="skillconsider"  rows="3" placeholder = "<?php echo $row['spconsideration']; ?>" disabled></textarea>
+                <textarea class="form-control" name="skillconsider"  rows="3" placeholder = "<?php echo $row['spconsideration']; ?>" disabled></textarea>
             </div>          
         </div> 
         
@@ -211,22 +211,22 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
                 <tr > 
                     <th>Managerial Skill</th>
             <td >Communication Skill</td>
-            <td ><input required type="number" style="width: 50px;" name="reqcomm" id=""  disabled></td>
-            <td><input required type="number" name="actcomm" id=""  style="width: 50px;" disabled></td>
+            <td ><input type="number" style="width: 50px;" name="reqcomm" id=""  disabled></td>
+            <td><input type="number" name="actcomm" id=""  style="width: 50px;" disabled></td>
         </tr>
         <tr> 
             <th>Preffered Skill</th>
             <td style="">Vendor Selection & Assessment		
                 </td>
-                <td><input required type="number" name="reqven" id=""  style="width: 50px;" disabled></td>
-                <td><input required type="number" name="actven" id=""  style="width: 50px;" disabled></td>   
+                <td><input type="number" name="reqven" id=""  style="width: 50px;" disabled></td>
+                <td><input type="number" name="actven" id=""  style="width: 50px;" disabled></td>   
             </tr>
             <tr> 
                 <th >System Requirement</th>
                 <td>ISO 9001:2015		
                     </td>
-                    <td><input required type="number" name="reqiso" id=""  style="width: 50px;" disabled></td>
-                    <td><input required type="number" name="actiso" id=""  style="width: 50px;" disabled></td>
+                    <td><input type="number" name="reqiso" id=""  style="width: 50px;" disabled></td>
+                    <td><input type="number" name="actiso" id=""  style="width: 50px;" disabled></td>
                 </tr>
             </table>
         </div>
