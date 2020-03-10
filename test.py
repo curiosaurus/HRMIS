@@ -1,0 +1,5 @@
+print("pratik")
+print("pavan")
+print("nishad")
+print("kunal")
+print("kedar")
