@@ -2,8 +2,8 @@
     require 'vendor\autoload.php'; 
 
     $client = new MongoDB\Client;
-    $companydb = $client->companydb;
-    $empcollection = $companydb->user;
+    $companydb = $client->hrmis;
+    $empcollection = $companydb->requisition;
 
 
 ?>
@@ -68,7 +68,7 @@
                         <th scope="col">Open/Close
                         </th>
 
-                        <th scope="col">View
+                        <th scope="col">View Requisition
                         </th>
                         <th scope="col">shortlist Candidate
                         </th>
@@ -88,6 +88,7 @@ foreach($counter as $row) {
     echo "<td>" . $row['dateofcreation'] ."</td>";
     echo "<td>" . "<button> open /close</button>" ."</td>";
     echo "<td><a href='viewrequision.php?variable1=".$id."'>View Requisition</a>" ."</td>";
+    echo "<td><a href='open_positions-1.php?variable1=".$id."'>Upload Resume</a>" ."</td>";
     #add just this line whenever you create  viewrequisition  33111`3
     //getting values in page2.php file by $_GET function:
     //$x=$_GET['variable1'];
@@ -102,4 +103,3 @@ foreach($counter as $row) {
 </body>
 
 </html>
-c
