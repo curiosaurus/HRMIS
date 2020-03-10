@@ -33,13 +33,15 @@
 
 <br>
 
-        <div class="row justify-content-md-start">
+<form action="#" method="post">
+
+    <div class="row justify-content-md-start">
             <div class="col-md-2">
                 <label> Employee name :  </label>
             </div>
 
             <div class="col-md-4">
-                <input type="text"  class="form-control" >
+                <input  type="text"  class="form-control"  required>
             </div>
   
             <div class="col-md-2">
@@ -47,14 +49,14 @@
             </div>
 
             <div class="col-md-4">
-                <input type="text"  class="form-control" >
+                <input required type="text"  class="form-control" >
             </div>
             <div class="col-md-2">
                 <label> D.O.J :  </label>
             </div>
 
             <div class="col-md-4">
-                <input type="text"  class="form-control" >
+                <input required type="text"  class="form-control" >
             </div>
 
 
@@ -63,7 +65,7 @@
             </div>
 
             <div class="col-md-4">
-                <input type="text"  class="form-control" >
+                <input required type="text"  class="form-control" >
             </div>
 
         </div>
@@ -76,7 +78,7 @@
                 <label> Designation:</label>
             </div>
             <div class="col-md-4">
-                <select name="" id="" class="form-control">
+                <select required name="" id="" class="form-control">
                     <option value="" selected>Assitant Manager</option>
                     <option value="">Manager</option>
                     <option value="">Devloper</option>
@@ -88,7 +90,7 @@
                 <label> Grade :  </label>
             </div>
             <div class="col-md-4">
-                <select name="" id="" class="form-control">
+                <select required name="" id="" class="form-control">
                     <option value="">E1</option>
                     <option value="">E2</option>
                     <option value="">D1</option>
@@ -107,7 +109,7 @@
             </div>
 
             <div class="col-md-4">
-                <select name="" id="">
+                <select required name="" id="">
                 <option value="">Pune</option>
                 <option value="">Kolhapur</option>
             </select>
@@ -118,7 +120,7 @@
             </div>
 
             <div class="col-md-4">
-                <input type="text"  class="form-control" >
+                <input required type="text"  class="form-control" >
             </div>
 
         </div>
@@ -132,7 +134,7 @@
             </div>
 
             <div class="col-md-4">
-                <input type="text"  class="form-control" >
+                <input required type="text"  class="form-control" >
             </div>
 
             <div class="col-md-2">
@@ -140,7 +142,7 @@
             </div>
 
             <div class="col-md-4">
-                <input type="text"  class="form-control" >
+                <input required type="text"  class="form-control" >
             </div>
 
         </div>
@@ -154,7 +156,7 @@
             </div>
 
             <div class="col-md-4">
-                <input type="text"  class="form-control" >
+                <input required type="text"  class="form-control" >
             </div>
 
             <div class="col-md-2">
@@ -162,7 +164,7 @@
             </div>
 
             <div class="col-md-4">
-                <input type="number"  class="form-control" >
+                <input required type="number"  class="form-control" >
             </div>
 
         </div>
@@ -176,7 +178,7 @@
             </div>
 
             <div class="col-md-4">
-                <input type="date"  class="form-control" >
+                <input required type="date"  class="form-control" >
             </div>
 
             <div class="col-md-2">
@@ -184,7 +186,7 @@
             </div>
 
             <div class="col-md-4">
-                <input type="date"  class="form-control" >
+                <input required type="date"  class="form-control" >
             </div>
 
         </div>
@@ -201,97 +203,100 @@
         <tr > 
             <th rowspan="3">Managerial Skill</th>
             <td>Communication Skill</td>
-            <td><input type="number" name="" id=""></td>
-            <td><input type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
         </tr>
 
         <tr>
 
             <td>Leadership Skill</td>
-            <td><input type="number" name="" id=""></td>
-            <td><input type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
         </tr>
 
         
         <tr>
 
             <td>Teamwork</td>
-            <td><input type="number" name="" id=""></td>
-            <td><input type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
         </tr>
         
         <tr> 
             <th  rowspan="7">Preffered Skill</th>
             <td>Vendor Selection & Assessment		
             </td>
-            <td><input type="number" name="" id=""></td>
-            <td><input type="number" name="" id=""></td>   
+            <td><input required type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>   
         </tr>
 
         <tr>
             <td>Bought out items costing		
             </td>
-            <td><input type="number" name="" id=""></td>
-            <td><input type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
         </tr>
 
         <tr>
             <td>Project Management		
             </td>
-            <td><input type="number" name="" id=""></td>
-            <td><input type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
         </tr>
 
         <tr>
             <td>Press tools/ casting & machining		
             </td>
-            <td><input type="number" name="" id=""></td>
-            <td><input type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
         </tr>
 
 
         <tr>
             <td>Inventory Management		
             </td>
-            <td><input type="number" name="" id=""></td>
-            <td><input type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
         </tr>
         <tr>
             <td>Details on Taxation		
 		
             </td>
-            <td><input type="number" name="" id=""></td>
-            <td><input type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
         </tr>
         <tr>
             <td>ERP/SAP Knowledge		
             </td>
-            <td><input type="number" name="" id=""></td>
-            <td><input type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
         </tr>
 
         <tr> 
             <th rowspan=3>System Requirement</th>
             <td>ISO 9001:2015		
             </td>
-            <td><input type="number" name="" id=""></td>
-            <td><input type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
         </tr>
         <tr>
             <td>5S (House Keeping)		
             </td>
-            <td><input type="number" name="" id=""></td>
-            <td><input type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
         </tr>
         <tr>
             <td>EMS 14001:2015		
             </td>
-            <td><input type="number" name="" id=""></td>
-            <td><input type="number" name="" id=""></td>
+            <td><input required  type="number" name="" id=""></td>
+            <td><input required type="number" name="" id=""></td>
         </tr>
 
     </table>
     <center>
-    <a href="skills_matrix_hr_admin_page4.html"><input type="button" value="Submit" name="Submit" class="btn btn-primary"></a>
-</center>
-    <html>
+        <input type="submit" value="Submit" name="Submit" class="btn btn-primary">
+    </center>
+
+</form>  
+</body>     
+ <html>
