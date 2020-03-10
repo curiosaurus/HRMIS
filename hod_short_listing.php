@@ -158,6 +158,7 @@ echo '<form action="hod_short_listing.php" method="post">';
 
     echo "<td><select name='hod_remark' id=''>
     <option selected>".$row['hod_remark']."</option>
+    <option value='Shortlist'>Shortlist</option>
     <option value='Hold'>Hold</option>
     <option value='Reject'>Reject</option></select></td>
 ";
