@@ -11,11 +11,6 @@ $empcollection = $companydb->shortlisted_candidate;
 
 
 
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,22 +80,22 @@ $empcollection = $companydb->shortlisted_candidate;
                         <!-- table header  -->
                         <th scope="col">Name</th>
 
-                        <th scope="col">Current Position
+                        <th scope="col" >Current Position
                         </th>
                        <th scope="col">Contact
                         </th>
-                        <th scope="col">Exp.
+                        <th scope="col" style="width:50px;">Exp.
                         </th>
 
-                        <th scope="col">Current CTC
-
-                        </th>
-
-                        <th scope="col">Expected CTC
+                        <th scope="col" style="width:50px;">Current CTC
 
                         </th>
 
-                        <th scope="col">Notice Period
+                        <th scope="col" style="width:50px;">Expected CTC
+
+                        </th>
+
+                        <th scope="col" style="width:50px;">Notice Period
 
                         </th>
                         <th scope="col">Remark
