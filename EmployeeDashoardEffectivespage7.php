@@ -36,25 +36,26 @@
 
 
 
+<form action="" method="post">
 <div class="container" style="border: 1px solid lightblue; padding: 25px;">
 
-    <div class="row justify-content-md-around">
-        
-        <div class="col-md-1" >
-            <h4><label> Year</label></h4>
-        </div>
-
-        
-        <div class="col-md-8">
-            <select class="form-control form-control-lg">
-                <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
-                <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
-                <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
-                <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
-              </select>
-        </div>
-
+<div class="row justify-content-md-around">
+    
+    <div class="col-md-1" >
+        <h4><label> Year</label></h4>
     </div>
+
+    
+    <div class="col-md-8">
+        <select required class="form-control form-control-lg">
+            <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
+            <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
+            <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
+            <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
+          </select>
+    </div>
+
+</div>
 </div>
 
 <br><br>
@@ -62,72 +63,72 @@
 
 <div class="container" style="border: 1px solid lightblue; padding: 25px;">
 
-    <div class="row justify-content-md-center">
-       <label style="font-size: 22px;">Effectiveness</label>
-    </div>
+<div class="row justify-content-md-center">
+   <label style="font-size: 22px;">Effectiveness</label>
+</div>
 
 <br><br>
 
-    <div class="row justify-content-md-start">
-        
-        <div class="col-md-3" >
-            <label style="font-size: 20px;"> Employee Number </label>
-        </div>
-
-        <div class="col-md-4">
-            <input type="text" class="form-control" >
-        </div>
-
-
+<div class="row justify-content-md-start">
+    
+    <div class="col-md-3" >
+        <label style="font-size: 20px;"> Employee Number </label>
     </div>
+
+    <div class="col-md-4">
+        <input  required type="text" class="form-control" >
+    </div>
+
+
+</div>
 <br>
-    <div class="row justify-content-md-start">
+<div class="row justify-content-md-start">
+        
+    <div class="col-md-3" >
+        <label style="font-size: 20px;"> Employee Name </label>
+    </div>
+
+    <div class="col-md-4">
+        <input required type="text" class="form-control" >
+    </div>
+
+</div>
+<br>
+<div class="row justify-content-md-start">
             
-        <div class="col-md-3" >
-            <label style="font-size: 20px;"> Employee Name </label>
-        </div>
-
-        <div class="col-md-4">
-            <input type="text" class="form-control" >
-        </div>
-
+    <div class="col-md-3" >
+        <label style="font-size: 20px;"> Training Date </label>
     </div>
+
+    <div class="col-md-4">
+        <input required type="text" class="form-control" >
+    </div>
+
+</div>
 <br>
-    <div class="row justify-content-md-start">
+<div class="row justify-content-md-start">
                 
-        <div class="col-md-3" >
-            <label style="font-size: 20px;"> Training Date </label>
-        </div>
-
-        <div class="col-md-4">
-            <input type="text" class="form-control" >
-        </div>
-
+    <div class="col-md-3" >
+        <label style="font-size: 20px;"> Subject </label>Skill Level before Training
     </div>
+
+    <div class="col-md-4">
+        <input required type="text" class="form-control" >
+    </div>
+
+</div>
 <br>
-    <div class="row justify-content-md-start">
+<div class="row justify-content-md-start">
                     
-        <div class="col-md-3" >
-            <label style="font-size: 20px;"> Subject </label>Skill Level before Training
-        </div>
-
-        <div class="col-md-4">
-            <input type="text" class="form-control" >
-        </div>
-
+    <div class="col-md-3" >
+        <label style="font-size: 20px;"> Skill Level before Training </label>
     </div>
-<br>
-    <div class="row justify-content-md-start">
-                        
-        <div class="col-md-3" >
-            <label style="font-size: 20px;"> Skill Level before Training </label>
-        </div>
 
-        <div class="col-md-4">
-            <input type="text" class="form-control" >
-        </div>
-
+    <div class="col-md-4">
+        <input required type="text" class="form-control" >
     </div>
+
+</div>
 
 </div>
 
@@ -135,49 +136,53 @@
 
 <div class="container" style="border: 1px solid lightblue; padding: 25px;">
 
-    <div class="row justify-content-md-start">
-                        
-        <div class="col-md-6" >
-            <label style="font-size: 18px;"> Have you implemented this training in your regular work </label>
-        </div>
-
-        <div class="col-md-2">
-            <button class="btn btn-outline-primary btn-sm btn-block">YES</button>
-        </div>
-    
-        <div class="col-md-2">
-            <button class="btn btn-outline-primary btn-sm btn-block">NO</button>
-        </div>
-
+<div class="row justify-content-md-start">
+                    
+    <div class="col-md-6" >
+        <label style="font-size: 18px;"> Have you implemented this training in your regular work </label>
     </div>
+
+    <div class="col-md-2">
+        <button class="btn btn-outline-primary btn-sm btn-block">YES</button>
+    </div>
+
+    <div class="col-md-2">
+        <button class="btn btn-outline-primary btn-sm btn-block">NO</button>
+    </div>
+
+</div>
 <br><br>
-    <div class="row justify-content-md-start">
+<div class="row justify-content-md-start">
 
-            <div class="col-md">
-                <label style="font-size: 18px;"> If yes, Where  give example or evidence or other specification. </label>
-            </div>
+        <div class="col-md">
+            <label style="font-size: 18px;"> If yes, Where  give example or evidence or other specification. </label>
+        </div>
 
-    </div>
+</div>
 <br>
-    <div class="row justify-content-md-start">
-    
-        <div class="col-md-8">
-            <textarea class="form-control"  rows="3"></textarea>
-        </div>
-    
+<div class="row justify-content-md-start">
+
+    <div class="col-md-8">
+        <textarea required class="form-control"  rows="3"></textarea>
     </div>
+
+</div>
 <br><br>
-    <div class="row justify-content-md-center">
-    
-        <div class="col-md-2">
-            <a href="EmployeeDashboardPage1.html"><button class="btn btn-primary btn-md btn-block">SUBMIT</button></a>
-        </div>
+<div class="row justify-content-md-center">
+
+    <div class="col-md-2">
+        <button class="btn btn-primary btn-md btn-block">SUBMIT</button>
     </div>
+</div>
 
 </div>
 
 
 </div>
+</form>
 
 
 <br><br><br><br>
+    </body>
+</html>
+    
