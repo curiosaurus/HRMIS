@@ -1,0 +1,38 @@
+<div>
+  <h1><b><center>This is a test page for printing</center></b><hr color=#00cc00 width=95%></h1>
+<button class="Button Button--outline" onclick="printDiv()">Print</button>
+  <p> content content content </p>
+  <div id="printableTable">
+    <table>
+      <thead>
+        <tr>
+          <td>Thing</td>
+          <td>Chairs</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>blue</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>green</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p> content content content </p>
+  <p> content content content </p>
+  <iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+
+
+</div>
+
+<script>
+       function printDiv() {
+         window.frames["print_frame"].document.body.innerHTML = document.getElementById("printableTable").innerHTML;
+         window.frames["print_frame"].window.focus();
+         window.frames["print_frame"].window.print();
+       }
+</script>
