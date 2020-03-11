@@ -1,5 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<?php
+require 'session1.php'; 
+require 'vendor\autoload.php';
+
+
+if (!$_SESSION['email']=='nishad' && !$_SESSION['usertype']=='admin')
+
+{
+    header('location:login.php');
+
+}
+
+
+
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +39,9 @@
                 <span>LOGO</span>
             </div>
             <center><span class="hr">HR & Admin dashbord</span></center>
+            <span style="margin-left:700px; margin-top:30px; font-size:20px;">
+            <?php  echo $_SESSION['email'] ?>
+</span>
             <hr>
         </div>
         <hr>
@@ -33,12 +53,15 @@
         <nav class="shadow p-3 mb-5 bg-white rounded">
             <div class="gri">
                 <div class="item1">
-                    <a href="Requisition.php"> HOME</a>
+                    <a href="hr_admin_dashboard.php"> HOME</a>
                 </div>
                 <div class="item2">
             <div class="dropdown">
                     <a href="#">RECRUITMENT</a>
                    <div class="dropdown-content">
+
+                           <a href="Master Template.php"><p>ADD EMPLOYEE</p></a>
+
                             <a href="masterfile.php"><p>EMPLOYEE MASTER</p></a>
                             <a href="Requisition.php"><p>REQUISITION</p></a>
                             <a href="open_positions.php"><p>OPEN POSITIONS</p></a>
@@ -54,7 +77,8 @@
                         <span> <a href="#"> TRAINNING</a></span>
                         <div class="dropdown-content">
                             <p>SKILL MATRIX</p>
-                            <p>TRAINING NOMINATIONS CARD</p>
+                            <a href="Requisitioncreate2.php?dept=sales"><p>ADD SKILLS</p></a>
+                            <p>TRAINING NOMINATIONS CARD</p>    
                             <p>TRAINING CALENDER</p>
                             <p>TRAINING SCHEDULE</p>
                             <p>EFFECTIVENESS</p>
@@ -83,6 +107,11 @@
                         </div>
                     </div>
                     </div>
+        <div class="item7">
+                    
+                    <span> <a href="logout.php"> Logout</a></span>
+         </div>
+    
             </div>
         </nav>
         </div>

@@ -24,7 +24,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <!-- bootstrap cdn files for the Tables and other contents  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!-- Link the External Css here And please see name Its a Styles.css  -->
+    <!-- Link the External Css here And please see name Its a Styles.css  --> 
     <link rel="stylesheet" href="styles.css">
 </head>
 <div>
@@ -40,12 +40,6 @@
 <br>
 <div class="row justify-content-md-center">
 <div class="col-md-3">
-department : <select name="dept" id="dept">
-</select>
-</div>
-</div>
-<div class="row justify-content-md-center">
-<div class="col-md-3">
 <h4>Location</h4>
 <table class="table" id="ms">
 <?php 
@@ -58,13 +52,11 @@ foreach($counter as $row) {
     echo "</tr>";
 }
 ?>
-    <form method="POST" action="adddatatomastertemplate.php">
     <tr>
         <td><input type="text" name="city" required id="msn" placeholder="location" ></td>
         <td><input type="text" name="address" required id="m1" placeholder="Address" ></td>
-        <td><button class="btn btn-primary">+</button></td> 
+        <td><button class="btn btn-primary" onclick='upadd("msn","m1")'>Add</button></a></td> 
     </tr>
-    </form>
     </table>
     <h4>Designation</h4>
     <table class="table" id="fs">
@@ -77,10 +69,8 @@ foreach($counter as $row) {
         echo "</tr>";
 }
 ?>
-    <tr><form action="">
         <td><input type="text" required name="add" id="fsn"></td>
-        <td><button class="btn btn-primary" onclick="addSkill('fs')">+</button></td>
-        </form>
+        <td><button class="btn btn-primary" onclick='uptype("fsn","designation")'>Add</button></a></td> 
     </tr>
     </table>   
     <h4>Department</h4>
@@ -96,10 +86,8 @@ foreach($counter as $row) {
 ?>
 
     <tr>
-    <form action="">
         <td><input type="text" required name="dept" id="ssn"></td>
-        <td><button class="btn btn-primary" onclick="addSkill('ss')">+</button></td>
-    </form>
+        <td><button class="btn btn-primary" onclick='uptype("ssn","department")'>Add</button></a></td> 
     </tr>
     </table>
     <h4>Grade</h4><table class="table" id="ssn">
@@ -113,38 +101,25 @@ foreach($counter as $row) {
 }
 ?>
     <tr>
-        <td><input type="text" required name="grade" id="ssn"></td>
-        <td><button class="btn btn-primary" onclick="addSkill('ss')">+</button></td>
+        <td><input type="text" required name="grade" id="fssn"></td>
+        <td><button class="btn btn-primary" onclick='uptype("fssn","grade")'>Add</button></a></td> 
     </tr>
     </table>
-<script>
-function addSkill(tid) {
-var table = document.getElementById(tid);
-var row = table.insertRow(1);
-var cell1 = row.insertCell(0);
-cell1.innerHTML = '<input type="text" required name="" id="" value='+document.getElementById(tid+'n').value+">";
-var cell2 = row.insertCell(-1);
-cell2.innerHTML = '<td><button   class="btn btn-danger">Delete</button></td>';
-}
+    <script>
+        function upadd(p1, p2) {
+            adr=document.getElementById(p2).value;
+            city=document.getElementById(p1).value;
+            window.alert('lol');
+            window.location.replace("addaddmasteropt.php?add="+adr+"&city="+city);   // The function returns the product of p1 and p2
+        }
+        function uptype(p1, p2) {
+            value=document.getElementById(p1).value;
+            window.alert('lol'+p1+p2);
+            window.location.replace("typeaddmasteropt.php?value="+value+"&type="+p2);   // The function returns the product of p1 and p2
+        }
+    
+    </script>
 
-function addlocation(tid) {
-var check=document.getElementById(m1);
-if(check==null)
-{
-    alert(insert);
-}    
-else
-{
-var table = document.getElementById(tid);
-var row = table.insertRow(1);
-var cell1 = row.insertCell(0);
-cell1.innerHTML = '<input type="text" name="" id="" value='+document.getElementById(tid+'n').value+">";
-var cell3 = row.insertCell(1);
-cell3.innerHTML = '<input type="text" name="" id="" value='+document.getElementById('m1').value+">";
-var cell2 = row.insertCell(2);
-cell2.innerHTML = '<td><button   class="btn btn-danger">Delete</button></td>';
-}
-</script>
 <button class="btn btn-primary btn-lg btn-block" style="height:10%; width: 20%;" name="sub">submit</button>
 </div>
 </form>

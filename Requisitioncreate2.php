@@ -1,12 +1,18 @@
-<!DOCTYPE html>
 <?php
-require 'session.php'; 
+//require 'session.php'; 
 require 'vendor\autoload.php'; 
 $client = new MongoDB\Client;
-$companydb = $client->companydb;
-$empcollection = $companydb->empollection;
+$companydb = $client->hrmis;
+$empcollection = $companydb->skills;
+$masteropt = $companydb->masteropt;
+// if(isset($_POST['submit'])){
+//     $managerial=$_POST['msn'];
+//     $function=$_POST['fsn'];
+//     $designation=$_POST['add'];
+//     $dept=$_POST['System'];
+//     $grade=$_POST['grade'];
+// }
 ?>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -33,71 +39,98 @@ $empcollection = $companydb->empollection;
             </h2>
     </div>
 <br>
-<form method="POST" action="Requisitioncreate2.php">
- <div class="row justify-content-md-center">
+<div class="row justify-content-md-center">
+<div class="col-md-3">
+department : <select name="dept" id="dept" onchange='chngdept()' class="form-control">
+<?php 
+$counter = $masteropt->find([ 'type' => 'department' ]);
+//echo $counter;
+foreach($counter as $row) {
+    //echo $row['value'];
+    if ($_GET['dept']==$row['value']){
+    echo "<option value='".$row['value']."' selected>". $row['value'] ."</option>";
+}
+else{
+    echo "<option value='".$row['value']."' >". $row['value'] ."</option>";
+
+}
+}
+?>
+</select>
+</div>
+</div>
+<div class="row justify-content-md-center">
 <div class="col-md-3">
 <h4>Managerial Skills</h4>
 <table class="table" id="ms">
 <?php 
-$counter = $empcollection->find();
+$counter = $empcollection->find(['skilltype'=>'managerial','department'=>$_GET['dept']]);
 foreach($counter as $row) {
     echo "<tr>";
-    echo "<td>" . $row['skill name'] ."</td>";
-    echo "<td><button class='btn btn-primary' onclick='deleteSkill('ms')'>+</button></td>";#button
+    echo "<td>".$row['skillname']."</td>";
+    echo "<td><a href=deleteskills.php?skname=".$row['skillname']."&sktype=".$row['skilltype']."&dept=".$row['department']."><button class='btn btn-danger'>delete</button></a></td>";#button
     echo "</tr>";
 }
 ?>
-
     <tr>
         <td><input required type="text" name="Managerial" id="msn"></td>
-        <td><button class="btn btn-primary" onclick="addSkill('ms')">+</button></td>
+        <td><button class="btn btn-primary" onclick="addSkill('msn','managerial')">Add</button></td>
     </tr>
     </table>
     <h4>Functional Skills</h4>
     <table class="table" id="fs">
     <?php 
-$counter = $empcollection->find();
+$counter = $empcollection->find(['skilltype'=>'functional','department'=>$_GET['dept']]);
 foreach($counter as $row) {
     echo "<tr>";
-    echo "<td>" . $row['skill name'] ."</td>";
-    echo "<td><button class='btn btn-primary' onclick='deleteSkill('ms')'>+</button></td>";#button
+    echo "<td>".$row['skillname']."</td>";
+    echo "<td><a href=deleteskills.php?skname=".$row['skillname']."&sktype=".$row['skilltype']."&dept=".$row['department']."><button class='btn btn-danger'>delete</button></a></td>";#button
     echo "</tr>";
 }
 ?>
-
     <tr>
         <td><input required type="text" name="Functional" id="fsn"></td>
-        <td><button class="btn btn-primary" onclick="addSkill('fs')">+</button></td>
+        <td><button class="btn btn-primary" onclick="addSkill('fsn','functional')">+</button></td>
     </tr>   
     </table>   
     <h4>System Skills</h4><table class="table" id="ssn">
     <?php 
-$counter = $empcollection->find();
+$counter = $empcollection->find(['skilltype'=>'system','department'=>$_GET['dept']]);
 foreach($counter as $row) {
     echo "<tr>";
-    echo "<td>" . $row['skill name'] ."</td>";
-    echo "<td><button class='btn btn-primary' onclick='deleteSkill('ms')'>+</button></td>";#button
+    echo "<td>" .$row['skillname']."</td>";
+    echo "<td><a href=deleteskills.php?skname=".$row['skillname']."&sktype=".$row['skilltype']."&dept=".$row['department']."><button class='btn btn-danger'>delete</button></a></td>";#button
     echo "</tr>";
 }
 ?>
-
     <tr>
-        <td><input required type="text" name="System" id="ssn"></td>
-        <td><button class="btn btn-primary" onclick="addSkill('ss')">+</button></td>
+        <td><input required type="text" name="System" id="si"></td>
+        <td><button class="btn btn-primary" onclick="addSkill('si','system')">+</button></td>
     </tr>
     </table>
+    <?php 
+        $dept=$_GET['dept'];
+    ?>
 <script>
-function addSkill(tid) {
-var table = document.getElementById(tid);
-var row = table.insertRow(1);
-var cell1 = row.insertCell(0);
-cell1.innerHTML = '<input type="text" name="" id="" value='+document.getElementById(tid+'n').value+">";
-var cell2 = row.insertCell(-1);
-cell2.innerHTML = '<td><button   class="btn btn-danger">Delete</button></td>';
-}
+        function addSkill(p1, p2) {
+            value=document.getElementById(p1).value;
+            //window.alert('lol'+p1+p2);
+            var e = document.getElementById("dept");
+            var dept = e.options[e.selectedIndex].value;
+            //window.alert(dept);
+            window.location.replace("addskills.php?skname="+value+"&sktype="+p2+"&dept="+dept);   // The function returns the product of p1 and p2
+        }
+        function deleteSkill(p1,p2){
+            //window.alert('lol'+p1+p2);
+            window.location.replace("deleteskills.php?skname="+p1+"&sktype="+p2&"dept="+document.getElementById('dept').value);
+        }
+        function chngdept(){
+            var e = document.getElementById("dept");
+            var dept = e.options[e.selectedIndex].value;
+            window.location.replace("Requisitioncreate2.php?dept="+dept);
+        }
 </script>
-<button class="btn btn-primary btn-lg btn-block" style="height:10%; width: 20%;">submit</button>
+<button class="btn btn-primary btn-lg btn-block" style="height:10%; width: 20%;" name="submit">submit</button>
 </div>
-     </form>
 </body>
 </html>
