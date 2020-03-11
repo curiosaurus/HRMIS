@@ -4,14 +4,14 @@
     $client = new MongoDB\Client;
     $companydb = $client->hrmis;
     $empcollection = $companydb->masteropt;
-    if(isset($_POST['submit']))
-{   $location=$_POST['msn'];
-    $address=$_POST['msn1'];
-    $designation=$_POST['add'];
-    $dept=$_POST['dept'];
-    $grade=$_POST['grade'];
-    echo $location;
-}
+//     if(isset($_POST['submit']))
+// {   $location=$_POST['msn'];
+//     $address=$_POST['msn1'];
+//     $designation=$_POST['add'];
+//     $dept=$_POST['dept'];
+//     $grade=$_POST['grade'];
+//     echo $location;
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,16 +54,15 @@ foreach($counter as $row) {
     echo "<tr>";
     echo "<td>" . $row['city'] ."</td>";
     echo "<td>" . $row['address'] ."</td>";
-    echo "<td><a href='deletemasteropt.php?req=".$row['address']."&type=location' target='_blank'><button class='btn btn-danger'>Delete</button></td>";#button
+    echo "<td><a href='deletemasteropt.php?req=".$row['address']."&type=location' ><button class='btn btn-danger' onclick='location.reload()'>Delete</button></td>";#button
     echo "</tr>";
 }
 ?>
     <form method="POST" action="adddatatomastertemplate.php">
     <tr>
-        <td><input type="text" name="msn" required id="msn" placeholder="location" require></td>
-
-        <td><input type="text" name="msn1" required id="m1" placeholder="Address" require></td>
-        <td><button class="btn btn-primary" onclick="addSkill('ms')">+</button></td> 
+        <td><input type="text" name="city" required id="msn" placeholder="location" ></td>
+        <td><input type="text" name="address" required id="m1" placeholder="Address" ></td>
+        <td><button class="btn btn-primary">+</button></td> 
     </tr>
     </form>
     </table>
@@ -74,7 +73,7 @@ foreach($counter as $row) {
     foreach($counter as $row) {
         echo "<tr>";
         echo "<td>" . $row['value'] ."</td>";
-        echo "<td><a href='deletemasteropt.php?req=".$row['value']."&type=designation' target='_blank'><button class='btn btn-danger'>Delete</button></td>";#button
+        echo "<td><a href='deletemasteropt.php?req=".$row['value']."&type=designation' ><button class='btn btn-danger' onclick='location.reload()'>Delete</button></td>";#button
         echo "</tr>";
 }
 ?>
@@ -91,7 +90,7 @@ foreach($counter as $row) {
     foreach($counter as $row) {
         echo "<tr>";
         echo "<td>" . $row['value'] ."</td>";
-        echo "<td><a href='deletemasteropt.php?req=".$row['value']."&type=designation' target='_blank'><button class='btn btn-danger'>Delete</button></td>";#button
+        echo "<td><a href='deletemasteropt.php?req=".$row['value']."&type=department' ><button class='btn btn-danger'>Delete</button></td>";#button
         echo "</tr>";
 }
 ?>
@@ -109,7 +108,7 @@ $counter = $empcollection->find(['type'=>'grade']);
 foreach($counter as $row) {
     echo "<tr>";
     echo "<td>" . $row['value'] ."</td>";
-    echo "<td><a href='deletemasteropt.php?req=".$row['value']."&type=grade' target='_blank'><button class='btn btn-danger'>Delete</button></td>";#button
+    echo "<td><a href='deletemasteropt.php?req=".$row['value']."&type=grade' ><button class='btn btn-danger'>Delete</button></td>";#button
     echo "</tr>";
 }
 ?>
