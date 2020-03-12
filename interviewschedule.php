@@ -15,20 +15,13 @@
     <link rel="stylesheet" href="styles.css">
 
 </head>
-
-<style>
-  
-</style>
-
-
 <body>
 
 <?php
-
+include 'adminnavbar.php';
 if(isset($_POST["submit"]))
 {
                              
-    include 'adminnavbar.php';
     require 'class.smtp.php';
     require 'PHPMailerAutoload.php';    
     
@@ -162,14 +155,46 @@ if(isset($_POST["submit"]))
             </tr>
         </thead>
         <tbody>
-        <form method="POST" action="interviewschedule.php"> 
-	<tr>
-	
+<?php
+require 'vendor\autoload.php'; 
+$client = new MongoDB\Client;
+$companydb = $client->hrmis;
+$empcollection = $companydb->shortlisted_candidate;
+if(isset($_POST['submit']))
+{
+    $interviewlocation = $_POST['city'];
+    $interviewday = $_POST['date'];
+    $interviewtime = $_POST['time'];
+    $interviewemail = $_POST['iemail'];
+    $interviewhodemail = $_POST['hemail'];
+    $id = strval($_POST['id']);
+    echo $id;   
+    $updateResult = $empcollection->updateOne(
+        ['unique_id' => $id],
+        ['$set' => ['interviewlocation' =>$interviewlocation ,'interviewday'=>$interviewday , 'interviewtime'=> $interviewtime]]
+    );
+    
+
+
+}
+$counter = $empcollection->find( ['hod_remark' => 'Shortlist' ] ) ;
+foreach($counter as $row) {
+    
+    $empcollection1 = $companydb->requisition;
+    
+    $counter1 = $empcollection1->find( ['unique_id' => $row['Requisition_id'] ] );
+
+    foreach($counter1 as $row1) {
+    
+?>
+<form method="POST" action="interviewschedule.php"> 
+	<tr>	
             <!-- table body -->
-            <th scope="row">Sourav Roy</th>
-            <td>Assi. Manager</td>
-            <td>Production</td>
-            <td><select>
+            <input type="hidden" name="id" value="<?php echo $row['unique_id'] ?> ">
+            <th scope="row"> <?php echo $row['name'] ?> </th>
+            <td> <?php echo $row['current_position'] ?> </td>
+            <td> <?php echo $row1['department'] ?> </td>
+            <td><select name="city">
                 <option value="PUNE">PUNE</option>
                 <option value="Kolhapur">Kolhapur</option>
             </select></td>
@@ -178,67 +203,15 @@ if(isset($_POST["submit"]))
     <td><input required type="email" name="iemail" id="iemail"></td>
     <td><input required type="email" name="hemail" id="hemail"></td>           
     <td><button type="submit" name="submit" class="btn btn-block btn-primary" >Send</button></td>
-        </form>
-          </tr>
-          <tr>
-                <th scope="row">Ayan Banerjee	</th>
-                <td>Sales Engineer</td>
-                <td>Sales</td>
-                <td><select>
-                    <option value="PUNE">PUNE</option>
-                    <option value="Kolhapur">Kolhapur</option>
-                </select></td>
-                <td><input required type="date" name="date" id="date"></td>
-                <td><input required type="text" name="time" id="time" placeholder="hr:min am/pm"></td>
-                <td><input required type="email" name="iemail" id="iemail"></td>
-                <td><input required type="email" name="hemail" id="hemail"></td>             <td><button  type="submit" name="submit" class="btn btn-block btn-primary">Send</button></td>
-              </tr>
-              <tr>
-                    <th scope="row">Sonu Kumar Giri	
-	
-    
-                        </th>
-                    <td>Sales Engineer</td>
-                    <td>Sales</td>
-                    <td><select>
-                        <option value="PUNE">PUNE</option>
-                        <option value="Kolhapur">Kolhapur</option>
-                    </select></td>
-                    <td><input required type="date" name="date" id="date"></td>
-                    <td><input required type="text" name="time" id="time" placeholder="hr:min am/pm"></td>
-                    <td><input required type="email" name="iemail" id="iemail"></td>
-                    <td><input required type="email" name="hemail" id="hemail"></td>
-                    <td><button name="" class="btn btn-block btn-primary">Send</button></td>
-                  </tr>
+</tr>
+</form>
 
-                  <tr>
-                        <th scope="row">Somnath</th>
-                        <td>Sales Executive</td>
-                        <td>Sales</td>
-                        <td><select>
-                            <option value="PUNE">PUNE</option>
-                            <option value="Kolhapur">Kolhapur</option>
-                        </select></td>
-                        <td><input required type="date" name="date" id="date"></td>
-                        <td><input required type="text" name="time" id="time" placeholder="hr:min am/pm"></td>
-                        <td><input required type="email" name="iemail" id="iemail"></td>
-                        <td><input required type="email" name="hemail" id="hemail"></td>
-                        <td><button name="" class="btn btn-block btn-primary">Send</button></td>
-                      </tr>
+<?php
+    }
+}
+?>
 
-                      <tr>
-                            <th scope="row">Sourav Mandal</th>
-                            <td>Sales & MKT Engineer</td>
-                            <td>Marketing</td>
-                            <td><select>
-                                <option value="PUNE">PUNE</option>
-                                <option value="Kolhapur">Kolhapur</option>
-                            </select></td>
-                            <td><input type="date" required name="date" id="date"></td>
-                            <td><input type="text" required name="time" id="time" placeholder="hr:min am/pm"></td>
-                            <td><input type="email" required name="iemail" id="iemail"></td>
-                            <td><input type="email" required name="hemail" id="hemail"></td>                            <td><button name="" class="btn btn-block btn-primary">Send</button></td>
-                      </tr>
+
         </tbody>
       </table>
 </div>

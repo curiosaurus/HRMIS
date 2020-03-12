@@ -15,7 +15,7 @@ if(isset($_GET['variable1']))
 {
 $R_id = $_GET['variable1'];   
 }
-else
+else 
 {
     $R_id = $_POST['requisition_id'];
 }

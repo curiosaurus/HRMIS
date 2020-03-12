@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!$_SESSION['email']=='pavan' && !$_SESSION['email']=='nishad')
+{
+    header('location:login.php');
+}
+?>
+
+
 <html><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -146,6 +155,7 @@ foreach($counter as $row) {
     echo "<td>" . $row['TOTAL EXP'] ."</td>";
     echo "<td>" . $row['Permanent Address'] ."</td>";
     echo "<td>" . $row['Local Address'] ."</td>";
+    echo "<td> <button name='' class='btn btn-block btn-primary'>Upload</button> </td>";
 ?>
 <td><button name="" class="btn btn-block btn-primary">Upload</button></td>
     <?php echo "</tr>";
@@ -156,4 +166,3 @@ foreach($counter as $row) {
 </body>
 
 </html>
- 

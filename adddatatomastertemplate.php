@@ -1,4 +1,13 @@
 <?php
+
+session_start();
+
+if (!$_SESSION['usertype']=='admin')
+{
+
+    header('location:login.php');
+}
+
     // require 'session.php'	
     require 'vendor\autoload.php'; 
     $client = new MongoDB\Client;

@@ -1,4 +1,12 @@
 <?php
+
+session_start();
+
+if (!$_SESSION['usertype']=='admin' && !$_SESSION['usertype']=='hod') 
+{
+    header('location:login.php');
+}
+
 //require 'session.php'; 
 require 'vendor\autoload.php'; 
 $client = new MongoDB\Client;
@@ -30,7 +38,10 @@ $masteropt = $companydb->masteropt;
 </head>
 <div>
 <?php
+    if ($_SESSION['usertype']=='admin')
+    {
     include 'adminnavbar.php';
+    }
     ?>
 <center>
     <div class="title">

@@ -1,4 +1,14 @@
 <?php
+
+session_start();
+//require 'db.php';
+
+if (!$_SESSION['email']=='pavan' && !$_SESSION['email']=='nishad')
+{
+    header('location:login.php');
+
+}
+
     require 'vendor\autoload.php'; 
 
     $client = new MongoDB\Client;
@@ -30,8 +40,17 @@
 </head>
 <body>
 <?php
+   if ($_SESSION['usertype']=='admin')
+   {
     include 'adminnavbar.php';
-    ?>
+ }
+ else
+ {
+include 'hodnavbar.php';
+
+ }
+ 
+ ?>
     <br><br><br>
 
 
@@ -84,7 +103,7 @@ foreach($counter as $row) {
     echo "<tr>";
     echo "<td>" . $row['department'] ."</td>";
     echo "<td>" . $row['position'] ."</td>";
-    echo "<td>" . $row['Raised by'] ."</td>";
+    echo "<td>" . $_SESSION['email'] ."</td>";
     echo "<td>" . $row['dateofcreation'] ."</td>";
     echo "<td>" . "<button> open /close</button>" ."</td>";
     echo "<td><a href='viewrequision.php?variable1=".$id."'>View Requisition</a>" ."</td>";

@@ -1,4 +1,12 @@
 <?php
+
+session_start();
+
+
+if (!$_SESSION['usertype']=='hod')
+{
+    header('location:login.php');
+}
     // require 'session.php'	
     require 'vendor\autoload.php'; 
 
@@ -104,7 +112,16 @@ function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
 </head>
 <body>
 <?php
-    include 'hodnavbar.php';
+
+    if ($_SESSION['usertype']=='hod')
+    {
+            include 'hodnavbar.php';
+    }
+    else
+    {
+
+        include 'adminnavbar.php';
+    }
 ?>
         <div class="title">
         <center>
@@ -275,22 +292,22 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
                 <tr > 
                     <th>Managerial Skill</th>
             <td >Communication Skill</td>
-            <td ><input required type="number" style="width: 50px;" name="reqcomm" id=""></td>
-            <td><input required type="number" name="actcomm" id=""  style="width: 50px;"></td>
+            <td ><input type="number" style="width: 50px;" name="reqcomm" id=""></td>
+            <td><input  type="number" name="actcomm" id=""  style="width: 50px;"></td>
         </tr>
         <tr> 
             <th>Preffered Skill</th>
             <td style="">Vendor Selection & Assessment		
                 </td>
-                <td><input required type="number" name="reqven" id=""  style="width: 50px;"></td>
-                <td><input required type="number" name="actven" id=""  style="width: 50px;"></td>   
+                <td><input  type="number" name="reqven" id=""  style="width: 50px;"></td>
+                <td><input  type="number" name="actven" id=""  style="width: 50px;"></td>   
             </tr>
             <tr> 
                 <th >System Requirement</th>
                 <td>ISO 9001:2015		
                     </td>
-                    <td><input required type="number" name="reqiso" id=""  style="width: 50px;"></td>
-                    <td><input required type="number" name="actiso" id=""  style="width: 50px;"></td>
+                    <td><input  type="number" name="reqiso" id=""  style="width: 50px;"></td>
+                    <td><input  type="number" name="actiso" id=""  style="width: 50px;"></td>
                 </tr>
             </table>
         </div>

@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+ 
+if (!$_SESSION['usertype']=='admin')
+{
+    header('location:login.php');
+}
+
     require 'vendor\autoload.php'; 
 
     $client = new MongoDB\Client;
@@ -83,11 +90,6 @@
                 echo "Sorry, there was an error uploading your file.";
             }
         }
-
-
-
-
-
 
 
 
