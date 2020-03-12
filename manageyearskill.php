@@ -18,15 +18,11 @@
 </head>
 
 <style>
-
 </style>
-
-
 <body>
 <?php
     include 'adminnavbar.php';
     ?>
-
     <br><br>
     <center>
     <div class="Button">
