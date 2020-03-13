@@ -96,7 +96,7 @@ include 'hodnavbar.php';
                 </thead>
                 <tbody>
                 <?php 
-$counter = $empcollection->find();
+$counter = $empcollection->find(!['status'=>'closed']);
 foreach($counter as $row) {
     $id=$row['unique_id'];
     // echo $var;
