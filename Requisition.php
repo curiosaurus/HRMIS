@@ -343,7 +343,7 @@ foreach($counter2 as $row){
 
 echo "<td >".$row['skillname']."</td>";
 echo'<td ><input type="number" style="width: 50px;" name="'.$row["skillname"].'_r" id=""></td>
-<td><input type="text" name="'.$row["skillname"].'_a"  id=""  style="width: 50px;"></td>
+<td><input type="" disabled name="'.$row["skillname"].'_a"  id=""  style="width: 50px;"></td>
 </tr>';
 }           
 ?>
@@ -362,7 +362,7 @@ echo'<td ><input type="number" style="width: 50px;" name="'.$row["skillname"].'_
       
       echo "<td >".$row['skillname']."</td>";
       echo'<td ><input type="number" style="width: 50px;" name="'.$row["skillname"].'_r" id=""></td>
-      <td><input  type="number" name="'.$row["skillname"].'_a" id=""  style="width: 50px;"></td>
+      <td><input  type="number" disabled name="'.$row["skillname"].'_a" id=""  style="width: 50px;"></td>
       </tr>';
       }           
       ?>
@@ -380,7 +380,7 @@ echo'<td ><input type="number" style="width: 50px;" name="'.$row["skillname"].'_
       
       echo "<td >".$row['skillname']."</td>";
       echo'<td ><input type="number" style="width: 50px;" name="'.$row["skillname"].'_r" id=""></td>
-      <td><input  type="number" name="'.$row["skillname"].'_a" id=""  style="width: 50px;"></td>
+      <td><input  type="number" disabled name="'.$row["skillname"].'_a" id=""  style="width: 50px;"></td>
       </tr>';
       }           
       ?>
