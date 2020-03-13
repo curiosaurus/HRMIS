@@ -1,3 +1,29 @@
+<?php 
+
+
+require 'vendor\autoload.php'; 
+
+$client = new MongoDB\Client;
+$companydb = $client->hrmis;
+$empcollection = $companydb->employee;
+
+
+
+
+
+if(isset($_GET['variable1']))
+{
+$E_id = $_GET['variable1'];   
+}
+ 
+$E_id = "123";
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,10 +59,18 @@
 <br>
 <br>
 
+<?php
 
 
+$counter = $empcollection->find(array('Emp Code' => $E_id));
+    
 
-<form action="" method="post">
+foreach($counter as $row) {
+    
+?>
+
+
+<form action="data_handling_ED_effectivepage7.php" method="post">
 <div class="container" style="border: 1px solid lightblue; padding: 25px;">
 
 <div class="row justify-content-md-around">
@@ -47,11 +81,11 @@
 
     
     <div class="col-md-8">
-        <select required class="form-control form-control-lg">
-            <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
-            <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
-            <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
-            <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
+        <select required class="form-control form-control-lg" name="year">
+            <option value="">YEAR JANUARY 2019 TO DECEMBER 2019</option>
+            <option value="">YEAR JANUARY 2019 TO DECEMBER 2019</option>
+            <option value="">YEAR JANUARY 2019 TO DECEMBER 2019</option>
+            <option value="">YEAR JANUARY 2019 TO DECEMBER 2019</option>
           </select>
     </div>
 
@@ -76,7 +110,7 @@
     </div>
 
     <div class="col-md-4">
-        <input  required type="text" class="form-control" >
+        <input name = "Emp_code" required type="text" value="<?php echo $row['Emp Code']; ?>" class="form-control"  disabled>
     </div>
 
 
@@ -89,7 +123,7 @@
     </div>
 
     <div class="col-md-4">
-        <input required type="text" class="form-control" >
+        <input required type="text" value="<?php echo $row['Name']; ?>" class="form-control" disabled>
     </div>
 
 </div>
@@ -101,7 +135,8 @@
     </div>
 
     <div class="col-md-4">
-        <input required type="text" class="form-control" >
+        <input required type="text" value="" class="form-control" disabled>
+        <!-- <?php echo $row['Training Date']; ?> -->
     </div>
 
 </div>
@@ -109,11 +144,13 @@
 <div class="row justify-content-md-start">
                 
     <div class="col-md-3" >
-        <label style="font-size: 20px;"> Subject </label>Skill Level before Training
+        <label style="font-size: 20px;"> Subject </label>
     </div>
 
     <div class="col-md-4">
-        <input required type="text" class="form-control" >
+        <input required type="text" value="" class="form-control" disabled>
+        <!-- <?php echo $row['Subject']; ?> -->
+
     </div>
 
 </div>
@@ -125,10 +162,33 @@
     </div>
 
     <div class="col-md-4">
-        <input required type="text" class="form-control" >
+        <input required type="text" value="" class="form-control" disabled>
+        <!-- <?php echo $row['as_a']; ?> -->
+
     </div>
 
 </div>
+
+<br>
+<div class="row justify-content-md-start">
+                    
+    <div class="col-md-3" >
+        <label style="font-size: 20px;"> Skill Level after Training </label>
+    </div>
+
+    <div class="col-md-4">
+        <input required type="text" value="" class="form-control" disabled>
+        <!-- <?php echo $row['ps_a']; ?> -->
+        
+    </div>
+
+
+
+</div>
+
+
+
+
 
 </div>
 
@@ -143,12 +203,21 @@
     </div>
 
     <div class="col-md-2">
-        <button class="btn btn-outline-primary btn-sm btn-block">YES</button>
+
+    <select required class="form-control form-control-lg" name="as_attended">
+            <option value="YES">YES</option>
+            <option value="NO">NO</option>
+    </select>
+    </div>
+
+
+    <!-- <div class="col-md-2">
+        <input type="button" name="" class="btn btn-outline-primary btn-sm btn-block" value="YES">
     </div>
 
     <div class="col-md-2">
-        <button class="btn btn-outline-primary btn-sm btn-block">NO</button>
-    </div>
+        <input type="button" class="btn btn-outline-primary btn-sm btn-block" value="NO">
+    </div> -->
 
 </div>
 <br><br>
@@ -163,7 +232,7 @@
 <div class="row justify-content-md-start">
 
     <div class="col-md-8">
-        <textarea required class="form-control"  rows="3"></textarea>
+        <textarea required class="form-control" name="evidence" rows="3"></textarea>
     </div>
 
 </div>
@@ -171,7 +240,7 @@
 <div class="row justify-content-md-center">
 
     <div class="col-md-2">
-        <button class="btn btn-primary btn-md btn-block">SUBMIT</button>
+        <button name="submit" class="btn btn-primary btn-md btn-block">SUBMIT</button>
     </div>
 </div>
 
@@ -180,6 +249,10 @@
 
 </div>
 </form>
+
+<?php 
+}
+?>
 
 
 <br><br><br><br>
