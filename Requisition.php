@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+error_reporting(E_ERROR | E_PARSE);
 
 
 if (!$_SESSION['usertype']=='hod')
@@ -152,18 +153,39 @@ function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
         <div class="col-md-2">
              Department  
         </div>
-<?php
-// if ($_SESSION['usertype']=='admin'){?>
-<div class="col-md-3">
-	<div class="dropdown">
 
+
+        <?php
+
+
+echo '<div class="col-md-3"><div class="dropdown">';
+
+    $masteropt='masteropt';
+    $client = new MongoDB\Client;
+    $companydb = $client->hrmis;
+    $empcollection = $companydb->$masteropt;
+    $counter = $empcollection->find(['type'=>'department']);
+    echo'<select name="department" id="department" onchange="pp();">';
+    foreach($counter as $row) {
+        if($_GET["uid"] == $row['value']){
+        echo "<option value = ".$row['value']." selected>". $row['value'] ."</option>";
+        }
+        else{
+            echo "<option value = ".$row['value']." >". $row['value'] ."</option>";
+        }
+
+    }
+echo '</select>';
     
-<select name="department">
-    <option required >Select Department</option>
-    <option value="PURCHASE DEPARTMENT">PURCHASE DEPARTMENT</option>
-    <option value="SALES">SALES</option>
-    <option value="MANUFACTURING">MANUFACTURING</option>
-</select>
+?>
+<script>
+function pp(){
+    var p = document.getElementById("department").value;
+    window.location.href="Requisition.php?uid="+p;
+}
+
+</script>
+
 
 </div>
 </div>
@@ -282,33 +304,90 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
         
         &nbsp; &nbsp; &nbsp;
         <div class="">
-            <br><br>                
+            <br><br>   
+
+
+            
+                         
             <table class="table"  border="1" >
                 <tr>
                     <th colspan="2" >SKILL DETAILS</th>
                     <th width='11px'>REQUIRED</th>
                     <th width='11px'>ACTUAL</th width=''>
                 </tr>
-                <tr > 
-                    <th>Managerial Skill</th>
-            <td >Communication Skill</td>
-            <td ><input type="number" style="width: 50px;" name="reqcomm" id=""></td>
-            <td><input  type="number" name="actcomm" id=""  style="width: 50px;"></td>
-        </tr>
-        <tr> 
-            <th>Preffered Skill</th>
-            <td style="">Vendor Selection & Assessment		
-                </td>
-                <td><input  type="number" name="reqven" id=""  style="width: 50px;"></td>
-                <td><input  type="number" name="actven" id=""  style="width: 50px;"></td>   
-            </tr>
-            <tr> 
-                <th >System Requirement</th>
-                <td>ISO 9001:2015		
-                    </td>
-                    <td><input  type="number" name="reqiso" id=""  style="width: 50px;"></td>
-                    <td><input  type="number" name="actiso" id=""  style="width: 50px;"></td>
-                </tr>
+
+
+<?php
+
+require 'vendor\autoload.php'; 
+
+$client = new MongoDB\Client;
+$companydb = $client->hrmis;
+$empcoll = $companydb->skills;
+
+$var = $_GET["uid"];
+
+?>
+
+
+
+            <tr > 
+      
+<?php 
+$counter2 = $empcoll->find(array('department' => $var, 'skilltype' => 'managerial'));
+$o = $empcoll->count(array('department' => $var, 'skilltype' => 'managerial'));
+
+echo '
+<th rowspan = "'.$o.'" >Managerial Skill</th>';
+foreach($counter2 as $row){
+
+echo "<td >".$row['skillname']."</td>";
+echo'<td ><input type="number" style="width: 50px;" name="'.$row["skillname"].'_r" id=""></td>
+<td><input type="text" name="'.$row["skillname"].'_a"  id=""  style="width: 50px;"></td>
+</tr>';
+}           
+?>
+
+  
+            
+<tr > 
+      
+      <?php 
+      $counter2 = $empcoll->find(array('department' => $var, 'skilltype' => 'functional'));
+      $o = $empcoll->count(array('department' => $var, 'skilltype' => 'functional'));
+      
+      echo '
+      <th rowspan = "'.$o.'" >Preferrable Skill</th>';
+      foreach($counter2 as $row){
+      
+      echo "<td >".$row['skillname']."</td>";
+      echo'<td ><input type="number" style="width: 50px;" name="'.$row["skillname"].'_r" id=""></td>
+      <td><input  type="number" name="'.$row["skillname"].'_a" id=""  style="width: 50px;"></td>
+      </tr>';
+      }           
+      ?>
+      
+      
+      <tr > 
+      
+      <?php 
+      $counter2 = $empcoll->find(array('department' => $var, 'skilltype' => 'system'));
+      $o = $empcoll->count(array('department' => $var, 'skilltype' => 'system'));
+      
+      echo '
+      <th rowspan = "'.$o.'" >System Requirement</th>';
+      foreach($counter2 as $row){
+      
+      echo "<td >".$row['skillname']."</td>";
+      echo'<td ><input type="number" style="width: 50px;" name="'.$row["skillname"].'_r" id=""></td>
+      <td><input  type="number" name="'.$row["skillname"].'_a" id=""  style="width: 50px;"></td>
+      </tr>';
+      }           
+      ?>
+      
+      
+                
+                    
             </table>
         </div>
     </div>
@@ -324,6 +403,5 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
     <br>
 </form> 
 </div>
-
 </body>
 </html>
