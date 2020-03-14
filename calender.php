@@ -43,17 +43,30 @@ $companydb = $client->hrmis;
 $empcollection = $companydb->trainingcalender;
 
       $counter = $empcollection->find();
+$i=0;
 foreach($counter as $row) {
+        $i+=1;
         echo " <tr>";
-        echo '<th scope="row">1</th>';
+        echo "<th>".$i."</th>";
         echo "<td>" . $row['trainingtopic'] ."</td>";
-   echo  '    
-        <td>P</td>
-        <td>C</td>
-  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        $p = $row['month_p'].'p'.$i;
+        $q = $row['month_c'].'c'.$i;
+                
+ echo  '    
+        <td class="pra" id="Janp'.$i.'">
+        </td>
+        <td id="Janc'.$i.'"></td>
+  <td id="Febp'.$i.'"></td><td id="Febc'.$i.'"></td><td id="Marp'.$i.'"></td><td id="Marc'.$i.'"></td><td id="Aprp'.$i.'"></td><td id="Aprc'.$i.'"></td><td id="Mayp'.$i.'"></td><td id="Mayc'.$i.'"></td><td id="Junep'.$i.'"></td><td id="Junec'.$i.'"></td><td id="Julyp'.$i.'"></td><td id="Julyc'.$i.'"></td><td id="Augp'.$i.'"></td><td id="Augc'.$i.'"></td>
+  <td id="Septp'.$i.'"></td><td id="septc'.$i.'"></td><td id="Octp'.$i.'"></td><td id="Octc'.$i.'"></td><td id="Novp'.$i.'"></td><td id="Novc'.$i.'"></td><td id="Decp'.$i.'"></td><td id="Decc'.$i.'"></td><td></td><td></td>
 ';
-  echo "   </tr>";
+?>
+<script>
+document.getElementById('<?php echo $p; ?>').innerHTML='P';
+document.getElementById('<?php echo $q; ?>').innerHTML='C' ;
+</script>
+ 
+<?php
+ echo "   </tr>";
 }
       ?>
      
