@@ -1,3 +1,14 @@
+
+<?php
+
+require 'vendor\autoload.php'; 
+
+$client = new MongoDB\Client;
+$companydb = $client->companydb;
+$empcollection = $companydb->user;
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +48,9 @@
 
 <body>
 <?php
+
     include 'hodnavbar.php';
+
 ?>
     <center>
 
@@ -69,15 +82,52 @@
 
         <div class="row justify-content-md-around">
 
-            <div class="col-md-0">
+            <!-- <div class="col-md-0">
                 <h4><label> DEPARTMENT</label></h4>
             </div>
 
 
             <div class="col-md-8">
                 <h4><label>ACCOUNTS & EXCISE</label></h4>
-            </div>
+            </div> -->
+  <?php
+    echo '<div class="col-md-3"><div class="dropdown">';
+    $masteropt='masteropt';
+    $client = new MongoDB\Client;
+    $companydb = $client->hrmis;
+    $empcollection = $companydb->$masteropt;
+    $counter = $empcollection->find(['type'=>'department']);
+    echo'<select name="department" id="department" onchange="pp();">';
+    if(!isset ($_GET['uid'])){
+    foreach($counter as $row) {
+        if($_GET["uid"] == $row['value']){
+        echo "<option value = ".$row['value']." selected>". $row['value'] ."</option>";
+        $deptid=$row['value'];
+        
+    }
+        else{
+            echo "<option value = ".$row['value']." >". $row['value'] ."</option>";
 
+        }
+    }
+}
+    else{
+        foreach($counter as $row) {
+            echo "<option value = ".$row['value']." selected>". $row['value'] ."</option>";
+            $deptid=$row['value'];
+        }   
+    }
+    
+echo '</select>';
+    
+?>
+<script>
+function pp(){
+    var p = document.getElementById("department").value;
+    window.location.href="skillmatrixlist.php?uid="+p;
+}
+
+</script>
         </div>
     </div>
 
@@ -85,7 +135,8 @@
     <br><br>
 
     <table class="table3" border="2" style="width:100%">
-        <tr>
+    <thead>    
+    <tr>
             <th>Emp Code</th>
             <th>Emp Display Name</th>
             <th>Designation</th>
@@ -94,108 +145,35 @@
             <th>Total Experience</th>
             <th>Skill Matrix</th>
         </tr>
+        
+    </thead>
+    
+    <tbody>
 
-        <tr>
-            <td>RM00028</td>
-            <td>SUNIL MANGATRAM SHARMA</td>
-            <td>DY. MANAGER - ACCOUNTS</td>
-            <td>E11</td>
-            <td>MCOM</td>
-            <td>36</td>
-            <td><a href="update.html"><button name="" class="btn btn-block btn-primary">UPDATE</button></a>
-            </td>
-        </tr>
+        //database retrive
+        $companydb = $client->companydb;
+        $empcollection = $companydb->user;
+        $counter = $empcollection->find(['DEPARTMENT ID'=>$deptid]);
+        foreach($counter as $row) {
+    
+    // echo $var;
+    $pas=$row['Emp code']
+    echo "<tr>";
+    echo "<td>" . $row['Emp Code'] ."</td>";
+    echo "<td>" . $row['Emp Display Name'] ."</td>";
+    echo "<td>" . $row['TOTAL EXP'] ."</td>";
+    echo "<td>" . $row['GRADE ID'] ."</td>";
+    echo "<td>" . $row['DEPARTMENT ID'] ."</td>";
+    echo "<td><a href='skillmatrix.php?variable1=".$pas."'>Upload</a>" ."</td>";
+    #add just this line whenever you create  viewrequisition  33111`3
+    //getting values in page2.php file by $_GET function:
+    //$x=$_GET['variable1'];
+    echo "</tr>";
+}
+?>
 
-        <tr>
-            <td>RO00107</td>
-            <td>PRAVIN HARINAND KOLGE</td>
-            <td>DY. MANAGER - ACCOUNTS</td>
-            <td>E11</td>
-            <td>MCOM</td>
-            <td>27</td>
-            <td><a href="update.html"><button name="" class="btn btn-block btn-primary">UPDATE</button></a>
-            </td>
-        </tr>
+    </tbody>
 
-        <tr>
-            <td>RM00036</td>
-            <td>SANJAY SURAJMAL GANDHI</td>
-            <td>GENERAL MANAGER - FINANCE</td>
-            <td>L01</td>
-            <td>M COM,MBA</td>
-            <td>28</td>
-            <td><a href="update.html"><button name="" class="btn btn-block btn-primary">UPDATE</button></a>
-            </td>
-        </tr>
-
-        <tr>
-            <td>RS00106</td>
-            <td>VINOD SHIVAJIRAO RAVAN</td>
-            <td>EXECUTIVE ACCOUNT</td>
-            <td>E07</td>
-            <td>B COM</td>
-            <td>18</td>
-            <td><a href="update.html"><button name="" class="btn btn-block btn-primary">UPDATE</button></a>
-            </td>
-        </tr>
-
-        <tr>
-            <td>RS00112</td>
-            <td>AJAY HARINAND KOLGE</td>
-            <td>SR. OFFICER - ACCOUNTS</td>
-            <td>E05</td>
-            <td>M COM</td>
-            <td>24</td>
-            <td><a href="update.html"><button name="" class="btn btn-block btn-primary">UPDATE</button></a>
-            </td>
-        </tr>
-
-        <tr>
-            <td>RO00310</td>
-            <td>KIRAN POPAT THEURKAR</td>
-            <td>SR OFFICER EXCISE</td>
-            <td>E05</td>
-            <td>M COM</td>
-            <td>13</td>
-            <td><a href="update.html"><button name="" class="btn btn-block btn-primary">UPDATE</button></a>
-            </td>
-        </tr>
-
-        <tr>
-            <td>RO00315</td>
-            <td>SANTOSH YAMANAJI JADHAV</td>
-            <td>EXECUTIVE – EXCISE</td>
-            <td>E07</td>
-            <td>BCOM</td>
-            <td>15</td>
-            <td><a href="update.html"><button name="" class="btn btn-block btn-primary">UPDATE</button></a>
-            </td>
-        </tr>
-
-
-        <tr>
-            <td>RO00508</td>
-            <td>SNEHAL RAM NARAYANPETHE</td>
-            <td>OFFICER ACCOUNTS</td>
-            <td>E02</td>
-            <td>BCOM</td>
-            <td>6</td>
-            <td><a href="update.html"><button name="" class="btn btn-block btn-primary">UPDATE</button></a>
-            </td>
-        </tr>
-
-
-
-        <tr>
-            <td>RO00512</td>
-            <td>PRADEEP VITTHAL SATHE</td>
-            <td>SR. OFFICER - ACCOUNTS</td>
-            <td>E04</td>
-            <td>BCOM</td>
-            <td>9</td>
-            <td><a href="update.html"><button name="" class="btn btn-block btn-primary">UPDATE</button></a>
-            </td>
-        </tr>
 
     </table>
     <br>
