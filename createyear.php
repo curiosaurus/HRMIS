@@ -8,9 +8,16 @@ if(isset($_POST['submit']))
     $years ="Years7";
 require 'vendor\autoload.php'; 
 
-    $client = new MongoDB\Client;
-    $companydb = $client->hrmis;
-    $years=$companydb->$years;
+        $client = new MongoDB\Client;
+        $companydb = $client->hrmis;
+        $years=$companydb->$years;
+    $start_month=$_POST['start_month'];
+    
+    $end_month=$_POST['end_month'];
+    $year=$_POST['year'];
+    echo $end_month;
+    echo $year;
+    echo $start_month;
     $results=$years->insertOne(['_id' => '2' , 'name' => 'Nishad' , 'age' => '21' , 'skill' => 'mongoDB' ,"start_month"=>'january',"end_month"=>'december']);
 
 }
@@ -42,9 +49,7 @@ require 'vendor\autoload.php';
 
 
 <body>
-    <?php
-    include 'adminnavbar.php';
-    ?>
+   
     <br><br>
     <center>
         <div class="interview">
@@ -54,6 +59,8 @@ require 'vendor\autoload.php';
             
             </div>
         </div>
+        <form action="createyear.php" method="POST">
+
     <div class="container" style="border: 1px solid lightblue; padding: 2px;">
 
         <div class="row justify-content-md-around">
@@ -65,45 +72,76 @@ require 'vendor\autoload.php';
 
 
             <div class="col-md-8">
-                <select required class="form-control form-control-lg">
-                    <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
-                    <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
-                    <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
-                    <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
-                  </select>
+                <input type="text" id="year" name="year" >
             </div>
 
         </div>
     </div>
-    <form action="hr_admin_skill 2.html" method="post">
             <table class="table">
             <tr>
                 <td>Start Month</td>
-                <td><input required type="month" name="start_month"  value="" onchange="myFunction(this.value)"></td>
+                <td><input required type="date" name="start_month" id="st"  value="" onchange="myFunction()"></td>
                
                       
             </tr>
               <tr>
                 <td>End Month</td>
-                <td><input required type="month" name="" id=""></td>
-               
+                <td><input required type="date" name="end_month" id="en" value="" onchange="myFunction()"></td>
+        
                       
             </tr>    
 
         </table>
-      <button class="btn btn-primary btn-lg">Submit</button>
+      <button class="btn btn-primary btn-lg" name="submit">Submit</button>
       </form>
       <script>
-function myFunction(val) {
+		  var start='';
+          var end='';
+function myFunction() {
+    const monthNames = ["Kedar","January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+        ];
+        var start='';
+          var end='';
+        var val=document.getElementById("st").value;
+        var val_1=document.getElementById("en").value;
+
+    var val1=val.split("-");
+    var  val2=parseInt(val1[1]);
+    var  year=parseInt(val1[0]);
+        var month=monthNames[val2]; 
+         start+=month;
+         start+=year;
+        
+
+         
+    var val1=val_1.split("-");
+    var  val2=parseInt(val1[1]);
+    var  year=parseInt(val1[0]);
+        var month=monthNames[val2]; 
+         end+=month;
+         end+=year;
+         document.getElementById("year").value=start+"-"+end
+  alert("The input value has changed. The new value is: " + start);
+  
+}
+
+function myFunction1(val) {
     
     const monthNames = ["Kedar","January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
         ];
     var val1=val.split("-");
     var  val2=parseInt(val1[1]);
-        var month=monthNames[val2];  
-  alert("The input value has changed. The new value is: " + month);
+    
+    var  year=parseInt(val1[0]);
+        var month=monthNames[val2]; 
+         end.push(month);
+         end.push(year);
+  alert("The input value has changed. The new value is: " + end);
 }
+
+
 </script>
 
 </body>
