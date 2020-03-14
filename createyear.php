@@ -1,3 +1,22 @@
+
+
+<?php
+
+if(isset($_POST['submit']))
+{
+
+    $years ="Years7";
+require 'vendor\autoload.php'; 
+
+    $client = new MongoDB\Client;
+    $companydb = $client->hrmis;
+    $years=$companydb->$years;
+    $results=$years->insertOne(['_id' => '2' , 'name' => 'Nishad' , 'age' => '21' , 'skill' => 'mongoDB' ,"start_month"=>'january',"end_month"=>'december']);
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +49,7 @@
     <center>
         <div class="interview">
             <div class="block">
-              <h2> Manage Year</h2>
+              <h2> Create Year</h2>
             <hr class="line">
             
             </div>
@@ -60,7 +79,7 @@
             <table class="table">
             <tr>
                 <td>Start Month</td>
-                <td><input required type="month" name="" id=""></td>
+                <td><input required type="month" name="start_month"  value="" onchange="myFunction(this.value)"></td>
                
                       
             </tr>
@@ -74,6 +93,18 @@
         </table>
       <button class="btn btn-primary btn-lg">Submit</button>
       </form>
-</body>
+      <script>
+function myFunction(val) {
+    
+    const monthNames = ["Kedar","January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+        ];
+    var val1=val.split("-");
+    var  val2=parseInt(val1[1]);
+        var month=monthNames[val2];  
+  alert("The input value has changed. The new value is: " + month);
+}
+</script>
 
+</body>
 </html>
