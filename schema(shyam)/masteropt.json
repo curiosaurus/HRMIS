@@ -1,0 +1,5 @@
+{"_id":{"$oid":"5e6720223cebc941d06b4e58"},"value":"sales","type":"department"}
+{"_id":{"$oid":"5e6720633cebc941d06b4e59"},"value":"a1","type":"grade"}
+{"_id":{"$oid":"5e68a091fa218b4c81e93661"},"value":"Manager","type":"designation"}
+{"_id":{"$oid":"5e689f3cfa218b4c81e93660"},"city":"Pune","address":"mkl rd, alandi, Pune","type":"location"}
+{"_id":{"$oid":"5e68ed95fa218b4c81e93664"},"value":"purchase","type":"department"}

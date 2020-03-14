@@ -1,0 +1,10 @@
+{"_id":{"$oid":"5e6b8250d0660000f10023fa"},"item":"journal","qty":{"$numberInt":"25"},"size":{"h":{"$numberInt":"14"},"w":{"$numberInt":"21"},"uom":"cm"},"status":"A"}
+{"_id":{"$oid":"5e6b8250d0660000f10023fb"},"item":"notebook","qty":{"$numberInt":"50"},"size":{"h":{"$numberDouble":"8.5"},"w":{"$numberInt":"11"},"uom":"in"},"status":"A"}
+{"_id":{"$oid":"5e6b8250d0660000f10023fc"},"item":"paper","qty":{"$numberInt":"100"},"size":{"h":{"$numberDouble":"8.5"},"w":{"$numberInt":"11"},"uom":"in"},"status":"D"}
+{"_id":{"$oid":"5e6b8250d0660000f10023fd"},"item":"planner","qty":{"$numberInt":"75"},"size":{"h":{"$numberDouble":"22.85"},"w":{"$numberInt":"30"},"uom":"cm"},"status":"D"}
+{"_id":{"$oid":"5e6b8250d0660000f10023fe"},"item":"postcard","qty":{"$numberInt":"45"},"size":{"h":{"$numberInt":"10"},"w":{"$numberDouble":"15.25"},"uom":"cm"},"status":"A"}
+{"_id":{"$oid":"5e6b826bd0660000f10023ff"},"item":"journal","qty":{"$numberInt":"25"},"size":{"h":{"$numberInt":"14"},"w":{"$numberInt":"21"},"uom":"cm"},"status":"A"}
+{"_id":{"$oid":"5e6b826bd0660000f1002400"},"item":"notebook","qty":{"$numberInt":"50"},"size":{"h":{"$numberDouble":"8.5"},"w":{"$numberInt":"11"},"uom":"in"},"status":"A"}
+{"_id":{"$oid":"5e6b826bd0660000f1002401"},"item":"paper","qty":{"$numberInt":"100"},"size":{"h":{"$numberDouble":"8.5"},"w":{"$numberInt":"11"},"uom":"in"},"status":"D"}
+{"_id":{"$oid":"5e6b826bd0660000f1002402"},"item":"planner","qty":{"$numberInt":"75"},"size":{"h":{"$numberDouble":"22.85"},"w":{"$numberInt":"30"},"uom":"cm"},"status":"D"}
+{"_id":{"$oid":"5e6b826bd0660000f1002403"},"item":"postcard","qty":{"$numberInt":"45"},"size":{"h":{"$numberInt":"10"},"w":{"$numberDouble":"15.25"},"uom":"cm"},"status":"A"}

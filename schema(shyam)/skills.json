@@ -1,0 +1,9 @@
+{"_id":{"$oid":"5e53cf6414328a8af4a6ef1b"},"department":"purchase","skillname":"jsdfkjh","skilltype":"managerial"}
+{"_id":{"$oid":"5e68c5d3fa218b4c81e93663"},"department":"purchase","skillname":"haha","skilltype":"system"}
+{"_id":{"$oid":"5e6a2e999be7614c812c975f"},"department":"pp","skillname":"asd","skilltype":"asd"}
+{"_id":{"$oid":"5e6a61b1d0660000f10023f4"},"skilltype":"functional","department":"purchase","skillname":"ghghf"}
+{"_id":{"$oid":"5e6b7a1efbf0b723c6f231f4"},"department":"sales","skillname":"om","skilltype":"system"}
+{"_id":{"$oid":"5e6b7a68fbf0b723c6f231f5"},"department":"sales","skillname":"pavan","skilltype":"functional"}
+{"_id":{"$oid":"5e6b7ab6fbf0b723c6f231f6"},"skilltype":"managerial","department":"sales","skillname":"kedar"}
+{"_id":{"$oid":"5e6b87dbfbf0b723c6f231f7"},"department":"sales","skillname":"ojdguj","skilltype":"managerial"}
+{"_id":{"$oid":"5e6b9628fbf0b723c6f231f8"},"department":"sales","skilltype":"system","skillname":"pratik"}

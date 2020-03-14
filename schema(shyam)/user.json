@@ -1,0 +1,2 @@
+{"_id":{"$oid":"5e4905bbfa10da0a409c3399"},"email":"pavan","password":"1234","usertype":"hod"}
+{"_id":{"$oid":"5e4917b8fa10da0a409c339a"},"email":"nishad","password":"1234","usertype":"admin"}
