@@ -1,3 +1,56 @@
+
+<?php
+
+require 'vendor\autoload.php'; 
+
+$client = new MongoDB\Client;
+$companydb = $client->companydb;
+$empcollection = $companydb->user;
+
+if(isset ($_GET['variable1']))
+{
+    $empcode=$_GET['variable1'];
+    $counter=$empcollection->find(['Emp Code'=>$empcode]);
+    foreach ($counter as $row)
+    {
+        $empcode=$row['Emp code'];
+        $display_name=$row['Emp Display Name'];
+        $date_0f_joinng=$row['Date of joining'];
+        $department=$row['Department Id'];
+        $designation=$row['Designation'];
+        $grade=$row['Grade Id'];
+        $location=$row['Location Id'];
+        $employeetype=$row['Employee Type Id'];
+        $employeestatus=$row['Employee Status Id'];
+        $employeereportingto=$row['REPORTING TO'];
+        $education=$row['EDUCATION'];
+
+        $previous_exp=$row['Previous Exp'];
+        $resigned_date=$row['Resigned date'];
+        $last_working_date=$row['DATE OF LEAVING'];
+        
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+}
+else{
+    header('location:skillmatrixlist.php');
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
