@@ -1,19 +1,19 @@
 <?php
 
 session_start();
-error_reporting(E_ERROR | E_PARSE);
+// error_reporting(E_ERROR | E_PARSE);
 
 
-if (!$_SESSION['usertype']=='hod')
-{
-    header('location:login.php');
-}
+// if (!$_SESSION['usertype']=='hod')
+// {
+//     header('location:login.php');
+// }
     // require 'session.php'	
     require 'vendor\autoload.php'; 
 
-    $client = new MongoDB\Client;
-    $companydb = $client->hrmis;
-    $empcollection = $companydb->requisition;
+    // $client = new MongoDB\Client;
+    // $companydb = $client->hrmis;
+    // $empcollection = $companydb->requisition;
 
 
 
@@ -43,51 +43,6 @@ function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
 
 	return $result;
 }
-
-
-    if(isset($_POST['submit']))
-    {   
-        foreach(range(0, 0) as $id) {
-        $id = 7841;
-        }
-        $unique_id = createMongoDbLikeId(time(), php_uname('n'), getmypid(), $id); 
-        $department = $_POST['department'];
-        $raised_by = " "; 
-        $reqfor = $_POST['reqfor']; 
-        $reasonappnt = $_POST['reasonappnt'];
-        $dateofcreation = date("m/d/Y");
-        $dateofmdapproval = '';
-        $dateofhrshortlist = '';
-        $dateofhodshortlist = '';
-        $dateofinterviewsch = '';
-        $dateofinterview = '';
-        $dateofcloseposition = '';
-        $replacement = '';      
-        $minqual = $_POST['minqual'];
-        $prefqual = $_POST['prefqual'];
-        $expmin = $_POST['expmin'];
-        $expmax = $_POST['expmax'];
-        $skillsreq = $_POST['skillsreq'];
-        $skillconsider = $_POST['skillconsider'];
-        $reqcomm = $_POST['reqcomm'];
-        $actcomm = $_POST['actcomm'];
-        $reqven = $_POST['reqven'];
-        $actven = $_POST['actven'];
-        $reqiso = $_POST['reqiso'];
-        $actiso = $_POST['actiso'];
-        $status = 'created'; 
-    // Insert one data
-    $insertOneResult = $empcollection->insertOne( ['unique_id' => $unique_id , 'department' => $department , 'raised by' => $raised_by , 'position' => $reqfor , 'reasonofappointment' => $reasonappnt , 'dateofcreation' => $dateofcreation , 'dateofmdapproval' => $dateofmdapproval , 'dateofhrshortlist' => $dateofhrshortlist , 'dateofhodshortlist' => $dateofhodshortlist , 'dateofinterviewsch' => $dateofinterviewsch , 'dateofinterview' => $dateofinterview , 'replacement' => $replacement , 
-     'minqual' => $minqual , 'prefqual' => $prefqual , 'minexp' =>  $expmin , 'prefexp' => $expmax , 'skillreq' => $skillsreq , 'spconsideration' =>  $skillconsider , 'Communication Skill REQUIRED' => $reqcomm , 'Communication Skill ACTUAL' => $actcomm , 'Vendor Selection & Assessment REQUIRED' => $reqven , 'Vendor Selection & Assessment ACTUAL' => $actven , 'ISO REQUIRED' =>  $reqiso , 'ISO ACTUAL' => $actiso , 'status' => $status ] );
-
-    // if($insertOneResult)
-    // {
-    //     echo "Sucess";
-    // }
-    // else{
-    //     echo "unSucess";
-    // }
-    }
 ?>
 
 
@@ -113,16 +68,16 @@ function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
 </head>
 <body>
 <?php
+    //include 'adminnavbar.php';
+    // if ($_SESSION['usertype']=='hod')
+    // {
+    //         include 'hodnavbar.php';
+    // }
+    // else
+    // {
 
-    if ($_SESSION['usertype']=='hod')
-    {
-            include 'hodnavbar.php';
-    }
-    else
-    {
-
-        include 'adminnavbar.php';
-    }
+    //     include 'adminnavbar.php';
+    // }
 ?>
         <div class="title">
         <center>
@@ -143,7 +98,7 @@ function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
 <br>
 <hr style="border-bottom: 1px solid#3f51b5; width: 500px;">
 <br>
-<form action="Requisition.php" method="post">
+<form action="Requisition_data.php" method="POST">
 <div class="container">
     <div class="row justify-content-md-start">
         
@@ -304,11 +259,7 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
         
         &nbsp; &nbsp; &nbsp;
         <div class="">
-            <br><br>   
-
-
-            
-                         
+            <br><br>          
             <table class="table"  border="1" >
                 <tr>
                     <th colspan="2" >SKILL DETAILS</th>
@@ -328,42 +279,48 @@ $empcoll = $companydb->skills;
 $var = $_GET["uid"];
 
 ?>
-
-
-
-            <tr > 
-      
+            <tr >     
 <?php 
 $counter2 = $empcoll->find(array('department' => $var, 'skilltype' => 'managerial'));
 $o = $empcoll->count(array('department' => $var, 'skilltype' => 'managerial'));
-
+$counter3 = 0;
 echo '
 <th rowspan = "'.$o.'" >Managerial Skill</th>';
 foreach($counter2 as $row){
-
-echo "<td >".$row['skillname']."</td>";
-echo'<td ><input type="number" style="width: 50px;" name="'.$row["skillname"].'_r" id=""></td>
-<td><input type="" disabled name="'.$row["skillname"].'_a"  id=""  style="width: 50px;"></td>
-</tr>';
+    $counter3 = $counter3 + 1;
+    // $array_manage = "managerialSkill".$counter3;
+    // $array_manage = array();
+    //array_push($array_manage,$row['skillname']);
+    echo '<input type="hidden" name="managerialSkill'.$counter3.'[]" id="" value="'.$row['skillname'].'">';
+    echo "<td >".$row['skillname']."</td>";
+    echo'<td ><input type="number" style="width: 50px;" name="managerialSkill'.$counter3.'[]" id=""></td>
+    <td><input type="" disabled name="managerialSkill'.$counter3.'[]"  id=""  style="width: 50px;"></td>
+    </tr>';
+    echo '<input type="hidden" name="counter3" value="'.$counter3.'">';
 }           
 ?>
 
   
             
-<tr > 
+    <tr > 
       
-      <?php 
+      <?php
+      $counter = 0;
       $counter2 = $empcoll->find(array('department' => $var, 'skilltype' => 'functional'));
       $o = $empcoll->count(array('department' => $var, 'skilltype' => 'functional'));
       
-      echo '
-      <th rowspan = "'.$o.'" >Preferrable Skill</th>';
+      echo '<th rowspan = "'.$o.'" >Preferrable Skill</th>';
       foreach($counter2 as $row){
-      
-      echo "<td >".$row['skillname']."</td>";
-      echo'<td ><input type="number" style="width: 50px;" name="'.$row["skillname"].'_r" id=""></td>
-      <td><input  type="number" disabled name="'.$row["skillname"].'_a" id=""  style="width: 50px;"></td>
-      </tr>';
+        $counter = $counter + 1;
+        // $array_name = "preferrablesSkill".$counter;
+        // $array_name = array();
+        // array_push($array_name,$row['skillname']);
+        echo '<input type="hidden" name="preferrablesSkill'.$counter.'[]" id="" value="'.$row['skillname'].'">';
+        echo "<td >".$row['skillname']."</td>";
+        echo'<td ><input type="number" style="width: 50px;" name="preferrablesSkill'.$counter.'[]" id=""></td>
+        <td><input type="number" disabled name="preferrablesSkill'.$counter.'[]" id=""  style="width: 50px;"></td>
+        </tr>';
+        echo '<input type="hidden" name="counter" value="'.$counter.'">';
       }           
       ?>
       
@@ -371,17 +328,23 @@ echo'<td ><input type="number" style="width: 50px;" name="'.$row["skillname"].'_
       <tr > 
       
       <?php 
+      $counter4 = 0;
       $counter2 = $empcoll->find(array('department' => $var, 'skilltype' => 'system'));
       $o = $empcoll->count(array('department' => $var, 'skilltype' => 'system'));
       
       echo '
       <th rowspan = "'.$o.'" >System Requirement</th>';
       foreach($counter2 as $row){
-      
+      $counter4 = $counter4 + 1;
+    //   $array_name = "systemRequirement".$counter;
+    //   $array_name = array();
+    //   array_push($array_name,$row['skillname']);
+      echo '<input type="hidden" name="systemRequirement'.$counter4.'[]" id="" value="'.$row['skillname'].'">';
       echo "<td >".$row['skillname']."</td>";
-      echo'<td ><input type="number" style="width: 50px;" name="'.$row["skillname"].'_r" id=""></td>
-      <td><input  type="number" disabled name="'.$row["skillname"].'_a" id=""  style="width: 50px;"></td>
+      echo'<td ><input type="number" style="width: 50px;" name="systemRequirement'.$counter4.'[]" id=""></td>
+      <td><input  type="number" disabled name="systemRequirement'.$counter4.'[]" id=""  style="width: 50px;"></td>
       </tr>';
+      echo '<input type="hidden" name="counter4" value="'.$counter4.'">';
       }           
       ?>
       
