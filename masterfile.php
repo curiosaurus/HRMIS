@@ -1,12 +1,15 @@
 <?php
 session_start();
-if (!$_SESSION['email']=='pavan' && !$_SESSION['email']=='nishad')
+if (!$_SESSION['usertype']=='admin')
 {
     header('location:login.php');
 }
+require 'vendor\autoload.php'; 
+
+$client = new MongoDB\Client;
+$companydb = $client->hrmis;
+$empcollection = $companydb->empcollection;
 ?>
-
-
 <html><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -150,14 +153,14 @@ foreach($counter as $row) {
     echo "<td>" . $row['UAN Number'] ."</td>";
     echo "<td>" . $row['REPORTING TO'] ."</td>";
     echo "<td>" . $row['Blood Group'] ."</td>";
+    echo "<td>" . $row['EDUCATION'] ."</td>";
     echo "<td>" . $row['RTPL Exp'] ."</td>";
     echo "<td>" . $row['Previous Exp'] ."</td>";
     echo "<td>" . $row['TOTAL EXP'] ."</td>";
-    echo "<td>" . $row['Permanent Address'] ."</td>";
+    echo "<td>" . $row['Parmanent Address'] ."</td>";
     echo "<td>" . $row['Local Address'] ."</td>";
     echo "<td> <button name='' class='btn btn-block btn-primary'>Upload</button> </td>";
 ?>
-<td><button name="" class="btn btn-block btn-primary">Upload</button></td>
     <?php echo "</tr>";
 }
 ?>

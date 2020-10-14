@@ -1,3 +1,20 @@
+
+<?php
+require 'session.php'; 
+require 'vendor\autoload.php';
+
+
+if (!$_SESSION['usertype']=='hod')
+{
+    header('location:login.php');
+
+}
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +38,10 @@
             <div class="logo">
                 <span>LOGO</span>
             </div>
-            <center><span class="hr">HR & Admin dashbord</span></center>
+            <center><span class="hr">HOD dashboard</span></center>
+           <span style="margin-left:700px; margin-top:30px; font-size:20px;">
+            <?php  echo $_SESSION['email'] ?>
+</span>
             <hr>
         </div>
         <hr>
@@ -33,16 +53,14 @@
         <nav class="shadow p-3 mb-5 bg-white rounded">
             <div class="gri">
                 <div class="item1">
-                    <a href="Requisition.php"> HOME</a>
+                    <a href="HodDashboard.php"> HOME</a>
                 </div>
                 <div class="item2">
             <div class="dropdown">
                     <a href="#">RECRUITMENT</a>
                    <div class="dropdown-content">
-                            <a href="masterfile.php"><p>EMPLOYEE MASTER</p></a>
                             <a href="Requisition.php"><p>REQUISITION</p></a>
                             <a href="open_positions.php"><p>OPEN POSITIONS</p></a>
-                            <a href="interviewschedule.php"><p>INTERVIEW SCHEDULE</p></a>
                             <a href="closedposition.php"><p>CLOSED POSITIONS</p></a>
                             <a href="hod_short_listing.php"><p>SHORTLIST CANDIDATE</p></a>
                        
@@ -76,6 +94,7 @@
                 </div>
         <div class="item6">
                     <div class="dropdown">
+
                         <span> <a href="#"> COMPANY</a></span>
                         <div class="dropdown-content">
                             <p>POLYBOND INDIA PVT.LTD</p>
@@ -83,6 +102,11 @@
                         </div>
                     </div>
                     </div>
+                    <div class="item7">
+                    
+                        <span> <a href="logout.php"> Logout</a></span>
+                    </div>
+        
             </div>
         </nav>
         </div>

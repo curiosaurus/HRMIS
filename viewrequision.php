@@ -205,35 +205,77 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
         
         &nbsp; &nbsp; &nbsp;
         <div class="">
-            <br><br>                
+            <br><br>          
             <table class="table"  border="1" >
                 <tr>
                     <th colspan="2" >SKILL DETAILS</th>
                     <th width='11px'>REQUIRED</th>
                     <th width='11px'>ACTUAL</th width=''>
                 </tr>
-                <tr > 
-                    <th>Managerial Skill</th>
-            <td >Communication Skill</td>
-            <td ><input type="number" style="width: 50px;" name="reqcomm" id=""  disabled></td>
-            <td><input type="number" name="actcomm" id=""  style="width: 50px;" disabled></td>
-        </tr>
-        <tr> 
-            <th>Preffered Skill</th>
-            <td style="">Vendor Selection & Assessment		
-                </td>
-                <td><input type="number" name="reqven" id=""  style="width: 50px;" disabled></td>
-                <td><input type="number" name="actven" id=""  style="width: 50px;" disabled></td>   
-            </tr>
-            <tr> 
-                <th >System Requirement</th>
-                <td>ISO 9001:2015		
-                    </td>
-                    <td><input type="number" name="reqiso" id=""  style="width: 50px;" disabled></td>
-                    <td><input type="number" name="actiso" id=""  style="width: 50px;" disabled></td>
-                </tr>
+
+
+<?php
+$empcoll = $companydb->skills;
+$var= $row['department'];
+?>
+<tr>     
+<?php 
+$ms=$row['manageskill'];
+$fs=$row['functionalskills'];
+$ss=$row['systemskills'];
+$countofrowsms = count($ms);
+#echo $countofrows;
+$countofrowsfs = count($fs);
+$countofrowsss = count($ss);
+echo '<th rowspan = "'.$countofrowsms.'" >Managerial Skill</th>';
+foreach($ms as $row){
+    //$counter3 = $counter3 + 1;
+    // $array_manage = "managerialSkill".$counter3;
+    // $array_manage = array();
+    //array_push($array_manage,$row['skillname']);
+    echo  '<td>'.$row[0].'</td>';
+    echo'<td ><input type="number" style="width: 50px;" id="" value="'.$row[1].'" disabled></td>
+    <td><input type="" disabled  id=""  style="width: 50px;"></td>
+    </tr>';
+    //echo '<input type="hidden" name="counter3" value="'.$counter3.'">';
+}           
+?>            
+    <tr> 
+      
+      <?php
+        echo '<th rowspan = "'.$countofrowsfs.'" >Preferrable Skill</th>';
+        foreach($fs as $row){
+        //$counter3 = $counter3 + 1;
+        // $array_manage = "managerialSkill".$counter3;
+        // $array_manage = array();
+        //array_push($array_manage,$row['skillname']);
+        echo  '<td>'.$row[0].'</td>';
+        echo'<td ><input type="number" style="width: 50px;" id="" value="'.$row[1].'" disabled></td>
+        <td><input type="" disabled  id=""  style="width: 50px;"></td>
+        </tr>';
+    //echo '<input type="hidden" name="counter3" value="'.$counter3.'">';
+}         ?>
+      
+      
+      <tr > 
+      
+      <?php 
+        echo '<th rowspan = "'.$countofrowsss.'" >Managerial Skill</th>';
+        foreach($ss as $row){
+            //$counter3 = $counter3 + 1;
+            // $array_manage = "managerialSkill".$counter3;
+            // $array_manage = array();
+            //array_push($array_manage,$row['skillname']);
+            echo  '<td>'.$row[0].'</td>';
+            echo'<td ><input type="number" style="width: 50px;" id="" value="'.$row[1].'" disabled></td>
+            <td><input type="" disabled  id=""  style="width: 50px;"></td>
+            </tr>';
+            //echo '<input type="hidden" name="counter3" value="'.$counter3.'">';
+        }         
+      ?>    
             </table>
         </div>
+    </div>
     </div>
     <br><br>
     <!-- <div class="row justify-content-md-around">

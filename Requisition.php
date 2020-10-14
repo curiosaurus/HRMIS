@@ -122,11 +122,12 @@ echo '<div class="col-md-3"><div class="dropdown">';
     $counter = $empcollection->find(['type'=>'department']);
     echo'<select name="department" id="department" onchange="pp();">';
     foreach($counter as $row) {
-        if($_GET["uid"] == $row['value']){
+        if($_GET["uid"] == $row['value']){;
         echo "<option value = ".$row['value']." selected>". $row['value'] ."</option>";
         }
         else{
             echo "<option value = ".$row['value']." >". $row['value'] ."</option>";
+            $var=$row['value'];
         }
 
     }
@@ -166,10 +167,8 @@ m = n.getMonth() + 1;
 d = n.getDate();
 document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
 </script>
-    </div>
+</div>
 <br>
-
-
     <div class="row justify-content-md-start">
         <div class="col-md-4">
             <label>Requisition for the Post / Designation:</label>
@@ -269,17 +268,12 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
 
 
 <?php
-
-require 'vendor\autoload.php'; 
-
-$client = new MongoDB\Client;
-$companydb = $client->hrmis;
 $empcoll = $companydb->skills;
-
+if (isset($_GET["uid"])){
 $var = $_GET["uid"];
-
+}
 ?>
-            <tr >     
+<tr>     
 <?php 
 $counter2 = $empcoll->find(array('department' => $var, 'skilltype' => 'managerial'));
 $o = $empcoll->count(array('department' => $var, 'skilltype' => 'managerial'));
@@ -298,11 +292,8 @@ foreach($counter2 as $row){
     </tr>';
     echo '<input type="hidden" name="counter3" value="'.$counter3.'">';
 }           
-?>
-
-  
-            
-    <tr > 
+?>            
+    <tr> 
       
       <?php
       $counter = 0;
@@ -346,11 +337,7 @@ foreach($counter2 as $row){
       </tr>';
       echo '<input type="hidden" name="counter4" value="'.$counter4.'">';
       }           
-      ?>
-      
-      
-                
-                    
+      ?>    
             </table>
         </div>
     </div>

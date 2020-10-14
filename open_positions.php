@@ -14,11 +14,7 @@ if (!$_SESSION['email']=='pavan' && !$_SESSION['email']=='nishad')
     $client = new MongoDB\Client;
     $companydb = $client->hrmis;
     $empcollection = $companydb->requisition;
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -84,7 +80,7 @@ include 'hodnavbar.php';
                         </th>
                         <th scope="col">DATE
                         </th>
-                        <th scope="col">Open/Close
+                        <th scope="col">Close
                         </th>
 
                         <th scope="col">View Requisition
@@ -96,7 +92,7 @@ include 'hodnavbar.php';
                 </thead>
                 <tbody>
                 <?php 
-$counter = $empcollection->find(!['status'=>'closed']);
+$counter = $empcollection->find(['status'=>['$ne'=>'closed']]);
 foreach($counter as $row) {
     $id=$row['unique_id'];
     // echo $var;
@@ -104,8 +100,8 @@ foreach($counter as $row) {
     echo "<td>" . $row['department'] ."</td>";
     echo "<td>" . $row['position'] ."</td>";
     echo "<td>" . $_SESSION['email'] ."</td>";
-    echo "<td>" . $row['dateofcreation'] ."</td>";
-    echo "<td>" . "<button> open /close</button>" ."</td>";
+    echo "<td>" . $row['dateofcreation']."</td>";
+    echo "<td>" . "<a href='close_position.php?variable1=".$id."'><button> close</button></a>" ."</td>";
     echo "<td><a href='viewrequision.php?variable1=".$id."'>View Requisition</a>" ."</td>";
     echo "<td><a href='open_positions-1.php?variable1=".$id."'>Upload Resume</a>" ."</td>";
     #add just this line whenever you create  viewrequisition  33111`3

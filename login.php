@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-
 session_start();
+require 'session.php';
 require 'vendor\autoload.php'; 
-
-
 $client = new MongoDB\Client;
 $db = $client->hrmis;
 $collection = $db->user;
-
 $loginerror = " ";
         if(isset($_POST["submit"])){
-           
             $username = $_POST["email"];
             $password = $_POST["password"];
-            $cursor = $collection->findOne(array('email'=> $username, 'password'=> $password));
-        
+            $usertype = $_POST["usertype"];
+            $cursor = $collection->findOne(array('email'=> $username, 'password'=> $password, 'usertype'=> $usertype));
             if($cursor){
                 $p = $_POST['email'];
+                $u = $_POST['usertype'];
                 $_SESSION['email'] = $p;
-                header("location:Requisition.php");
+                $_SESSION['usertype']=$u;
+            if ($u =='hod')
+            {
+                header("location:HodDashboard.php");
             }
+            else{
+                header("location:hr_admin_dashboard.php");
+            }
+        }
             else{
                 $loginerror = "Sorry Username and Password is Wrong!" ;
             }
-
         }
     ?>
 <head>
@@ -61,6 +64,10 @@ $loginerror = " ";
         <input type="password" name="password" id="password" Placeholder="Enter Password" required>
 </div>
 <div class="input-field col s8 offset-s2 blue-text">
+<i class="material-icons prefix">accessibility  </i>
+<input type="text" name="usertype" id="usertype" Placeholder="Enter Usertype" required>
+</div>
+<div class="input-field col s8 offset-s2 blue-text">
         <button type="submit" class="btn btn-primary" name="submit">Login<i class="material-icons right">send</i></button>
 </div>
         </form>
@@ -70,7 +77,5 @@ $loginerror = " ";
 </div>
     </div>
 </center>
-
-
 </body>
 </html> 

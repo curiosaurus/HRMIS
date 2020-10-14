@@ -1,18 +1,22 @@
 <?php
-    require 'vendor\autoload.php'; 
+
+session_start();
+
+//if (!$_SESSION['email']==$p && !$_SESSION['usertype']==$u)
+//{
+//    header('location:login.php');  
+//}
+
+require 'vendor\autoload.php'; 
 
     $client = new MongoDB\Client;
-    $companydb = $client->companydb;
-    $empcollection = $companydb->user;
+    $companydb = $client->hrmis;
+    $empcollection = $companydb->requisition;
 
 
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,8 +34,18 @@
 </head>
 <body>
 <?php
-    include 'adminnavbar.php';
-    ?>
+
+if ($_SESSION['usertype']=='hod')
+{
+    include 'hodnavbar.php';
+}
+else
+
+{
+include 'adminnavbar.php';
+
+}
+?>
     <br><br><br>
 
 
@@ -63,34 +77,28 @@
                         </th>
                        <th scope="col">RAISED BY
                         </th>
-                        <th scope="col">DATE
+                        <th scope="col">DATE Of Creation
                         </th>
                         <th scope="col">Open/Close
                         </th>
 
                         <th scope="col">View
                         </th>
-                        <th scope="col">shortlist Candidate
-                        </th>
-                        
                     </tr>
                 </thead>
                 <tbody>
                 <?php 
-$counter = $empcollection->find();
+$counter = $empcollection->find(['status'=>'closed']);
 foreach($counter as $row) {
     $id=$row['unique_id'];
     // echo $var;
     echo "<tr>";
-    echo "<td>" . $row['department'] ."</td>";
-    echo "<td>" . $row['position'] ."</td>";
-    echo "<td>" . $row['Raised by'] ."</td>";
-    echo "<td>" . $row['dateofcreation'] ."</td>";
-    echo "<td>" . "<button> open /close</button>" ."</td>";
+    echo "<td>".$row['department'] ."</td>";
+    echo "<td>".$row['position'] ."</td>";
+    echo "<td>".$row['raised by'] ."</td>";
+    echo "<td>".$row['dateofcreation'] ."</td>";
+    echo "<td>"."<a href='close_position.php?variable1=".$id."'><button> close</button></a>"."</td>";
     echo "<td><a href='viewrequision.php?variable1=".$id."'>View Requisition</a>" ."</td>";
-    #add just this line whenever you create  viewrequisition  33111`3
-    //getting values in page2.php file by $_GET function:
-    //$x=$_GET['variable1'];
     echo "</tr>";
 }
 ?>                </tbody>

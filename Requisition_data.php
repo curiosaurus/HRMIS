@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\Redirect;
+
 require 'vendor\autoload.php'; 
 $client = new MongoDB\Client;
 $companydb = $client->hrmis;
@@ -68,38 +71,33 @@ if(isset($_POST['submit']))
         for ($i = 1; $i <= $counter; $i++) {
             array_push($final_preferrable,$_POST["preferrablesSkill$i"]);
         }
-
         // systemRequirement
         $final_systemRequirement = array();
         for ($i = 1; $i <= $counter4; $i++) {
             array_push($final_systemRequirement,$_POST["systemRequirement$i"]);
         }
-        var_dump($final_systemRequirement); 
+        print("<pre>".print_r($final_manage,true)."</pre>");
+        print("<pre>".print_r($final_preferrable,true)."</pre>");
+        print("<pre>".print_r($final_systemRequirement,true)."</pre>");
+        //var_dump($final_systemRequirement); 
         // $empcollection->insertOne($final_systemRequirement);
         //array("PreferrableSkill" => array($final_preferrable)),array("SystemRequirement" => array($final_systemRequirement))
         // Insert one data
         $insertOneResult = $empcollection->insertOne( ['unique_id' => $unique_id , 'department' => $department , 'raised by' => $raised_by , 'position' => $reqfor , 'reasonofappointment' => $reasonappnt , 'dateofcreation' => $dateofcreation , 'dateofmdapproval' => $dateofmdapproval , 'dateofhrshortlist' => $dateofhrshortlist , 'dateofhodshortlist' => $dateofhodshortlist , 'dateofinterviewsch' => $dateofinterviewsch , 'dateofinterview' => $dateofinterview , 'replacement' => $replacement , 
         'minqual' => $minqual , 'prefqual' => $prefqual , 'minexp' =>  $expmin , 'prefexp' => $expmax , 'skillreq' => $skillsreq , 'spconsideration' =>  $skillconsider , 'status' => $status ,'systemskills'=>$final_systemRequirement , 'functionalskills'=> $final_preferrable, 'manageskill'=>$final_manage] );
-
-        if($insertOneResult)
-        {
+        if($insertOneResult)        {
             echo "Sucess";
+            header('location:');
         } else{
             echo "unSucess";
          }
-    }  
-        
-
-
+    }
         // Code by shyam
         // this code insert all skills with comma separared values
-
         // $managerial_skill_values = implode(",",$_POST['managerial_skill_array']);
         // $preferrable_skill_values = implode(",",$_POST['preferrable_skill_array']);
         // $system_requirement_skill_values = implode(",",$_POST['system_requirement_skill_array']);
-
         // $insertCommaSeparated = $empcollection->insertOne(['managerail_skill' => $managerial_skill_values , 'preferrable_skill' => $preferrable_skill_values , 'system_requirement_skill' => $system_requirement_skill_values]);
-
         // if ($insertCommaSeparated){
         //     echo "Success";
         // } else {
