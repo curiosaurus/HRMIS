@@ -1,18 +1,11 @@
-
-
 <?php
-
 if(isset($_POST['submit']))
 {
-
-    $years ="Years7";
 require 'vendor\autoload.php'; 
-
         $client = new MongoDB\Client;
         $companydb = $client->hrmis;
-        $years=$companydb->$years;
-    $start_month=$_POST['start_month'];
-    
+        $years=$companydb->years;
+        $start_month=$_POST['start_month'];
     $end_month=$_POST['end_month'];
     $year=$_POST['year'];
     echo $end_month;
@@ -123,14 +116,10 @@ function myFunction() {
          end+=year;
          document.getElementById("year").value=start+"-"+end
   alert("The input value has changed. The new value is: " + start);
-  
 }
-
 function myFunction1(val) {
-    
     const monthNames = ["Kedar","January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-        ];
+        "July", "August", "September", "October", "November", "December"];
     var val1=val.split("-");
     var  val2=parseInt(val1[1]);
     
@@ -140,9 +129,6 @@ function myFunction1(val) {
          end.push(year);
   alert("The input value has changed. The new value is: " + end);
 }
-
-
 </script>
-
 </body>
 </html>
