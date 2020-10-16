@@ -42,7 +42,7 @@ if(isset($_POST['submit']))
         $dateofinterviewsch = '';
         $dateofinterview = '';
         $dateofcloseposition = '';
-        $replacement = '';      
+        $replacement = '';
         $minqual = $_POST['minqual'];
         $prefqual = $_POST['prefqual'];
         $expmin = $_POST['expmin'];
@@ -59,7 +59,6 @@ if(isset($_POST['submit']))
         $counter3 = $_POST['counter3'];
         $counter = $_POST['counter'];
         $counter4 = $_POST['counter4'];
-
         // Managerial Skills
         $final_manage = array();
         for ($i = 1; $i <= $counter3; $i++) {
@@ -76,16 +75,13 @@ if(isset($_POST['submit']))
         for ($i = 1; $i <= $counter4; $i++) {
             array_push($final_systemRequirement,$_POST["systemRequirement$i"]);
         }
-        print("<pre>".print_r($final_manage,true)."</pre>");
-        print("<pre>".print_r($final_preferrable,true)."</pre>");
-        print("<pre>".print_r($final_systemRequirement,true)."</pre>");
         //var_dump($final_systemRequirement); 
         // $empcollection->insertOne($final_systemRequirement);
         //array("PreferrableSkill" => array($final_preferrable)),array("SystemRequirement" => array($final_systemRequirement))
         // Insert one data
         $insertOneResult = $empcollection->insertOne( ['unique_id' => $unique_id , 'department' => $department , 'raised by' => $raised_by , 'position' => $reqfor , 'reasonofappointment' => $reasonappnt , 'dateofcreation' => $dateofcreation , 'dateofmdapproval' => $dateofmdapproval , 'dateofhrshortlist' => $dateofhrshortlist , 'dateofhodshortlist' => $dateofhodshortlist , 'dateofinterviewsch' => $dateofinterviewsch , 'dateofinterview' => $dateofinterview , 'replacement' => $replacement , 
         'minqual' => $minqual , 'prefqual' => $prefqual , 'minexp' =>  $expmin , 'prefexp' => $expmax , 'skillreq' => $skillsreq , 'spconsideration' =>  $skillconsider , 'status' => $status ,'systemskills'=>$final_systemRequirement , 'functionalskills'=> $final_preferrable, 'manageskill'=>$final_manage] );
-        if($insertOneResult)        {
+        if($insertOneResult){
             echo "Sucess";
             header('location:');
         } else{
