@@ -7,17 +7,13 @@
 //{
 //    header('location:login.php');  
 //}
-//?>
+//
+
 require 'vendor\autoload.php'; 
 
 $client = new MongoDB\Client;
 $companydb = $client->hrmis;
 $empcollection = $companydb->requisition;
-
-
-
-
-
 if(isset($_GET['variable1']))
 {
 $R_id = $_GET['variable1'];   
@@ -26,11 +22,6 @@ else
 {
     $R_id = $_POST['requisition_id'];
 }
-
-
-
-
-
 /**
 * Creating MongoDB like ObjectIDs.
 * Using current timestamp, hostname, processId and a incremting id.
@@ -53,33 +44,12 @@ $result = '';
 for ($i = 0; $i < 12; $i++) {
     $result .= sprintf("%02x", ord($bin[$i]));
 }
-
 return $result;
 }
-
-
-
-
 $counter = $empcollection->find(array('unique_id' => $R_id));
-    
-
     foreach($counter as $row) {
-    
-
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -169,12 +139,9 @@ $counter = $empcollection->find(array('unique_id' => $R_id));
 //}
 ?>
 <?php 
-    
     $empcollection = $companydb->shortlisted_candidate;
-
     $counter = $empcollection->find( array('Requisition_id' => $R_id ) );
     foreach($counter as $row) {
-
     echo "<tr>";
     echo "<th scope='row'><input style='width:130px;' type='text' name='name' value='".$row['name']." ' disabled></th>";
     echo "<td><input required style='width:130px;' type='text' name='cposition' value='".$row['current_position']." ' disabled></td>";
@@ -189,12 +156,6 @@ $counter = $empcollection->find(array('unique_id' => $R_id));
     echo "</tr>";
     // echo "<td><button name="" class='btn btn-block btn-primary'><input style='width:100px;' type='file' name='file'></button></td>";
     }
-
-
-
-    
-  
-
     if(isset($_POST['submit']))
     {
         foreach(range(0, 0) as $id) {
@@ -275,3 +236,4 @@ $counter = $empcollection->find(array('unique_id' => $R_id));
     </div>
 </body>
 </html>
+<?php } ?>
