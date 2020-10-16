@@ -1,4 +1,3 @@
-
 <?php
 
 require 'vendor\autoload.php'; 
@@ -28,28 +27,13 @@ if(isset ($_GET['variable1']))
         $previous_exp=$row['Previous Exp'];
         $resigned_date=$row['Resigned date'];
         $last_working_date=$row['DATE OF LEAVING'];
-        
-
-
-
-
-
-
-
-
-
-
     }
-
-
 }
 else{
     header('location:skillmatrixlist.php');
 }
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -90,7 +74,7 @@ else{
             </div>
 
             <div class="col-md-4">
-                <input required type="text"  class="form-control" >
+                <input required type="text" name="empName" class="form-control" >
             </div>
   
             <div class="col-md-2">
@@ -98,14 +82,14 @@ else{
             </div>
 
             <div class="col-md-4">
-                <input required type="text"  class="form-control" >
+                <input required type="text" name="empNumber" class="form-control" >
             </div>
             <div class="col-md-2">
                 <label> D.O.J :  </label>
             </div>
 
             <div class="col-md-4">
-                <input required type="text"  class="form-control" >
+                <input required type="text" name="doj" class="form-control" >
             </div>
 
 
@@ -114,20 +98,19 @@ else{
             </div>
 
             <div class="col-md-4">
-                <input required type="text"  class="form-control" >
+                <input required type="text" name="department" class="form-control" >
             </div>
 
         </div>
 
 <br>
-
         <div class="row justify-content-md-start">
           
             <div class="col-md-2">
                 <label> Designation:</label>
             </div>
             <div class="col-md-4">
-                <select name="" id="" required class="form-control">
+                <select name="" id="" required class="form-control" name="designation">
                     <option value="" selected>Assitant Manager</option>
                     <option value="">Manager</option>
                     <option value="">Devloper</option>
@@ -139,7 +122,7 @@ else{
                 <label> Grade :  </label>
             </div>
             <div class="col-md-4">
-                <select name="" id="" required class="form-control">
+                <select name="" id="" required class="form-control" name="grade">
                     <option value="">E1</option>
                     <option value="">E2</option>
                     <option value="">D1</option>
@@ -150,7 +133,6 @@ else{
         </div>
 
 <br>
-
         <div class="row justify-content-md-start">
           
             <div class="col-md-2">
@@ -158,10 +140,10 @@ else{
             </div>
 
             <div class="col-md-4">
-                <select name="" id="" required>
-                <option value="">Pune</option>
-                <option value="">Kolhapur</option>
-            </select>
+                <select name="location" id="" required>
+                    <option value="">Pune</option>
+                    <option value="">Kolhapur</option>
+                </select>
             </div>
 
             <div class="col-md-2">
@@ -169,11 +151,10 @@ else{
             </div>
 
             <div class="col-md-4">
-                <input type="text" required class="form-control" >
+                <input type="text" name="employeeType" required class="form-control" >
             </div>
 
         </div>
-
 <br>
 
         <div class="row justify-content-md-start">
@@ -183,7 +164,7 @@ else{
             </div>
 
             <div class="col-md-4">
-                <input required type="text"  class="form-control" >
+                <input required type="text" name="employeeStatus" class="form-control" >
             </div>
 
             <div class="col-md-2">
@@ -191,7 +172,7 @@ else{
             </div>
 
             <div class="col-md-4">
-                <input required type="text"  class="form-control" >
+                <input required type="text" name="employeeReportingTo" class="form-control" >
             </div>
 
         </div>
@@ -205,7 +186,7 @@ else{
             </div>
 
             <div class="col-md-4">
-                <input required type="text"  class="form-control" >
+                <input required type="text" name="education" class="form-control" >
             </div>
 
             <div class="col-md-2">
@@ -213,7 +194,7 @@ else{
             </div>
 
             <div class="col-md-4">
-                <input required type="number"  class="form-control" >
+                <input required type="number" name="previousExperience" class="form-control" >
             </div>
 
         </div>
@@ -227,7 +208,7 @@ else{
             </div>
 
             <div class="col-md-4">
-                <input required type="date"  class="form-control" >
+                <input required type="date" name="resignedDate" class="form-control" >
             </div>
 
             <div class="col-md-2">
@@ -235,7 +216,7 @@ else{
             </div>
 
             <div class="col-md-4">
-                <input required type="date"  class="form-control" >
+                <input required type="date" name="lastWorkingDate" class="form-control" >
             </div>
 
         </div>
@@ -252,93 +233,106 @@ else{
         <tr > 
             <th rowspan="3">Managerial Skill</th>
             <td>Communication Skill</td>
-            <td><input required type="number" name="" id=""></td>
-            <td><input required type="number" name="" id=""></td>
+            <td><input type="hidden" name="managerialSkill[0][0]" value="Communication Skill"></td>
+            <td><input required type="number" name="managerialSkill[0][1]" id=""></td>
+            <td><input required type="number" name="managerialSkill[0][2]" id=""></td>
         </tr>
 
         <tr>
 
             <td>Leadership Skill</td>
-            <td><input required type="number" name="" id=""></td>
-            <td><input required type="number" name="" id=""></td>
+            <td><input type="hidden" name="managerialSkill[1][0]" value="Leadership Skill"></td>
+            <td><input required type="number" name="managerialSkill[1][1]" id=""></td>
+            <td><input required type="number" name="managerialSkill[1][2]" id=""></td>
         </tr>
 
         
         <tr>
 
             <td>Teamwork</td>
-            <td><input required type="number" name="" id=""></td>
-            <td><input required type="number" name="" id=""></td>
+            <td><input type="hidden" name="managerialSkill[2][0]" value="Teamwork"></td>
+            <td><input required type="number" name="managerialSkill[2][1]" id=""></td>
+            <td><input required type="number" name="managerialSkill[2][2]" id=""></td>
         </tr>
         
         <tr> 
             <th  rowspan="7">Preffered Skill</th>
             <td>Vendor Selection & Assessment		
             </td>
-            <td><input required type="number" name="" id=""></td>
-            <td><input required type="number" name="" id=""></td>   
+            <td><input type="hidden" name="preferredSkill[0][0]" value="Vendor Selection & Assessment"></td>
+            <td><input required type="number" name="preferredSkill[0][1]" id=""></td>
+            <td><input required type="number" name="preferredSkill[0][2]" id=""></td>   
         </tr>
 
         <tr>
             <td>Bought out items costing		
             </td>
-            <td><input required type="number" name="" id=""></td>
-            <td><input required type="number" name="" id=""></td>
+            <td><input type="hidden" name="preferredSkill[1][0]" value="Bought out items costing"></td>
+            <td><input required type="number" name="preferredSkill[1][1]" id=""></td>
+            <td><input required type="number" name="preferredSkill[1][2]" id=""></td>
         </tr>
 
         <tr>
             <td>Project Management		
             </td>
-            <td><input required type="number" name="" id=""></td>
-            <td><input required type="number" name="" id=""></td>
+            <td><input type="hidden" name="preferredSkill[2][0]" value="Project Management"></td>
+            <td><input required type="number" name="preferredSkill[2][1]" id=""></td>
+            <td><input required type="number" name="preferredSkill[2][2]" id=""></td>
         </tr>
 
         <tr>
             <td>Press tools/ casting & machining		
             </td>
-            <td><input required type="number" name="" id=""></td>
-            <td><input required type="number" name="" id=""></td>
+            <td><input type="hidden" name="preferredSkill[3][0]" value="Press tools/ casting & machining"></td>
+            <td><input required type="number" name="preferredSkill[3][1]" id=""></td>
+            <td><input required type="number" name="preferredSkill[3][2]" id=""></td>
         </tr>
 
 
         <tr>
             <td>Inventory Management		
             </td>
-            <td><input required type="number" name="" id=""></td>
-            <td><input required type="number" name="" id=""></td>
+            <td><input type="hidden" name="preferredSkill[4][0]" value="Inventory Management"></td>
+            <td><input required type="number" name="preferredSkill[4][1]" id=""></td>
+            <td><input required type="number" name="preferredSkill[4][2]" id=""></td>
         </tr>
         <tr>
             <td>Details on Taxation		
 		
             </td>
-            <td><input required type="number" name="" id=""></td>
-            <td><input required type="number" name="" id=""></td>
+            <td><input type="hidden" name="preferredSkill[5][0]" value="Details on Taxation"></td>
+            <td><input required type="number" name="preferredSkill[5][1]" id=""></td>
+            <td><input required type="number" name="preferredSkill[5][2]" id=""></td>
         </tr>
         <tr>
             <td>ERP/SAP Knowledge		
             </td>
-            <td><input required type="number" name="" id=""></td>
-            <td><input required type="number" name="" id=""></td>
+            <td><input type="hidden" name="preferredSkill[6][0]" value="ERP/SAP Knowledge"></td>
+            <td><input required type="number" name="preferredSkill[6][1]" id=""></td>
+            <td><input required type="number" name="preferredSkill[6][2]" id=""></td>
         </tr>
 
         <tr> 
             <th rowspan=3>System Requirement</th>
             <td>ISO 9001:2015		
             </td>
-            <td><input required type="number" name="" id=""></td>
-            <td><input required type="number" name="" id=""></td>
+            <td><input type="hidden" name="systemRequirements[0][0]" value="ISO 9001:2015"></td>
+            <td><input required type="number" name="systemRequirements[0][1]" id=""></td>
+            <td><input required type="number" name="systemRequirements[0][2]" id=""></td>
         </tr>
         <tr>
             <td>5S (House Keeping)		
             </td>
-            <td><input required type="number" name="" id=""></td>
-            <td><input required type="number" name="" id=""></td>
+            <td><input type="hidden" name="systemRequirements[1][0]" value="5S (House Keeping)"></td>
+            <td><input required type="number" name="systemRequirements[1][1]" id=""></td>
+            <td><input required type="number" name="systemRequirements[1][2]" id=""></td>
         </tr>
         <tr>
             <td>EMS 14001:2015		
             </td>
-            <td><input required type="number" name="" id=""></td>
-            <td><input required type="number" name="" id=""></td>
+            <td><input type="hidden" name="systemRequirements[2][0]" value="EMS 14001:2015"></td>
+            <td><input required type="number" name="systemRequirements[2][1]" id=""></td>
+            <td><input required type="number" name="systemRequirements[2][2]" id=""></td>
         </tr>
 
     </table>
