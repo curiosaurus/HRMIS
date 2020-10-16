@@ -16,34 +16,11 @@
 
 </head>
 <body>
-
 <?php
 include 'adminnavbar.php';
 if(isset($_POST["submit"]))
 {
-                             
-    require 'class.smtp.php';
-    require 'PHPMailerAutoload.php';    
-    
-    $email=$_POST['iemail'];
-    echo $email;
-    $name=$_POST['date'];
-    echo $date;
-    $time=$_POST['time'];
-    echo $time;
-    $hemail=$_POST['hemail'];
-    echo $hemail;
-
-    if($email)
-    {
-        callforcandidate();
-    }
-    if($hemail)
-    {
-        callforhod();
-    }
-
-    function callforcandidate()
+    function callforcandidate($email,$day,$time)
     {
         $mail = new PHPMailer();
         $mail->setFrom('admin@example.com');
@@ -98,31 +75,24 @@ if(isset($_POST["submit"]))
          $mail->Host = 'ssl://smtp.gmail.com';
          $mail->SMTPAuth = true;
          $mail->Port = 465;
-         $mail->Username = 'kedar@mitaoe.ac.in';
-         $mail->Password = 'kedar1023';
+         $mail->Username = 'pdpatil@mitaoe.ac.in';
+         $mail->Password = 'Pratik@123';
          if(!$mail->send()) {
            echo 'Email is not sent.';
            echo 'Email error: ' . $mail->ErrorInfo;
          } else {
            echo 'Email has been sent.';
          }
-        
-    
     }
-
-    function callforhod()
-    {
-
+    function callforhod($hemail,$day,$time){
         $mail = new PHPMailer();
-        $mail->setFrom('admin@example.com');
-        
-        $mail->addAddress($email);
+        $mail->setFrom('admin@example.com');   
+        $mail->addAddress($hemail);
         $mail->Subject = 'HRMIS';
         $mail->Body = '
         <html>
         <body>
         Dear Mr '.$hemail.'
-        
         With reference to our telephonic conversation, we have scheduled your interview for Open position, Sales & Marketing Engineer - Sales & Marketing Department.
         
         Organization    :  Rathi Transpower Pvt.Ltd
@@ -133,7 +103,7 @@ if(isset($_POST["submit"]))
                                       Pune, 411014         
         
          Day                   :    '.$day.'
-         Time                 :     '.$time'
+         Time                 :     '.$time.'
         
          Contact Person   :-   Ms. Neha
         
@@ -176,22 +146,26 @@ if(isset($_POST["submit"]))
            echo 'Email has been sent.';
          }
     }
-
-
-
+    require 'class.smtp.php';
+    require 'PHPMailerAutoload.php';    
+    $email=$_POST['iemail'];
+    echo $email;
+    $date=$_POST['date'];
+    echo $date;
+    $time=$_POST['time'];
+    echo $time;
+    $hemail=$_POST['hemail'];
+    echo $hemail;
+    if($email){
+        callforcandidate($email,$date,$time);
     }
-    
-
-
-    
- 
+    if($hemail){
+        callforhod($hemail,$date,$time);
+    }
+    }
  ?>
-
 <br><br><br>
-
-
 <!-- Next Div that contains the title of the INTERVIEW SCHEDULE Start here -->
-
 <div class="interview">
     <div class="block">
       <center>  <h2> SCHEDULE INTERVIEW
@@ -200,21 +174,13 @@ if(isset($_POST["submit"]))
     </center>
     </div>
 </div>
-
 <!-- INTERVIEW SCHEDULE Div Close here -->
-
-
-
 <div class="shortlist">
     <span style="border-bottom: 1px black; margin-left: 20px; font-family: 'Hind Siliguri', sans-serif;;">SHORT LISTED EMPLOYEES			
-       
     </span>
 <br>
 <br>
-
-
 <!-- bootstrap table start here Add and remove containt in table according to your task -->
-
 <div class="table">
     <table class="table table-bordered">
         <thead>
@@ -227,27 +193,16 @@ if(isset($_POST["submit"]))
                 </th>
             <th scope="col">location
                 </th>
-
                 <th scope="col">Day
-
                     </th>
-
                     <th scope="col">Time
-
                         </th>
-        
                         <th scope="col">EMAIL	
-
                             </th>
                             <th scope="col">HOD EMAIL
-
                                 </th>
-
                                 <th scope="col">Interview Call Letter	
-
                                     </th>
-                    
-
             </tr>
         </thead>
         <tbody>
@@ -256,8 +211,7 @@ require 'vendor\autoload.php';
 $client = new MongoDB\Client;
 $companydb = $client->hrmis;
 $empcollection = $companydb->shortlisted_candidate;
-if(isset($_POST['submit']))
-{
+if(isset($_POST['submit'])){
     $interviewlocation = $_POST['city'];
     $interviewday = $_POST['date'];
     $interviewtime = $_POST['time'];
@@ -269,19 +223,12 @@ if(isset($_POST['submit']))
         ['unique_id' => $id],
         ['$set' => ['interviewlocation' =>$interviewlocation ,'interviewday'=>$interviewday , 'interviewtime'=> $interviewtime]]
     );
-    
-
-
 }
 $counter = $empcollection->find( ['hod_remark' => 'Shortlist' ] ) ;
 foreach($counter as $row) {
-    
     $empcollection1 = $companydb->requisition;
-    
     $counter1 = $empcollection1->find( ['unique_id' => $row['Requisition_id'] ] );
-
     foreach($counter1 as $row1) {
-    
 ?>
 <form method="POST" action="interviewschedule.php"> 
 	<tr>	
@@ -301,13 +248,10 @@ foreach($counter as $row) {
     <td><button type="submit" name="submit" class="btn btn-block btn-primary" >Send</button></td>
 </tr>
 </form>
-
 <?php
     }
 }
 ?>
-
-
         </tbody>
       </table>
 </div>
