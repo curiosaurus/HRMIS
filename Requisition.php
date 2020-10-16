@@ -68,16 +68,16 @@ function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
 </head>
 <body>
 <?php
-    //include 'adminnavbar.php';
-    // if ($_SESSION['usertype']=='hod')
-    // {
-    //         include 'hodnavbar.php';
-    // }
-    // else
-    // {
+    // include 'adminnavbar.php';
+    if ($_SESSION['usertype']=='hod')
+    {
+            include 'hodnavbar.php';
+    }
+    else
+    {
 
-    //     include 'adminnavbar.php';
-    // }
+        include 'adminnavbar.php';
+    }
 ?>
         <div class="title">
         <center>
