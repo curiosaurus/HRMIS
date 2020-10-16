@@ -67,14 +67,14 @@ else{
         </div>
 
 <br>
-<form action="skillMatrixSubmitData.php" method="post">
+<form action="#" method="post">
     <div class="row justify-content-md-start">
             <div class="col-md-2">
                 <label> Employee name :  </label>
             </div>
 
             <div class="col-md-4">
-                <input required type="text" name="empName" class="form-control" >
+                <input type="text" disabled value="<?php echo (isset($display_name)) ? $display_name : '';?>" name="empName" class="form-control" >
             </div>
   
             <div class="col-md-2">
@@ -82,14 +82,14 @@ else{
             </div>
 
             <div class="col-md-4">
-                <input required type="text" name="empNumber" class="form-control" >
+                <input type="text" disabled value="<?php echo (isset($empcode)) ? $empcode : '';?>" name="empNumber" class="form-control" >
             </div>
             <div class="col-md-2">
                 <label> D.O.J :  </label>
             </div>
 
             <div class="col-md-4">
-                <input required type="text" name="doj" class="form-control" >
+                <input type="text" disabled value="<?php echo (isset($date_0f_joinng)) ? $date_0f_joinng : '';?>" name="doj" class="form-control" >
             </div>
 
 
@@ -98,7 +98,7 @@ else{
             </div>
 
             <div class="col-md-4">
-                <input required type="text" name="department" class="form-control" >
+                <input type="text" disabled value="<?php echo (isset($department)) ? $department : '';?>" name="department" class="form-control" >
             </div>
 
         </div>
@@ -110,11 +110,8 @@ else{
                 <label> Designation:</label>
             </div>
             <div class="col-md-4">
-                <select name="" id="" required class="form-control" name="designation">
-                    <option value="" selected>Assitant Manager</option>
-                    <option value="">Manager</option>
-                    <option value="">Devloper</option>
-                    <option value="">senior Manager</option>
+                <select name="" id="" disabled value="" class="form-control" name="designation">
+                    <option value="" selected><?php echo (isset($designation)) ? $designation : '';?></option>
                 </select>
             </div>
             
@@ -122,11 +119,8 @@ else{
                 <label> Grade :  </label>
             </div>
             <div class="col-md-4">
-                <select name="" id="" required class="form-control" name="grade">
-                    <option value="">E1</option>
-                    <option value="">E2</option>
-                    <option value="">D1</option>
-                    <option value="">M1</option>
+                <select name="" id="" disabled class="form-control" name="grade">
+                    <option value="" selected><?php echo (isset($grade)) ? $grade : '';?></option>
                 </select>
             </div>
 
@@ -140,9 +134,8 @@ else{
             </div>
 
             <div class="col-md-4">
-                <select name="location" id="" required>
-                    <option value="">Pune</option>
-                    <option value="">Kolhapur</option>
+                <select name="location" disabled id="">
+                    <option value="" selected><?php echo (isset($location)) ? $location : '';?></option>
                 </select>
             </div>
 
@@ -151,7 +144,7 @@ else{
             </div>
 
             <div class="col-md-4">
-                <input type="text" name="employeeType" required class="form-control" >
+                <input type="text" disabled value="<?php echo (isset($employeetype)) ? $employeetype : '';?>" name="employeeType" class="form-control" >
             </div>
 
         </div>
@@ -164,7 +157,7 @@ else{
             </div>
 
             <div class="col-md-4">
-                <input required type="text" name="employeeStatus" class="form-control" >
+                <input type="text" disabled value="<?php echo (isset($employeestatus)) ? $employeestatus : '';?>" name="employeeStatus" class="form-control" >
             </div>
 
             <div class="col-md-2">
@@ -172,7 +165,7 @@ else{
             </div>
 
             <div class="col-md-4">
-                <input required type="text" name="employeeReportingTo" class="form-control" >
+                <input type="text" disabled value="<?php echo (isset($employeereportingto)) ? $employeereportingto : '';?>" name="employeeReportingTo" class="form-control" >
             </div>
 
         </div>
@@ -186,7 +179,7 @@ else{
             </div>
 
             <div class="col-md-4">
-                <input required type="text" name="education" class="form-control" >
+                <input type="text" disabled value="<?php echo (isset($education)) ? $education : '';?>" name="education" class="form-control" >
             </div>
 
             <div class="col-md-2">
@@ -194,7 +187,7 @@ else{
             </div>
 
             <div class="col-md-4">
-                <input required type="number" name="previousExperience" class="form-control" >
+                <input type="number" disabled value="<?php echo (isset($previous_exp)) ? $previous_exp : '';?>" name="previousExperience" class="form-control" >
             </div>
 
         </div>
@@ -208,7 +201,7 @@ else{
             </div>
 
             <div class="col-md-4">
-                <input required type="date" name="resignedDate" class="form-control" >
+                <input type="date" disabled value="<?php echo (isset($resigned_date)) ? $resigned_date : '';?>" name="resignedDate" class="form-control" >
             </div>
 
             <div class="col-md-2">
@@ -216,7 +209,7 @@ else{
             </div>
 
             <div class="col-md-4">
-                <input required type="date" name="lastWorkingDate" class="form-control" >
+                <input type="date" disabled value="<?php echo (isset($last_working_date)) ? $last_working_date : '';?>" name="lastWorkingDate" class="form-control" >
             </div>
 
         </div>
