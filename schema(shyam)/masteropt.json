@@ -3,3 +3,4 @@
 {"_id":{"$oid":"5e68a091fa218b4c81e93661"},"value":"Manager","type":"designation"}
 {"_id":{"$oid":"5e689f3cfa218b4c81e93660"},"city":"Pune","address":"mkl rd, alandi, Pune","type":"location"}
 {"_id":{"$oid":"5e68ed95fa218b4c81e93664"},"value":"purchase","type":"department"}
+{"_id":{"$oid":"5f86c093bb4c000015006b6f"},"type":"department","value":"operations"}
