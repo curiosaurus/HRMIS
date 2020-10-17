@@ -9,10 +9,46 @@
 
 
 <body>
+  <?php
+require 'vendor\autoload.php'; 
+
+$client = new MongoDB\Client;
+$companydb = $client->hrmis;
+$trainingcalender = $companydb->trainingcalender;
+$yearcollection = $companydb->years;
+
+?>
 <center><h1>Tranning Calender</h1></center>
 <br>
+<select name="year" id="year" onchange="pp();" required class="form-control form-control-lg">
+                    <?php  
+                    $counter = $yearcollection->find();
+                    if(isset ($_GET['year'])){
+                        foreach($counter as $row) {
+                            if($_GET["year"] == $row['year']){
+                            echo "<option value = ".$row['year']." selected>". $row['year'] ."</option>";
+                            $y=$row['year']; 
+                        }
+                            else{
+                                echo "<option value = ".$row['year']." >". $row['year'] ."</option>";
+                            }
+                        }
+                    }
+                        else{
+                            foreach($counter as $row) {
+                                echo "<option value = ".$row['year']." selected>". $row['year'] ."</option>";
+                                $y=$row['year'];
+                            }   
+                        }
+                    ?>
+     </select>
+     <script>
+  function pp(){
+    var y = document.getElementById("year").value;
+    window.location.href="calender.php?year="+y;
+}
+</script>
 <div class="table">
-
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -32,17 +68,9 @@
        <td colspan="2">Mar</td>
 <td colspan="2">Apr</td><td colspan="2">May</td><td colspan="2">Jun</td><td colspan="2">July</td><td colspan="2">Aug</td><td colspan="2">Sept</td><td colspan="2">Oct</td><td colspan="2">Nov</td><td colspan="2">Dec</td>
 <td></td><td></td>
-
     </tr>
-   
       <?php
-require 'vendor\autoload.php'; 
-
-$client = new MongoDB\Client;
-$companydb = $client->hrmis;
-$empcollection = $companydb->trainingcalender;
-
-      $counter = $empcollection->find();
+$counter = $trainingcalender->find(['year'=>$y]);
 $i=0;
 foreach($counter as $row) {
         $i+=1;
