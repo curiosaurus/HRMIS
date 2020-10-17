@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require 'vendor\autoload.php'; 
 
@@ -33,7 +34,18 @@ $empcollection = $companydb->shortlisted_candidate;
 
 <body>
 <?php
-    include 'hodnavbar.php';
+
+  
+  if ($_SESSION['usertype']=='hod')
+  {
+          include 'hodnavbar.php';
+  }
+  else
+  {
+
+      include 'adminnavbar.php';
+  }
+?>
 ?>
     <br><br><br>
 
@@ -155,20 +167,30 @@ echo '<form action="hod_short_listing.php" method="post">';
     echo "<td>" . $row['notice_period'] ."</td>";
     echo "<td>" . $row['remark'] ."</td>";
     echo   '  <td><a target="__blank" href="'. $row['resume'] .'" style="text-decoration:none;">Open</a></td>';
+     
 
-    echo "<td><select name='hod_remark' id=''>
-    <option selected>".$row['hod_remark']."</option>
-    <option value='Shortlist'>Shortlist</option>
-    <option value='Hold'>Hold</option>
-    <option value='Reject'>Reject</option></select></td>
-";
+    if ($row['hod_remark'] == ""){ 
+        echo "<td><select name='hod_remark' id='hod_remark'>
+        <option >Select Remark</option>
+        <option value='Shortlist'>Shortlist</option>
+        <option value='Hold'>Hold</option>
+        <option value='Reject'>Reject</option></select></td>
+    ";
+
+    }
+    else{
+
+    echo "<td><select name='hod_remark' id='hod_remark'>
+    <option selected >".$row['hod_remark']."</option>
+  </select></td>
+";}
 ?>
 
 <input type="hidden" name="uniqueid" value="<?php echo $id ?>">
 
 <?php
 
- echo '<td><button  name="submit" class="btn btn-block btn-primary">Submit</button></td>';
+ echo '<td><button  name="submit" class="btn btn-block btn-primary"  onclick="buttondisabled();">Submit</button></td>';
 //  echo "<td><a href='viewrequision.php?variable1=".$id."'>View Requisition</a>" ."</td>";
 
 
@@ -192,6 +214,13 @@ echo '<form action="hod_short_listing.php" method="post">';
         </div>
         <br><br><br>
     </div>
+
+<script>
+function buttondisabled(){
+    document.getElementById("hod_remark").readOnly = true;
+
+}
+</script>
 
 </body>
 
