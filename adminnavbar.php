@@ -67,7 +67,7 @@ if (!$_SESSION['email']=='nishad' && !$_SESSION['usertype']=='admin')
                             <a href="open_positions.php"><p>OPEN POSITIONS</p></a>
                             <a href="interviewschedule.php"><p>INTERVIEW SCHEDULE</p></a>
                             <a href=""><p>CLOSED POSITIONS</p></a>
-                            <a href="hod_short_listing.php"><p>SHORTLIST CANDIDATE</p></a>
+                          
                        
                 </div>
         </div>
