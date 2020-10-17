@@ -400,13 +400,26 @@ include 'adminnavbar.php';
             </div>
 
             <div class="col-md-4">
-                <select required name="Department" id="">
-                    <option>Select Department</option>
-                    <option value="Sales">Sales</option>
-                    <option value="Marketing">Marketing</option>
-                    <option value="Production">Production</option>
-                    <option value="HR">HR</option>
-                </select>
+
+            
+            <?php
+
+
+    $masteropt='masteropt';
+    $client = new MongoDB\Client;
+    $companydb = $client->hrmis;
+    $empcollection = $companydb->$masteropt;
+    $counter = $empcollection->find(['type'=>'department']);
+    echo'<select name="Department" id="department" required>';
+    foreach($counter as $row) {
+       
+        echo "<option value = ".$row['value']." selected>". $row['value'] ."</option>";
+      
+    }
+echo '</select>';
+    
+?>
+
             </div>
 
         </div>
@@ -517,7 +530,7 @@ include 'adminnavbar.php';
                 <label> Last Working Date :  </label>
             </div>
             <div class="col-md-4">
-                <input required type="date" name="Last_Working_Date" class="form-control" >
+                <input required type="date" name="Last_Working_Date" class="form-control" readOnly>
             </div>
         </div>
 <br><br>
