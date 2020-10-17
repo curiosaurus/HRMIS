@@ -30,6 +30,7 @@ if(isset($_POST["submit"]))
         $mail->Body = '
         <html>
         <body>
+        <pre>
         Dear Mr  '.$email.'         
         With reference to our telephonic conversation, we have scheduled your interview for Open position, Sales & Marketing Engineer - Sales & Marketing Department.
         
@@ -66,6 +67,7 @@ if(isset($_POST["submit"]))
          Thank you,
          With Best Regards,
          Rathi Group of Industries. 
+         </pre>
          </body>
          </html> ';
          $mail->isHTML(true);
@@ -90,8 +92,10 @@ if(isset($_POST["submit"]))
         $mail->addAddress($hemail);
         $mail->Subject = 'HRMIS';
         $mail->Body = '
+        
         <html>
         <body>
+        <pre>
         Dear Mr '.$hemail.'
         With reference to our telephonic conversation, we have scheduled your interview for Open position, Sales & Marketing Engineer - Sales & Marketing Department.
         
@@ -128,6 +132,7 @@ if(isset($_POST["submit"]))
          Thank you,
          With Best Regards,
          Rathi Group of Industries. 
+         </pre>
          </body>
          </html>';
          $mail->isHTML(true);
@@ -137,8 +142,8 @@ if(isset($_POST["submit"]))
          $mail->Host = 'ssl://smtp.gmail.com';
          $mail->SMTPAuth = true;
          $mail->Port = 465;
-         $mail->Username = 'kedar@mitaoe.ac.in';
-         $mail->Password = 'kedar1023';
+         $mail->Username = 'pdpatil@mitaoe.ac.in';
+         $mail->Password = 'Pratik@123';
          if(!$mail->send()) {
            echo 'Email is not sent.';
            echo 'Email error: ' . $mail->ErrorInfo;

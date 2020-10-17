@@ -54,9 +54,23 @@ $empcollection = $companydb->user;
                     <?php  
                     $years=$companydb->years;
                     $counter = $years->find();
-                    foreach($counter as $row) {
-                        echo "<option value = ".$row['year'].">". $row['year'] ."</option>";
+                    if(isset ($_GET['year'])){
+                        foreach($counter as $row) {
+                            if($_GET["year"] == $row['year']){
+                            echo "<option value = ".$row['year']." selected>". $row['year'] ."</option>";
+                            $y=$row['year']; 
+                        }
+                            else{
+                                echo "<option value = ".$row['year']." >". $row['year'] ."</option>";
+                            }
+                        }
                     }
+                        else{
+                            foreach($counter as $row) {
+                                echo "<option value = ".$row['year']." selected>". $row['year'] ."</option>";
+                                $y=$row['year'];
+                            }   
+                        }
                     ?>
                   </select>
             </div>
@@ -115,7 +129,7 @@ function pp(){
 <?php
         //database retrive
         //echo "lol";
-        $y=$_GET['year'];
+        //$y=$_GET['year'];
         $empcollection = $companydb->empcollection;
         $counter = $empcollection->find(['Department Id'=>$deptid]);
         foreach($counter as $row) {
