@@ -34,6 +34,11 @@ if (!$_SESSION['email']=='pavan' && !$_SESSION['email']=='nishad')
     <link rel="stylesheet" href="styles.css">
 
 </head>
+<style>
+    #disabled{
+
+    }
+</style>
 <body>
 <?php
    if ($_SESSION['usertype']=='admin')
@@ -101,9 +106,30 @@ foreach($counter as $row) {
     echo "<td>" . $row['position'] ."</td>";
     echo "<td>" . $_SESSION['email'] ."</td>";
     echo "<td>" . $row['dateofcreation']."</td>";
-    echo "<td>" . "<a href='close_position.php?variable1=".$id."'><button> close</button></a>" ."</td>";
+    echo "<td>" . "<a  href='close_position.php?variable1=".$id."'><button class='btn btn-primary'> close</button></a>" ."</td>";
     echo "<td><a href='viewrequision.php?variable1=".$id."'>View Requisition</a>" ."</td>";
-    echo "<td><a href='open_positions-1.php?variable1=".$id."'>Upload Resume</a>" ."</td>";
+
+
+
+    if ($_SESSION['usertype']=='hod')
+    {
+        if($row['dateofhrshortlist'] == ""){
+
+            echo "<td> <a href='javascript:void(0)' title='wait for HOD to Shortlist' data-toggle='tooltip' data-placement='right' title='Tooltip on right'><button class='btn btn-primary' disabled>Shortlist for Interview </button></a>" ."</td>";
+
+        }
+        else{
+            echo "<td><a href='hod_short_listing.php?variable1=".$id."'><button class='btn btn-primary'>Shortlist for Interview</button></a>" ."</td>";
+        }
+    }
+    else
+    {
+  
+        echo "<td><a href='open_positions-1.php?variable1=".$id."'>Upload Resume</a>" ."</td>";
+    }
+
+
+   
     #add just this line whenever you create  viewrequisition  33111`3
     //getting values in page2.php file by $_GET function:
     //$x=$_GET['variable1'];
