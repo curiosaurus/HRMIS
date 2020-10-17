@@ -27,10 +27,6 @@ $empcollection = $companydb->shortlisted_candidate;
 
 </head>
 
-<style>
-
-</style>
-
 
 <body>
 <?php
@@ -45,7 +41,6 @@ $empcollection = $companydb->shortlisted_candidate;
 
       include 'adminnavbar.php';
   }
-?>
 ?>
     <br><br><br>
 
@@ -147,11 +142,20 @@ if(isset($_POST['submit']))
 
 require 'vendor\autoload.php'; 
 
+if(isset($_GET['variable1']))
+{
+$R_id = $_GET['variable1'];   
+}
+else 
+{
+    $R_id = $_POST['requisition_id'];
+}
+
+
 $client = new MongoDB\Client;
 $companydb = $client->hrmis;
 $empcollection = $companydb->shortlisted_candidate;
-
-$counter = $empcollection->find();
+$counter = $empcollection->find(array('Requisition_id' => $R_id));
 foreach($counter as $row) {
 
 echo '<form action="hod_short_listing.php" method="post">';
