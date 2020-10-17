@@ -1,7 +1,5 @@
 <?php
-
 use Illuminate\Support\Facades\Redirect;
-
 require 'vendor\autoload.php'; 
 $client = new MongoDB\Client;
 $companydb = $client->hrmis;
@@ -21,12 +19,9 @@ function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
 	for ($i = 0; $i < 12; $i++) {
 		$result .= sprintf("%02x", ord($bin[$i]));
 	}
-
 	return $result;
 }
-
-if(isset($_POST['submit']))
-    {   
+if(isset($_POST['submit']))    {   
         foreach(range(0, 0) as $id) {
             $id = 7841;
         }
@@ -64,7 +59,6 @@ if(isset($_POST['submit']))
         for ($i = 1; $i <= $counter3; $i++) {
             array_push($final_manage,$_POST["managerialSkill$i"]);
         }
-
         // Preferrable Skill
         $final_preferrable = array();
         for ($i = 1; $i <= $counter; $i++) {

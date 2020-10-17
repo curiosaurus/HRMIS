@@ -141,7 +141,7 @@ include 'adminnavbar.php';
         </center>
     </div>
 <br>
-
+<!-- 
 <div class="container">
     <div class="row justify-content-md-start">   
         <div class="col-md"><button class="btn btn-primary btn-lg btn-block">SEARCH</button></div>
@@ -149,7 +149,7 @@ include 'adminnavbar.php';
         <div class="col-md"><button class="btn btn-primary btn-lg btn-block">DELETE</button></div>
         <div class="col-md"><button class="btn btn-primary btn-lg btn-block">UPDATE</button></div>
     </div>
-</div>
+</div> -->
 
 <br><br><br>
 
@@ -400,26 +400,13 @@ include 'adminnavbar.php';
             </div>
 
             <div class="col-md-4">
-
-            
-            <?php
-
-
-    $masteropt='masteropt';
-    $client = new MongoDB\Client;
-    $companydb = $client->hrmis;
-    $empcollection = $companydb->$masteropt;
-    $counter = $empcollection->find(['type'=>'department']);
-    echo'<select name="Department" id="department" required>';
-    foreach($counter as $row) {
-       
-        echo "<option value = ".$row['value']." selected>". $row['value'] ."</option>";
-      
-    }
-echo '</select>';
-    
-?>
-
+                <select required name="Department" id="">
+                    <option>Select Department</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Production">Production</option>
+                    <option value="HR">HR</option>
+                </select>
             </div>
 
         </div>
@@ -530,7 +517,7 @@ echo '</select>';
                 <label> Last Working Date :  </label>
             </div>
             <div class="col-md-4">
-                <input required type="date" name="Last_Working_Date" class="form-control" readOnly>
+                <input required type="date" name="Last_Working_Date" class="form-control" >
             </div>
         </div>
 <br><br>
