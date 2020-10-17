@@ -8,11 +8,12 @@ if (!$_SESSION['usertype']=='admin')
 }
 
     require 'vendor\autoload.php'; 
-
+    $M="masteropt";
     $client = new MongoDB\Client;
-    $companydb = $client->companydb;
+    $companydb = $client->hrmis;
     $empcollection = $companydb->user;
-
+    $masteropt = $companydb->masteropt;
+    
     if(isset($_POST['submit']))
     {
         $Emp_Code = $_POST['Emp_Code'];
@@ -399,15 +400,21 @@ include 'adminnavbar.php';
                 <label> Department :  </label>
             </div>
 
-            <div class="col-md-4">
-                <select required name="Department" id="">
-                    <option>Select Department</option>
-                    <option value="Sales">Sales</option>
-                    <option value="Marketing">Marketing</option>
-                    <option value="Production">Production</option>
-                    <option value="HR">HR</option>
-                </select>
+             <div class="col-md-4">
+           <?php
+    $counter = $masteropt->find(['type'=>'department']);
+    echo'<select name="department" id="department">';
+    foreach($counter as $row) {
+       
+        echo "<option value = ".$row['value']." selected>". $row['value'] ."</option>";
+         
+    }
+echo '</select>';
+?>
             </div>
+<script> 
+
+</script>
 
         </div>
 
@@ -419,24 +426,44 @@ include 'adminnavbar.php';
                 <label> Designation:</label>
             </div>
             <div class="col-md-4">
-                <select required name="Designation" id="" class="form-control">
+                <!--select required name="Designation" id="" class="form-control">
                     <option value="Assitant Manager" selected>Assitant Manager</option>
                     <option value="Manager">Manager</option>
                     <option value="Devloper">Devloper</option>
                     <option value="senior Manager">senior Manager</option>
-                </select>
+                </select>-->         <?php
+    $counter = $masteropt->find(['type'=>'designation']);
+    echo'<select name="Designation" id="">';
+    foreach($counter as $row) {
+       
+        echo "<option value = ".$row['value']." selected>". $row['value'] ."</option>";
+         
+    }
+echo '</select>';
+?>
+                
             </div>
             
             <div class="col-md-2">
                 <label> Grade :  </label>
             </div>
             <div class="col-md-4">
-                <select required name="Grade" id="" class="form-control">
+           <!--     <select required name="Grade" id="" class="form-control">
                     <option value="E1">E1</option>
                     <option value="E2">E2</option>
                     <option value="D1">D1</option>
                     <option value="M1">M1</option>
-                </select>
+                </select>-->
+                <?php
+    $counter = $masteropt->find(['type'=>'grade']);
+    echo'<select name="Grade" id="">';
+    foreach($counter as $row) {
+       
+        echo "<option value = ".$row['value']." selected>". $row['value'] ."</option>";
+         
+    }
+echo '</select>';
+?>
             </div>
 
         </div>
@@ -450,11 +477,21 @@ include 'adminnavbar.php';
             </div>
 
             <div class="col-md-4" >
-                <select required name="Location" id="">
+               <!-- <select required name="Location" id="">
                 <option value="Pune">Pune</option>
                 <option value="Kolhapur">Kolhapur</option>
-            </select>
-            </div>
+            </select>-->
+            <?php
+    $counter = $masteropt->find(['type'=>'location']);
+    echo'<select name="Location" id="">';
+    foreach($counter as $row) {
+       
+        echo "<option value = ".$row['city']." selected>". $row['city'] ."</option>";
+         
+    }
+echo '</select>';
+?>
+          </div>
 
             <div class="col-md-2">
                 <label> Employee Type :  </label>
