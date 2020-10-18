@@ -448,12 +448,7 @@ echo '</select>';
                 <label> Grade :  </label>
             </div>
             <div class="col-md-4">
-           <!--     <select required name="Grade" id="" class="form-control">
-                    <option value="E1">E1</option>
-                    <option value="E2">E2</option>
-                    <option value="D1">D1</option>
-                    <option value="M1">M1</option>
-                </select>-->
+            
                 <?php
     $counter = $masteropt->find(['type'=>'grade']);
     echo'<select name="Grade" id="">';
@@ -477,10 +472,7 @@ echo '</select>';
             </div>
 
             <div class="col-md-4" >
-               <!-- <select required name="Location" id="">
-                <option value="Pune">Pune</option>
-                <option value="Kolhapur">Kolhapur</option>
-            </select>-->
+              
             <?php
     $counter = $masteropt->find(['type'=>'location']);
     echo'<select name="Location" id="">';
