@@ -67,7 +67,7 @@ else{
         </div>
 
 <br>
-<form action="#" method="post">
+<form action="skillMatrixSubmitData.php?variable1=<?php echo $empcode;?>" method="post">
     <div class="row justify-content-md-start">
             <div class="col-md-2">
                 <label> Employee name :  </label>
