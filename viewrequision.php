@@ -16,9 +16,32 @@
     foreach($counter as $row) {
 ?>
 
+<script language="javascript" type="text/javascript">
+        function printDiv(divID) {
+            //Get the HTML of div
+            var divElements = document.getElementById(divID).innerHTML;
+            //Get the HTML of whole page
+            var oldPage = document.body.innerHTML;
+
+            //Reset the page's HTML with div's HTML only
+            document.body.innerHTML = 
+              "<html><head><title></title></head><body>" + 
+              divElements + "</body>";
+
+            //Print Page
+            window.print();
+
+            //Restore orignal HTML
+            document.body.innerHTML = oldPage;
+
+          
+        }
+    </script>
+
+
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,22 +77,15 @@
         </center>
     </div>
 <br>
-<div class="container">
-    <div class="row justify-content-md-start">   
-        <div class="col-md"><button class="btn btn-primary btn-lg btn-block">NEW</button></div>
-        <div class="col-md"><button class="btn btn-primary btn-lg btn-block">MODIFY</button></div>
-        <div class="col-md"><button class="btn btn-primary btn-lg btn-block">DELETE</button></div>
-        <div class="col-md"><button class="btn btn-primary btn-lg btn-block">OPEN</button></div>
-    </div>
-</div>
+
 <br>
 <hr style="border-bottom: 1px solid#3f51b5; width: 500px;">
 <br>
 
 
 
-<form action="Requisition.php" method="post">
-<div class="container">
+<form action="Requisition.php"  method="post">
+<div class="container" id="printablediv">
     <div class="row justify-content-md-start">
         
         <div class="col-md-1">
@@ -290,29 +306,15 @@ foreach($ms as $row){
     <?php } ?>
 
 
-
-
-    <script type="text/javascript">
-        
-        function codespeedy(){
-          var print_div = document.getElementById("aa");
-    var print_area = window.open();
-    print_area.document.write(print_div.innerHTML);
-    print_area.document.close();
-    print_area.focus();
-    print_area.print();
-    print_area.close();
-    // This is the code print a particular div element
-        }
-      </script>
-    <form>
-        <input type="button" class="btn btn-primary" value="Print" onclick="codespeedy()">
+  <form id="form1" runat="server">
+   <center>      <input type="button" class="btn btn-primary" value="Print" onclick="javascript:printDiv('printablediv')"></center>
       </form>
 
 
-
-    
+<br>
+<br><br><br>
 </form> 
 </div>
 
 </body>
+</html>
