@@ -58,8 +58,10 @@ $years=$companydb->years;
 <td><a href="yearstatuschange.php?stat=2&id=<?php echo $row['year'];?>"><button name="" class="btn btn-block btn-primary">UNLOCK</button></a>
             </td>
             <?php }?>
-            <td><a href="yearstatuschange.php?stat=3&id=<?php echo $row['year'];?>"><button name="" class="btn btn-block btn-danger">DELETE</button></a>
+           
+              <td><a href="yearstatuschange.php?stat=3&id=<?php echo $row['year'];?>" onclick="return confirm('Are you sure to delete?')"><button name="" class="btn btn-block btn-danger"  >DELETE</button></a>
             </td>
+            
         </tr>
         <?php } ?>
 </table>
