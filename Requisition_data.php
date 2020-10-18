@@ -1,9 +1,12 @@
 <?php
+
+session_start();
 use Illuminate\Support\Facades\Redirect;
 require 'vendor\autoload.php'; 
 $client = new MongoDB\Client;
 $companydb = $client->hrmis;
 $empcollection = $companydb->requisition;
+
 function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
 {
 	// Building binary data.
@@ -21,13 +24,14 @@ function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
 	}
 	return $result;
 }
-if(isset($_POST['submit']))    {   
+if(isset($_POST['submit']))    {  
+
         foreach(range(0, 0) as $id) {
             $id = 7841;
         }
         $unique_id = createMongoDbLikeId(time(), php_uname('n'), getmypid(), $id); 
         $department = $_POST['department'];
-        $raised_by = " ";
+        $raised_by = $_SESSION['email'];
         $reqfor = $_POST['reqfor']; 
         $reasonappnt = $_POST['reasonappnt'];
         $dateofcreation = date("m/d/Y");
