@@ -4,6 +4,9 @@
 <title>Training Calender</title>
 <style></style>
 <body>
+<?php 
+        include 'adminnavbar.php';
+    ?>
 <center><h1>Trainning Calender</h1></center>
 <br>
 <center>
@@ -12,15 +15,17 @@ require 'vendor\autoload.php';
     $client = new MongoDB\Client;
     $companydb = $client->hrmis;
     $trainingcalender = $companydb->trainingcalender;
+    $nominationscollection=$companydb->nominations;
     $yearcollection= $companydb->years;
     if (isset($_POST['submit'])){
       $year = $_POST['year'];
       $ttopic = $_POST['traningtopic'];
       $monthp = $_POST['month_p'];
       $monthc = $_POST['month_c'];
-      $data = $trainingcalender->insertOne( ['year' => $year,'trainingtopic' => $ttopic, 'month_p'=>$monthp , 'month_c' => $monthc] );
+      //echo $year;
+      $data = $nominationscollection->updateOne(['year'=>$year], ['$set'=>['month_p'=>$monthp , 'month_c' => $monthc]] );
       if($data){
-        echo "sucess";
+        //echo "sucess";
       }
     }
 ?>
@@ -52,7 +57,8 @@ require 'vendor\autoload.php';
 <script>
   function pp(){
     var y = document.getElementById("year").value;
-    window.location.href="calenderfilldata.php?year="+y;
+    var s = document.getElementById("traningtopic").value;
+    window.location.href="calenderfilldata.php?year="+y+"&skill="+s;
 }
 </script>
 <div class="table">
@@ -66,15 +72,51 @@ require 'vendor\autoload.php';
   </thead>
   <tbody>
     <tr>
-      <td><input type="text" name="traningtopic"></td>
+      <td><select name="traningtopic" id="traningtopic" onchange="pp();" required class="form-control form-control-lg">
+                    <?php  
+                    $counter = $nominationscollection->find(['year'=>$y]);
+                    if(isset ($_GET['skill'])){
+                        foreach($counter as $row) {
+                          $rskill=$row['skill'];
+                            if($_GET["skill"] == $row['skill']){
+                              
+                            //echo "<option value = ".$row['skill']." selected>". $row['skill'] ."</option>";
+                            ?>
+                            <option value = "<?php echo $rskill?>" selected><?php echo $rskill?></option>
+                            <?php
+                            $s=$row['skill']; 
+                            $sm=$row['month_p'];
+                            $em=$row['month_c'];
+                        }
+                            else{
+                              ?>
+                              <option value = "<?php echo $rskill?>"><?php echo $rskill?></option>
+                              <?php
+                            }
+                        }
+                    }
+                        else{
+                            foreach($counter as $row) {
+                              $rskill=$row['skill'];
+                              ?>
+                              <option value = "<?php echo $rskill?>" selected><?php echo $rskill?></option>
+                              <?php
+                                $s=$row['skill'];
+                                $sm=$row['month_p'];
+                                $em=$row['month_c'];
+                            }   
+                        }
+                    ?>
+     </select>
+      </td>
       <td>
-	<select name="month_p"><option>Select Month</option>
+	<select name="month_p"><option value="<?php echo $sm?>"><?php echo $sm?></option>
 	<option value="Jan">Jan</option><option value="Feb">Feb</option><option value="Mar">Mar</option><option value="Apr">Apr</option><option value="May">May</option><option value="June">June</option><option value="July">July</option>
 	<option value="Aug">Aug</option><option value="Sept">Sept</option><option value="Oct">Oct</option><option value="Nov">Nov</option><option value="Dec">Dec</option>
 </select>
 </td>
       <td>
-	<select name="month_c"><option>Select Month</option>
+	<select name="month_c"><option value="<?php echo $em?>"><?php echo $em?></option>
 	<option value="Jan">Jan</option><option value="Feb">Feb</option><option value="Mar">Mar</option><option value="Apr">Apr</option><option value="May">May</option><option value="June">June</option><option value="July">July</option>
 	<option value="Aug">Aug</option><option value="Sept">Sept</option><option value="Oct">Oct</option><option value="Nov">Nov</option><option value="Dec">Dec</option>
 </select>

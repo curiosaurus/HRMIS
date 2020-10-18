@@ -1,15 +1,16 @@
 <?php
 require 'vendor\autoload.php'; 
 $client = new MongoDB\Client;
-$companydb = $client->companydb;
-$empcollection = $companydb->user;
+$companydb = $client->hrmis;
+$empcollection = $companydb->empcollection;
 if(isset ($_GET['variable1']))
 {
+    $skillyear=$_GET['year'];;
     $empcode=$_GET['variable1'];
     $counter=$empcollection->find(['Emp Code'=>$empcode]);
     foreach ($counter as $row)
     {
-        $empcode=$row['Emp code'];
+        $empcode=$row['Emp Code'];
         $display_name=$row['Emp Display Name'];
         $date_0f_joinng=$row['Date of joining'];
         $department=$row['Department Id'];
@@ -20,7 +21,6 @@ if(isset ($_GET['variable1']))
         $employeestatus=$row['Employee Status Id'];
         $employeereportingto=$row['REPORTING TO'];
         $education=$row['EDUCATION'];
-
         $previous_exp=$row['Previous Exp'];
         $resigned_date=$row['Resigned date'];
         $last_working_date=$row['DATE OF LEAVING'];
@@ -64,12 +64,11 @@ else{
         </div>
 
 <br>
-<form action="#" method="post">
+<form action="skillMatrixSubmitData.php?variable1=<?php echo $empcode;?>&year=<?php echo $skillyear;?>" method="post">
     <div class="row justify-content-md-start">
             <div class="col-md-2">
                 <label> Employee name :  </label>
             </div>
-
             <div class="col-md-4">
                 <input type="text" disabled value="<?php echo (isset($display_name)) ? $display_name : '';?>" name="empName" class="form-control" >
             </div>
@@ -223,7 +222,7 @@ else{
         <tr > 
             <th rowspan="3">Managerial Skill</th>
             <td>Communication Skill</td>
-            <td><input type="hidden" name="managerialSkill[0][0]" value="Communication Skill"></td>
+            <input type="hidden" name="managerialSkill[0][0]" value="Communication Skill">
             <td><input required type="number" name="managerialSkill[0][1]" id=""></td>
             <td><input required type="number" name="managerialSkill[0][2]" id=""></td>
         </tr>
@@ -231,7 +230,7 @@ else{
         <tr>
 
             <td>Leadership Skill</td>
-            <td><input type="hidden" name="managerialSkill[1][0]" value="Leadership Skill"></td>
+            <input type="hidden" name="managerialSkill[1][0]" value="Leadership Skill">
             <td><input required type="number" name="managerialSkill[1][1]" id=""></td>
             <td><input required type="number" name="managerialSkill[1][2]" id=""></td>
         </tr>
@@ -240,7 +239,7 @@ else{
         <tr>
 
             <td>Teamwork</td>
-            <td><input type="hidden" name="managerialSkill[2][0]" value="Teamwork"></td>
+            <input type="hidden" name="managerialSkill[2][0]" value="Teamwork">
             <td><input required type="number" name="managerialSkill[2][1]" id=""></td>
             <td><input required type="number" name="managerialSkill[2][2]" id=""></td>
         </tr>
@@ -249,7 +248,7 @@ else{
             <th  rowspan="7">Preffered Skill</th>
             <td>Vendor Selection & Assessment		
             </td>
-            <td><input type="hidden" name="preferredSkill[0][0]" value="Vendor Selection & Assessment"></td>
+            <input type="hidden" name="preferredSkill[0][0]" value="Vendor Selection & Assessment">
             <td><input required type="number" name="preferredSkill[0][1]" id=""></td>
             <td><input required type="number" name="preferredSkill[0][2]" id=""></td>   
         </tr>
@@ -257,7 +256,7 @@ else{
         <tr>
             <td>Bought out items costing		
             </td>
-            <td><input type="hidden" name="preferredSkill[1][0]" value="Bought out items costing"></td>
+            <input type="hidden" name="preferredSkill[1][0]" value="Bought out items costing">
             <td><input required type="number" name="preferredSkill[1][1]" id=""></td>
             <td><input required type="number" name="preferredSkill[1][2]" id=""></td>
         </tr>
@@ -265,7 +264,7 @@ else{
         <tr>
             <td>Project Management		
             </td>
-            <td><input type="hidden" name="preferredSkill[2][0]" value="Project Management"></td>
+            <input type="hidden" name="preferredSkill[2][0]" value="Project Management">
             <td><input required type="number" name="preferredSkill[2][1]" id=""></td>
             <td><input required type="number" name="preferredSkill[2][2]" id=""></td>
         </tr>
@@ -273,16 +272,14 @@ else{
         <tr>
             <td>Press tools/ casting & machining		
             </td>
-            <td><input type="hidden" name="preferredSkill[3][0]" value="Press tools/ casting & machining"></td>
+            <input type="hidden" name="preferredSkill[3][0]" value="Press tools/ casting & machining">
             <td><input required type="number" name="preferredSkill[3][1]" id=""></td>
             <td><input required type="number" name="preferredSkill[3][2]" id=""></td>
         </tr>
-
-
         <tr>
             <td>Inventory Management		
             </td>
-            <td><input type="hidden" name="preferredSkill[4][0]" value="Inventory Management"></td>
+            <input type="hidden" name="preferredSkill[4][0]" value="Inventory Management">
             <td><input required type="number" name="preferredSkill[4][1]" id=""></td>
             <td><input required type="number" name="preferredSkill[4][2]" id=""></td>
         </tr>
@@ -290,14 +287,14 @@ else{
             <td>Details on Taxation		
 		
             </td>
-            <td><input type="hidden" name="preferredSkill[5][0]" value="Details on Taxation"></td>
+            <input type="hidden" name="preferredSkill[5][0]" value="Details on Taxation">
             <td><input required type="number" name="preferredSkill[5][1]" id=""></td>
             <td><input required type="number" name="preferredSkill[5][2]" id=""></td>
         </tr>
         <tr>
             <td>ERP/SAP Knowledge		
             </td>
-            <td><input type="hidden" name="preferredSkill[6][0]" value="ERP/SAP Knowledge"></td>
+            <input type="hidden" name="preferredSkill[6][0]" value="ERP/SAP Knowledge">
             <td><input required type="number" name="preferredSkill[6][1]" id=""></td>
             <td><input required type="number" name="preferredSkill[6][2]" id=""></td>
         </tr>
@@ -306,30 +303,28 @@ else{
             <th rowspan=3>System Requirement</th>
             <td>ISO 9001:2015		
             </td>
-            <td><input type="hidden" name="systemRequirements[0][0]" value="ISO 9001:2015"></td>
+            <input type="hidden" name="systemRequirements[0][0]" value="ISO 9001:2015">
             <td><input required type="number" name="systemRequirements[0][1]" id=""></td>
             <td><input required type="number" name="systemRequirements[0][2]" id=""></td>
         </tr>
         <tr>
             <td>5S (House Keeping)		
             </td>
-            <td><input type="hidden" name="systemRequirements[1][0]" value="5S (House Keeping)"></td>
+            <input type="hidden" name="systemRequirements[1][0]" value="5S (House Keeping)">
             <td><input required type="number" name="systemRequirements[1][1]" id=""></td>
             <td><input required type="number" name="systemRequirements[1][2]" id=""></td>
         </tr>
         <tr>
             <td>EMS 14001:2015		
             </td>
-            <td><input type="hidden" name="systemRequirements[2][0]" value="EMS 14001:2015"></td>
+            <input type="hidden" name="systemRequirements[2][0]" value="EMS 14001:2015"></td>
             <td><input required type="number" name="systemRequirements[2][1]" id=""></td>
             <td><input required type="number" name="systemRequirements[2][2]" id=""></td>
         </tr>
-
     </table>
     <center>
         <input type="submit" value="Submit" name="Submit" class="btn btn-primary">
     </center>
-</form>
-       
+</form>      
 </body>
 <html>

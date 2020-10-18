@@ -9,12 +9,15 @@
 
 
 <body>
+<?php 
+        include 'adminnavbar.php';
+    ?>
   <?php
 require 'vendor\autoload.php'; 
 
 $client = new MongoDB\Client;
 $companydb = $client->hrmis;
-$trainingcalender = $companydb->trainingcalender;
+$nominations = $companydb->nominations;
 $yearcollection = $companydb->years;
 
 ?>
@@ -70,13 +73,13 @@ $yearcollection = $companydb->years;
 <td></td><td></td>
     </tr>
       <?php
-$counter = $trainingcalender->find(['year'=>$y]);
+$counter = $nominations->find(['year'=>$y]);
 $i=0;
 foreach($counter as $row) {
         $i+=1;
         echo " <tr>";
         echo "<th>".$i."</th>";
-        echo "<td>" . $row['trainingtopic'] ."</td>";
+        echo "<td>" . $row['skill'] ."</td>";
         $p = $row['month_p'].'p'.$i;
         $q = $row['month_c'].'c'.$i;
                 
