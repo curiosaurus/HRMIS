@@ -10,9 +10,6 @@ $empcollection = $companydb->requisition;
 
 
 
-if($_SESSION['usertype'] == 'admin'){
-
-	
     if (isset($_GET['req'])){
         $reqid=$_GET['req'];
         $d=date("Y/m/d");
@@ -21,9 +18,9 @@ if($_SESSION['usertype'] == 'admin'){
             ['$set' => ['status' => 'Approved by MD','dateofmdapproval'=>$d]]
         );
     }
-    header('Location:open_positions.php');
+    header('Location:mdDashboard.php');
 
-}
+
 
 
 
