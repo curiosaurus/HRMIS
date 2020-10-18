@@ -1,11 +1,8 @@
 <?php
-
 require 'vendor\autoload.php'; 
-
 $client = new MongoDB\Client;
 $companydb = $client->companydb;
 $empcollection = $companydb->user;
-
 if(isset ($_GET['variable1']))
 {
     $empcode=$_GET['variable1'];
