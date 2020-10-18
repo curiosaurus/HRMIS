@@ -3,10 +3,13 @@
 require 'vendor\autoload.php'; 
 
 $client = new MongoDB\Client;
-$companydb = $client->companydb;
+$companydb = $client->hrmis;
 
 // Add collection name here in place of user
 $empcollection = $companydb->user;
+
+// For getting year from URL
+$year = (isset($_GET["year"]) ? $_GET["year"] : "");
 
 if(isset($_GET['variable1']))
 {
@@ -32,6 +35,60 @@ if(isset($_GET['variable1']))
     $managerialSkill = $_POST["managerialSkill"];
     $preferredSkill = $_POST["preferredSkill"];
     $systemRequirements = $_POST["systemRequirements"];
+
+    // Getting each skill from multidimensional array
+    // $communicationSkill = $managerialSkill[0];
+    // $leadershipSkill = $managerialSkill[1];
+    // $teamWork = $managerialSkill[2];
+
+    // $vendorSelection = $preferredSkill[0];
+    // $boughtItem = $preferredSkill[1];
+    // $projectManagement = $preferredSkill[2];
+    // $pressTools = $preferredSkill[3];
+    // $inventoryManagement = $preferredSkill[4];
+    // $detailsOnTaxation = $preferredSkill[5];
+    // $erpAndSap = $preferredSkill[6];
+
+    // $iso = $systemRequirements[0];
+    // $fiveS = $systemRequirements[1];
+    // $ems = $systemRequirements[2];
+
+    $nominationsRequired = array();
+
+    for ($x = 0; $x < 3; $x++){
+        if ($managerialSkill[$x][1] > $managerialSkill[$x][2]){
+            array_push($nominationsRequired,$managerialSkill[$x]);
+        }
+    }
+
+    for ($x = 0; $x < 7; $x++){
+        if ($preferredSkill[$x][1] > $preferredSkill[$x][2]){
+            array_push($nominationsRequired,$preferredSkill[$x]);
+        }
+    }
+
+    for ($x = 0; $x < 3; $x++){
+        if ($systemRequirements[$x][1] > $systemRequirements[$x][2]){
+            array_push($nominationsRequired,$systemRequirements[$x]);
+        }
+    }
+
+    $sizeOfNominations = sizeof($nominationsRequired);
+
+    // Add skill to collections
+    for ($i = 0; $i < $sizeOfNominations; $i++){
+        $query = $empcollection->findOne(array("year" => $year, "skill" => $nominationsRequired[$i][0]));
+
+        if ($query){
+            $query = $empcollection->updateOne(['year' => $year,'skillName' => $nominationsRequired[$i][0]],['$push' => ["empIds" => $empcode]]);
+        } else {
+            $arrayOfId = array($empcode);
+            $query = $empcollection->insertOne(['year' => $year, 'skillName' => $nominationsRequired[$i][0], 'empIds' => $arrayOfId]);
+        }
+    }
+
+    // Cheking year and skill is present in database or not
+    $isPresent = $empcollection->findOne(array("year" => $year, "skill"));
 
     $insertData = $empcollection->insertOne( ['empcode' => $empcode ,'employeename' => $employeename , 'employeenumber' => $employeenumber , 
     'doj' => $doj , 'department' => $department , 'designation' => $designation , 
