@@ -79,7 +79,7 @@ include 'adminnavbar.php';
                         </th>
                         <th scope="col">DATE Of Creation
                         </th>
-                        <th scope="col">Open/Close
+                        <th scope="col">Open
                         </th>
 
                         <th scope="col">View
@@ -97,7 +97,7 @@ foreach($counter as $row) {
     echo "<td>".$row['position'] ."</td>";
     echo "<td>".$row['raised by'] ."</td>";
     echo "<td>".$row['dateofcreation'] ."</td>";
-    echo "<td>"."<a href='close_position.php?variable1=".$id."'><button> close</button></a>"."</td>";
+    echo "<td>"."<a href='close_position.php?variable1=".$id."'><button class='btn btn-primary'>Open</button></a>"."</td>";
     echo "<td><a href='viewrequision.php?variable1=".$id."'>View Requisition</a>" ."</td>";
     echo "</tr>";
 }
