@@ -89,8 +89,8 @@ function myFunction() {
         var month=monthNames[val2]; 
          end+=month;
          end+=year;
-         document.getElementById("year").value=start+"-"+end
-  alert("The input value has changed. The new value is: " + start);
+         document.getElementById("year").value=start+"-"+end;
+ // alert("The input value has changed. The new value is: " + start);
 }
 function myFunction1(val) {
     const monthNames = ["Kedar","January", "February", "March", "April", "May", "June",
@@ -101,7 +101,7 @@ function myFunction1(val) {
         var month=monthNames[val2]; 
          end.push(month);
          end.push(year);
-  alert("The input value has changed. The new value is: " + end);
+ // alert("The input value has changed. The new value is: " + end);
 }
 </script>
 </div>
