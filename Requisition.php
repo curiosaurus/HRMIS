@@ -87,14 +87,8 @@ function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
         </center>
     </div>
 <br>
-<div class="container">
-    <div class="row justify-content-md-start">   
-        <div class="col-md"><button class="btn btn-primary btn-lg btn-block">NEW</button></div>
-        <div class="col-md"><button class="btn btn-primary btn-lg btn-block">MODIFY</button></div>
-        <div class="col-md"><button class="btn btn-primary btn-lg btn-block">DELETE</button></div>
-        <div class="col-md"><button class="btn btn-primary btn-lg btn-block">OPEN</button></div>
-    </div>
-</div>
+
+
 <br>
 <hr style="border-bottom: 1px solid#3f51b5; width: 500px;">
 <br>
@@ -121,6 +115,7 @@ echo '<div class="col-md-3"><div class="dropdown">';
     $empcollection = $companydb->$masteropt;
     $counter = $empcollection->find(['type'=>'department']);
     echo'<select name="department" id="department" onchange="pp();">';
+    echo "<option>Select Department</option>";
     foreach($counter as $row) {
         if($_GET["uid"] == $row['value']){;
         echo "<option value = ".$row['value']." selected>". $row['value'] ."</option>";
@@ -346,9 +341,7 @@ foreach($counter2 as $row){
         <div class="col-3">
             <input type="submit" value="Submit" name="submit"  class="btn btn-primary btn-lg btn-block">
         </div>
-        <div class="col-3">
-            <button class="btn btn-danger btn-lg btn-block">Cancel</button>
-        </div>
+      
     </div>
     <br>
 </form> 
