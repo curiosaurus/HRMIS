@@ -8,9 +8,11 @@ require 'vendor\autoload.php';
     $start_month=$_POST['start_month'];
     $end_month=$_POST['end_month'];
     $year=$_POST['year'];
+    /*
     echo $end_month;
     echo $year;
     echo $start_month;
+    */
     $yc=$companydb->createCollection($year);
     $results=$years->insertOne(['year' => $year , 'start_month' => $start_month , 'end_month' => $end_month ,'status' => 'unlocked']);
 }
