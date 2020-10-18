@@ -106,7 +106,7 @@ foreach($counter as $row) {
     echo "<td>" . $row['position'] ."</td>";
     echo "<td>" . $_SESSION['email'] ."</td>";
     echo "<td>" . $row['dateofcreation']."</td>";
-    echo "<td>" . "<a  href='close_position.php?variable1=".$id."'><button class='btn btn-primary'> close</button></a>" ."</td>";
+    echo "<td>" . "<a  href='closed_position.php?variable1=".$id."'><button class='btn btn-primary'> close</button></a>" ."</td>";
     echo "<td><a href='viewrequision.php?variable1=".$id."'>View Requisition</a>" ."</td>";
 
 
