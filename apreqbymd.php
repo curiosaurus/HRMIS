@@ -21,8 +21,4 @@ $empcollection = $companydb->requisition;
     header('Location:mdDashboard.php');
 
 
-
-
-
-
 ?>
