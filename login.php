@@ -22,6 +22,10 @@ $loginerror = " ";
             {
                 header("location:HodDashboard.php");
             }
+            if($u == 'md'){
+                header("location:mdDashboard.php");
+            }
+           
             else{
                 header("location:hr_admin_dashboard.php");
             }
@@ -72,7 +76,7 @@ $loginerror = " ";
           <option value="" disabled="" selected="">Choose Role</option>
           <option value="hod">HOD</option>
           <option value="admin">Admin</option>
-          <option value="emp">Employee</option>
+          <option value="md">MD</option>
        </select>
 
   </div>
