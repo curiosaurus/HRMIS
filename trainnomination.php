@@ -10,6 +10,7 @@ else{
 require 'vendor\autoload.php'; 
 $client = new MongoDB\Client;
 $companydb = $client->hrmis;
+$empcollection = $companydb->empcollection;
 $yearcollection=$companydb->years;
 $nominationscollection=$companydb->nominations;
 ?>
@@ -103,11 +104,30 @@ $nominationscollection=$companydb->nominations;
         <th>EMP NO</th>
         <th>NAME OF EMPLOYEE</th>
         <th>DEPT</th>
-        <th>SIGNATURE</th>
+        <th>Grade</th>
     </tr>
     <?php
-    $skillyearcollection=$companydb->$y;
+    $nominatedresult=$nominationscollection->find(['year'=>$y,'skill'=>$s]);
+    //print_r($nominatedresult);
+    foreach($nominatedresult as $row) {
+        $nominatedids=$row['empIds'];
+    }
+    $narray=[];
+    foreach ($nominatedids as $key => $value) {
+            array_push($narray,["Emp Code"=>$value]);
+    }
+    $query=['$or' => $narray];
+    //print_r($nominatedids);
+    $employees = $empcollection->find($query);
+    //print("<pre>".print_r($employees,true)."</pre>");
+    foreach($employees as $row) {
+        echo "<tr><td>".$row['Emp Code']."</td>";
+        echo "<td>".$row['Emp Display Name']."</td>";
+        echo "<td>".$row['Department Id']."</td>";
+        echo "<td>".$row['Grade Id']."</td></tr>";
+    }
     ?>
+    
   </table>
 </div>
 
