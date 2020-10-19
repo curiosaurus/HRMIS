@@ -34,7 +34,7 @@ require 'vendor\autoload.php';
             </div>
             <center><span class="hr">HR & Admin dashbord</span></center>
             <span style="margin-left:700px; margin-top:30px; font-size:20px;">
-            <?php  echo $_SESSION['email'] ?>
+            <?php  echo "MD"; ?>
 </span>
             <hr>
         </div>
@@ -50,10 +50,35 @@ require 'vendor\autoload.php';
                     <a href="hr_admin_dashboard.php"> HOME</a>
                 </div>
                 <div class="item2">
-        
+           
+        </div>
+                <div class="item3">
+                    <div class="dropdown">
+                        <span> <a href="#"> </a></span>
+                        <div class="dropdown-content">
+                            <p>SKILL MATRIX</p>
+                            <a href="Requisitioncreate2.php?dept=sales"><p>ADD SKILLS</p></a>
+                            <p>TRAINING NOMINATIONS CARD</p>    
+                            <p>TRAINING CALENDER</p>
+                            <p>TRAINING SCHEDULE</p>
+                            <p>EFFECTIVENESS</p>
+                        </div>
+                    </div>
 
-              
-        <div class="item3">
+
+
+                </div>
+                <div class="item4">
+                    <a href="#"></a>
+
+
+                </div>
+                <div class="item5">
+                    <a href="#"></a>
+
+
+                </div>
+        <div class="item6">
                     <div class="dropdown">
                         <span> <a href="#"> COMPANY</a></span>
                         <div class="dropdown-content">
@@ -62,7 +87,7 @@ require 'vendor\autoload.php';
                         </div>
                     </div>
                     </div>
-        <div class="item4">
+        <div class="item7">
                     
                     <span> <a href="logout.php"> Logout</a></span>
          </div>
@@ -70,15 +95,4 @@ require 'vendor\autoload.php';
             </div>
         </nav>
         </div>
-    <!-- Main navbar Close here -->
-
-
-
-
-
-
-    
-
-</body>
-
-</html>
+    <!-- Main navbar Close here --> 
