@@ -3,6 +3,7 @@ require 'vendor\autoload.php';
 $client = new MongoDB\Client;
 $companydb = $client->hrmis;
 $empcollection = $companydb->empcollection;
+$skillscollection = $companydb->skills;
 if(isset ($_GET['variable1']))
 {
     $skillyear=$_GET['year'];;
@@ -218,108 +219,67 @@ else{
             <th>REQUIRED</th>
             <th>ACTUAL</th>
         </tr>
-
-        <tr > 
-            <th rowspan="3">Managerial Skill</th>
-            <td>Communication Skill</td>
-            <input type="hidden" name="managerialSkill[0][0]" value="Communication Skill">
-            <td><input required type="number" name="managerialSkill[0][1]" id=""></td>
-            <td><input required type="number" name="managerialSkill[0][2]" id=""></td>
-        </tr>
-
-        <tr>
-
-            <td>Leadership Skill</td>
-            <input type="hidden" name="managerialSkill[1][0]" value="Leadership Skill">
-            <td><input required type="number" name="managerialSkill[1][1]" id=""></td>
-            <td><input required type="number" name="managerialSkill[1][2]" id=""></td>
-        </tr>
-
-        
-        <tr>
-
-            <td>Teamwork</td>
-            <input type="hidden" name="managerialSkill[2][0]" value="Teamwork">
-            <td><input required type="number" name="managerialSkill[2][1]" id=""></td>
-            <td><input required type="number" name="managerialSkill[2][2]" id=""></td>
-        </tr>
-        
+        <tr>     
+        <?php 
+            $counter2 = $skillscollection->find(array('department' => $department, 'skilltype' => 'managerial'));
+            $o = $skillscollection->count(array('department' => $department, 'skilltype' => 'managerial'));
+            $counter3 = 0;
+            echo '<th rowspan = "'.$o.'" >Managerial Skill</th>';
+            foreach($counter2 as $row){
+                // $counter3 = $counter3 + 1;
+                // $array_manage = "managerialSkill".$counter3;
+                // $array_manage = array();
+                //array_push($array_manage,$row['skillname']);
+                echo '<input type="hidden" name="managerialSkill['.$counter3.'][0]" id="" value="'.$row['skillname'].'">';
+                echo "<td >".$row['skillname']."</td>";
+                echo'<td ><input type="number" style="width: 50px;" name="managerialSkill['.$counter3.'][1]" id=""></td>
+                <td><input type=""  name="managerialSkill['.$counter3.'][2]"  id=""  style="width: 50px;"></td>
+                </tr>';
+                echo '<input type="hidden" name="counter3" value="'.$counter3.'">';
+                $counter3 = $counter3 + 1;
+            }           
+        ?>          
+        </tr> 
         <tr> 
-            <th  rowspan="7">Preffered Skill</th>
-            <td>Vendor Selection & Assessment		
-            </td>
-            <input type="hidden" name="preferredSkill[0][0]" value="Vendor Selection & Assessment">
-            <td><input required type="number" name="preferredSkill[0][1]" id=""></td>
-            <td><input required type="number" name="preferredSkill[0][2]" id=""></td>   
-        </tr>
+            <?php
+            $counter = 0;
+            $counter2 = $skillscollection->find(array('department' => $department, 'skilltype' => 'functional'));
+            $o = $skillscollection->count(array('department' => $department, 'skilltype' => 'functional'));
 
+            echo '<th rowspan = "'.$o.'" >Preferrable Skill</th>';
+            foreach($counter2 as $row){
+                // $array_name = "preferrablesSkill".$counter;
+                // $array_name = array();
+                // array_push($array_name,$row['skillname']);
+                echo '<input type="hidden" name="preferredSkill['.$counter.'][0]" id="" value="'.$row['skillname'].'">';
+                echo "<td >".$row['skillname']."</td>";
+                echo'<td ><input type="number" style="width: 50px;" name="preferredSkill['.$counter.'][1]" id=""></td>
+                <td><input type="number"  name="preferredSkill['.$counter.'][2]" id=""  style="width: 50px;"></td>
+                </tr>';
+                echo '<input type="hidden" name="counter" value="'.$counter.'">';
+                $counter = $counter + 1;
+            }           
+            ?>
+        </tr> 
         <tr>
-            <td>Bought out items costing		
-            </td>
-            <input type="hidden" name="preferredSkill[1][0]" value="Bought out items costing">
-            <td><input required type="number" name="preferredSkill[1][1]" id=""></td>
-            <td><input required type="number" name="preferredSkill[1][2]" id=""></td>
-        </tr>
-
-        <tr>
-            <td>Project Management		
-            </td>
-            <input type="hidden" name="preferredSkill[2][0]" value="Project Management">
-            <td><input required type="number" name="preferredSkill[2][1]" id=""></td>
-            <td><input required type="number" name="preferredSkill[2][2]" id=""></td>
-        </tr>
-
-        <tr>
-            <td>Press tools/ casting & machining		
-            </td>
-            <input type="hidden" name="preferredSkill[3][0]" value="Press tools/ casting & machining">
-            <td><input required type="number" name="preferredSkill[3][1]" id=""></td>
-            <td><input required type="number" name="preferredSkill[3][2]" id=""></td>
-        </tr>
-        <tr>
-            <td>Inventory Management		
-            </td>
-            <input type="hidden" name="preferredSkill[4][0]" value="Inventory Management">
-            <td><input required type="number" name="preferredSkill[4][1]" id=""></td>
-            <td><input required type="number" name="preferredSkill[4][2]" id=""></td>
-        </tr>
-        <tr>
-            <td>Details on Taxation		
-		
-            </td>
-            <input type="hidden" name="preferredSkill[5][0]" value="Details on Taxation">
-            <td><input required type="number" name="preferredSkill[5][1]" id=""></td>
-            <td><input required type="number" name="preferredSkill[5][2]" id=""></td>
-        </tr>
-        <tr>
-            <td>ERP/SAP Knowledge		
-            </td>
-            <input type="hidden" name="preferredSkill[6][0]" value="ERP/SAP Knowledge">
-            <td><input required type="number" name="preferredSkill[6][1]" id=""></td>
-            <td><input required type="number" name="preferredSkill[6][2]" id=""></td>
-        </tr>
-
-        <tr> 
-            <th rowspan=3>System Requirement</th>
-            <td>ISO 9001:2015		
-            </td>
-            <input type="hidden" name="systemRequirements[0][0]" value="ISO 9001:2015">
-            <td><input required type="number" name="systemRequirements[0][1]" id=""></td>
-            <td><input required type="number" name="systemRequirements[0][2]" id=""></td>
-        </tr>
-        <tr>
-            <td>5S (House Keeping)		
-            </td>
-            <input type="hidden" name="systemRequirements[1][0]" value="5S (House Keeping)">
-            <td><input required type="number" name="systemRequirements[1][1]" id=""></td>
-            <td><input required type="number" name="systemRequirements[1][2]" id=""></td>
-        </tr>
-        <tr>
-            <td>EMS 14001:2015		
-            </td>
-            <input type="hidden" name="systemRequirements[2][0]" value="EMS 14001:2015"></td>
-            <td><input required type="number" name="systemRequirements[2][1]" id=""></td>
-            <td><input required type="number" name="systemRequirements[2][2]" id=""></td>
+            <?php 
+                $counter4 = 0;
+                $counter2 = $skillscollection->find(array('department' => $department, 'skilltype' => 'system'));
+                $o = $skillscollection->count(array('department' => $department, 'skilltype' => 'system'));    
+                echo '<th rowspan = "'.$o.'" >System Requirement</th>';
+                foreach($counter2 as $row){
+                //   $array_name = "systemRequirement".$counter;
+                //   $array_name = array();
+                //   array_push($array_name,$row['skillname']);
+                echo '<input type="hidden" name="systemRequirements['.$counter4.'][0]" id="" value="'.$row['skillname'].'">';
+                echo "<td >".$row['skillname']."</td>";
+                echo'<td ><input type="number" style="width: 50px;" name="systemRequirements['.$counter4.'][1]" id=""></td>
+                <td><input  type="number"  name="systemRequirements['.$counter4.'][2]" id=""  style="width: 50px;"></td>
+                </tr>';
+                echo '<input type="hidden" name="counter4" value="'.$counter4.'">';
+                $counter4 = $counter4 + 1;
+                }           
+            ?>
         </tr>
     </table>
     <center>
