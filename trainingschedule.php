@@ -17,11 +17,6 @@
 
 </head>
 
-<style>
-
-</style>
-
-
 <body>
 <?php
     include 'adminnavbar.php';
@@ -34,7 +29,7 @@
             
             </div>
         </div>
-        <form action="" method="post">
+        <form action="trainingScheduleData.php" method="post">
     <div class="container" style="border: 1px solid lightblue; padding: 2px;">
 
         <div class="row justify-content-md-around">
@@ -45,7 +40,7 @@
 
 
             <div class="col-md-8">
-                <select class="form-control form-control-lg" required>
+                <select class="form-control form-control-lg" required name="year">
                     <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
                     <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
                     <option>YEAR JANUARY 2019 TO DECEMBER 2019</option>
@@ -64,7 +59,7 @@
 
     <div class="row justify-content-md-center">
        <label style="font-size: 20px;">Identified Subject</label>
-       <select name="" required id="">
+       <select name="" required id="" name="idetifiedSubject">
            <option value="">Rejection Control</option>
            <option value="">Communication Skill</option>
         </select>
@@ -79,7 +74,7 @@
         </div>
 
         <div class="col-md-4">
-            <input type="date" required class="form-control" >
+            <input type="date" required class="form-control" name="scheduledDate">
         </div>
 
 
@@ -92,11 +87,11 @@
         </div>
 
         <div class="col-md-4">
-            <input type="time" required class="form-control" > 
+            <input type="time" required class="form-control" name="time[]"> 
         </div>
         to &nbsp;&nbsp;
         <div class="col-md-end">
-            <input type="time" required  name="" id="">
+            <input type="time" required  name="" id="" name="time[]">
         </div>
     </div>
 <br>
@@ -107,7 +102,7 @@
         </div>
 
         <div class="col-md-4">
-            <input type="text" required class="form-control" >
+            <input type="text" required class="form-control" name="trainerName">
         </div>
 
     </div>
@@ -119,7 +114,7 @@
         </div>
 
         <div class="col-md-4">
-            <input type="text" required class="form-control" >
+            <input type="text" required class="form-control" name="faculty">
         </div>
 
     </div>
@@ -131,7 +126,7 @@
         </div>
 
         <div class="col-md-4">
-            <input type="text" required class="form-control" >
+            <input type="text" required class="form-control" name="venue">
         </div>
 
     </div>
