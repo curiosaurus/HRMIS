@@ -143,7 +143,7 @@ function pp(){
     echo "<td>" . $row['Grade Id'] ."</td>";
     echo "<td>" . $row['EDUCATION'] ."</td>";
     echo "<td>" . $row['TOTAL EXP'] ."</td>";
-    echo "<td><a href='skillmatrix.php?variable1=".$pas."&year=".$y."'>Upload</a>" ."</td>";
+    echo "<td><a href='redirectskill.php?variable1=".$pas."&year=".$y."'>Upload</a>" ."</td>";
     #add just this line whenever you create  viewrequisition  33111`3
     //getting values in page2.php file by $_GET function:
     //$x=$_GET['variable1'];
