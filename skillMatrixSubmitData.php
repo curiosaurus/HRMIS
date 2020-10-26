@@ -39,16 +39,18 @@ if(isset($_GET['variable1']))
     }
     print("<pre>".print_r($nominationsRequired,true)."</pre>");
     $sizeOfNominations = sizeof($nominationsRequired);
+    //echo $sizeOfNominations;
     // Add skill to collections
-    
     for ($i = 0; $i < $sizeOfNominations; $i++){
-        echo $nominationsRequired[$i][0];
-        $query = $empcollection->findOne(["year" => $year], ["skill" => $nominationsRequired[$i][0]]);
-        print_r($query);
+        //echo $nominationsRequired[$i][0];
+        $query = $empcollection->findOne(['$and'=>[["year" => $year], ["skill" => $nominationsRequired[$i][0]]]]);
+        print("<pre>".print_r($query,true)."</pre>");
         if ($query){
+            echo $i;
             $query = $empcollection->updateOne(['year' => $year,'skill' => $nominationsRequired[$i][0]],['$push' => ["empIds" => $empcode]]);
         } else {
             $arrayOfId = array($empcode);
+            //echo $i;
             $query = $empcollection->insertOne(['year' => $year, 'skill' => $nominationsRequired[$i][0], 'empIds' => $arrayOfId]);
         }
     }
@@ -56,7 +58,7 @@ if(isset($_GET['variable1']))
     $insertData = $skillyearcollection->insertOne( ['empcode' => $empcode , 'managerialSkill' =>  $managerialSkill , 
         'preferredSkill' => $preferredSkill , 'systemRequirements' => $systemRequirements ] );
     if($insertData){
-        echo "Success";
+        //echo "Success";
         // Enter URL of the file where it should redirect
         header('location:');
     } else {
