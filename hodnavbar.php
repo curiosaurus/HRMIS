@@ -2,17 +2,12 @@
 <?php
 require 'session.php'; 
 require 'vendor\autoload.php';
-
-
+session_start();
 if (!$_SESSION['usertype']=='hod')
 {
     header('location:login.php');
 
 }
-
-
-
-
 ?>
 
 <!DOCTYPE html>

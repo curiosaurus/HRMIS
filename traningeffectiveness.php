@@ -52,58 +52,7 @@
 <body>
     <div class="p">
         <!-- NavBar for the Logo and the title -->
-        <div class="nav">
-            <div class="logo">
-                <span>LOGO</span>
-            </div>
-            <center><span class="hr"></span></center>
-            <hr>
-        </div>
-        <hr>
-        <!-- Logo and the title navbar close here -->
-
-
-
-        <!-- Main navbar that contains home recruittment Should Be start here -->
-        <nav class="shadow p-3 mb-5 bg-white rounded">
-            <div class="gri">
-                <div class="item1">
-                    <a href="#"> HOME</a>
-                </div>
-                <div class="item2">
-                    <a href="#"> EMPLOYEE MASTER	</a>
-
-
-                </div>
-                <div class="item3">
-                    <div class="dropdown">
-                        <span> <a href="#"> TRAINNING</a></span>
-                        <div class="dropdown-content">
-                            <p>First</p>
-                            <p>Secound</p>
-                            <p>Third</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item4">
-                    <a href="#"> PMS	</a>
-
-
-                </div>
-                <div class="item5">
-                    <a href="#"> WELFARE	</a>
-
-
-                </div>
-                <div class="item6">
-
-                </div>
-                <div class="item7">
-                    <a href="#"> COMPANY</a>
-                </div>
-        </nav>
-        </div>
-    </div>
+<?php include 'hodnavbar.php'?>
     <!-- Main navbar Close here -->
 
 
@@ -161,13 +110,13 @@
 
                 
              <tr>
-                <td>Capable to work indivisully</td>
+                <td>Capable to work individually</td>
             <td>2</td>
                </tr>
 
                
              <tr>
-                <td>Capable to work indivisully & train others</td>
+                <td>Capable to work individually & train others</td>
             <td>3</td>
                </tr>
          </table> 
@@ -241,13 +190,9 @@
     <br><br>
     a) If yes, please confirm trainee Skill level after tranning (_______) <br>
     <input type="text"id="q3">
-
     <br><br>
-    
     b) If No, why
     <input type="text"id="q4">
 </center>
-
 </div>
-
 <br><br>
