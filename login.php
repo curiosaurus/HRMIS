@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
 session_start();
-require 'session.php';
+//require 'session.php';
 require 'vendor\autoload.php'; 
 $client = new MongoDB\Client;
 $db = $client->hrmis;
@@ -22,10 +22,6 @@ $loginerror = " ";
             {
                 header("location:HodDashboard.php");
             }
-            if($u == 'md'){
-                header("location:mdDashboard.php");
-            }
-           
             else{
                 header("location:hr_admin_dashboard.php");
             }
@@ -37,12 +33,9 @@ $loginerror = " ";
     ?>
 <head>
     <title>HRMIS Ploybond</title>
-
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!-- Compiled and minified CSS -->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" rel="stylesheet"/>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <!--Import Google Icon Font-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -71,24 +64,12 @@ $loginerror = " ";
         <input type="password" name="password" id="password" Placeholder="Enter Password" required>
 </div>
 <div class="input-field col s8 offset-s2 blue-text">
-
-<select name="usertype" id="usertype" class="browser-default btn" required>
-          <option value="" disabled="" selected="">Choose Role</option>
-          <option value="hod">HOD</option>
-          <option value="admin">Admin</option>
-          <option value="md">MD</option>
-       </select>
-
-  </div>
-
+<i class="material-icons prefix">accessibility  </i>
+<input type="text" name="usertype" id="usertype" Placeholder="Enter Usertype" required>
+</div>
 <div class="input-field col s8 offset-s2 blue-text">
         <button type="submit" class="btn btn-primary" name="submit">Login<i class="material-icons right">send</i></button>
 </div>
-
-
-
-
-
         </form>
 <br>
         </div>
@@ -97,19 +78,4 @@ $loginerror = " ";
     </div>
 </center>
 </body>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-</script>
-<script>
-$(document).ready(function() {
- 	$('select').material_select();
-});
-
-</script>
-
 </html> 
