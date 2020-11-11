@@ -58,28 +58,28 @@
         </tr>
         <tr>  <td>1</td>
             <td>communication Skill</td>
-            <td><button name="communicationSkill" class="btn btn-block btn-info">Upload</button></a>
+            <td><button type="file" name="communicationSkill" class="btn btn-block btn-info">Upload</button></a>
             </td>
             <td><button name="" class="btn btn-block btn-success">Edit</button></a>
             </td>
         </tr>
         <tr> <td>2</td>
             <td>ISO 9001:2015</td>
-            <td><button name="iso90012015" class="btn btn-block btn-info">Upload</button></a>
+            <td><button type="file" name="iso90012015" class="btn btn-block btn-info">Upload</button></a>
             </td>
             <td><button name="" class="btn btn-block btn-success">Edit</button></a>
             </td>
         </tr>
         <tr>  <td>3</td>
             <td>EMS 14001:2015</td>
-            <td><button name="ems140012015" class="btn btn-block btn-info">Upload</button></a>
+            <td><button type="file" name="ems140012015" class="btn btn-block btn-info">Upload</button></a>
             </td>
             <td><button name="" class="btn btn-block btn-success">Edit</button></a>
             </td>
         </tr>
         <tr>  <td>4</td>
             <td>5s</td>
-            <td><button name="fives" class="btn btn-block btn-info">Upload</button></a>
+            <td><button type="file" name="fives" class="btn btn-block btn-info">Upload</button></a>
             </td>
             <td><button name="" class="btn btn-block btn-success">Edit</button></a>
             </td>
@@ -87,7 +87,7 @@
         <tr> 
              <td>5</td>
             <td>product application knowledge</td>
-            <td><button name="productApplicationKnowledge" class="btn btn-block btn-info">Upload</button></a>
+            <td><button type="file" name="productApplicationKnowledge" class="btn btn-block btn-info">Upload</button></a>
             </td>
             <td><button name="" class="btn btn-block btn-success">Edit</button></a>
             </td>
@@ -95,14 +95,14 @@
         <tr> 
              <td>6</td>
             <td>product knowledge </td>
-            <td><button name="productKnowledge" class="btn btn-block btn-info">Upload</button></a>
+            <td><button type="file" name="productKnowledge" class="btn btn-block btn-info">Upload</button></a>
             </td>
             <td><button name="" class="btn btn-block btn-success">Edit</button></a>
             </td>
         </tr>
         <tr> <td>7</td>
             <td>ERP Knowldge</td>
-            <td><button name="erpKnowledge" class="btn btn-block btn-info">Upload</button></a>
+            <td><button type="file" name="erpKnowledge" class="btn btn-block btn-info">Upload</button></a>
             </td>
             <td><button name="" class="btn btn-block btn-success">Edit</button></a>
             </td>
