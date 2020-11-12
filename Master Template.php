@@ -11,7 +11,7 @@ if (!$_SESSION['usertype']=='admin')
     $M="masteropt";
     $client = new MongoDB\Client;
     $companydb = $client->hrmis;
-    $empcollection = $companydb->user;
+    $empcollection = $companydb->empcollection;
     $masteropt = $companydb->masteropt;
     
     if(isset($_POST['submit']))

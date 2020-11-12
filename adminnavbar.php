@@ -2,11 +2,12 @@
 <html lang="en">
 
 <?php
-require 'session1.php'; 
+session_start();
+//require 'session1.php'; 
 require 'vendor\autoload.php';
 
 
-if (!$_SESSION['email']=='nishad' && !$_SESSION['usertype']=='admin')
+if (!$_SESSION['usertype']=='admin')
 
 {
     header('location:login.php');
@@ -76,12 +77,12 @@ if (!$_SESSION['email']=='nishad' && !$_SESSION['usertype']=='admin')
                     <div class="dropdown">
                         <span> <a href="#"> TRAINNING</a></span>
                         <div class="dropdown-content">
-                            <p>SKILL MATRIX</p>
+                           <a href=""> <p>SKILL MATRIX</p></a>
                             <a href="Requisitioncreate2.php?dept=sales"><p>ADD SKILLS</p></a>
-                            <p>TRAINING NOMINATIONS CARD</p>    
-                            <p>TRAINING CALENDER</p>
-                            <p>TRAINING SCHEDULE</p>
-                            <p>EFFECTIVENESS</p>
+                            <a href="trainnomination.php"><p>TRAINING NOMINATIONS CARD</p>  </a>  
+                            <a href="calendar.php"><p>TRAINING CALENDER</p></a>
+                            <a href="trainingSchedule.php"><p>TRAINING SCHEDULE</p></a>
+                            <a href=""><p>EFFECTIVENESS</p></a>
                         </div>
                     </div>
 

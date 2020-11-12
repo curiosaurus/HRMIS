@@ -38,7 +38,13 @@ $empcollection = $companydb->user;
 </head>
 <body>
 <?php
+session_start();
+    if($_SESSION['usertype']=="hod"){
     include 'hodnavbar.php';
+}
+elseif ($_SESSION['usertype']=="admin") {
+    include 'adminbanbar.php';
+}
 ?>
     <center>
         <h1>SKILL MATRIX</h1>
