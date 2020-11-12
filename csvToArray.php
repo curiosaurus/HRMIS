@@ -9,8 +9,6 @@
     $result = $empcollection->findOne(array('communicationSkill' => $skill));
 
     $filename = $result['communicationSkill'];
-
-
     $array = $fields = array(); $i = 0;
     $handle = @fopen($filename, "r");
     if ($handle) {

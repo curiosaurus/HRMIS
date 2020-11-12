@@ -45,50 +45,41 @@
 </center>
 <br><br>
 </div>
+<form action="uploadAttendance.php" method="post" enctype="multipart/form-data">
  <div class="container" style="padding: 1.2rem; text-transform: uppercase;">
  <table class="table table-bordered">
 
-  <tr>
+        <tr>
             <th>Sr no</th>
             <th>Identified Subject</th>
-            <th>upload attendance</th>
-            <th>upload now attendance</th>
+            <th>Upload attendance</th>
             <th>EffectiveNess</th>
          
         </tr>
         <tr>  <td>1</td>
             <td>communication Skill</td>
-            <td><button name="" class="btn btn-block btn-info">upload</button></a>
-            </td>
-            <td><button name="" class="btn btn-block btn-info">upload</button></a>
+            <td><button type="file" name="communicationSkill" class="btn btn-block btn-info">Upload</button></a>
             </td>
             <td><button name="" class="btn btn-block btn-success">Edit</button></a>
             </td>
         </tr>
         <tr> <td>2</td>
             <td>ISO 9001:2015</td>
-            <td><button name="" class="btn btn-block btn-info">upload</button></a>
-            </td>
-            <td><button name="" class="btn btn-block btn-info">upload</button></a>
+            <td><button type="file" name="iso90012015" class="btn btn-block btn-info">Upload</button></a>
             </td>
             <td><button name="" class="btn btn-block btn-success">Edit</button></a>
             </td>
         </tr>
         <tr>  <td>3</td>
             <td>EMS 14001:2015</td>
-            <td><button name="" class="btn btn-block btn-info">upload</button></a>
-            </td>
-            <td><button name="" class="btn btn-block btn-info">upload</button></a>
+            <td><button type="file" name="ems140012015" class="btn btn-block btn-info">Upload</button></a>
             </td>
             <td><button name="" class="btn btn-block btn-success">Edit</button></a>
             </td>
         </tr>
         <tr>  <td>4</td>
             <td>5s</td>
-          
-            <td><button name="" class="btn btn-block btn-info">upload</button></a>
-            </td>
-            <td><button name="" class="btn btn-block btn-info">upload</button></a>
+            <td><button type="file" name="fives" class="btn btn-block btn-info">Upload</button></a>
             </td>
             <td><button name="" class="btn btn-block btn-success">Edit</button></a>
             </td>
@@ -96,9 +87,7 @@
         <tr> 
              <td>5</td>
             <td>product application knowledge</td>
-            <td><button name="" class="btn btn-block btn-info">upload</button></a>
-            </td>
-            <td><button name="" class="btn btn-block btn-info">upload</button></a>
+            <td><button type="file" name="productApplicationKnowledge" class="btn btn-block btn-info">Upload</button></a>
             </td>
             <td><button name="" class="btn btn-block btn-success">Edit</button></a>
             </td>
@@ -106,25 +95,21 @@
         <tr> 
              <td>6</td>
             <td>product knowledge </td>
-            <td><button name="" class="btn btn-block btn-info">upload</button></a>
-            </td>
-            <td><button name="" class="btn btn-block btn-info">upload</button></a>
+            <td><button type="file" name="productKnowledge" class="btn btn-block btn-info">Upload</button></a>
             </td>
             <td><button name="" class="btn btn-block btn-success">Edit</button></a>
             </td>
         </tr>
         <tr> <td>7</td>
             <td>ERP Knowldge</td>
-            <td><button name="" class="btn btn-block btn-info">upload</button></a>
-            </td>
-            <td><button name="" class="btn btn-block btn-info">upload</button></a>
+            <td><button type="file" name="erpKnowledge" class="btn btn-block btn-info">Upload</button></a>
             </td>
             <td><button name="" class="btn btn-block btn-success">Edit</button></a>
             </td>
         </tr>
 </table>
-<center> <button style=" margin:2em; padding:0em 2em;" class="btn btn-primary btn-lg">Submit</button> </center> 
+<center> <button type="submit" style=" margin:2em; padding:0em 2em;" class="btn btn-primary btn-lg">Submit</button> </center> 
+</form>
 </body>
 
 </html>
- 

@@ -36,10 +36,12 @@ $empcollection = $companydb->shortlisted_candidate;
   {
           include 'hodnavbar.php';
   }
-  else
+  elseif($_SESSION['usertype']=='admin')
   {
-
       include 'adminnavbar.php';
+  }
+  else{
+      header('location:login.php');
   }
 ?>
     <br><br><br>

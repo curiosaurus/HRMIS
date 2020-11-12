@@ -57,7 +57,6 @@ if (!$_SESSION['usertype']=='hod')
                             <a href="Requisition.php"><p>REQUISITION</p></a>
                             <a href="open_positions.php"><p>OPEN POSITIONS</p></a>
                             <a href="closedposition.php"><p>CLOSED POSITIONS</p></a>
-                            <a href="hod_short_listing.php"><p>SHORTLIST CANDIDATE</p></a>
                        
                 </div>
         </div>

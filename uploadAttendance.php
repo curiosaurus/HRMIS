@@ -3,26 +3,15 @@
     $client = new MongoDB\Client;
     $companydb = $client->hrmis;
     // Enter collection name here
-    $empcollection = $companydb->empcollection;
-
-
+    $empcollection = $companydb->training_lecture;
     $time = date("h.i.sa");
     $date = date("Y.m.d");
-
-    mkdir("../upload/".$time."--".$date);
-
-    $target_dir = "../upload/".$time."--".$date;
-
+    mkdir("uploads/");
+    //mkdir("../upload/".$time."--".$date);
+    //$target_dir = "../upload/".$time."--".$date;
+    $target_dir = "upload/";
     if(isset($_POST["submit"])){
-        $communicationSkill = $target_dir . basename($_FILES["communicationSkill"]["name"]);
-        $iso90012015 = $target_dir . basename($_FILES["iso90012015"]["name"]);
-        $ems140012015 = $target_dir . basename($_FILES["ems140012015"]["name"]);
-        $fives = $target_dir . basename($_FILES["fives"]["name"]);
-        $productApplicationKnowledge = $target_dir . basename($_FILES["productApplicationKnowledge"]["name"]);
-        $productKnowledge = $target_dir . basename($_FILES["productKnowledge"]["name"]);
-        $erpKnowledge = $target_dir . basename($_FILES["erpKnowledge"]["name"]);
-
-
+        $communicationSkill = $target_dir . basename($_FILES["communicationSkill"]["name"]).$date."__".$time;
         move_uploaded_file($_FILES["communicationSkill"]["tmp_name"], $communicationSkill);
         move_uploaded_file($_FILES["iso90012015"]["tmp_name"], $iso90012015);
         move_uploaded_file($_FILES["ems140012015"]["tmp_name"], $ems140012015);

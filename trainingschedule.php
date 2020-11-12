@@ -109,6 +109,16 @@ function pp(){
 <br>
     <div class="row justify-content-md-start">
         <div class="col-md-3" >
+            <label style="font-size: 20px;"> Training Number </label>
+        </div>
+        <div class="col-md-4">
+            <input type="number" name="tno" required class="form-control" >
+        </div>
+    </div>
+<br>
+<br>
+    <div class="row justify-content-md-start">
+        <div class="col-md-3" >
             <label style="font-size: 20px;"> Scheduled Date </label>
         </div>
         <div class="col-md-4">

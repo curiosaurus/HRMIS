@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 session_start();
 if (!$_SESSION['usertype']=='admin')
 {
@@ -126,11 +127,13 @@ $empcollection = $companydb->empcollection;
         </th>
         <th>
             Local Address
-        </th>            
+        </th>    
+        <th>Update</th>        
         <tbody>
         <?php 
 $counter = $empcollection->find();
 foreach($counter as $row) {
+    $id=$row['UAN Number'];
     echo "<tr>";
     echo "<td>" . $row['Emp Code'] ."</td>";
     echo "<td>" . $row['Emp Display Name'] ."</td>";
@@ -154,12 +157,14 @@ foreach($counter as $row) {
     echo "<td>" . $row['REPORTING TO'] ."</td>";
     echo "<td>" . $row['Blood Group'] ."</td>";
     echo "<td>" . $row['EDUCATION'] ."</td>";
-    echo "<td>" . $row['RTPL Exp'] ."</td>";
+    echo "<td>" . $row['RTPL EXP'] ."</td>";
     echo "<td>" . $row['Previous Exp'] ."</td>";
     echo "<td>" . $row['TOTAL EXP'] ."</td>";
     echo "<td>" . $row['Parmanent Address'] ."</td>";
     echo "<td>" . $row['Local Address'] ."</td>";
-    echo "<td> <button name='' class='btn btn-block btn-primary'>Upload</button> </td>";
+    echo "<td> <button name='' class='btn btn-block btn-primary'><a href='updateempcollection.php?variable1=".$id."' style='color:white;'>Update</a></button> </td>";
+   
+
 ?>
     <?php echo "</tr>";
 }
