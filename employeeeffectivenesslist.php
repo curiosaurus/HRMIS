@@ -159,7 +159,7 @@ function pp(){
             <th>Emp Name</th>
             <th>Designation</th>
             <th>Grade</th>
-            <th>Education</th>
+            <!-- <th>Education</th> -->
             <th>Total Experience</th>
             <th>Effectiveness</th>
     </tr>
@@ -188,7 +188,7 @@ function pp(){
     echo "<td>" . $row['Emp Display Name'] ."</td>";
     echo "<td>" . $row['Designation'] ."</td>";
     echo "<td>" . $row['Grade Id'] ."</td>";
-    echo "<td>" . $row['EDUCATION'] ."</td>";
+    // echo "<td>" . $row['EDUCATION'] ."</td>";
     echo "<td>" . $row['TOTAL EXP'] ."</td>";
     echo "<td><a href='traningeffectiveness.php?variable1=".$pas."&year=".$y."&skillname=".$skillname."'>Fill Effectiveness </a>" ."</td>";
     #add just this line whenever you create  viewrequisition  33111`3
