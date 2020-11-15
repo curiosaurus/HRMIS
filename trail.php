@@ -29,3 +29,9 @@
                   </select>
             </div>
         </div>
+<script>
+function pp(){
+    var y = document.getElementById("year").value;
+    window.location.href="skillmatrixlist.php?year="+y;
+}
+</script>
