@@ -49,40 +49,6 @@ $empcollection = $companydb->user;
 
     <div class="container" style="border: 1px solid lightblue; padding: 2px;">
         <div class="row justify-content-md-around">
-            <div class="col-md-0">
-                <h4><label> Year</label></h4>
-            </div>
-            <div class="col-md-8">
-                <select name="year" id="year" onchange="pp();" required class="form-control form-control-lg">
-                    <?php  
-                    $years=$companydb->years;
-                    $counter = $years->find();
-                    if(isset ($_GET['year'])){
-                        foreach($counter as $row) {
-                            if($_GET["year"] == $row['year']){
-                            echo "<option value = ".$row['year']." selected>". $row['year'] ."</option>";
-                            $y=$row['year']; 
-                        }
-                            else{
-                                echo "<option value = ".$row['year']." >". $row['year'] ."</option>";
-                            }
-                        }
-                    }
-                        else{
-                            foreach($counter as $row) {
-                                echo "<option value = ".$row['year']." selected>". $row['year'] ."</option>";
-                                $y=$row['year'];
-                            }   
-                        }
-                    ?>
-                  </select>
-            </div>
-        </div>
-    </div>
-    <br><br>
-
-    <div class="container" style="border: 1px solid lightblue; padding: 2px;">
-        <div class="row justify-content-md-around">
   <?php
     echo '<div class="col-md-3"><div class="dropdown">';
     $masteropt = $companydb->masteropt;
@@ -109,39 +75,15 @@ echo '</select>';
 echo '</div></div>';
 
 
-
-echo '<div class="col-md-3"><div class="dropdown">';
-$skills = $companydb->skills;
-
-    $counter = $skills->find();
-    echo'<select name="skill" id="skill" onchange="pp();">';
-    if(isset ($_GET['skill'])){
-        foreach($counter as $row) {
-            if($_GET["skill"] == $row['skillname']){
-                echo "<option value = ".$row['skillname']." selected>". $row['skillname'] ."</option>";
-                $skillname=$row['skillname']; 
-    }
-        else{
-            echo "<option value = ".$row['skillname']." >". $row['skillname'] ."</option>";
-        }
-    }
-}
-else{
-    foreach($counter as $row) {
-        echo "<option value = ".$row['skillname']." selected>". $row['skillname'] ."</option>";
-        $skillname=$row['skillname'];
-    }   
-}
-echo '</select>';
-
-
 ?>
+
+<input name="skill" id="skill" value="<?php echo $_GET['uniqueid'];  ?>" hidden/> 
+
 <script>
 function pp(){
+    var y = document.getElementById("skill").value;
     var p = document.getElementById("department").value;
-    var y = document.getElementById("year").value;
-    var s = document.getElementById("skill").value;
-    window.location.href="employeeeffectivenesslist.php?uid="+p+"&year="+y+"&skill="+s;
+    window.location.href="employeeeffectivenesslist.php?uid="+p+"&uniqueid="+y;
 }
 </script>
         </div>
@@ -169,10 +111,13 @@ function pp(){
         //database retrive
         //echo "lol";
         //$y=$_GET['year'];
-        $nominations = $companydb->nominations;
-        $counter = $nominations->find(['year'=>$y,'skill'=>$skillname]);
+        $nominations = $companydb->training_lecture;
+        $counter = $nominations->find(['unique_id' => $_GET['uniqueid'] ]);
         foreach($counter as $row) {
-            $empIds = $row['empIds'];   
+            $empIds = $row['attended_id'][0];
+
+            // print("<pre>".print_r($empIds,true)."</pre>");
+
         }
         
         foreach($empIds as $id) {
@@ -190,7 +135,7 @@ function pp(){
     echo "<td>" . $row['Grade Id'] ."</td>";
     // echo "<td>" . $row['EDUCATION'] ."</td>";
     echo "<td>" . $row['TOTAL EXP'] ."</td>";
-    echo "<td><a href='traningeffectiveness.php?variable1=".$pas."&year=".$y."&skillname=".$skillname."'>Fill Effectiveness </a>" ."</td>";
+    echo "<td><a href='traningeffectiveness.php?empid='".$pas."'&uid='".$_GET['uniqueid']."'>Fill Effectiveness </a>" ."</td>";
     #add just this line whenever you create  viewrequisition  33111`3
     //getting values in page2.php file by $_GET function:
     //$x=$_GET['variable1'];
