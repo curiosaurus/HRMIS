@@ -3,13 +3,18 @@
     $client = new MongoDB\Client;
     $companydb = $client->hrmis;
     // Enter collection name here
+    global $empcollection;
     $empcollection = $companydb->training_lecture;
 
+    global $y,$uid;
 
     $time = date("h.i.sa");
     $date = date("Y.m.d");
 
-    function csvToArray($filename, $arrayIndex){
+    $y = $_GET['year'];
+    $uid = $_GET['unique_id'];
+
+    function csvToArray($filename){
         $array = $fields = array(); 
         $i = 0;
         $handle = @fopen($filename, "r");
@@ -32,26 +37,44 @@
             for ($i = 0; $i < sizeof($array); $i++){
                 array_push($empids, $array[$i]['emp_id']);
             }
-            $empcollection->updateOne(array('year' => $y, 'skillName' => $skillsNameArray[$arrayIndex]), array('$set' => $empids)   
+            global $empcollection, $y, $uid ;
+            
+
+            print("<pre>".print_r($empids,true)."</pre>");
+
+            // $empcollection->updateOne(array('year' => $y, 'skillName' => $skillsNameArray[$arrayIndex]), array('$set' => $empids)   
+            $empcollection->updateOne(array('unique_id' => $uid), array('$push' => array( 'attended_id' => $empids ))   
         );
         }
     }
 
-    mkdir("../upload/".$time."--".$date);
 
-    $target_dir = "../upload/".$date."--".$time;
+    mkdir(__DIR__."../upload/".$time."--".$date, 0755);
+
+    // $a = "../upload/".$time."--".$date;
+    // echo $a;
+
+
+    $target_dir = __DIR__."../upload/".$time."--".$date;
 
     if(isset($_POST["submit"])){
-        $y = $_GET['year'];
+        echo $y;
         $skillsNameArray = $_POST['skillName'];
+        print_r($skillsNameArray);
         $attendanceFiles = $_FILES['skills'];
-        $sizeofSkill = sizeof($skillsNameArray);
+        print("<pre>".print_r($attendanceFiles,true)."</pre>");
+
+        // $sizeofSkill = sizeof($skillsNameArray);
     
-        for ($i = 0; i < $sizeofSkill; $i++){
-            csvToArray($_FILES["skills"]["tmp_name"][$i], $i);
-            $filename = $target_dir . basename($_FILES["skills"]["name"][$i]);
-            $empcollection->insertOne(array('skillName' => $skillsNameArray[$i], 'year' => $y, 'fileUrl' => $filename));
-            move_uploaded_file($_FILES["skills"]["tmp_name"][$i], $filename);
-        }
+        // for ($i = 0; i < $sizeofSkill; $i++){
+            csvToArray($_FILES["skills"]["tmp_name"]);
+            $filename = $target_dir . basename($_FILES["skills"]["name"]);
+            // $empcollection->updateOne('fileUrl' => $fileUrl);
+
+            $query = $empcollection->updateOne(['unique_id' => $uid],['$push' => ["fileUrl" => $filename]]);
+
+
+            move_uploaded_file($_FILES["skills"]["tmp_name"], $filename);
+        // }
     }
 ?>
