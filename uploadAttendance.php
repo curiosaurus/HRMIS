@@ -4,29 +4,54 @@
     $companydb = $client->hrmis;
     // Enter collection name here
     $empcollection = $companydb->training_lecture;
+
+
     $time = date("h.i.sa");
     $date = date("Y.m.d");
-    mkdir("uploads/");
-    //mkdir("../upload/".$time."--".$date);
-    //$target_dir = "../upload/".$time."--".$date;
-    $target_dir = "upload/";
-    if(isset($_POST["submit"])){
-        $communicationSkill = $target_dir . basename($_FILES["communicationSkill"]["name"]).$date."__".$time;
-        move_uploaded_file($_FILES["communicationSkill"]["tmp_name"], $communicationSkill);
-        move_uploaded_file($_FILES["iso90012015"]["tmp_name"], $iso90012015);
-        move_uploaded_file($_FILES["ems140012015"]["tmp_name"], $ems140012015);
-        move_uploaded_file($_FILES["fives"]["tmp_name"], $fives);
-        move_uploaded_file($_FILES["productApplicationKnowledge"]["tmp_name"], $productApplicationKnowledge);
-        move_uploaded_file($_FILES["productKnowledge"]["tmp_name"], $productKnowledge);
-        move_uploaded_file($_FILES["erpKnowledge"]["tmp_name"], $erpKnowledge);
 
-        $empcollection->insertOne(array("communicationSkill" => $communicationSkill,
-            "iso90012015" => $iso90012015,
-            "ems140012015" => $ems140012015,
-            "fives" => $fives,
-            "productApplicationKnowledge" => $productApplicationKnowledge,
-            "productKnowledge" => $productKnowledge,
-            "erpKnowledge" => $erpKnowledge
-    ));
+    function csvToArray($filename, $arrayIndex){
+        $array = $fields = array(); 
+        $i = 0;
+        $handle = @fopen($filename, "r");
+        if ($handle) {
+            while (($row = fgetcsv($handle, 4096)) !== false) {
+                if (empty($fields)) {
+                    $fields = $row;
+                    continue;
+                }
+                foreach ($row as $k=>$value) {
+                    $array[$i][$fields[$k]] = $value;
+                }
+                $i++;
+            }
+            if (!feof($handle)) {
+                echo "Error: unexpected fgets() fail\n";
+            }
+            fclose($handle);
+            $empids = array();
+            for ($i = 0; $i < sizeof($array); $i++){
+                array_push($empids, $array[$i]['emp_id']);
+            }
+            $empcollection->updateOne(array('year' => $y, 'skillName' => $skillsNameArray[$arrayIndex]), array('$set' => $empids)   
+        );
+        }
+    }
+
+    mkdir("../upload/".$time."--".$date);
+
+    $target_dir = "../upload/".$date."--".$time;
+
+    if(isset($_POST["submit"])){
+        $y = $_GET['year'];
+        $skillsNameArray = $_POST['skillName'];
+        $attendanceFiles = $_FILES['skills'];
+        $sizeofSkill = sizeof($skillsNameArray);
+    
+        for ($i = 0; i < $sizeofSkill; $i++){
+            csvToArray($_FILES["skills"]["tmp_name"][$i], $i);
+            $filename = $target_dir . basename($_FILES["skills"]["name"][$i]);
+            $empcollection->insertOne(array('skillName' => $skillsNameArray[$i], 'year' => $y, 'fileUrl' => $filename));
+            move_uploaded_file($_FILES["skills"]["tmp_name"][$i], $filename);
+        }
     }
 ?>
