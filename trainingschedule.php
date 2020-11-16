@@ -131,11 +131,11 @@ function pp(){
             <label style="font-size: 20px;"> Time </label>
         </div>
         <div class="col-md-4">
-            <input type="time" required class="form-control" name="time[]"> 
+            <input type="time" required class="form-control" name="intime"> 
         </div>
         to &nbsp;&nbsp;
         <div class="col-md-end">
-            <input type="time" required  name="" id="" name="time[]">
+            <input type="time" required id="" name="outtime">
         </div>
     </div>
 <br>
