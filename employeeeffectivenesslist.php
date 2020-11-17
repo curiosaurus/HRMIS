@@ -73,20 +73,18 @@ $empcollection = $companydb->user;
     }
 echo '</select>';
 echo '</div></div>';
-// $y=$_GET['year'];
-
-$ss = $_GET['uniqueid'];
-$y = explode('_',$ss)[2];
+$y=$_GET['year'];
 
 ?>
-
+<input name="year" id="year" value="<?php echo $_GET['year'];  ?>" hidden/> 
 <input name="skill" id="skill" value="<?php echo $_GET['uniqueid'];  ?>" hidden/> 
 
 <script>
 function pp(){
+    var year=document.getElementById("year").value;
     var y = document.getElementById("skill").value;
     var p = document.getElementById("department").value;
-    window.location.href="employeeeffectivenesslist.php?uid="+p+"&uniqueid="+y;
+    window.location.href="employeeeffectivenesslist.php?uid="+p+"&uniqueid="+y+"&year="+year;
 }
 </script>
         </div>
@@ -129,11 +127,6 @@ function pp(){
             $counter1 = $empcollection->find(['Emp Code'=>$id,'Department Id'=>$deptid]);
             echo "<tr>";
             foreach($counter1 as $row) {
-
-
-
-
-
     $pas = $row['Emp Code'];
     $name=$row['Emp Display Name'];
     echo "<td>" . $row['Emp Code'] ."</td>";
@@ -142,9 +135,6 @@ function pp(){
     echo "<td>" . $row['Grade Id'] ."</td>";
     // echo "<td>" . $row['EDUCATION'] ."</td>";
     echo "<td>" . $row['TOTAL EXP'] ."</td>";
-
-
-    
     echo "<td><a href='traningeffectiveness.php?empid=".$pas."&uid=".$_GET['uniqueid']."&name=".$name."&year=".$y."'>Fill Effectiveness </a>" ."</td>";
     #add just this line whenever you create  viewrequisition  33111`3
     //getting values in page2.php file by $_GET function:
