@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <?php
-    //session_start();
-    require 'session.php';
+    session_start();
+    //require 'session.php';
     require 'vendor\autoload.php'; 
     $client = new MongoDB\Client;
     $db = $client->hrmis;
@@ -11,7 +11,7 @@
     $eid=$_GET['empid'];
     $uid=$_GET['uid'];
     $empname=$_GET['name'];
-    // $syear=$_GET['year'];
+    $syear=$_GET['year'];
     $loginerror = " ";
     // if(isset($_POST["submit"])){
     //     $date = $_POST["date"];
@@ -55,7 +55,7 @@
     include 'hodnavbar.php';
 }
 elseif ($_SESSION['usertype']=="admin") {
-    include 'adminavbar.php';
+    include 'adminnavbar.php';
 }
 ?>
     <!-- Main navbar Close here -->
@@ -66,7 +66,7 @@ elseif ($_SESSION['usertype']=="admin") {
     </div>
 <br>
 <center>
-    <div  style="width: 1140px;border: 1px solid royalblue; ;">
+    <!-- <div  style="width: 1140px;border: 1px solid royalblue; ;"> -->
         <center>To be filled in after 1 Month of training</center>
         </div></center>
 <div class="container" style="border: 1px solid lightblue; padding: 25px;">
@@ -180,12 +180,18 @@ elseif ($_SESSION['usertype']=="admin") {
 <br>
 <?php
 
-$result = $lecturecollection->findOne(['unique_id' => $uid]);
-$effectiveness = $row['effectiveness'];
+$result = $lecturecollection->find(['unique_id' => $uid]);
+//print("<pre>".print_r($result,true)."</pre>");
+foreach ($result as $row) {
+    
+    $effectiveness = $row['effectiveness'];
+}
+// print("<pre>".print_r($effectiveness,true)."</pre>");
 foreach ($effectiveness as $row) {
     foreach ($row as $key => $value){
         if ($key == $eid){
             $data = $value;
+            // print("<pre>".print_r($data,true)."</pre>");
             break;
         }
     }
@@ -195,13 +201,13 @@ foreach ($effectiveness as $row) {
 <center>
     1. Has the trainee implemented this in his/her working area?
     <br><br>
-    Yes/No <input type="text"id="q1" name="q1" value="<?php $data['q1'];?>">
+    Yes/No <input type="text"id="q1" name="q1" value="<?php echo $data['q1'];?>">
 </center>
 <br>
 <center>
     2. If yes, where give example or evidence or other specification
     <br><br>
-    Yes/No <input type="text"id="q2" name="q2" value="<?php $data['q2'];?>">
+    Yes/No <input type="text"id="q2" name="q2" value="<?php echo $data['q2'];?>">
 </center>
 <br>
 <center>
@@ -209,10 +215,10 @@ foreach ($effectiveness as $row) {
     Yes/No 
     <br><br>
     a) If yes, please confirm trainee Skill level after tranning (_______) <br>
-    <input type="text"id="q3" name="q3" value="<?php $data['q3'];?>">
+    <input type="text"id="q3" name="q3" value="<?php echo $data['q3'];?>">
     <br><br>
     b) If No, why
-    <input type="text"id="q4" name="q4" value="<?php $data['q4'];?>">
+    <input type="text"id="q4" name="q4" value="<?php echo $data['q4'];?>">
     <input type="submit" name="submit" value="Submit"/>
     </form>
 </center>
