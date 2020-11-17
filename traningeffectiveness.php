@@ -94,21 +94,25 @@ elseif ($_SESSION['usertype']=="admin") {
             foreach ($row['managerialSkill'] as $skill) {
                 if ($sub==$skill[0]){
                     $prevs=$skill[2];
+                    $req=$skill[1];
                 }
             }
             foreach ($row['preferredSkill'] as $skill) {
                 if ($sub==$skill[0]){
                     $prevs=$skill[2];
+                    $req=$skill[1];
                 }
             }
             foreach ($row['systemRequirements'] as $skill) {
                 if ($sub==$skill[0]){
                     $prevs=$skill[2];
+                    $req=$skill[1];
                 }
             }
         }
     ?>
     <td>Skill level before training <input type="text" id="skill_level" value="<?php echo $prevs ?>" name="beforetraining">
+    <input type="text" id="req" value="<?php echo $req ?>" name="req" hidden>
     <br>
    <b>Legend:</b> 
     </td>

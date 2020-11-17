@@ -17,13 +17,20 @@ $loginerror = " ";
                 $p = $_POST['email'];
                 $u = $_POST['usertype'];
                 $_SESSION['email'] = $p;
+                if (isset($cursor['Emp Code'])){
+                    $_SESSION['Emp Code']=$cursor['Emp Code'];
+                }
                 $_SESSION['usertype']=$u;
             if ($u =='hod')
             {
                 header("location:HodDashboard.php");
             }
-            else{
+            elseif($u=='admin'){
                 header("location:hr_admin_dashboard.php");
+            }
+            elseif ($u=='employee') {
+                //$_SESSION['Emp code']=;
+                header("location:EmployeeDashboard.php");
             }
         }
             else{

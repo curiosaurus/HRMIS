@@ -24,17 +24,17 @@ if(isset($_GET['variable1']))
     $systemRequirementsCounter = $_POST['counter4'];
     for ($x = 0; $x < $managerialSkillCounter+1; $x++){
         if ($managerialSkill[$x][1] > $managerialSkill[$x][2]){
-            array_push($nominationsRequired,$managerialSkill[$x]);
+            array_push($nominationsRequired,array_merge($managerialSkill[$x],["Nominated"]));
         }
     }
     for ($x = 0; $x < $preferredSkillCounter+1; $x++){
         if ($preferredSkill[$x][1] > $preferredSkill[$x][2]){
-            array_push($nominationsRequired,$preferredSkill[$x]);
+            array_push($nominationsRequired,array_merge($preferredSkill[$x],["Nominated"]));
         }
     }
     for ($x = 0; $x <$systemRequirementsCounter+1; $x++){
         if ($systemRequirements[$x][1] > $systemRequirements[$x][2]){
-            array_push($nominationsRequired,$systemRequirements[$x]);
+            array_push($nominationsRequired,array_merge($systemRequirements[$x],["Nominated"]));
         }
     }
     print("<pre>".print_r($nominationsRequired,true)."</pre>");
@@ -56,7 +56,7 @@ if(isset($_GET['variable1']))
     }
     // Cheking year and skill is present in database or not
     $insertData = $skillyearcollection->insertOne( ['empcode' => $empcode , 'managerialSkill' =>  $managerialSkill , 
-        'preferredSkill' => $preferredSkill , 'systemRequirements' => $systemRequirements ] );
+        'preferredSkill' => $preferredSkill , 'systemRequirements' => $systemRequirements , 'nominatedfor'=> $nominationsRequired ]);
     if($insertData){
         //echo "Success";
         // Enter URL of the file where it should redirect

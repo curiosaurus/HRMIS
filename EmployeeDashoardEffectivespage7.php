@@ -245,16 +245,11 @@ foreach($counter as $row) {
 </div>
 
 </div>
-
-
 </div>
 </form>
-
 <?php 
 }
 ?>
-
-
 <br><br><br><br>
     </body>
 </html>

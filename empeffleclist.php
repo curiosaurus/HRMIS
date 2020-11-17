@@ -86,12 +86,11 @@ $empcollection = $companydb->user;
 echo '<div class="col-md-3"><div class="dropdown">';
 $skills = $companydb->skills;
     $counter = $skills->find();
-    echo "1";
     ?>
     <select name="skill" id="skill" onchange="pp();" required class="form-control form-control-lg">
     <?php  
 
-    echo "2";
+    
     if(isset ($_GET['skill'])){
         foreach($counter as $row) {
             if($_GET["skill"] == $row['skillname']){
@@ -99,14 +98,14 @@ $skills = $companydb->skills;
                 <option value = "<?php echo $row['skillname'];?>" selected><?php echo $row['skillname'];?></option>
                 <?php
             $s=$row['skillname']; 
-            echo "3";
+            
         }
         else{
             ?>
                 <option value = "<?php echo $row['skillname'];?>" ><?php echo $row['skillname'];?></option>
                 <?php
             }
-            echo "4";
+            
         }
     }
     else{
@@ -115,10 +114,10 @@ $skills = $companydb->skills;
                 <option value = "<?php echo $row['skillname'];?>" ><?php echo $row['skillname'];?></option>
                 <?php
                 $s=$row['skillname'];
-                echo "5";
+                
             }   
         }
-        echo "6";
+        
     ?>
 
 </select>
