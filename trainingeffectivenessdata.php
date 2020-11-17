@@ -15,13 +15,13 @@ if(isset($_POST["submit"])){
     //$subject = $_POST["subject"];
     //$duration = $_POST["duration"];
     //$faculty = $_POST["faculty"];
-    $trainee_name = $_POST["trainee_name"];
-    $emp_no = $_POST["emp_no"];
+    //$trainee_name = $_POST["trainee_name"];
+    $emp_no = $_GET["emp"];
     $q1 = $_POST["q1"];
     $q2 = $_POST["q2"];
     $q3 = $_POST["q3"];
     $q4 = $_POST["q4"];
-
+    echo $trainingid;
     $lecturecollection->updateOne(
         ['unique_id'=>$trainingid],
         ['$push'=>
