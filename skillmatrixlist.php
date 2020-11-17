@@ -43,7 +43,7 @@ session_start();
     include 'hodnavbar.php';
 }
 elseif ($_SESSION['usertype']=="admin") {
-    include 'adminnavbar.php';
+    include 'adminbanbar.php';
 }
 ?>
     <center>
@@ -93,17 +93,17 @@ elseif ($_SESSION['usertype']=="admin") {
     if(isset ($_GET['uid'])){
     foreach($counter as $row) {
         if($_GET["uid"] == $row['value']){
-        echo "<option value = '".$row['value']."' selected>". $row['value'] ."</option>";
+        echo "<option value = ".$row['value']." selected>". $row['value'] ."</option>";
         $deptid=$row['value']; 
     }
         else{
-            echo "<option value = '".$row['value']."' >". $row['value'] ."</option>";
+            echo "<option value = ".$row['value']." >". $row['value'] ."</option>";
         }
     }
 }
     else{
         foreach($counter as $row) {
-            echo "<option value = '".$row['value']."' selected>". $row['value'] ."</option>";
+            echo "<option value = ".$row['value']." selected>". $row['value'] ."</option>";
             $deptid=$row['value'];
         }   
     }

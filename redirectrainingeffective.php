@@ -2,7 +2,6 @@
 require 'vendor\autoload.php'; 
 $client = new MongoDB\Client;
 $companydb = $client->hrmis;
-$empcollection = $companydb->user;
 $skillyear = (isset($_GET['year'])) ? $_GET['year'] : header('location: skillmatrixlist.php');
 $skillscollection = $companydb->$skillyear;
 
