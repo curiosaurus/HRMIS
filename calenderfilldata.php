@@ -5,6 +5,7 @@
 <style></style>
 <body>
 <?php 
+error_reporting(0);
         include 'adminnavbar.php';
     ?>
 <center><h1>Trainning Calender</h1></center>

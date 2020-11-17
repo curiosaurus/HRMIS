@@ -10,6 +10,7 @@
 
 <body>
 <?php 
+error_reporting(0);
         include 'adminnavbar.php';
     ?>
   <?php
@@ -21,7 +22,9 @@ $nominations = $companydb->nominations;
 $yearcollection = $companydb->years;
 
 ?>
-<center><h1>Tranning Calender</h1></center>
+<center><h1>Training Calender</h1>
+<a href="calenderfilldata.php"><button class="btn btn-primary">Fill Data</button></a>
+</center>
 <br>
 <select name="year" id="year" onchange="pp();" required class="form-control form-control-lg">
                     <?php  

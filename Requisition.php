@@ -73,7 +73,7 @@ function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
     {
             include 'hodnavbar.php';
     }
-    else
+    elseif($_SESSION['usertype']=='admin')
     {
 
         include 'adminnavbar.php';
@@ -118,10 +118,10 @@ echo '<div class="col-md-3"><div class="dropdown">';
     echo "<option>Select Department</option>";
     foreach($counter as $row) {
         if($_GET["uid"] == $row['value']){;
-        echo "<option value = ".$row['value']." selected>". $row['value'] ."</option>";
+        echo "<option value = '".$row['value']."' selected>". $row['value'] ."</option>";
         }
         else{
-            echo "<option value = ".$row['value']." >". $row['value'] ."</option>";
+            echo "<option value = '".$row['value']."' >". $row['value'] ."</option>";
             $var=$row['value'];
         }
 
