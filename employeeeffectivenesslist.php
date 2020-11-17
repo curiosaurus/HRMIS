@@ -73,7 +73,7 @@ $empcollection = $companydb->user;
     }
 echo '</select>';
 echo '</div></div>';
-
+$y=$_GET['year'];
 
 ?>
 
@@ -123,19 +123,18 @@ function pp(){
         foreach($empIds as $id) {
             
             $empcollection = $companydb->empcollection;
-            $counter1 = $empcollection->find(['Emp Code'=>$id]);
-            
+            $counter1 = $empcollection->find(['Emp Code'=>$id,'Department Id'=>$deptid]);
             echo "<tr>";
             foreach($counter1 as $row) {
-
     $pas = $row['Emp Code'];
+    $name=$row['Emp Display Name'];
     echo "<td>" . $row['Emp Code'] ."</td>";
     echo "<td>" . $row['Emp Display Name'] ."</td>";
     echo "<td>" . $row['Designation'] ."</td>";
     echo "<td>" . $row['Grade Id'] ."</td>";
     // echo "<td>" . $row['EDUCATION'] ."</td>";
     echo "<td>" . $row['TOTAL EXP'] ."</td>";
-    echo "<td><a href='traningeffectiveness.php?empid='".$pas."'&uid='".$_GET['uniqueid']."'>Fill Effectiveness </a>" ."</td>";
+    echo "<td><a href='traningeffectiveness.php?empid=".$pas."&uid=".$_GET['uniqueid']."&name=".$name."&year=".$y."'>Fill Effectiveness </a>" ."</td>";
     #add just this line whenever you create  viewrequisition  33111`3
     //getting values in page2.php file by $_GET function:
     //$x=$_GET['variable1'];

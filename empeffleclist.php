@@ -158,23 +158,18 @@ function pp(){
         //database retrive
         //echo "lol";
         //$y=$_GET['year'];
-      
-        
-      
             echo "<tr>";
             foreach($counter as $row) {
-
     $pas = $row['unique_id'];
     echo "<td>" . $row['training_no'] ."</td>";
     echo "<td>" . $row['skill'] ."</td>";
     echo "<td>" . $row['scheduledDate'] ."</td>";
-    echo "<td><a href='employeeeffectivenesslist.php?uniqueid=$pas'>Fill Effectiveness </a>" ."</td>";
+    echo "<td><a href='employeeeffectivenesslist.php?uniqueid=$pas&year=$y'>Fill Effectiveness </a>" ."</td>";
     #add just this line whenever you create  viewrequisition  33111`3
     //getting values in page2.php file by $_GET function:
     //$x=$_GET['variable1'];
 }
 echo "</tr>";
-
 ?>
     </tbody>
     </table>
