@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 session_start();
  
 if (!$_SESSION['usertype']=='admin')
@@ -17,7 +17,7 @@ if (!$_SESSION['usertype']=='admin')
     if(isset($_POST['submit']))
     {
 
-        $imp = $_POST['UAN Number'];
+        $imp = $_POST['Emp_Code'];
         $Emp_Code = $_POST['Emp_Code'];
         $position = $_POST['position'];
         $Full_Name = $_POST['Full_Name'];
@@ -102,7 +102,7 @@ if (!$_SESSION['usertype']=='admin')
 
 
     // Insert one data
-    $insertOneResult = $empcollection->updateOne( ['UAN Number' => $imp], 
+    $insertOneResult = $empcollection->updateOne( ['Emp Code' => $imp], 
     ['$set' => 
     ['Emp Code' => $Emp_Code , 'Designation' => $position , 'Name' => $Full_Name , 'Gender' => $gender , 'Marital Status' => $Marital_Status , 'Date of Birth' => $DOB , 'PAN' => $PAN , 'Blood Group' => $Blood_Group , 'Personal Email' => $Personal_Email , 'Local Address' => $Correspondence_Address , 'Permanent Address' => $Permanent_Address , 'Local Pin' => $Pin_No1 , 'Permanent Pin' => $Pin_No2 , 'Mobile No' => $Mobile_No , 'Contact No' => $Contact_No , 'Date of joining' => $DOJ , 'Department' => $Department , 'Designation' => $Designation , 'Grade Id' => $Grade , 'Location_Id' => $Location , 'Employee Type' => $Employee_Type , 'Employee Status' => $Employee_Status , 'Reporting To' => $Employee_Reporting_to , 'EDUCATION' => $Education , 'Previous Exp' => $Previous_Experience , 'Resigned date' => $Resigned_Date , 'DATE OF LEAVING' => $Last_Working_Date  ]]
    );    
@@ -172,7 +172,7 @@ if(isset($_GET['variable1']))
    $id = $_GET['variable1'];   
    //echo $id;   
 }
-$counter = $empcollection->find(array('UAN Number' => $id));
+$counter = $empcollection->find(array('Emp Code' => $id));
 
 foreach($counter as $row) {
    
@@ -313,7 +313,7 @@ foreach($counter as $row) {
 
                 <div class="row justify-content-md-start">
                     <div class="col-md-12">
-                    <input  type="file" name="fileToUpload" style="margin-top: 100%;" id="fileToUpload">
+                    <!-- <input  type="file" name="fileToUpload" style="margin-top: 100%;" id="fileToUpload"> -->
                     </div>
                     
                 </div>
@@ -506,7 +506,7 @@ foreach($counter as $row) {
             </div>
 
             <div class="col-md-4">
-                <input required type="number" name="Previous_Experience" value="<?php echo $row['Previous Exp'] ;?>"  class="form-control" >
+                <input type="number" name="Previous_Experience" value="<?php echo $row['Previous Exp'] ;?>"  class="form-control" >
             </div>
         </div>
 <br>
@@ -515,7 +515,7 @@ foreach($counter as $row) {
                 <label> Resigned Date :  </label>
             </div>
             <div class="col-md-4">
-                <input required type="date" value="<?php echo $row['Resigned date'] ;?>" name="Resigned_Date" class="form-control" >
+                <input type="date" value="<?php echo $row['Resigned date'] ;?>" name="Resigned_Date" class="form-control" >
             </div>
         
         </div>

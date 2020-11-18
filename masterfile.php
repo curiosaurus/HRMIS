@@ -133,7 +133,7 @@ $empcollection = $companydb->empcollection;
         <?php 
 $counter = $empcollection->find();
 foreach($counter as $row) {
-    $id=$row['UAN Number'];
+    $id=$row['Emp Code'];
     echo "<tr>";
     echo "<td>" . $row['Emp Code'] ."</td>";
     echo "<td>" . $row['Emp Display Name'] ."</td>";
