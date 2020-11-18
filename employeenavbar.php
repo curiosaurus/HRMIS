@@ -57,6 +57,10 @@
                 <div class="item5">
                     <a href="#"> WELFARE    </a>
                 </div>
+                <div class="item6">
+                    
+                    <span> <a href="logout.php"> Logout</a></span>
+         </div>
             </div>
         </nav>
         </div>

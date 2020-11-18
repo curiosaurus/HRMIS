@@ -96,15 +96,6 @@ if (!$_SESSION['usertype']=='admin')
 
 
                 </div>
-        <div class="item6">
-                    <div class="dropdown">
-                        <span> <a href="#"> COMPANY</a></span>
-                        <div class="dropdown-content">
-                            <p>POLYBOND INDIA PVT.LTD</p>
-                            <p>RATHI TRANSPOWER PVT.LTD</p>
-                        </div>
-                    </div>
-                    </div>
         <div class="item7">
                     
                     <span> <a href="logout.php"> Logout</a></span>
