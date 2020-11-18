@@ -112,17 +112,13 @@ function pp(){
         //database retrive
         //echo "lol";
         //$y=$_GET['year'];
-        $nominations = $companydb->training_lecture;
-        $counter = $nominations->find(['unique_id' => $_GET['uniqueid'] ]);
+        $training_lecture = $companydb->training_lecture;
+        $counter = $training_lecture->find(['unique_id' => $_GET['uniqueid'] ]);
         foreach($counter as $row) {
             $empIds = $row['attended_id'][0];
-
             // print("<pre>".print_r($empIds,true)."</pre>");
-
         }
-        
-        foreach($empIds as $id) {
-            
+        foreach($empIds as $id) {       
             $empcollection = $companydb->empcollection;
             $counter1 = $empcollection->find(['Emp Code'=>$id,'Department Id'=>$deptid]);
             echo "<tr>";

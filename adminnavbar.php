@@ -80,7 +80,7 @@ if (!$_SESSION['usertype']=='admin')
                             <a href="calender.php"><p>TRAINING CALENDER</p></a>
                             <a href="trainingSchedule.php"><p>TRAINING SCHEDULE</p></a>
                             <a href="trainingAttendance-Updated.php"><p>Attendance</p></a>
-                            <a href="empeffeclist.php"><p>EFFECTIVENESS</p></a>
+                            <a href="empeffleclist.php"><p>EFFECTIVENESS</p></a>
                         </div>
                     </div>
 
