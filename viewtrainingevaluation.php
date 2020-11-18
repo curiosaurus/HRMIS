@@ -46,7 +46,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="p">
+    <!-- <div class="p"> -->
         <!-- NavBar for the Logo and the title -->
 <?php
     //session_start();
@@ -60,14 +60,12 @@ elseif ($_SESSION['usertype']=="admin") {
     <!-- Main navbar Close here -->
     <div class="title">
         <center>
-           <h5>(Part-III)</h5>
+           <h5>(Part-II)</h5>
         </center>
     </div>
 <br>
 <center>
     <!-- <div  style="width: 1140px;border: 1px solid royalblue; ;"> -->
-        <center>To be filled in after 1 Month of training</center>
-        </div></center>
 <div class="container" style="border: 1px solid lightblue; padding: 25px;">
 <br>
 <center><h5>TRAINNING EFFECTIVENESS</h5></center>
@@ -87,29 +85,9 @@ elseif ($_SESSION['usertype']=="admin") {
             $sub=$row['skill'];
             $time=$row['time'][0]."-".$row['time'][1];
         }
-        $syearcollection=$db->$syear;
-        $counter=$syearcollection->find(['empcode'=>$eid]);
-        foreach ($counter as $row) {
-            foreach ($row['managerialSkill'] as $skill) {
-                if ($sub==$skill[0]){
-                    $prevs=$skill[2];
-                }
-            }
-            foreach ($row['preferredSkill'] as $skill) {
-                if ($sub==$skill[0]){
-                    $prevs=$skill[2];
-                }
-            }
-            foreach ($row['systemRequirements'] as $skill) {
-                if ($sub==$skill[0]){
-                    $prevs=$skill[2];
-                }
-            }
-        }
     ?>
-    <td>Skill level before training <input type="text" id="skill_level" value="<?php echo $prevs ?>" name="beforetraining">
+    <!-- <td>Skill level before training <input type="text" id="skill_level" value="<?php echo $prevs ?>" name="beforetraining"> -->
     <br>
-   <b>Legend:</b> 
     </td>
 </tr>
 <tr>
@@ -119,27 +97,6 @@ elseif ($_SESSION['usertype']=="admin") {
     &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
     Subject : <input type="text" name="subject" id="subject" value="<?php echo $sub ?>"disabled >
     </td>
-     <td>
-         <table class="table" border="1">
-             <tr>
-                 <td>Training Required</td>
-                 <td>0</td>
-             </tr>
-             <tr>
-                 <td>Work can be assign under Supervision</td>
-             <td>1</td>
-                </tr>
-             <tr>
-                <td>Capable to work individually</td>
-            <td>2</td>
-               </tr>               
-             <tr>
-                <td>Capable to work individually & train others</td>
-            <td>3</td>
-               </tr>
-         </table> 
-     </td>
- </tr>
 
 <tr>
     <td> 
@@ -158,9 +115,7 @@ elseif ($_SESSION['usertype']=="admin") {
     </td>
 </tr>
 <tr>
-    <td>
-        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-        Trainee Name : <input type="text" name="trainee_name" id="trainee_name" value="<?php echo $empname?>" disabled> </td>
+    
     <td>
         Employee No. <input type="text" name="emp_no" id="emp_no" value="<?php echo  $eid?>" disabled>
     </td>
@@ -171,11 +126,11 @@ elseif ($_SESSION['usertype']=="admin") {
 </div>
 <br><br>
 <center>
-    <div  style="width: 1140px; border: 1px solid royalblue; ">
+    <!-- <div  style="width: 1140px; border: 1px solid royalblue; "> -->
         <center> 
-            (Review done by HOD)
+            (TO be Filled By Trainee)
         </div></center>
-<div class="container" style="border: 1px solid lightblue; padding: 25px;">
+<!-- <div class="container" style="border: 1px solid lightblue; padding: 25px;"> -->
 <br>
 <?php
 
@@ -183,7 +138,7 @@ $result = $lecturecollection->find(['unique_id' => $uid]);
 //print("<pre>".print_r($result,true)."</pre>");
 foreach ($result as $row) {
     
-    $effectiveness = $row['effectiveness'];
+    $effectiveness = $row['evaluation'];
 }
 // print("<pre>".print_r($effectiveness,true)."</pre>");
 foreach ($effectiveness as $row) {
@@ -197,28 +152,29 @@ foreach ($effectiveness as $row) {
 }
 
 ?>
+<td>
+        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+        Trainee Name : <input type="text" name="trainee_name" id="trainee_name" value="<?php echo $data['name'];?>" disabled> </td>
 <center>
-    1. Has the trainee implemented this in his/her working area?
+1.Does this training are identified in skill matrix? 
     <br><br>
     Yes/No <input type="text"id="q1" name="q1" value="<?php echo $data['q1'];?>">
 </center>
 <br>
 <center>
-    2. If yes, where give example or evidence or other specification
+2. Which topic did you like the most & why?
     <br><br>
-    Yes/No <input type="text"id="q2" name="q2" value="<?php echo $data['q2'];?>">
+    <textarea name="q2" id="q2" cols="60" rows="4"><?php echo $data['q2'];?></textarea>
 </center>
 <br>
 <center>
-    3. are you satisfied with tranning? 
-    Yes/No 
+3. Were the content adequate and as desired.
     <br><br>
-    a) If yes, please confirm trainee Skill level after tranning (_______) <br>
-    <input type="text"id="q3" name="q3" value="<?php echo $data['q3'];?>">
+    <textarea name="q3" id="q3" cols="60" rows="4"><?php echo $data['q3'];?></textarea>
     <br><br>
-    b) If No, why
-    <input type="text"id="q4" name="q4" value="<?php echo $data['q4'];?>">
-    <input type="submit" name="submit" value="Submit"/>
+    4.  How will you use this training in your day to day work? Please give an example. 
+    <textarea name="q4" id="q4" cols="30" rows="4"><?php echo $data['q4'];?></textarea>
+    <!-- <input type="submit" name="submit" value="Submit"/> -->
     </form>
 </center>
 </div>
