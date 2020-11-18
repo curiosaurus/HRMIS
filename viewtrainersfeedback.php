@@ -6,6 +6,9 @@
     $client = new MongoDB\Client;
     $db = $client->hrmis;
     $lecturecollection = $db->training_lecture;
+    $lecturecollection = $db->training_lecture;
+    $eid=$_GET['empid'];
+    $uid=$_GET['uid'];
     ?>
 <head>
     <meta charset="UTF-8">
@@ -101,7 +104,26 @@ foreach ($counter as $row) {
 <hr class= "border border-primary">
    <center> <label> Rating    5 - Excellent, 4 - Best, 3 - Good, 2 - Fair, 1 - Poor  </label> </center>
 <hr class= "border border-primary">
+<?php
 
+$result = $lecturecollection->find(['unique_id' => $uid]);
+//print("<pre>".print_r($result,true)."</pre>");
+foreach ($result as $row) {
+    
+    $effectiveness = $row['feedback'];
+}
+//print("<pre>".print_r($effectiveness,true)."</pre>");
+foreach ($effectiveness as $row) {
+    foreach ($row as $key => $value){
+        if ($key == $eid){
+            $data = $value;
+            // print("<pre>".print_r($data,true)."</pre>");
+            break;
+        }
+    }
+}
+// print("<pre>".print_r($data,true)."</pre>");
+?>
 <br><br>
 
 <form action="redirecttrainingeedback.php" method="post" >
@@ -113,14 +135,14 @@ foreach ($counter as $row) {
         <label >Emp Name</label>
     </div>
     <div class="col-2">
-        <input type="text" name="emp_name" id="emp_name" >
+        <input type="text" name="emp_name" id="emp_name" value="<?php echo $data['name'];?>" disabled>
     </div>
     <div class="col-2"></div>
     <div class="col-2">
         <label >Emp Code</label>
     </div>
     <div class="col-2">
-        <input type="text" name="emp_code" id="emp_code" >
+        <input type="text" name="emp_code" id="emp_code" value="<?php echo $eid;?>" disabled>
     </div>
 </div>
 <br>
@@ -130,14 +152,14 @@ foreach ($counter as $row) {
         <label >1.Material / Matter Relevance</label>
     </div>
     <div class="col-2">
-        <input type="text" name="material" id="material" >
+        <input type="text" name="material" id="material" value="<?php echo $data['q1'];?>" disabled>
     </div>
     <div class="col-2"></div>
     <div class="col-2">
         <label >2.Presentation Method</label>
     </div>
     <div class="col-2">
-        <input type="text" name="presentation" id="presentation" >
+        <input type="text" name="presentation" id="presentation" value="<?php echo $data['q2'];?>" disabled>
     </div>
 </div>
 <br>
@@ -147,14 +169,14 @@ foreach ($counter as $row) {
         <label >3. Communication Skill </label>
     </div>
     <div class="col-2">
-        <input type="text" name="communication" id="communication"  >
+        <input type="text" name="communication" id="communication"  value="<?php echo $data['q3'];?>" disabled>
     </div>
     <div class="col-2"></div>
     <div class="col-2">
         <label >4. Program Duration </label>
     </div>
     <div class="col-2">
-        <input type="text" name="program" id="program" >
+        <input type="text" name="program" id="program" value="<?php echo $data['q4'];?>" disabled>
     </div>
 </div>
 <br>
@@ -164,7 +186,7 @@ foreach ($counter as $row) {
         <label >5. Group Participation</label>
     </div>
     <div class="col-2">
-        <input type="text" name="group" id="group"  >
+        <input type="text" name="group" id="group" value=" <?php echo $data['q5'];?>" disabled>
     </div>
     <div class="col-2"></div>
     <div class="col-1">
@@ -174,7 +196,7 @@ foreach ($counter as $row) {
         <label >25</label>
     </div>
     <div class="col-2">
-        <input type="text" name="total" id="total"  >
+        <input type="text" name="total" id="total"  value="<?php echo $data['q6'];?>" disabled>
     </div>
 </div>
 
@@ -188,7 +210,7 @@ foreach ($counter as $row) {
 
 <div class="row justify-content-center">
     <div class="col-4">
-        <textarea name="comment" id="comment" cols="60" rows="5"></textarea>
+        <textarea name="comment" id="comment" cols="60" rows="5" disabled><?php echo $data['q7'];?></textarea>
     </div>  
 </div>
 

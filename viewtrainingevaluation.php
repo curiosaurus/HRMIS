@@ -158,22 +158,22 @@ foreach ($effectiveness as $row) {
 <center>
 1.Does this training are identified in skill matrix? 
     <br><br>
-    Yes/No <input type="text"id="q1" name="q1" value="<?php echo $data['q1'];?>">
+    Yes/No <input type="text"id="q1" name="q1" value="<?php echo $data['q1'];?> disabled">
 </center>
 <br>
 <center>
 2. Which topic did you like the most & why?
     <br><br>
-    <textarea name="q2" id="q2" cols="60" rows="4"><?php echo $data['q2'];?></textarea>
+    <textarea name="q2" id="q2" cols="60" rows="4" disabled><?php echo $data['q2'];?></textarea>
 </center>
 <br>
 <center>
 3. Were the content adequate and as desired.
     <br><br>
-    <textarea name="q3" id="q3" cols="60" rows="4"><?php echo $data['q3'];?></textarea>
+    <textarea name="q3" id="q3" cols="60" rows="4" disabled><?php echo $data['q3'];?></textarea>
     <br><br>
     4.  How will you use this training in your day to day work? Please give an example. 
-    <textarea name="q4" id="q4" cols="30" rows="4"><?php echo $data['q4'];?></textarea>
+    <textarea name="q4" id="q4" cols="60" rows="4" disabled><?php echo $data['q4'];?></textarea>
     <!-- <input type="submit" name="submit" value="Submit"/> -->
     </form>
 </center>
