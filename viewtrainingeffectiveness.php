@@ -64,7 +64,6 @@ elseif ($_SESSION['usertype']=="admin") {
            <h5>(Part-III)</h5>
         </center>
     </div>
-<br>
 <center>
     <!-- <div  style="width: 1140px;border: 1px solid royalblue; ;"> -->
         <center>To be filled in after 1 Month of training</center>
@@ -72,7 +71,6 @@ elseif ($_SESSION['usertype']=="admin") {
 <div class="container" style="border: 1px solid lightblue; padding: 25px;">
 <br>
 <center><h5>TRAINNING EFFECTIVENESS</h5></center>
-<br><br>
 <form action="trainingeffectivenessdata.php?emp=<?php echo $eid?>" method="post">
 <table class="table" align="center">
 <tr>

@@ -185,24 +185,32 @@ elseif ($_SESSION['usertype']=="admin") {
 <center>
     1. Has the trainee implemented this in his/her working area?
     <br><br>
-    Yes/No <input type="text"id="q1" name="q1">
+    Yes/No <select name="q1" id="q1">
+        <option value="yes">Yes</option>
+        <option value="No">No</option>
+    </select>
 </center>
 <br>
 <center>
     2. If yes, where give example or evidence or other specification
     <br><br>
-    Yes/No <input type="text"id="q2" name="q2">
+    <textarea name="q2" id="q2" cols="40" rows="5"></textarea>
 </center>
 <br>
 <center>
-    3. are you satisfied with tranning? 
+    3. are you satisfied with training? 
     Yes/No 
+	<select name="q11" id="q11">
+        <option value="yes">Yes</option>
+        <option value="No">No</option>
+    </select>
     <br><br>
     a) If yes, please confirm trainee Skill level after tranning (_______) <br>
-    <input type="text"id="q3" name="q3">
+    <input type="number"id="q3" name="q3">
     <br><br>
-    b) If No, why
-    <input type="text"id="q4" name="q4">
+    b) If No, why<br>
+    <textarea name="q4" id="q4" cols="40" rows="5"></textarea>
+	<br>
     <input type="submit" name="submit" value="Submit"/>
     </form>
 </center>

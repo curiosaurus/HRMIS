@@ -79,18 +79,15 @@ if (!$_SESSION['usertype']=='admin')
                             <a href="trainnomination.php"><p>TRAINING NOMINATIONS CARD</p>  </a>  
                             <a href="calender.php"><p>TRAINING CALENDER</p></a>
                             <a href="trainingSchedule.php"><p>TRAINING SCHEDULE</p></a>
-                            <a href="trainingAttendance-Updated.php"><p>Attendance</p></a>
+                            <a href="trainingattendance.php"><p>Attendance</p></a>
                             <a href="empeffleclist.php"><p>EFFECTIVENESS</p></a>
+                            <a href="listviewfeedback.php"><p>FEEDBACK</p></a>
+                            <a href="listvieweval.php"><p>EVALUATION</p></a>
                         </div>
                     </div>
-
-
-
                 </div>
                 <div class="item4">
                     <a href="#"> PMS    </a>
-
-
                 </div>
                 <div class="item5">
                     <a href="#"> WELFARE    </a>

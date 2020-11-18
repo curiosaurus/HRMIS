@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <?php
-    //session_start();
+    session_start();
     require 'vendor\autoload.php'; 
     $client = new MongoDB\Client;
     $db = $client->hrmis;
@@ -29,7 +29,11 @@
 </head>
 
 <body>
-
+<?php 
+if ($_SESSION['usertype']=='admin'){
+include 'adminnavbar.php';
+}
+?>
 
 <div class="container" style="padding: 25px;">
 <br>
@@ -221,7 +225,7 @@ foreach ($effectiveness as $row) {
 
 <br><br>
 
-   <center>  <input type="submit" class="btn btn-primary" name="submit" value="submit" >   </center> 
+   <!-- <center>  <input type="submit" class="btn btn-primary" name="submit" value="submit" >   </center>  -->
 
 <br><br>
 </form>

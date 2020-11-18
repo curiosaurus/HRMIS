@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'vendor\autoload.php'; 
 $client = new MongoDB\Client;
 $companydb = $client->hrmis;
@@ -39,40 +40,22 @@ $empcollection = $companydb->user;
 </head>
 <body>
 <?php
+    if ($_SESSION['usertype']=='hod'){
     include 'hodnavbar.php';
+}
+elseif ($_SESSION['usertype']=='admin') {
+    include 'adminnavbar.php';
+}
 ?>
     <center>
-        <h1>Employee Effectiveness</h1>
+        <h1>Employee Evaluation</h1>
         <br>
     </center>
 
 
     <div class="container" style="border: 1px solid lightblue; padding: 2px;">
         <div class="row justify-content-md-around">
-  <?php
-    echo '<div class="col-md-3"><div class="dropdown">';
-    $masteropt = $companydb->masteropt;
-    $counter = $masteropt->find(['type'=>'department']);
-    echo'<select name="department" id="department" onchange="pp();">';
-    if(isset ($_GET['uid'])){
-    foreach($counter as $row) {
-        if($_GET["uid"] == $row['value']){
-        echo "<option value = ".$row['value']." selected>". $row['value'] ."</option>";
-        $deptid=$row['value']; 
-    }
-        else{
-            echo "<option value = ".$row['value']." >". $row['value'] ."</option>";
-        }
-    }
-}
-    else{
-        foreach($counter as $row) {
-            echo "<option value = ".$row['value']." selected>". $row['value'] ."</option>";
-            $deptid=$row['value'];
-        }   
-    }
-echo '</select>';
-echo '</div></div>';
+<?php
 $y=$_GET['year'];
 
 ?>
@@ -83,8 +66,7 @@ $y=$_GET['year'];
 function pp(){
     var year=document.getElementById("year").value;
     var y = document.getElementById("skill").value;
-    var p = document.getElementById("department").value;
-    window.location.href="employeeeffectivenesslist.php?uid="+p+"&uniqueid="+y+"&year="+year;
+    window.location.href="employeefeedbacklist.php?uid="+p+"&uniqueid="+y+"&year="+year;
 }
 </script>
         </div>
@@ -104,7 +86,7 @@ function pp(){
             <th>Grade</th>
             <!-- <th>Education</th> -->
             <th>Total Experience</th>
-            <th>Effectiveness</th>
+            <th>Evaluation</th>
     </tr>
     </thead>    
     <tbody>
@@ -114,14 +96,14 @@ function pp(){
         //$y=$_GET['year'];
         $training_lecture = $companydb->training_lecture;
         $counter = $training_lecture->find(['unique_id' => $_GET['uniqueid'] ]);
-        foreach($counter as $row) {
-            $empIds = $row['attended_id'][0];
-            // print("<pre>".print_r($empIds,true)."</pre>");
+        foreach ($counter as $row) {
+            $effectiveness = $row['evaluation'];
         }
-        foreach($empIds as $id) {
-            
+        foreach ($effectiveness as $row1) {
+            foreach ($row1 as $key => $value){
+                // print("<pre>".print_r($data,true)."</pre>");
             $empcollection = $companydb->empcollection;
-            $counter1 = $empcollection->find(['Emp Code'=>$id,'Department Id'=>$deptid]);
+            $counter1 = $empcollection->find(['Emp Code'=>$key]);
             echo "<tr>";
             foreach($counter1 as $row) {
     $pas = $row['Emp Code'];
@@ -132,13 +114,15 @@ function pp(){
     echo "<td>" . $row['Grade Id'] ."</td>";
     // echo "<td>" . $row['EDUCATION'] ."</td>";
     echo "<td>" . $row['TOTAL EXP'] ."</td>";
-    echo "<td><a href='redirectrainingeffective.php?empid=".$pas."&uid=".$_GET['uniqueid']."&name=".$name."&year=".$y."'>Fill Effectiveness </a>" ."</td>";
+    echo "<td><a href='viewtrainingevaluation.php?empid=".$pas."&uid=".$_GET['uniqueid']."&name=".$name."&year=".$y."'>View Evaluation </a>" ."</td>";
     #add just this line whenever you create  viewrequisition  33111`3
     //getting values in page2.php file by $_GET function:
     //$x=$_GET['variable1'];
-}
+
 echo "</tr>";
+}
         }
+    }
 ?>
     </tbody>
     </table>

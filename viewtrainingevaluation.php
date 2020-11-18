@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <?php
+    error_reporting(0);
     session_start();
     //require 'session.php';
     require 'vendor\autoload.php'; 
@@ -34,8 +35,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>TRAINNING EFFECTIVENESS
-    </title>
+    <title>TRAINNING EValuation</title>
+    
     <!-- Google font cdn file imported here -->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
@@ -60,16 +61,15 @@ elseif ($_SESSION['usertype']=="admin") {
     <!-- Main navbar Close here -->
     <div class="title">
         <center>
-           <h5>(Part-II)</h5>
+           <h6>(Part-II)</h6>
         </center>
     </div>
 <br>
 <center>
     <!-- <div  style="width: 1140px;border: 1px solid royalblue; ;"> -->
-<div class="container" style="border: 1px solid lightblue; padding: 25px;">
+<div class="container" style="border: 1px solid lightblue; padding: 20px;">
+<center><h6>TRAINNING EFFECTIVENESS</h6></center>
 <br>
-<center><h5>TRAINNING EFFECTIVENESS</h5></center>
-<br><br>
 <form action="trainingeffectivenessdata.php?emp=<?php echo $eid?>" method="post">
 <table class="table" align="center">
 <tr>
@@ -87,49 +87,29 @@ elseif ($_SESSION['usertype']=="admin") {
         }
     ?>
     <!-- <td>Skill level before training <input type="text" id="skill_level" value="<?php echo $prevs ?>" name="beforetraining"> -->
-    <br>
-    </td>
 </tr>
 <tr>
-    <td> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+    <td>  &nbsp;&nbsp;&nbsp;&nbsp;
      Venue : <input type="text" name="venue" id="venue" value="<?php echo $venue ?>" disabled >
-    <br><br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-    Subject : <input type="text" name="subject" id="subject" value="<?php echo $sub ?>"disabled >
+     &nbsp;&nbsp;&nbsp;&nbsp;
+     Subject : <input type="text" name="subject" id="subject" value="<?php echo $sub ?>"disabled >
     </td>
-
+    </tr>
 <tr>
     <td> 
-        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-        Duration : <input type="text" name="time" id="duration" value="<?php echo $time ?>" disabled> </td>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+        Duration : <input type="text" name="time" id="duration" value="<?php echo $time ?>" disabled>
+        &nbsp;&nbsp;&nbsp;&nbsp; Faculty : <input type="text" name="faculty" id="faculty" value="<?php echo $faculty ?>" disabled> </td>
     <td>
-    </td>
-</tr>
-
-<tr>
-    
-    <td>
-        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-        Faculty : <input type="text" name="faculty" id="faculty" value="<?php echo $faculty ?>" disabled> </td>
-    <td>
-    </td>
 </tr>
 <tr>
-    
-    <td>
-        Employee No. <input type="text" name="emp_no" id="emp_no" value="<?php echo  $eid?>" disabled>
-    </td>
 </tr>
 
 
 </table>
-</div>
-<br><br>
+</div><br>
 <center>
     <!-- <div  style="width: 1140px; border: 1px solid royalblue; "> -->
-        <center> 
-            (TO be Filled By Trainee)
-        </div></center>
 <!-- <div class="container" style="border: 1px solid lightblue; padding: 25px;"> -->
 <br>
 <?php
@@ -153,26 +133,27 @@ foreach ($effectiveness as $row) {
 
 ?>
 <td>
-        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+Employee No. <input type="text" name="emp_no" id="emp_no" value="<?php echo  $eid?>" disabled>
+        &nbsp;&nbsp;&nbsp;&nbsp;
         Trainee Name : <input type="text" name="trainee_name" id="trainee_name" value="<?php echo $data['name'];?>" disabled> </td>
 <center>
 1.Does this training are identified in skill matrix? 
-    <br><br>
+    <br>
     Yes/No <input type="text"id="q1" name="q1" value="<?php echo $data['q1'];?> disabled">
 </center>
 <br>
 <center>
 2. Which topic did you like the most & why?
-    <br><br>
+    <br>
     <textarea name="q2" id="q2" cols="60" rows="4" disabled><?php echo $data['q2'];?></textarea>
 </center>
 <br>
 <center>
 3. Were the content adequate and as desired.
-    <br><br>
+    <br>
     <textarea name="q3" id="q3" cols="60" rows="4" disabled><?php echo $data['q3'];?></textarea>
-    <br><br>
-    4.  How will you use this training in your day to day work? Please give an example. 
+    <br>
+    4.  How will you use this training in your day to day work? Please give an example.<br> 
     <textarea name="q4" id="q4" cols="60" rows="4" disabled><?php echo $data['q4'];?></textarea>
     <!-- <input type="submit" name="submit" value="Submit"/> -->
     </form>
