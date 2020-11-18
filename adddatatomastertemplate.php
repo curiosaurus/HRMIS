@@ -118,12 +118,12 @@ foreach($counter as $row) {
         function upadd(p1, p2) {
             adr=document.getElementById(p2).value;
             city=document.getElementById(p1).value;
-            window.alert('lol');
+            //window.alert('lol');
             window.location.replace("addaddmasteropt.php?add="+adr+"&city="+city);   // The function returns the product of p1 and p2
         }
         function uptype(p1, p2) {
             value=document.getElementById(p1).value;
-            window.alert('lol'+p1+p2);
+            window.alert(value);
             window.location.replace("typeaddmasteropt.php?value="+value+"&type="+p2);   // The function returns the product of p1 and p2
         }
     

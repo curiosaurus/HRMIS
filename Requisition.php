@@ -183,7 +183,13 @@ document.getElementById("cdate").innerHTML ="Date: "+ m + "/" + d + "/" + y;
                 <option value="New Position"> New Position </option>
                 <option value="Additional Workload"> Additional Workload </option>
             </select>            
-        </div>    
+        </div> 
+        <div class="col-md-4">
+            <label>if replacement then, Replacement of?:   </label>
+        </div>
+        <div class="col-md-4">
+        <input required type="text"  class="form-control" name="replacement" id="expmax">          
+        </div> 
     </div>
     <br>
     <div class="row justify-content-md-start">

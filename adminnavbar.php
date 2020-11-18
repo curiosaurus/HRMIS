@@ -58,7 +58,7 @@ if (!$_SESSION['usertype']=='admin')
                    <div class="dropdown-content">
 
                            <a href="Master Template.php"><p>ADD EMPLOYEE</p></a>
-                           <a href="adddatatomasteropt.php"><p>ADD EMPLOYEE</p></a>
+                           <a href="adddatatomastertemplate.php"><p>ADD Data To Master</p></a>
                             <a href="masterfile.php"><p>EMPLOYEE MASTER</p></a>
                             <a href="Requisition.php"><p>REQUISITION</p></a>
                             <a href="open_positions.php"><p>OPEN POSITIONS</p></a>
@@ -75,13 +75,14 @@ if (!$_SESSION['usertype']=='admin')
                         <div class="dropdown-content">
                            <a href="skillmatrixlist.php"> <p>SKILL MATRIX</p></a>
                             <a href="Requisitioncreate2.php?dept=sales"><p>ADD SKILLS</p></a>
+                            <a href="manageyear.php"> <p>MANAGE SKILL YEAR</p></a>
                             <a href="trainnomination.php"><p>TRAINING NOMINATIONS CARD</p>  </a>  
                             <a href="calender.php"><p>TRAINING CALENDER</p></a>
                             <a href="trainingSchedule.php"><p>TRAINING SCHEDULE</p></a>
-                            <a href="trainingattendance.php"><p>Attendance</p></a>
-                            <a href=""><p>EFFECTIVENESS</p></a>
+                            <a href="trainingAttendance-Updated.php"><p>Attendance</p></a>
+                            <a href="empeffeclist.php"><p>EFFECTIVENESS</p></a>
                         </div>
-                    </div>1z
+                    </div>
 
 
 

@@ -49,13 +49,13 @@
     }
 
 
-    mkdir(__DIR__."../upload/".$time."--".$date, 0755);
+    //mkdir(__DIR__."upload/".$time."--".$date, 0755);
 
     // $a = "../upload/".$time."--".$date;
     // echo $a;
 
 
-    $target_dir = __DIR__."../upload/".$time."--".$date;
+    $target_dir = __DIR__."upload/".$time."--".$date;
 
     if(isset($_POST["submit"])){
         echo $y;
@@ -75,6 +75,7 @@
 
 
             move_uploaded_file($_FILES["skills"]["tmp_name"], $filename);
+            header('location:empeffeclist.php');
         // }
     }
 ?>
