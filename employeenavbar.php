@@ -19,7 +19,7 @@
         <!-- NavBar for the Logo and the title -->
         <div class="nav">
             <div class="logo">
-                <span>LOGO</span>
+            <img src="polybond - logo.png" alt="">
             </div>
             <center><span class="hr">EMPLOYEE dashbord</span></center>
             <hr>

@@ -31,7 +31,7 @@ if (!$_SESSION['usertype']=='hod')
         <!-- NavBar for the Logo and the title -->
         <div class="nav">
             <div class="logo">
-                <span>LOGO</span>
+            <img src="polybond - logo.png" alt="">
             </div>
             <center><span class="hr">HOD dashboard</span></center>
            <span style="margin-left:700px; margin-top:30px; font-size:20px;">

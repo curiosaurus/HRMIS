@@ -33,11 +33,11 @@ if (!$_SESSION['usertype']=='admin')
         <!-- NavBar for the Logo and the title -->
         <div class="nav">
             <div class="logo">
-                <span>LOGO</span>
+                <img src="polybond - logo.png" alt="">
             </div>
             <center><span class="hr">HR & Admin dashbord</span></center>
             <span style="margin-left:700px; margin-top:30px; font-size:20px;">
-            <?php  echo $_SESSION['email'] ?>
+            <?php  echo "HR Dept" ?>
 </span>
             <hr>
         </div>
