@@ -43,13 +43,14 @@ if (!$_SESSION['usertype']=='admin')
         $Previous_Experience = $_POST['Previous_Experience'];
         $Resigned_Date = $_POST['Resigned_Date'];
         $Last_Working_Date = $_POST['Last_Working_Date'];
+        $insertOneResult = $empcollection->insertOne( ['Emp Code' => $Emp_Code , 'Designation' => $position , 'Name' => $Full_Name , 'Gender' => $gender , 'Marital Status' => $Marital_Status , 'Date of Birth' => $DOB , 'PAN' => $PAN , 'Blood Group' => $Blood_Group , 'Personal Email' => $Personal_Email , 'Local Address' => $Correspondence_Address , 'Permanent Address' => $Permanent_Address , 'Local Pin' => $Pin_No1 , 'Permanent Pin' => $Pin_No2 , 'Mobile No' => $Mobile_No , 'Contact No' => $Contact_No , 'Date of joining' => $DOJ , 'Department' => $Department , 'Designation' => $Designation , 'Grade Id' => $Grade , 'Location_Id' => $Location , 'Employee Type' => $Employee_Type , 'Employee Status' => $Employee_Status , 'Reporting To' => $Employee_Reporting_to , 'EDUCATION' => $Education , 'Previous Exp' => $Previous_Experience , 'Resigned date' => $Resigned_Date , 'DATE OF LEAVING' => $Last_Working_Date);
         $target_dir = "uploads/";
         $target_file = $target_dir.basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
         // Check if image file is a actual image or fake image
         
-            $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+           /* $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
             if($check !== false) {
                 echo "File is an image - " . $check["mime"] . ".";
                 $uploadOk = 1;
@@ -108,7 +109,7 @@ if($fileok){
     else{
         echo "unSucess";
 
-    }
+    }*/
 }
     }
 ?>
@@ -294,7 +295,7 @@ include 'adminnavbar.php';
 
                 <div class="row justify-content-md-start">
                     <div class="col-md-12">
-                    <input required type="file" name="fileToUpload" style="margin-top: 100%;" id="fileToUpload">
+                   <!-- <input required type="file" name="fileToUpload" style="margin-top: 100%;" id="fileToUpload">-->
                     </div>
                     
                 </div>
@@ -540,13 +541,13 @@ echo '</select>';
                 <label> Resigned Date :  </label>
             </div>
             <div class="col-md-4">
-                <input required type="date" name="Resigned_Date" class="form-control" >
+                <input type="date" name="Resigned_Date" class="form-control" >
             </div>
             <div class="col-md-2">
                 <label> Last Working Date :  </label>
             </div>
             <div class="col-md-4">
-                <input required type="date" name="Last_Working_Date" class="form-control" >
+                <input type="date" name="Last_Working_Date" class="form-control" >
             </div>
         </div>
 <br><br>
