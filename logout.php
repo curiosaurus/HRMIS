@@ -1,8 +1,4 @@
 <?php
-   session_start();
-   unset($_SESSION["email"]);
-   unset($_SESSION["password"]);
-   
-   echo 'You have cleaned session';
+   session_destroy();
    header('Refresh: 0; URL = login.php');
 ?>
