@@ -97,16 +97,26 @@ include 'hodnavbar.php';
                 </thead>
                 <tbody>
                 <?php 
+if($_SESSION['usertype']=='hod'){
+    $counter = $empcollection->find(['$and'=>[['status'=>['$ne'=>'closed']], ["department" => $_SESSION['dept']]]]);
+}
+else{
 $counter = $empcollection->find(['status'=>['$ne'=>'closed']]);
+}
 foreach($counter as $row) {
     $id=$row['unique_id'];
     // echo $var;
     echo "<tr>";
     echo "<td>" . $row['department'] ."</td>";
     echo "<td>" . $row['position'] ."</td>";
-    echo "<td>" . $_SESSION['email'] ."</td>";
+    echo "<td>" . $row['raised by'] ."</td>";
     echo "<td>" . $row['dateofcreation']."</td>";
-    echo "<td>" . "<a  href='closed_position.php?variable1=".$id."'><button class='btn btn-primary'> close</button></a>" ."</td>";
+    if($_SESSION['usertype']=='hod'){
+        echo "<td>".$row['status']."</td>";
+    }
+    elseif ($_SESSION['usertype']=='admin') {
+        echo "<td>"."<a href='close_position.php?variable1=".$id."'><button class='btn btn-primary'>Open</button></a>"."</td>";
+    }
     echo "<td><a href='viewrequision.php?variable1=".$id."'>View Requisition</a>" ."</td>";
 
 
