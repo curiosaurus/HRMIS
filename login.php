@@ -13,6 +13,8 @@ $loginerror = " ";
             $password = $_POST["password"];
             $usertype = $_POST["usertype"];
             $cursor = $collection->findOne(array('email'=> $username, 'password'=> $password, 'usertype'=> $usertype));
+            session_destroy();
+            session_start();
             if($cursor){
                 $p = $_POST['email'];
                 $u = $_POST['usertype'];
@@ -23,6 +25,7 @@ $loginerror = " ";
                 $_SESSION['usertype']=$u;
             if ($u =='hod')
             {
+                $_SESSION['dept']=$cursor['dept_id'];
                 header("location:HodDashboard.php");
             }
             elseif($u=='admin'){

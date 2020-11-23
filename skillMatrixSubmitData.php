@@ -12,6 +12,7 @@ $year = (isset($_GET["year"]) ? $_GET["year"] : "");
 if(isset($_GET['variable1']))
 {
     $empcode=$_GET['variable1'];
+    $empdept=$_GET['department'];
     $managerialSkill = $_POST["managerialSkill"];
     $preferredSkill = $_POST["preferredSkill"];
     $systemRequirements = $_POST["systemRequirements"];
@@ -47,11 +48,19 @@ if(isset($_GET['variable1']))
         print("<pre>".print_r($query,true)."</pre>");
         if ($query){
             echo $i;
-            $query = $empcollection->updateOne(['year' => $year,'skill' => $nominationsRequired[$i][0]],['$push' => ["empIds" => $empcode]]);
+            $arrdept=(array)$query['dept'];
+            echo gettype($arrdept);
+            if (in_array($empdept, $arrdept)){
+                $query = $empcollection->updateOne(['year' => $year,'skill' => $nominationsRequired[$i][0]],['$push' => ["empIds" => $empcode]]);    
+            }
+            else{
+               $query = $empcollection->updateOne(['year' => $year,'skill' => $nominationsRequired[$i][0]],['$push' => ["empIds" => $empcode,"dept"=>$empdept]]);
+            }
         } else {
             $arrayOfId = array($empcode);
+            $arrayOfdept = array($empdept);
             //echo $i;
-            $query = $empcollection->insertOne(['year' => $year, 'skill' => $nominationsRequired[$i][0], 'empIds' => $arrayOfId]);
+            $query = $empcollection->insertOne(['year' => $year, 'skill' => $nominationsRequired[$i][0], 'empIds' => $arrayOfId,"dept"=>$arrayOfdept]);
         }
     }
     // Cheking year and skill is present in database or not
@@ -68,6 +77,6 @@ if(isset($_GET['variable1']))
 else
 {
     // Enter URL of the file where it should redirect
-    header('location:');
+    header('location:skillmatrixlist.php');
 }
 ?>

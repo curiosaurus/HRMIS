@@ -10,14 +10,9 @@ session_start();
 // }
     // require 'session.php'	
     require 'vendor\autoload.php'; 
-
-    // $client = new MongoDB\Client;
-    // $companydb = $client->hrmis;
+    $client = new MongoDB\Client;
+    $companydb = $client->hrmis;
     // $empcollection = $companydb->requisition;
-
-
-
-
 /**
  * Creating MongoDB like ObjectIDs.
  * Using current timestamp, hostname, processId and a incremting id.
@@ -44,21 +39,13 @@ function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
 	return $result;
 }
 ?>
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HR & Admin dashbord</title>
+    <title>Requisition</title>
     <!-- Google font cdn file imported here -->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <!-- bootstrap cdn files for the Tables and other contents  -->
@@ -75,7 +62,6 @@ function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
     }
     elseif($_SESSION['usertype']=='admin')
     {
-
         include 'adminnavbar.php';
     }
 ?>
@@ -87,8 +73,6 @@ function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
         </center>
     </div>
 <br>
-
-
 <br>
 <hr style="border-bottom: 1px solid#3f51b5; width: 500px;">
 <br>
@@ -108,24 +92,34 @@ function createMongoDbLikeId($timestamp, $hostname, $processId, $id)
 
 
 echo '<div class="col-md-3"><div class="dropdown">';
-
-    $masteropt='masteropt';
-    $client = new MongoDB\Client;
-    $companydb = $client->hrmis;
-    $empcollection = $companydb->$masteropt;
-    $counter = $empcollection->find(['type'=>'department']);
+if (!isset($_SESSION['dept'])){
+$masteropt = $companydb->masteropt;
+$counter = $masteropt->find(['type'=>'department']);
     echo'<select name="department" id="department" onchange="pp();">';
-    echo "<option>Select Department</option>";
+    if(isset ($_GET['uid'])){
     foreach($counter as $row) {
-        if($_GET["uid"] == $row['value']){;
-        echo "<option value = '".$row['value']."' selected>". $row['value'] ."</option>";
+        if($_GET["uid"] == $row['value']){
+            echo "<option value = '".$row['value']."' selected>". $row['value'] ."</option>";
+            $deptid=$row['value']; 
         }
         else{
-            echo "<option value = '".$row['value']."' >". $row['value'] ."</option>";
-            $var=$row['value'];
+                echo "<option value = '".$row['value']."' >". $row['value'] ."</option>";
         }
-
     }
+}   
+    else{
+        foreach($counter as $row) {
+            echo "<option value = '".$row['value']."' selected>". $row['value'] ."</option>";
+            $deptid=$row['value'];
+        }   
+    }
+}
+else{
+    echo'<select name="department" id="department" onchange="pp();" disabled>';
+    echo "<option value = '".$_SESSION['dept']."' selected>". $_SESSION['dept'] ."</option>";
+    $deptid=$_SESSION['dept'];
+}
+
 echo '</select>';
     
 ?>
@@ -273,14 +267,16 @@ $empcoll = $companydb->skills;
 if (isset($_GET["uid"])){
 $var = $_GET["uid"];
 }
+else{
+    $var=$deptid;
+}
 ?>
 <tr>     
 <?php 
 $counter2 = $empcoll->find(array('department' => $var, 'skilltype' => 'managerial'));
 $o = $empcoll->count(array('department' => $var, 'skilltype' => 'managerial'));
 $counter3 = 0;
-echo '
-<th rowspan = "'.$o.'" >Managerial Skill</th>';
+echo '<th rowspan = "'.$o.'" >Managerial Skill</th>';
 foreach($counter2 as $row){
     $counter3 = $counter3 + 1;
     // $array_manage = "managerialSkill".$counter3;
@@ -295,12 +291,10 @@ foreach($counter2 as $row){
 }           
 ?>            
     <tr> 
-      
       <?php
       $counter = 0;
       $counter2 = $empcoll->find(array('department' => $var, 'skilltype' => 'functional'));
       $o = $empcoll->count(array('department' => $var, 'skilltype' => 'functional'));
-      
       echo '<th rowspan = "'.$o.'" >Preferrable Skill</th>';
       foreach($counter2 as $row){
         $counter = $counter + 1;
@@ -315,15 +309,11 @@ foreach($counter2 as $row){
         echo '<input type="hidden" name="counter" value="'.$counter.'">';
       }           
       ?>
-      
-      
-      <tr > 
-      
+      <tr>  
       <?php 
       $counter4 = 0;
       $counter2 = $empcoll->find(array('department' => $var, 'skilltype' => 'system'));
       $o = $empcoll->count(array('department' => $var, 'skilltype' => 'system'));
-      
       echo '
       <th rowspan = "'.$o.'" >System Requirement</th>';
       foreach($counter2 as $row){

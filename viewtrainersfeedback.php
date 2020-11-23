@@ -39,9 +39,6 @@ include 'adminnavbar.php';
 <br>
 <center><h5>TRAINNING FEEDBACK FORM</h5></center>
 <br><br>
-
-
-
 <?php
 $unique_id = $_GET['uid'];
 

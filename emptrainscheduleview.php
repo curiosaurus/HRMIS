@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <?php
+error_reporting(0);
 session_start();
-if ($_SESSION['usertype']=='employee'){
+if ($_SESSION['usertype']=='employee' or $_SESSION['usertype']=='hod'){
 
 }
 else{
@@ -29,7 +30,14 @@ $yearcollection=$companydb->years;
 </head>
 <body>
 <?php
-    include 'employeenavbar.php'
+if ($_SESSION['usertype']=='hod')
+{
+        include 'hodnavbar.php';
+}
+elseif($_SESSION['usertype']=='employee')
+{
+    include 'employeenavbar.php';
+}
 ?>
     <div class="title">
         <center>
@@ -86,7 +94,6 @@ $yearcollection=$companydb->years;
     //print_r($result);
     $nominations=$result['nominatedfor'];
     $resultlecture=$training_lcollection->find(['year'=>$y]);
-    
     // print_r( $nominations);
     //print_r($nominatedids);
     // $employees = $empcollection->find($query);
@@ -113,5 +120,4 @@ $yearcollection=$companydb->years;
     ?>
   </table>
 </div>
-
 <br><br>

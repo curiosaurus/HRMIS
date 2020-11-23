@@ -51,26 +51,34 @@ $empcollection = $companydb->user;
         <div class="row justify-content-md-around">
   <?php
     echo '<div class="col-md-3"><div class="dropdown">';
+    if (!isset($_SESSION['dept'])){
     $masteropt = $companydb->masteropt;
     $counter = $masteropt->find(['type'=>'department']);
-    echo'<select name="department" id="department" onchange="pp();">';
-    if(isset ($_GET['uid'])){
-    foreach($counter as $row) {
-        if($_GET["uid"] == $row['value']){
-        echo "<option value = ".$row['value']." selected>". $row['value'] ."</option>";
-        $deptid=$row['value']; 
-    }
+        echo'<select name="department" id="department" onchange="pp();">';
+        if(isset ($_GET['uid'])){
+        foreach($counter as $row) {
+            if($_GET["uid"] == $row['value']){
+                echo "<option value = '".$row['value']."' selected>". $row['value'] ."</option>";
+                $deptid=$row['value']; 
+            }
+            else{
+                    echo "<option value = '".$row['value']."' >". $row['value'] ."</option>";
+            }
+        }
+    }   
         else{
-            echo "<option value = ".$row['value']." >". $row['value'] ."</option>";
+            foreach($counter as $row) {
+                echo "<option value = '".$row['value']."' selected>". $row['value'] ."</option>";
+                $deptid=$row['value'];
+            }   
         }
     }
-}
     else{
-        foreach($counter as $row) {
-            echo "<option value = ".$row['value']." selected>". $row['value'] ."</option>";
-            $deptid=$row['value'];
-        }   
+        echo'<select name="department" id="department" onchange="pp();" disabled>';
+        echo "<option value = '".$_SESSION['dept']."' selected>". $_SESSION['dept'] ."</option>";
+        $deptid=$_SESSION['dept'];
     }
+
 echo '</select>';
 echo '</div></div>';
 $y=$_GET['year'];
@@ -87,14 +95,10 @@ function pp(){
     window.location.href="employeeeffectivenesslist.php?uid="+p+"&uniqueid="+y+"&year="+year;
 }
 </script>
-        </div>
+    </div>
     </div>
     </div>
     <br><br>
-
-
-
-
     <table class="table3" border="2" style="width:100%">
     <thead>    
     <tr>

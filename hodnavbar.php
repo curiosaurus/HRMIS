@@ -65,16 +65,13 @@ if (!$_SESSION['usertype']=='hod')
                     <div class="dropdown">
                         <span> <a href="#"> TRAINNING</a></span>
                         <div class="dropdown-content">
-                            <p>SKILL MATRIX</p>
-                            <p>TRAINING NOMINATIONS CARD</p>
-                            <p>TRAINING CALENDER</p>
-                            <p>TRAINING SCHEDULE</p>
-                            <p>EFFECTIVENESS</p>
+                            <a href="skillmatrixlist.php"><p>SKILL MATRIX</p></a>
+                            <a href="trainnomination.php"><p>TRAINING NOMINATIONS CARD</p></a>
+                            <a href="calender.php"><p>TRAINING CALENDER</p></a>
+                            <a href="emptrainscheduleview.php"><p>TRAINING SCHEDULE</p></a>
+                            <a href="empeffleclist.php"><p>EFFECTIVENESS</p></a>
                         </div>
                     </div>
-
-
-
                 </div>
                 <div class="item4">
                     <a href="#"> PMS    </a>

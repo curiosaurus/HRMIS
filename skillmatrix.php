@@ -1,5 +1,6 @@
 <?php
 require 'vendor\autoload.php'; 
+session_start();
 $client = new MongoDB\Client;
 $companydb = $client->hrmis;
 $empcollection = $companydb->empcollection;
@@ -23,8 +24,8 @@ if(isset ($_GET['variable1']))
         $employeereportingto=$row['REPORTING TO'];
         $education=$row['EDUCATION'];
         $previous_exp=$row['Previous Exp'];
-        $resigned_date=$row['Resigned date'];
-        $last_working_date=$row['DATE OF LEAVING'];
+        //$resigned_date=$row['Resigned date'];
+        //$last_working_date=$row['DATE OF LEAVING'];
     }
 }
 else{
@@ -52,7 +53,12 @@ else{
 </head>
 <body>
 <?php
-    include 'hodnavbar.php';
+        if($_SESSION['usertype']=="hod"){
+            include 'hodnavbar.php';
+        }
+        elseif ($_SESSION['usertype']=="admin") {
+            include 'adminnavbar.php';
+        }
 ?>    <div  style="margin-bottom: 100px; border: 1px solid lightblue; padding: 50px;">
 
 
@@ -65,7 +71,7 @@ else{
         </div>
 
 <br>
-<form action="skillMatrixSubmitData.php?variable1=<?php echo $empcode;?>&year=<?php echo $skillyear;?>" method="post">
+<form action="skillMatrixSubmitData.php?variable1=<?php echo $empcode;?>&year=<?php echo $skillyear;?>&department=<?php echo urlencode($department);?>" method="post">
     <div class="row justify-content-md-start">
             <div class="col-md-2">
                 <label> Employee name :  </label>
@@ -95,7 +101,7 @@ else{
             </div>
 
             <div class="col-md-4">
-                <input type="text" disabled value="<?php echo (isset($department)) ? $department : '';?>" name="department" class="form-control" >
+                <input type="text" name="department" disabled value="<?php echo (isset($department)) ? $department : '';?>"  class="form-control" >
             </div>
 
         </div>
@@ -190,28 +196,6 @@ else{
         </div>
 
 <br>
-
-        <div class="row justify-content-md-start">
-                
-            <div class="col-md-2">
-                <label> Resigned Date :  </label>
-            </div>
-
-            <div class="col-md-4">
-                <input type="date" disabled value="<?php echo (isset($resigned_date)) ? $resigned_date : '';?>" name="resignedDate" class="form-control" >
-            </div>
-
-            <div class="col-md-2">
-                <label> Last Working Date :  </label>
-            </div>
-
-            <div class="col-md-4">
-                <input type="date" disabled value="<?php echo (isset($last_working_date)) ? $last_working_date : '';?>" name="lastWorkingDate" class="form-control" >
-            </div>
-
-        </div>
-
-
     <table class="table"  border="1">
 
         <tr>

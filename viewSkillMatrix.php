@@ -1,5 +1,6 @@
 <?php
 require 'vendor\autoload.php'; 
+session_start();
 $client = new MongoDB\Client;
 $companydb = $client->hrmis;
 $skillyear = (isset($_GET['year'])) ? $_GET['year'] : header('location: skillmatrixlist.php');
@@ -47,7 +48,7 @@ else{
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HOD DASHBOARD</title>
+    <title>Skill Matrix</title>
     <!-- Google font cdn file imported here -->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
@@ -59,7 +60,12 @@ else{
 </head>
 <body>
 <?php
-    include 'hodnavbar.php';
+        if($_SESSION['usertype']=="hod"){
+            include 'hodnavbar.php';
+        }
+        elseif ($_SESSION['usertype']=="admin") {
+            include 'adminnavbar.php';
+        }
 ?>    
 <div  style="margin-bottom: 100px; border: 1px solid lightblue; padding: 50px;">
     <div class="row justify-content-md-start">
@@ -193,26 +199,6 @@ else{
         </div>
 
 <br>
-
-        <div class="row justify-content-md-start">
-                
-            <div class="col-md-2">
-                <label> Resigned Date :  </label>
-            </div>
-
-            <div class="col-md-4">
-                <input type="date" disabled value="<?php echo (isset($resigned_date)) ? $resigned_date : '';?>" name="resignedDate" class="form-control" >
-            </div>
-
-            <div class="col-md-2">
-                <label> Last Working Date :  </label>
-            </div>
-
-            <div class="col-md-4">
-                <input type="date" disabled value="<?php echo (isset($last_working_date)) ? $last_working_date : '';?>" name="lastWorkingDate" class="form-control" >
-            </div>
-
-        </div>
         <br>
         <hr>
 <br>

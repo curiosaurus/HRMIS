@@ -1,12 +1,9 @@
 <?php
-
 session_start();
-
 if (!$_SESSION['usertype']=='admin' && !$_SESSION['usertype']=='hod') 
 {
     header('location:login.php');
 }
-
 //require 'session.php'; 
 require 'vendor\autoload.php'; 
 $client = new MongoDB\Client;
@@ -79,7 +76,7 @@ $counter = $empcollection->find(['skilltype'=>'managerial','department'=>$_GET['
 foreach($counter as $row) {
     echo "<tr>";
     echo "<td>".$row['skillname']."</td>";
-    echo "<td><a href=deleteskills.php?skname=".$row['skillname']."&sktype=".$row['skilltype']."&dept=".$row['department']."><button class='btn btn-danger'>delete</button></a></td>";#button
+    echo "<td><a href=deleteskills.php?skname=".urlencode($row['skillname'])."&sktype=".$row['skilltype']."&dept=".$row['department']."><button class='btn btn-danger'>delete</button></a></td>";#button
     echo "</tr>";
 }
 ?>
@@ -95,7 +92,7 @@ $counter = $empcollection->find(['skilltype'=>'functional','department'=>$_GET['
 foreach($counter as $row) {
     echo "<tr>";
     echo "<td>".$row['skillname']."</td>";
-    echo "<td><a href=deleteskills.php?skname=".$row['skillname']."&sktype=".$row['skilltype']."&dept=".$row['department']."><button class='btn btn-danger'>delete</button></a></td>";#button
+    echo "<td><a href=deleteskills.php?skname=".urlencode($row['skillname'])."&sktype=".$row['skilltype']."&dept=".$row['department']."><button class='btn btn-danger'>delete</button></a></td>";#button
     echo "</tr>";
 }
 ?>
@@ -110,7 +107,7 @@ $counter = $empcollection->find(['skilltype'=>'system','department'=>$_GET['dept
 foreach($counter as $row) {
     echo "<tr>";
     echo "<td>" .$row['skillname']."</td>";
-    echo "<td><a href=deleteskills.php?skname=".$row['skillname']."&sktype=".$row['skilltype']."&dept=".$row['department']."><button class='btn btn-danger'>delete</button></a></td>";#button
+    echo "<td><a href=deleteskills.php?skname=".urlencode($row['skillname'])."&sktype=".$row['skilltype']."&dept=".$row['department']."><button class='btn btn-danger'>delete</button></a></td>";#button
     echo "</tr>";
 }
 ?>
@@ -141,7 +138,6 @@ foreach($counter as $row) {
             window.location.replace("Requisitioncreate2.php?dept="+dept);
         }
 </script>
-<button class="btn btn-primary btn-lg btn-block" style="height:10%; width: 20%;" name="submit">submit</button>
 </div>
 </body>
 </html>
