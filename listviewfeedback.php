@@ -91,24 +91,23 @@ $empcollection = $companydb->user;
 <?php 
 echo '<div class="col-md-3"><div class="dropdown">';
 $skills = $companydb->skills;
-    $counter = $skills->find();
+    $counter = $skills->distinct('skillname');
+    //print("<pre>".print_r($counter,true)."</pre>");
     ?>
     <select name="skill" id="skill" onchange="pp();" required class="form-control form-control-lg">
     <?php  
-
-    
     if(isset ($_GET['skill'])){
         foreach($counter as $row) {
-            if($_GET["skill"] == $row['skillname']){
+            if($_GET["skill"] == $row){
                 ?>
-                <option value = "<?php echo $row['skillname'];?>" selected><?php echo $row['skillname'];?></option>
+                <option value = "<?php echo $row;?>" selected><?php echo $row;?></option>
                 <?php
-            $s=$row['skillname']; 
+            $s=$row; 
             
         }
         else{
             ?>
-                <option value = "<?php echo $row['skillname'];?>" ><?php echo $row['skillname'];?></option>
+                <option value = "<?php echo $row;?>" ><?php echo $row;?></option>
                 <?php
             }
             
@@ -117,9 +116,9 @@ $skills = $companydb->skills;
     else{
         foreach($counter as $row) {
             ?>
-                <option value = "<?php echo $row['skillname'];?>" ><?php echo $row['skillname'];?></option>
+                <option value = "<?php echo $row;?>" ><?php echo $row;?></option>
                 <?php
-                $s=$row['skillname'];
+                $s=$row;
                 
             }   
         }
@@ -127,7 +126,6 @@ $skills = $companydb->skills;
     ?>
 
 </select>
-
 <script>
 function pp(){
     var y = document.getElementById("year").value;

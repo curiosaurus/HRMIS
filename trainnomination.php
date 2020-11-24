@@ -3,6 +3,8 @@
 session_start();
 if ($_SESSION['usertype']=='admin'){
 
+}elseif ($_SESSION['usertype']=='hod'){
+
 }
 else{
     header('location:login.php');
@@ -29,7 +31,12 @@ $nominationscollection=$companydb->nominations;
 </head>
 <body>
 <?php
-    include 'adminnavbar.php'
+       if($_SESSION['usertype']=="hod"){
+        include 'hodnavbar.php';
+    }
+    elseif ($_SESSION['usertype']=="admin") {
+        include 'adminnavbar.php';
+    }
 ?>
     <div class="title">
         <center>
@@ -73,17 +80,18 @@ $nominationscollection=$companydb->nominations;
 <select name="skill" id="skill" onchange="pp();" required class="form-control form-control-lg">
     <?php  
     $counter = $nominationscollection->find(['year'=>$y]);
-    if(isset ($_GET['skill'])){
+    if(isset ($_GET['skill']) and $_GET['skill']!=""){
         foreach($counter as $row) {
             if($_GET["skill"] == $row['skill']){
+                echo $row['skill'];
                 ?>
                 <option value = "<?php echo $row['skill']?>" selected><?php echo $row['skill']?></option>
                 <?php
-            $s=$row['skill']; 
+                $s=$row['skill']; 
         }
             else{
                 ?>
-                <option value = "<?php echo $row['skill']?>" selected><?php echo $row['skill']?></option>
+                <option value = "<?php echo $row['skill']?>"><?php echo $row['skill']?></option>
                 <?php
             }
         }
@@ -121,10 +129,29 @@ $nominationscollection=$companydb->nominations;
     $employees = $empcollection->find($query);
     //print("<pre>".print_r($employees,true)."</pre>");
     foreach($employees as $row) {
-        echo "<tr><td>".$row['Emp Code']."</td>";
-        echo "<td>".$row['Emp Display Name']."</td>";
-        echo "<td>".$row['Department Id']."</td>";
-        echo "<td>".$row['Grade Id']."</td></tr>";
+        if (isset($_SESSION['dept'])){
+            $deptids=explode("_",$_SESSION['dept']);
+            if ($_SESSION['location']=="Corporate"){
+                if (in_array($row['Department Id'], $deptids)){
+                    echo "<tr><td>".$row['Emp Code']."</td>";
+                    echo "<td>".$row['Emp Display Name']."</td>";
+                    echo "<td>".$row['Department Id']."</td>";
+                    echo "<td>".$row['Grade Id']."</td></tr>";
+                }
+            }
+            if (in_array($row['Department Id'], $deptids) and $row['Location Id']==$_SESSION['location']){
+                echo "<tr><td>".$row['Emp Code']."</td>";
+                echo "<td>".$row['Emp Display Name']."</td>";
+                echo "<td>".$row['Department Id']."</td>";
+                echo "<td>".$row['Grade Id']."</td></tr>";
+            }
+        }
+        else{
+            echo "<tr><td>".$row['Emp Code']."</td>";
+            echo "<td>".$row['Emp Display Name']."</td>";
+            echo "<td>".$row['Department Id']."</td>";
+            echo "<td>".$row['Grade Id']."</td></tr>";
+        }
     }
     ?>
     

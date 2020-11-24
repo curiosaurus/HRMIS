@@ -75,8 +75,8 @@ $empcollection = $companydb->user;
     }
     else{
         echo'<select name="department" id="department" onchange="pp();" disabled>';
-        echo "<option value = '".$_SESSION['dept']."' selected>". $_SESSION['dept'] ."</option>";
-        $deptid=$_SESSION['dept'];
+        echo "<option value = '".$_SESSION['dept']."' selected>".str_replace("_"," & ",$_SESSION['dept'])  ."</option>";
+        $deptid=explode("_",$_SESSION['dept']);
     }
 
 echo '</select>';
@@ -125,7 +125,27 @@ function pp(){
         foreach($empIds as $id) {
             
             $empcollection = $companydb->empcollection;
+            if ($_SESSION['usertype']=='hod'){
+                $querydept=array();
+                //print("<pre>".print_r($deptid,true)."</pre>");
+                foreach ($deptid as $value) {
+                    if ($_SESSION['location']!="Corporate"){
+                    array_push($querydept, ["Department Id" => $value,"Location Id"=>$_SESSION['location'],'Emp Code'=>$id]);
+                    }
+                    else{
+                    array_push($querydept, ["Department Id" => $value,'Emp Code'=>$id]);
+                    }
+                    //print("<pre>".print_r($querydept,true)."</pre>");
+                }
+                //print("<pre>".print_r($querydept,true)."</pre>");
+                $counter1 = $empcollection->find(
+                    array('$or' => 
+                        $querydept
+                    )
+                );
+            }else{
             $counter1 = $empcollection->find(['Emp Code'=>$id,'Department Id'=>$deptid]);
+            }
             echo "<tr>";
             foreach($counter1 as $row) {
     $pas = $row['Emp Code'];

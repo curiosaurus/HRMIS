@@ -115,9 +115,27 @@ $counter = $masteropt->find(['type'=>'department']);
     }
 }
 else{
-    echo'<select name="department" id="department" onchange="pp();" disabled>';
-    echo "<option value = '".$_SESSION['dept']."' selected>". $_SESSION['dept'] ."</option>";
-    $deptid=$_SESSION['dept'];
+    
+    echo'<select name="department" id="department" onchange="pp();" >';
+    $deptids=explode("_",$_SESSION['dept']);
+    if(isset ($_GET['uid'])){
+        foreach($deptids as $row) {
+            if($_GET["uid"] == $row){
+                echo "<option value = '".$row."' selected>". $row ."</option>";
+                $deptid=$row; 
+            }
+            else{
+                    echo "<option value = '".$row."' >". $row ."</option>";
+            }
+        }
+    } else{
+    foreach($deptids as $value){
+    echo "<option value = '".$value."' selected>". $value ."</option>";
+    $deptid=$value;
+    }
+}
+    //echo $value;
+    //$deptid=$_SESSION['dept'];
 }
 
 echo '</select>';
@@ -128,10 +146,7 @@ function pp(){
     var p = document.getElementById("department").value;
     window.location.href="Requisition.php?uid="+p;
 }
-
 </script>
-
-
 </div>
 </div>
 <?php
@@ -149,6 +164,20 @@ function pp(){
 ?>
        <div class="col-md-3" id=cdate>     
         </div>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="col-md-2">
+            <br><label>Location Id :</label>
+        </div>
+<div class="col-md-3">
+    <?php if ($_SESSION['usertype']=='hod'){
+    echo '<br><input required type="text" name="locationid" id="locationid" value="'.$_SESSION['location'].'" class="form-control" disabled>';
+    }
+    else{
+    echo '<br><input required type="text" name="locationid" id="locationid"  class="form-control" >';
+
+    }
+    ?>
+</div>
 <script>
 n =  new Date();
 y = n.getFullYear();

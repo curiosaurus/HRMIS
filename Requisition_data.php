@@ -48,6 +48,7 @@ if(isset($_POST['submit']))    {
         $expmax = $_POST['expmax'];
         $skillsreq = $_POST['skillsreq'];
         $skillconsider = $_POST['skillconsider'];
+        $location= $_POST['locationid'];
         // $reqcomm = $_POST['reqcomm'];
         // $actcomm = $_POST['actcomm'];
         // $reqven = $_POST['reqven'];
@@ -77,7 +78,7 @@ if(isset($_POST['submit']))    {
         // $empcollection->insertOne($final_systemRequirement);
         //array("PreferrableSkill" => array($final_preferrable)),array("SystemRequirement" => array($final_systemRequirement))
         // Insert one data
-        $insertOneResult = $empcollection->insertOne( ['unique_id' => $unique_id , 'department' => $department , 'raised by' => $raised_by , 'position' => $reqfor , 'reasonofappointment' => $reasonappnt , 'dateofcreation' => $dateofcreation , 'dateofmdapproval' => $dateofmdapproval , 'dateofhrshortlist' => $dateofhrshortlist , 'dateofhodshortlist' => $dateofhodshortlist , 'dateofinterviewsch' => $dateofinterviewsch , 'dateofinterview' => $dateofinterview , 'replacement' => $replacement , 
+        $insertOneResult = $empcollection->insertOne( ['unique_id' => $unique_id ,'location id'=>$location, 'department' => $department , 'raised by' => $raised_by , 'position' => $reqfor , 'reasonofappointment' => $reasonappnt , 'dateofcreation' => $dateofcreation , 'dateofmdapproval' => $dateofmdapproval , 'dateofhrshortlist' => $dateofhrshortlist , 'dateofhodshortlist' => $dateofhodshortlist , 'dateofinterviewsch' => $dateofinterviewsch , 'dateofinterview' => $dateofinterview , 'replacement' => $replacement , 
         'minqual' => $minqual , 'prefqual' => $prefqual , 'minexp' =>  $expmin , 'prefexp' => $expmax , 'skillreq' => $skillsreq , 'spconsideration' =>  $skillconsider , 'status' => $status ,'systemskills'=>$final_systemRequirement , 'functionalskills'=> $final_preferrable, 'manageskill'=>$final_manage] );
         if($insertOneResult){
             echo "Sucess";

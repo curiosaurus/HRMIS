@@ -1,24 +1,17 @@
 <?php
-
 session_start();
 //require 'db.php';
-
 if (!$_SESSION['email']=='pavan' && !$_SESSION['email']=='nishad')
 {
     header('location:login.php');
-
 }
-
     require 'vendor\autoload.php'; 
-
     $client = new MongoDB\Client;
     $companydb = $client->hrmis;
     $empcollection = $companydb->requisition;
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,10 +19,8 @@ if (!$_SESSION['email']=='pavan' && !$_SESSION['email']=='nishad')
     <title>HOD DASHBOARD</title>
     <!-- Google font cdn file imported here -->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-
     <!-- bootstrap cdn files for the Tables and other contents  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
     <!-- Link the External Css here And please see name Its a Styles.css  -->
     <link rel="stylesheet" href="styles.css">
 
@@ -98,7 +89,14 @@ include 'hodnavbar.php';
                 <tbody>
                 <?php 
 if($_SESSION['usertype']=='hod'){
-    $counter = $empcollection->find(['$and'=>[['status'=>['$ne'=>'closed']], ["department" => $_SESSION['dept']]]]);
+    $counter=array();
+    $counterpre = $empcollection->find(['status'=>['$ne'=>'closed']]);
+    $deptids=explode("_",$_SESSION['dept']);
+    foreach($counterpre as $row=>$value) {
+        if (in_array($value['department'],$deptids) and $_SESSION['location']==$value['location id']){
+            array_push($counter,$value);
+        }
+    }
 }
 else{
 $counter = $empcollection->find(['status'=>['$ne'=>'closed']]);

@@ -26,6 +26,7 @@ $loginerror = " ";
             if ($u =='hod')
             {
                 $_SESSION['dept']=$cursor['dept_id'];
+                $_SESSION['location']=$cursor['location'];
                 header("location:HodDashboard.php");
             }
             elseif($u=='admin'){

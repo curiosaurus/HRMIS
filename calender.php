@@ -83,7 +83,7 @@ if($_SESSION['usertype']=='admin')
   <tbody>
     <tr>
       <th scope="row"></th>
-      <td></td>
+      <td></td><td></td>
       <td colspan="2">Jan</td>
       <td colspan="2">Feb</td>
        <td colspan="2">Mar</td>

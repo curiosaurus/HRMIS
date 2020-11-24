@@ -89,7 +89,14 @@ include 'adminnavbar.php';
                 <tbody>
                 <?php 
 if($_SESSION['usertype']=='hod'){
-    $counter = $empcollection->find(['$and'=>[['status'=>'closed'], ["department" => $_SESSION['dept']]]]);
+    $counter=array();
+    $counterpre = $empcollection->find(['status'=>'closed']);
+    $deptids=explode("_",$_SESSION['dept']);
+    foreach($counterpre as $row=>$value) {
+        if (in_array($value['department'],$deptids) and $_SESSION['location']==$value['location id']){
+            array_push($counter,$value);
+        }
+    }
 }
 else{
 $counter = $empcollection->find(['status'=>'closed']);
