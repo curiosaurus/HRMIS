@@ -169,12 +169,11 @@ function pp(){
             <br><label>Location Id :</label>
         </div>
 <div class="col-md-3">
-    <?php if ($_SESSION['usertype']=='hod'){
+    <?php if ($_SESSION['usertype']=='hod' and $_SESSION['location']!="Corporate"){
     echo '<br><input required type="text" name="locationid" id="locationid" value="'.$_SESSION['location'].'" class="form-control" disabled>';
     }
     else{
     echo '<br><input required type="text" name="locationid" id="locationid"  class="form-control" >';
-
     }
     ?>
 </div>

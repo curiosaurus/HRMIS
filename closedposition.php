@@ -93,7 +93,10 @@ if($_SESSION['usertype']=='hod'){
     $counterpre = $empcollection->find(['status'=>'closed']);
     $deptids=explode("_",$_SESSION['dept']);
     foreach($counterpre as $row=>$value) {
-        if (in_array($value['department'],$deptids) and $_SESSION['location']==$value['location id']){
+        if (in_array($value['department'],$deptids) and $_SESSION['location']==$value['location id'] and $_SESSION['location']!="Corporate"){
+            array_push($counter,$value);
+        }
+        elseif(in_array($value['department'],$deptids) and $_SESSION['location']=="Corporate"){
             array_push($counter,$value);
         }
     }
