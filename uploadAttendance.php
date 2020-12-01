@@ -75,7 +75,7 @@
 
 
             move_uploaded_file($_FILES["skills"]["tmp_name"], $filename);
-            header('location:empeffeclist.php');
+            header('location:empeffleclist.php');
         // }
     }
 ?>

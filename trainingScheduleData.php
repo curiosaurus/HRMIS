@@ -19,6 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         echo "Some Error";
     }
-    header('location:empeffeclist.php');
+    header('location:empeffleclist.php');
 }
 ?>

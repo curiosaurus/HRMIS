@@ -18,13 +18,21 @@ require 'vendor\autoload.php';
     $trainingcalender = $companydb->trainingcalender;
     $nominationscollection=$companydb->nominations;
     $yearcollection= $companydb->years;
+    //echo "lol";
     if (isset($_POST['submit'])){
       $year = $_POST['year'];
       $ttopic = $_POST['traningtopic'];
+      //echo "lol";
+      if (isset($_POST['month_p']) and isset($_POST['month_c']) ){
       $monthp = $_POST['month_p'];
       $monthc = $_POST['month_c'];
       //echo $year;
-      $data = $nominationscollection->updateOne(['year'=>$year], ['$set'=>['month_p'=>$monthp , 'month_c' => $monthc]] );
+      $data = $nominationscollection->updateOne(['year'=>$year,'skill'=>$ttopic], ['$set'=>['month_p'=>$monthp , 'month_c' => $monthc]] );
+    }elseif (isset($_POST['month_p'])) {
+      echo "lol";
+      $monthp = $_POST['month_p'];
+      $data = $nominationscollection->updateOne(['year'=>$year,'skill'=>$ttopic], ['$set'=>['month_p'=>$monthp]] );
+    }
       if($data){
         //echo "sucess";
       }
@@ -124,7 +132,7 @@ require 'vendor\autoload.php';
 </td>
     </tr>
   </tbody></table>
-<center><button name="submit" class="btn btn-primary">Submit</button></center>
+<center><input type="submit" name="submit" value="submit"></center>
 </form>
 </div>
 </body>
