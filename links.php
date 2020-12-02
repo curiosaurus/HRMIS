@@ -5,7 +5,7 @@
 <style></style>
 <body>
 <?php 
-error_reporting(0);
+        error_reporting(0);
         include 'adminnavbar.php';
     ?>
 <center><h1>Trainning Calender</h1></center>
@@ -62,7 +62,7 @@ require 'vendor\autoload.php';
         <th>Date</th>
         <th>Evaluation Link</th>
         <th>Feedback Link</th>
-
+        <th>View Attendance</th>
     </tr>
     <?php
     $result=$traininglecture->find(['year'=>$y]);
@@ -70,9 +70,9 @@ require 'vendor\autoload.php';
             echo "<tr><td>".$row['training_no']."</td>";
             echo "<td>".$row['skill']."</td>";
             echo "<td>".$row['scheduledDate']."</td>";
-            echo "<td>http://localhost:7171/HRMIS-master/empeval.php?uid=".$row['unique_id']."</td>";
-            echo "<td>http://localhost:7171/HRMIS-master/trainersfeedbackform.php?uid=".$row['unique_id']."</td></tr>";
-
+            echo "<td><a href='http://localhost:7171/HRMIS-master/empeval.php?uid=".$row['unique_id']."'>http://localhost:7171/HRMIS-master/empeval.php?uid=".$row['unique_id']."</a></td>";
+            echo "<td><a href='http://localhost:7171/HRMIS-master/trainersfeedbackform.php?uid=".$row['unique_id']."'>http://localhost:7171/HRMIS-master/trainersfeedbackform.php?uid=".$row['unique_id']."</td>";
+            echo'<td><a href="viewattendance.php?uid='.$row['unique_id'].'"><button>View Attendance</button></a></td></tr>';
         }
     ?>
     

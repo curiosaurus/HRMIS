@@ -52,7 +52,7 @@ $empcollection = $companydb->user;
         <br>
     </center>
 
-
+<a href="links.php"><button >Links</button></a>
     <div class="container" style="border: 1px solid lightblue; padding: 2px;">
         <div class="row justify-content-md-around">
             <div class="col-md-0">

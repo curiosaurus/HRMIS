@@ -7,8 +7,8 @@
     require 'vendor\autoload.php'; 
     $client = new MongoDB\Client;
     $db = $client->hrmis;
+    $empcollection= $db->empcollection;
     $lecturecollection = $db->training_lecture;
-    $eid=$_GET['empid'];
     $uid=$_GET['uid'];
     //$empname=$_GET['name'];
     //$syear=$_GET['year'];
@@ -35,7 +35,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>TRAINNING EValuation</title>
+    <title>TRAINNING Attendance</title>
     
     <!-- Google font cdn file imported here -->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -59,18 +59,12 @@ elseif ($_SESSION['usertype']=="admin") {
 }
 ?>
     <!-- Main navbar Close here -->
-    <div class="title">
-        <center>
-           <h6>(Part-II)</h6>
-        </center>
-    </div>
 <br>
 <center>
     <!-- <div  style="width: 1140px;border: 1px solid royalblue; ;"> -->
 <div class="container" style="border: 1px solid lightblue; padding: 20px;">
-<center><h6>TRAINNING EVALUATION</h6></center>
+<center><h6>TRAINNING Attendance</h6></center>
 <br>
-<form action="trainingeffectivenessdata.php?emp=<?php echo $eid?>" method="post">
 <table class="table" align="center">
 <tr>
    <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
@@ -112,51 +106,32 @@ elseif ($_SESSION['usertype']=="admin") {
     <!-- <div  style="width: 1140px; border: 1px solid royalblue; "> -->
 <!-- <div class="container" style="border: 1px solid lightblue; padding: 25px;"> -->
 <br>
+<table class="table">
+    <thead>
+        <th>EMP Code</th>
+        <th>EMP Name</th>
+        <th>Department</th>
+    </thead>
+    <tbody>
 <?php
-
 $result = $lecturecollection->find(['unique_id' => $uid]);
-//print("<pre>".print_r($result,true)."</pre>");
+
 foreach ($result as $row) {
+    $attended = $row['attended_id'];
     
-    $effectiveness = $row['evaluation'];
-}
-// print("<pre>".print_r($effectiveness,true)."</pre>");
-foreach ($effectiveness as $row) {
-    foreach ($row as $key => $value){
-        if ($key == $eid){
-            $data = $value;
-            // print("<pre>".print_r($data,true)."</pre>");
-            break;
-        }
-    }
 }
 
+foreach ($attended as $value) {
+    echo $value;
+    $result = $empcollection->findOne(['Emp Code' => $value]);
+    echo"<tr><td>$value</td>";
+    echo"<td>".$result['Emp Display Name']."</td>";
+    echo"<td>".$result['Department Id']."</td></tr>";
+    
+}
 ?>
-<td>
-Employee No. <input type="text" name="emp_no" id="emp_no" value="<?php echo  $eid?>" disabled>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        Trainee Name : <input type="text" name="trainee_name" id="trainee_name" value="<?php echo $data['name'];?>" disabled> </td>
-<center>
-1.Does this training are identified in skill matrix? 
-    <br>
-    Yes/No <input type="text"id="q1" name="q1" value="<?php echo $data['q1'];?> disabled">
-</center>
-<br>
-<center>
-2. Which topic did you like the most & why?
-    <br>
-    <textarea name="q2" id="q2" cols="60" rows="4" disabled><?php echo $data['q2'];?></textarea>
-</center>
-<br>
-<center>
-3. Were the content adequate and as desired.
-    <br>
-    <textarea name="q3" id="q3" cols="60" rows="4" disabled><?php echo $data['q3'];?></textarea>
-    <br>
-    4.  How will you use this training in your day to day work? Please give an example.<br> 
-    <textarea name="q4" id="q4" cols="60" rows="4" disabled><?php echo $data['q4'];?></textarea>
-    <!-- <input type="submit" name="submit" value="Submit"/> -->
-    </form>
+</tbody>
+</table>
 </center>
 </div>
 <br><br>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'vendor\autoload.php'; 
 $client = new MongoDB\Client;
 $companydb = $client->hrmis;
@@ -39,7 +40,13 @@ $empcollection = $companydb->user;
 </head>
 <body>
 <?php
-    include 'hodnavbar.php';
+    
+    if ($_SESSION['usertype']=='hod'){
+        include 'hodnavbar.php';
+    }
+    elseif ($_SESSION['usertype']=='admin') {
+        include 'adminnavbar.php';
+    }
 ?>
     <center>
         <h1>Employee Effectiveness</h1>

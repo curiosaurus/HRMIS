@@ -91,9 +91,10 @@
                     <td><?php echo $counter;?></td>
                     <td><?php echo $row['skill'];?></td>
                     <td><button class="btn btn-block btn-info"><input type="file" name="skills" id=""></button></td>
-                    <input type="hidden" name="skillName[]" value="<?php echo $row['skill'];?>">
+                    <input type="hidden" name="skillName" value="<?php echo $row['skill'];?>">
                     <td><button name="" class="btn btn-block btn-success">Edit</button></td>
                     <td><button type="submit" name="submit" class="btn btn-primary">Submit</button></td>
+                </form>
                 </tr>
                 <?php
             }

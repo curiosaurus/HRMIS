@@ -3,10 +3,10 @@
     $client = new MongoDB\Client;
     $companydb = $client->hrmis;
     // Enter collection name here
-    global $empcollection;
+    //global $empcollection;
     $empcollection = $companydb->training_lecture;
 
-    global $y,$uid;
+    //global $y,$uid;
 
     $time = date("h.i.sa");
     $date = date("Y.m.d");
@@ -14,11 +14,12 @@
     $y = $_GET['year'];
     $uid = $_GET['unique_id'];
 
-    function csvToArray($filename){
+    function csvToArray($filename,$uid,$y,$empcollection){
         $array = $fields = array(); 
         $i = 0;
         $handle = @fopen($filename, "r");
         if ($handle) {
+            echo "1";
             while (($row = fgetcsv($handle, 4096)) !== false) {
                 if (empty($fields)) {
                     $fields = $row;
@@ -32,14 +33,14 @@
             if (!feof($handle)) {
                 echo "Error: unexpected fgets() fail\n";
             }
+            echo "2";
             fclose($handle);
             $empids = array();
             for ($i = 0; $i < sizeof($array); $i++){
                 array_push($empids, $array[$i]['emp_id']);
             }
-            global $empcollection, $y, $uid ;
-            
-
+            global $empcollection, $y ;
+        
             print("<pre>".print_r($empids,true)."</pre>");
 
             // $empcollection->updateOne(array('year' => $y, 'skillName' => $skillsNameArray[$arrayIndex]), array('$set' => $empids)   
@@ -59,6 +60,7 @@
 
     if(isset($_POST["submit"])){
         echo $y;
+       // $count = $_POST['count'];
         $skillsNameArray = $_POST['skillName'];
         print_r($skillsNameArray);
         $attendanceFiles = $_FILES['skills'];
@@ -67,7 +69,7 @@
         // $sizeofSkill = sizeof($skillsNameArray);
     
         // for ($i = 0; i < $sizeofSkill; $i++){
-            csvToArray($_FILES["skills"]["tmp_name"]);
+            csvToArray($_FILES["skills"]["tmp_name"],$uid,$y,$empcollection);
             $filename = $target_dir . basename($_FILES["skills"]["name"]);
             // $empcollection->updateOne('fileUrl' => $fileUrl);
 
@@ -75,7 +77,7 @@
 
 
             move_uploaded_file($_FILES["skills"]["tmp_name"], $filename);
-            header('location:empeffleclist.php');
+            //header('location:empeffleclist.php');
         // }
     }
 ?>
