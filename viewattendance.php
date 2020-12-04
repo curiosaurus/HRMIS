@@ -35,7 +35,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>TRAINNING Attendance</title>
+    <title>TRAINNING ATTENDANCE</title>
     
     <!-- Google font cdn file imported here -->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -117,12 +117,12 @@ elseif ($_SESSION['usertype']=="admin") {
 $result = $lecturecollection->find(['unique_id' => $uid]);
 
 foreach ($result as $row) {
-    $attended = $row['attended_id'];
+    $attended = $row['attended_id'][0];
     
 }
 
 foreach ($attended as $value) {
-    echo $value;
+    //echo $value;
     $result = $empcollection->findOne(['Emp Code' => $value]);
     echo"<tr><td>$value</td>";
     echo"<td>".$result['Emp Display Name']."</td>";

@@ -35,7 +35,7 @@ include 'adminnavbar.php';
 }
 ?>
 
-<div class="container" style="padding: 25px;">
+<div class="container" id="printbody" style="padding: 25px;">
 <br>
 <center><h5>TRAINNING FEEDBACK FORM</h5></center>
 <br><br>
@@ -63,27 +63,22 @@ foreach ($counter as $row) {
     <div class="col-2">
         <input type="text" name="Date" id="Date" value="<?php echo $date; ?>" disabled >
     </div>
-</div>
-<br>
-<div class="row justify-content-center">
     <div class="col-1">
         <label for="Venue">Venue</label>
     </div>
     <div class="col-2">
-        <input type="text" name="Venue" id="Venue" value="<?php echo $venue; ?>" disabled >
+        <?php echo $venue; ?>
     </div>
 </div>
+<br>
 <br>
 <div class="row justify-content-center">
     <div class="col-1">
         <label for="Subject">Subject</label>
     </div>
     <div class="col-2">
-        <input type="text" name="Subject" id="Subject" value="<?php echo $sub; ?>" disabled >
+        <?php echo $sub; ?>
     </div>
-</div>
-<br>
-<div class="row justify-content-center">
     <div class="col-1">
         <label for="Duration">Duration</label>
     </div>
@@ -92,12 +87,13 @@ foreach ($counter as $row) {
     </div>
 </div>
 <br>
+<br>
 <div class="row justify-content-center">
     <div class="col-1">
         <label for="Faculty">Faculty</label>
     </div>
     <div class="col-2">
-        <input type="text" name="Faculty" id="Faculty" value="<?php echo $faculty; ?>" disabled >
+        <?php echo $faculty; ?>
     </div>
 </div>
 <br><br><br>
@@ -136,14 +132,14 @@ foreach ($effectiveness as $row) {
         <label >Emp Name</label>
     </div>
     <div class="col-2">
-        <input type="text" name="emp_name" id="emp_name" value="<?php echo $data['name'];?>" disabled>
+        <?php echo $data['name'];?>
     </div>
     <div class="col-2"></div>
     <div class="col-2">
         <label >Emp Code</label>
     </div>
     <div class="col-2">
-        <input type="text" name="emp_code" id="emp_code" value="<?php echo $eid;?>" disabled>
+        <?php echo $eid;?>
     </div>
 </div>
 <br>
@@ -226,8 +222,20 @@ foreach ($effectiveness as $row) {
 
 <br><br>
 </form>
+<script>
+    function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
 
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>
 
     </div>
+    <input type="button" onclick="printDiv('printbody')" value="Print" />
     </body>
 </html> 

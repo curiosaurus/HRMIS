@@ -74,9 +74,9 @@ elseif ($_SESSION['usertype']=="admin") {
 <table class="table" align="center">
 <tr>
    <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-    Date : <input type="text" id="date" name="date"></td>
+    Date : <input type="text" name="date" id="date" value="<?php echo date('d/m/y'); ?>" ></td>
     <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-    Training Id : <input type="text" name="trainingid" value=<?php echo $uid?>></td>
+    <?php echo $uid?></td>
     <?php
         $counter=$lecturecollection->find(['unique_id'=>$uid]);
         foreach ($counter as $row) {
@@ -92,14 +92,14 @@ elseif ($_SESSION['usertype']=="admin") {
     <td>  &nbsp;&nbsp;&nbsp;&nbsp;
      Venue : <input type="text" name="venue" id="venue" value="<?php echo $venue ?>" disabled >
      &nbsp;&nbsp;&nbsp;&nbsp;
-     Subject : <input type="text" name="subject" id="subject" value="<?php echo $sub ?>"disabled >
+     Subject : <?php echo $sub ?>
     </td>
     </tr>
 <tr>
     <td> 
     &nbsp;&nbsp;&nbsp;&nbsp;
         Duration : <input type="text" name="time" id="duration" value="<?php echo $time ?>" disabled>
-        &nbsp;&nbsp;&nbsp;&nbsp; Faculty : <input type="text" name="faculty" id="faculty" value="<?php echo $faculty ?>" disabled> </td>
+        &nbsp;&nbsp;&nbsp;&nbsp; Faculty : <?php echo $faculty ?> </td>
     <td>
 </tr>
 <tr>
@@ -135,11 +135,11 @@ foreach ($effectiveness as $row) {
 <td>
 Employee No. <input type="text" name="emp_no" id="emp_no" value="<?php echo  $eid?>" disabled>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        Trainee Name : <input type="text" name="trainee_name" id="trainee_name" value="<?php echo $data['name'];?>" disabled> </td>
+        Trainee Name : <?php echo $data['name'];?> </td>
 <center>
 1.Does this training are identified in skill matrix? 
     <br>
-    Yes/No <input type="text"id="q1" name="q1" value="<?php echo $data['q1'];?> disabled">
+    Yes/No <input type="text"id="q1" name="q1" value="<?php echo $data['q1'];?> "disabled>
 </center>
 <br>
 <center>

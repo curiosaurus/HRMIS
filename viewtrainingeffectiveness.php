@@ -75,9 +75,9 @@ elseif ($_SESSION['usertype']=="admin") {
 <table class="table" align="center">
 <tr>
    <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-    Date : <input type="text" id="date" name="date"></td>
+    Date : <input type="text" id ="date" name="date" value="<?php echo date('d/m/y');?>"/></td>
     <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-    Training Id : <input type="text" name="trainingid" value=<?php echo $uid?>></td>
+    Training Id : <?php echo $uid?></td>
     <?php
         $counter=$lecturecollection->find(['unique_id'=>$uid]);
         foreach ($counter as $row) {
@@ -113,10 +113,10 @@ elseif ($_SESSION['usertype']=="admin") {
 </tr>
 <tr>
     <td> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-     Venue : <input type="text" name="venue" id="venue" value="<?php echo $venue ?>" disabled >
+     Venue : <?php echo $venue ?>
     <br><br><br>
     &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-    Subject : <input type="text" name="subject" id="subject" value="<?php echo $sub ?>"disabled >
+    Subject : <?php echo $sub ?>
     </td>
      <td>
          <table class="table" border="1">
@@ -158,8 +158,8 @@ elseif ($_SESSION['usertype']=="admin") {
 </tr>
 <tr>
     <td>
-        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-        Trainee Name : <input type="text" name="trainee_name" id="trainee_name" value="<?php echo $empname?>" disabled> </td>
+        &nbsp;
+        Trainee Name : <?php echo $empname?> </td>
     <td>
         Employee No. <input type="text" name="emp_no" id="emp_no" value="<?php echo  $eid?>" disabled>
     </td>
@@ -198,27 +198,28 @@ foreach ($effectiveness as $row) {
 ?>
 <center>
     1. Has the trainee implemented this in his/her working area?
-    <br><br>
-    Yes/No <input type="text"id="q1" name="q1" value="<?php echo $data['q1'];?>">
+    <br>
+     <?php echo $data['q1'];?>
 </center>
 <br>
 <center>
     2. If yes, where give example or evidence or other specification
-    <br><br>
-    Yes/No <input type="text"id="q2" name="q2" value="<?php echo $data['q2'];?>">
+    Yes/No
+    <br>
+     <?php echo $data['q2'];?>
 </center>
 <br>
 <center>
     3. are you satisfied with tranning? 
     Yes/No 
-    <br><br>
-    a) If yes, please confirm trainee Skill level after tranning (_______) <br>
-    <input type="text"id="q3" name="q3" value="<?php echo $data['q3'];?>">
+    <br>
+    a) If yes, please confirm trainee Skill level after tranning (<?php echo $data['q3'];?>) <br>
     <br><br>
     b) If No, why
-    <input type="text"id="q4" name="q4" value="<?php echo $data['q4'];?>">
-    <input type="submit" name="submit" value="Submit"/>
+    <?php echo $data['q4'];?>
+    <!-- <input type="submit" name="submit" value="Submit"/> -->
     </form>
 </center>
 </div>
-<br><br>
+</body>
+</html>
