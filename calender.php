@@ -3,8 +3,6 @@ session_start();
 ?>
 <html>
 <head>
-
-
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"></head>
 <title>Training Calender</title>
 
@@ -116,7 +114,7 @@ foreach($counter as $row) {
 ';
 ?>
 <script>
-document.getElementById('<?php echo $p; ?>').innerHTML='P';
+document.getElementById('<?php echo $p; ?>').innerHTML='<b>P</b>';
 document.getElementById('<?php echo $q; ?>').innerHTML='C' ;
 </script>
  

@@ -63,7 +63,7 @@ elseif ($_SESSION['usertype']=="admin") {
 <center>
     <!-- <div  style="width: 1140px;border: 1px solid royalblue; ;"> -->
 <div class="container" style="border: 1px solid lightblue; padding: 20px;">
-<center><h6>TRAINNING Attendance</h6></center>
+<center><h6>TRAINNING ATTENDANCE</h6></center>
 <br>
 <table class="table" align="center">
 <tr>
@@ -78,6 +78,7 @@ elseif ($_SESSION['usertype']=="admin") {
             $venue=$row['venue'];
             $sub=$row['skill'];
             $time=$row['time'][0]."-".$row['time'][1];
+            $trainer=$row['trainerName'];
         }
     ?>
     <!-- <td>Skill level before training <input type="text" id="skill_level" value="<?php echo $prevs ?>" name="beforetraining"> -->
@@ -93,7 +94,7 @@ elseif ($_SESSION['usertype']=="admin") {
     <td> 
     &nbsp;&nbsp;&nbsp;&nbsp;
         Duration : <input type="text" name="time" id="duration" value="<?php echo $time ?>" disabled>
-        &nbsp;&nbsp;&nbsp;&nbsp; Faculty : <input type="text" name="faculty" id="faculty" value="<?php echo $faculty ?>" disabled> </td>
+        &nbsp;&nbsp;&nbsp;&nbsp; Faculty : <input type="text" name="faculty" id="faculty" value="<?php echo ($faculty.",".$trainer) ?>" disabled> </td>
     <td>
 </tr>
 <tr>
