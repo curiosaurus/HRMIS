@@ -1,4 +1,7 @@
-# HRMIS
+# HRMIS 
+It is a system designed for a manufacturing company to enhance its hiring process. Before we developed this solution the HR team used pen and paper and old-school techniques for the hiring process. 
+
+The project team member's contribution to the project is mentioned below.
 
 <h2>Missing pages:</h2>
 4 Login Pages
@@ -7,20 +10,16 @@ director's pages, approval of the requisition<br>
 Employees view of skill matrix<br>
 <h4>Suggest if anymore are needed</h4><br>
 <h3>Changes to be done:</h3>
-file :Master Template.html
-employee type is not button but drop down [HoD, Super HoD Employee, MD]
-put a bit js to select organisation if user type is hod to select if rathi or polybond
-
+file : Master Template.html
+employee type is not a button but drop down [HoD, Super HoD Employee, MD]
+put a bit js to select organization if user type is how to select if rathi or polybond.
 
 List of pages  = 
 
-
-
 <h3>Pavan patil :-  No of Pages. 3   
-Title in excel sheet :  Interview Schdule..
+Title in Excel sheet:  Interview Schedule.
 Page name:
 1.Interviewform.html <br>
-  
 2.Interviewschdule.html <br>
 3.openposition.html <br>
 4.styles.css <br>
@@ -28,7 +27,6 @@ Page name:
 
 <h3>Kedar parsewar<h1> 
 Master File<br>
-
 <h3>
 <a href="https://github.com/curiosaurus/HRMIS/blob/master/masterfile.html">Master File</a>
   
@@ -38,18 +36,13 @@ Master File<br>
  Page name:
  1. HODSKILL.HTML
  2. update.html
- 
  Updated HOD SKILL VIEW
- 
- 
- 
  
 <h2>Nishad Patil</h2>
 No of Pages :- 7
 <br>
-
 Title Name :-  1) MASTER TEMPLETE <br>
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) REQUISITION<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3) EMPLOYEE VIEW 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) REQUISITION<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3) EMPLOYEE VIEW 1<br>
 <br>
 <h4>page name :</h4>
 1. HR & ADMIN DASHBOARD / EMPLOYEE MASTER  :-  <a href="https://github.com/Nishad00/HRMIS/blob/master/Master%20Template.html">Master TEMPLETE</a>
@@ -70,32 +63,32 @@ Title Name :-  1) MASTER TEMPLETE <br>
 
 <h2>Chandrakant Koli</h2>
   <br>
-  1.HOD SHORT LISTING<br>
-  2.HOD SHORT LISTING (1)<br>
-  3.OPEN POSITIONS<br>
-  4.OPEN POSITIONS (1)<br>
-  5.HR ADMIN DASHBOARD<br>
+  1. HOD SHORT LISTING<br>
+  2. HOD SHORT LISTING (1)<br>
+  3. OPEN POSITIONS<br>
+  4. OPEN POSITIONS (1)<br>
+  5. HR ADMIN DASHBOARD<br>
   
   <h2>PRATIK PATIL</h2>
   <br>
   pages created:<br>
-  1.HoD dashboard<br>
+  1. HoD dashboard<br>
   2.Requisitioncreate2<br>
   3.Requisitionmodify3<br>
   4.Requisitiondelete4<br>
   made corrections in:
-  1.interviewform<br>
-  2.HOD SHORT LISTING<br>
-  3.interviewschedule<br>
-  4.OPEN POSITIONS (1)<br>
-  5.openposition<br>
-  6.Requisition<br>
-  7.update<br>
-  8.hodskill<br>
-  9.hr admin dashboard<br>
+  1. interviewform<br>
+  2. HOD SHORT LISTING<br>
+  3. interviewschedule<br>
+  4. OPEN POSITIONS (1)<br>
+  5. openposition<br>
+  6. Requisition<br>
+  7. update<br>
+  8. hodskill<br>
+  9. hr admin dashboard<br>
   <h2>Gaurav Medhane</h2>
   hr and admin skill page2<br>
   hr and admin skill page3<br>
   hr and admin skill page11<br>
-   hr and admin skill page4<br>
-    hr and admin skill page6<br>
+  hr and admin skill page4<br>
+  hr and admin skill page6<br>
